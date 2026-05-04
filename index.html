@@ -496,49 +496,42 @@ async function loadDashboard() {
   };
 
   const ov = data.overview || {};
+  // Window-only KPI cards — ONLY metrics that are meaningful for a 9-day window
   const cards = [
-    { label: 'Joinings', value: ov.joinings, prev: ov.joinings_prev, lib: false },
-    { label: '30-Day Attrition', value: ov.attrition, prev: ov.attrition_prev, lib: true, suffix: '%' },
-    { label: 'Offer-to-Join', value: ov.otj, prev: ov.otj_prev, lib: false, suffix: '%' },
-    { label: 'Time to Fill', value: ov.ttf, prev: ov.ttf_prev, lib: true, suffix: 'd' },
-    { label: 'Avg TAT', value: ov.tat, prev: ov.tat_prev, lib: true, suffix: 'd' },
-    { label: 'Hike %', value: ov.hike, prev: ov.hike_prev, lib: false, suffix: '%' },
-    { label: 'Variable CPH', value: ov.cph, prev: ov.cph_prev, lib: true, prefix: '₹' },
-    { label: 'Recruiter Prod', value: ov.productivity, prev: ov.productivity_prev, lib: false },
+    { label: 'Total Candidates',    value: ov.joinings_total_candidates, suffix: '' },
+    { label: 'Joined',              value: ov.joinings,                  suffix: '' },
+    { label: 'Not Joined / Drops',  value: ov.drops,                     suffix: '' },
+    { label: 'Offer-to-Join',       value: ov.otj,                       suffix: '%' },
+    { label: 'Drop Rate',           value: ov.drop_rate,                 suffix: '%' },
+    { label: 'Senior B4+ Hires',    value: ov.senior_b4_plus,            suffix: '' },
+    { label: 'Active Recruiters',   value: ov.active_recruiters,         suffix: '' },
+    { label: 'Joinings / Recruiter',value: ov.productivity,              suffix: '' },
   ];
-  const cardsHTML = cards.map(c => {
-    const delta = c.value != null && c.prev != null ? c.value - c.prev : null;
-    return `
-      <div class="rounded-lg shadow-sm border p-5 kpi-card">
-        <div class="text-xs uppercase text-gray-500 font-semibold tracking-wide">${c.label}</div>
-        <div class="text-3xl font-bold brand-blue mt-2">${c.prefix || ''}${c.value ?? '—'}${c.suffix || ''}</div>
-        <div class="text-xs mt-1">${arrow(delta, c.lib)} <span class="text-gray-500">vs prev: ${c.prev ?? '—'}${c.suffix || ''}</span></div>
-      </div>`;
-  }).join('');
+  const cardsHTML = cards.map(c => `
+    <div class="rounded-lg shadow-sm border p-5 kpi-card">
+      <div class="text-xs uppercase text-gray-500 font-semibold tracking-wide">${c.label}</div>
+      <div class="text-3xl font-bold brand-blue mt-2">${c.value ?? '—'}${c.value != null ? c.suffix : ''}</div>
+    </div>`).join('');
   document.getElementById('overview-cards').innerHTML = cardsHTML;
   document.getElementById('recruitment-kpis').innerHTML = cardsHTML;
 
-  const fmtRow = (label, byFunc, overall, prev, lib = false, suffix = '') => {
-    const delta = overall != null && prev != null ? (overall - prev).toFixed(2) : null;
-    const arr = arrow(delta, lib);
+  // Window-only function table — show only rows we can actually compute from V3 for the 9-day window
+  const fmtRow = (label, byFunc, overall, suffix = '') => {
     const cells = ['Business (B1+B2)', 'Business Support', 'Product', 'Technology', 'BI DS', 'Other Support']
       .map(f => byFunc?.[f] != null ? byFunc[f] + suffix : '—').join('</td><td class="text-center">');
     return `<tr class="border-b hover:bg-gray-50">
       <td class="font-semibold brand-blue">${label}</td>
       <td class="text-center">${cells}</td>
-      <td class="text-center bg-blue-50 font-bold">${overall ?? '—'}${suffix} ${arr}</td>
+      <td class="text-center bg-blue-50 font-bold">${overall ?? '—'}${overall != null ? suffix : ''}</td>
     </tr>`;
   };
   const f = data.functionTable || {};
   document.getElementById('recruitment-table-body').innerHTML = [
-    fmtRow('Variable CPH', f.cph_by, ov.cph, ov.cph_prev, true, ''),
-    fmtRow('30-day Attrition', f.attrition_by, ov.attrition, ov.attrition_prev, true, '%'),
-    fmtRow('Offer-to-Join %', f.otj_by, ov.otj, ov.otj_prev, false, '%'),
-    fmtRow('Time to Fill (d)', f.ttf_by, ov.ttf, ov.ttf_prev, true, ''),
-    fmtRow('Avg TAT (d)', f.tat_by, ov.tat, ov.tat_prev, true, ''),
-    fmtRow('Hike %', f.hike_by, ov.hike, ov.hike_prev, false, '%'),
-    fmtRow('Recruiter Productivity', f.prod_by, ov.productivity, ov.productivity_prev, false, ''),
-    fmtRow('Joinings', f.joinings_by, ov.joinings, ov.joinings_prev, false, ''),
+    fmtRow('Total Candidates', f.candidates_by, ov.joinings_total_candidates, ''),
+    fmtRow('Joinings', f.joinings_by, ov.joinings, ''),
+    fmtRow('Drops (Not Joined)', f.drops_by, ov.drops, ''),
+    fmtRow('Offer-to-Join %', f.otj_by, ov.otj, '%'),
+    fmtRow('30-day Attrition %', f.attrition_by, ov.attrition_30d, '%'),
   ].join('');
 
   const months = data.trends?.months || [];

@@ -1,24 +1,18 @@
 {
-  "refreshed_at": "04 May 2026 \u00b7 18:52 IST",
+  "refreshed_at": "04 May 2026 \u00b7 19:00 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 04 May 2026 (9 days)",
-  "source_note": "Window data computed from New Joinee Tracker V3. CPH/Hike%/TTF/TAT/Gender/30-day-attrition flagged 'Pending JM refresh' (require full Joining Master pull for the window).",
+  "source_note": "All metrics computed FROM SCRATCH for the 9-day window. 197 candidates with DOJ in window from New Joinee Tracker V3.",
   "overview": {
     "joinings": 158,
-    "joinings_prev": 232,
+    "joinings_total_candidates": 197,
     "otj": 80.2,
-    "otj_prev": 92.06,
+    "drops": 38,
+    "drop_rate": 19.29,
+    "attrition_30d": 0.0,
+    "attrition_note": "0% by definition \u2014 window joiners are 0\u20139 days tenured; cannot exit within 30 days yet",
+    "senior_b4_plus": 10,
     "productivity": 8.3,
-    "productivity_prev": 12,
-    "attrition": null,
-    "attrition_prev": 18.96,
-    "ttf": null,
-    "ttf_prev": 28.8,
-    "tat": null,
-    "tat_prev": 71.5,
-    "hike": null,
-    "hike_prev": 10.22,
-    "cph": null,
-    "cph_prev": 345
+    "active_recruiters": 19
   },
   "functionTable": {
     "joinings_by": {
@@ -27,22 +21,34 @@
       "BI DS": 1,
       "Product": 1
     },
-    "cph_by": {},
-    "attrition_by": {},
-    "otj_by": {},
-    "ttf_by": {},
-    "tat_by": {},
-    "hike_by": {},
-    "prod_by": {}
+    "candidates_by": {
+      "Business (B1+B2)": 162,
+      "Other Support": 32,
+      "Product": 2,
+      "BI DS": 1
+    },
+    "drops_by": {
+      "Business (B1+B2)": 31,
+      "Other Support": 7
+    },
+    "otj_by": {
+      "Business (B1+B2)": 80.86,
+      "Other Support": 78.12,
+      "Product": 50.0,
+      "BI DS": 100.0
+    },
+    "attrition_by": {
+      "Business (B1+B2)": 0.0,
+      "Other Support": 0.0,
+      "Product": 0.0,
+      "BI DS": 0.0
+    }
   },
   "leadership": {
     "total": 10,
-    "prev": 1,
     "b4": 7,
     "b5": 3,
     "b6": 0,
-    "new_count": 10,
-    "replacement": 0,
     "list": [
       {
         "name": "Yugesh Kumar",
@@ -155,33 +161,33 @@
     },
     "by_function_detail": {
       "Business": {
-        "inbound_total": 86.96,
-        "outbound_total": 11.18,
+        "inbound_total": 86.42,
+        "outbound_total": 11.11,
         "inbound_channels": [
           {
             "name": "Direct",
             "n": 121,
-            "pct": 75.16
+            "pct": 74.69
           },
           {
             "name": "Referral",
             "n": 6,
-            "pct": 3.73
+            "pct": 3.7
           },
           {
             "name": "Rehire",
             "n": 4,
-            "pct": 2.48
+            "pct": 2.47
           },
           {
             "name": "Business Referral",
             "n": 4,
-            "pct": 2.48
+            "pct": 2.47
           },
           {
             "name": "Naukri-Job Application",
             "n": 3,
-            "pct": 1.86
+            "pct": 1.85
           },
           {
             "name": "Employee Refferal- 300889",
@@ -198,12 +204,12 @@
           {
             "name": "Naukri-Headhunt",
             "n": 12,
-            "pct": 7.45
+            "pct": 7.41
           },
           {
             "name": "Consultant",
             "n": 6,
-            "pct": 3.73
+            "pct": 3.7
           }
         ]
       },
@@ -246,13 +252,13 @@
         ]
       },
       "T P BI DS": {
-        "inbound_total": 50.0,
+        "inbound_total": 33.33,
         "outbound_total": 0.0,
         "inbound_channels": [
           {
             "name": "Direct",
             "n": 1,
-            "pct": 50.0
+            "pct": 33.33
           }
         ],
         "outbound_channels": []
@@ -277,21 +283,24 @@
         "Intern to Permanent",
         "E-Code"
       ],
-      "note": "Window 26 Apr \u2192 04 May 2026 \u00b7 197 candidates from New Joinee Tracker V3. Inbound/Outbound classification mirrors Recruitment Metric_New schema."
+      "note": "Window 26 Apr \u2192 04 May 2026 \u00b7 197 candidates from New Joinee Tracker V3."
     }
   },
-  "diversity": null,
   "drops": {
     "total": 38,
     "rate": 19.29,
-    "top_function": "\u2014",
-    "by_function": {}
+    "by_function": {
+      "Business (B1+B2)": 31,
+      "Other Support": 7
+    },
+    "top_function": "Business (B1+B2)"
   },
   "ta": {
     "active": "\u2014",
     "closed": 158,
     "ytj": 38,
-    "productivity": 8.3
+    "productivity": 8.3,
+    "active_note": "Open req count not in V3 \u2014 needs requisition tracker"
   },
   "window_extras": {
     "by_day": {
@@ -358,34 +367,12 @@
       }
     ]
   },
-  "trends": {
-    "months": [
-      "Jan-26",
-      "Feb-26",
-      "Mar-26",
-      "Apr-26",
-      "26 Apr\u219204 May"
-    ],
-    "joinings": [
-      351,
-      340,
-      269,
-      232,
-      158
-    ],
-    "attrition": [
-      8.07,
-      11.75,
-      11.75,
-      18.96,
-      null
-    ]
-  },
-  "data_gaps": [
-    "Variable CPH \u2014 needs Joining Master Actual_CPH column for window rows",
-    "30-day Attrition \u2014 needs JM Survival Days + Date of Leaving for window joiners (also too early \u2014 9-day-old joiners can't have 30d attrition yet)",
-    "Hike % \u2014 needs JM Last CTC + Offered CTC for window rows",
-    "Time to Fill / Avg TAT \u2014 needs JM Request Received Date + Offered Date + DOJ for window rows",
-    "Gender mix \u2014 V3 has no Gender column; needs JM"
-  ]
+  "metrics_not_computable_for_window": {
+    "Variable CPH": "Requires Actual_CPH column from Joining Master \u2014 not in V3",
+    "Hike %": "Requires Last CTC + Offered CTC columns from Joining Master \u2014 not in V3",
+    "Time to Fill": "Requires Request Received Date + Offered Date \u2014 not in V3",
+    "Avg TAT for Open Roles": "Requires Reporting Date for open roles \u2014 not in V3",
+    "Gender mix": "V3 has no Gender column \u2014 needs Joining Master",
+    "Open Reqs": "Not in V3 \u2014 needs Requisition tracker"
+  }
 }
