@@ -217,6 +217,27 @@
         <div class="chart-box"><canvas id="chart-source-function"></canvas></div>
       </div>
     </div>
+
+    <!-- DEFINITIONS PANEL — what's in inbound vs outbound -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+      <div class="rounded-lg border-2 p-5" style="border-color:#4736FE; background:#F5F4FF">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="text-xs font-bold px-2 py-1 rounded" style="background:#4736FE; color:#FFF">INBOUND</span>
+          <span class="text-sm text-gray-700">Candidate came to us</span>
+        </div>
+        <ul class="text-sm space-y-1.5" id="inbound-channels"></ul>
+        <div class="text-xs text-gray-500 mt-3 italic">Lower cost · slower funnel · self-selected</div>
+      </div>
+      <div class="rounded-lg border-2 p-5" style="border-color:#7C7AFF; background:#FAFAFF">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="text-xs font-bold px-2 py-1 rounded" style="background:#7C7AFF; color:#FFF">OUTBOUND</span>
+          <span class="text-sm text-gray-700">We reached out to candidate</span>
+        </div>
+        <ul class="text-sm space-y-1.5" id="outbound-channels"></ul>
+        <div class="text-xs text-gray-500 mt-3 italic">Higher cost · faster funnel · recruiter-driven</div>
+      </div>
+    </div>
+    <div class="text-xs text-gray-600 mt-4 italic" id="sourcing-note"></div>
   </section>
 
   <!-- 5. DIVERSITY -->
@@ -641,6 +662,18 @@ async function loadDashboard() {
       options: { responsive: true, maintainAspectRatio: false, scales: { y: { stacked: true }, x: { stacked: true } } }
     });
   }
+
+  // Inbound / Outbound definition panels
+  const defs = data.sourcing?.definitions || {};
+  const renderChannels = (id, list) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = (list || []).map(ch => `<li class="flex items-center gap-2"><span class="text-gray-400">▸</span><span>${ch}</span></li>`).join('');
+  };
+  renderChannels('inbound-channels', defs.Inbound);
+  renderChannels('outbound-channels', defs.Outbound);
+  const noteEl = document.getElementById('sourcing-note');
+  if (noteEl) noteEl.textContent = defs.note || '';
 
   const div = data.diversity || {};
   document.getElementById('div-total').textContent = div.total ?? '—';

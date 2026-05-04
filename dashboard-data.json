@@ -67,21 +67,26 @@
   },
   "sourcing": {
     "overall": {
-      "Direct": 73.6,
-      "Naukri-Headhunt": 7.1,
-      "Referral": 5.1,
-      "Consultant": 3.0,
-      "Business Referral": 2.5,
-      "Rehire": 2.0,
-      "Naukri-Job App": 2.0,
-      "LinkedIn-Headhunt": 0.5,
-      "Internal Movement": 0.5,
-      "Other": 3.7
+      "LinkedIn Sourced": 55.81,
+      "Rehire": 8.91,
+      "Naukri Job Applicant": 8.14,
+      "Employee Referral": 8.14,
+      "Business Referral": 4.26,
+      "Consultant": 3.10,
+      "LinkedIn Job Applicant": 0.78,
+      "Careers Page": 0.39,
+      "Instahyre Sourced": 0.39,
+      "Other (Internal/Acquire)": 9.08
     },
     "by_function": {
-      "Business": {"inbound": 19.6, "outbound": 62.7},
-      "Support": {"inbound": 8.2, "outbound": 7.0},
-      "T P BI DS": {"inbound": 1.3, "outbound": 1.3}
+      "Business":   {"inbound": 29.84, "outbound": 51.94},
+      "Support":    {"inbound": 0.39,  "outbound": 5.04},
+      "T P BI DS":  {"inbound": 0.39,  "outbound": 2.33}
+    },
+    "definitions": {
+      "Inbound": ["Business Referral", "Careers Page", "Employee Referral", "LinkedIn Job Applicant", "Naukri Job Applicant", "Instahyre Job Applicant", "Rehire"],
+      "Outbound": ["Consultant", "LinkedIn Sourced", "Naukri Sourced", "Instahyre Sourced", "University Campus", "Acquire"],
+      "note": "Inbound = candidate self-applied through a posting or referral. Outbound = recruiter actively reached out (LinkedIn-sourced, headhunted, consultant-driven, campus). Source: Recruitment Metric_New sheet, April 2026 column."
     }
   },
   "diversity": {
