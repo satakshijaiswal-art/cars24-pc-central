@@ -4,51 +4,76 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cars24 · People & Culture Central · Live Dashboard</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230066CC'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='900' text-anchor='middle' fill='white'%3EC24%3C/text%3E%3C/svg%3E">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #FAFAFA; }
-  .brand-navy { color: #0B3D2E; }
-  .bg-brand-navy { background: #0B3D2E; }
-  .border-brand-navy { border-color: #0B3D2E; }
-  .brand-gold { color: #F2C12E; }
-  .bg-brand-gold { background: #F2C12E; }
-  .delta-up { color: #2E7D32; }
-  .delta-down { color: #C62828; }
-  .kpi-card { transition: transform 0.15s, box-shadow 0.15s; }
-  .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(11, 61, 46, 0.08); }
-  .section-rule { border-top: 2px solid #0B3D2E; }
-  .accent-bar { background: linear-gradient(90deg, #F2C12E 0%, #F2C12E 60px, transparent 60px); height: 4px; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #FFFFFF; }
+  .brand-blue { color: #0066CC; }
+  .bg-brand-blue { background: #0066CC; }
+  .bg-brand-blue-dark { background: #003D80; }
+  .border-brand-blue { border-color: #0066CC; }
+  .text-brand-blue { color: #0066CC; }
+  .bg-brand-light { background: #E6F2FF; }
+  .delta-up { color: #16A34A; }
+  .delta-down { color: #DC2626; }
+  .kpi-card { transition: transform 0.15s, box-shadow 0.15s; background: #FFFFFF; border: 1px solid #E2E8F0; }
+  .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 102, 204, 0.12); border-color: #0066CC; }
+  .accent-bar { background: linear-gradient(90deg, #0066CC 0%, #0066CC 80px, #4A90E2 80px, #4A90E2 120px, transparent 120px); height: 4px; }
   .nav-pill { transition: all 0.15s; }
-  .nav-pill.active { background: #0B3D2E; color: #FFF; }
-  .nav-pill:hover:not(.active) { background: #E8F5E9; }
+  .nav-pill.active { background: #0066CC; color: #FFFFFF; }
+  .nav-pill:hover:not(.active) { background: #E6F2FF; color: #0066CC; }
   details summary { list-style: none; cursor: pointer; }
   details summary::-webkit-details-marker { display: none; }
-  .data-fresh { animation: pulseGreen 2s infinite; }
-  @keyframes pulseGreen {
-    0%, 100% { background-color: #2E7D32; }
-    50% { background-color: #4CAF50; }
+  .data-fresh { animation: pulseBlue 2s infinite; }
+  @keyframes pulseBlue {
+    0%, 100% { background-color: #16A34A; box-shadow: 0 0 0 0 rgba(22,163,74,0.7); }
+    50% { background-color: #22C55E; box-shadow: 0 0 0 6px rgba(22,163,74,0); }
   }
   table.compact td, table.compact th { padding: 6px 10px; }
+  .cars24-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    color: #0066CC;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+  }
+  .cars24-logo .star {
+    color: #FFB800;
+    font-size: 18px;
+    line-height: 1;
+  }
+  .section-bg { background: #F8FAFC; padding: 24px; border-radius: 12px; }
 </style>
 </head>
 <body class="text-gray-900">
 
 <!-- Header -->
-<header class="bg-brand-navy text-white shadow-lg sticky top-0 z-50">
-  <div class="max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between">
-    <div>
-      <div class="flex items-center gap-3">
-        <span class="text-xs uppercase tracking-widest brand-gold font-bold">Cars24 · People & Culture</span>
+<header class="bg-brand-blue text-white shadow-lg sticky top-0 z-50">
+  <div class="max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between gap-4 flex-wrap">
+    <div class="flex items-center gap-4">
+      <!-- Cars24 Logo -->
+      <div class="cars24-logo">
+        <span class="star">★</span>
+        <span>CARS<span style="color:#FFB800">24</span></span>
       </div>
-      <h1 class="text-2xl font-bold mt-1">People & Culture Central — Live Dashboard</h1>
+      <div class="border-l border-white/30 pl-4">
+        <div class="text-xs uppercase tracking-widest text-white/80 font-bold">People & Culture</div>
+        <h1 class="text-xl md:text-2xl font-bold mt-0.5">Central — Live Dashboard</h1>
+      </div>
     </div>
     <div class="text-right">
       <div class="flex items-center gap-2 justify-end">
         <span class="data-fresh inline-block w-2 h-2 rounded-full"></span>
         <span class="text-sm">Last refresh: <span id="last-refresh" class="font-bold">—</span></span>
       </div>
-      <div class="text-xs opacity-80 mt-1">Auto-refreshes daily at 6:00 AM IST</div>
+      <div class="text-xs text-white/80 mt-1" id="period-label">Loading…</div>
+      <div class="text-xs text-white/60 mt-0.5">Auto-refreshes every 2 hours · live data</div>
     </div>
   </div>
 </header>
@@ -66,6 +91,7 @@
     <a href="#attrition" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Attrition</a>
     <a href="#drops" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Offer Drops</a>
     <a href="#ta" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">TA Pipeline</a>
+    <a href="#window" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Window Detail</a>
     <a href="#automation" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Automation</a>
   </div>
 </nav>
@@ -75,20 +101,18 @@
   <!-- 1. OVERVIEW -->
   <section id="overview">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-navy">Overview</h2>
-    <p class="text-gray-600 mt-1">Headline KPIs · live data from Recruitment Metrics + Joining Master + Tech HC sheets</p>
+    <h2 class="text-3xl font-bold brand-blue">Overview</h2>
+    <p class="text-gray-600 mt-1">Headline KPIs · live data from Joining Master + Recruitment Metrics + Tech & Product</p>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6" id="overview-cards">
-      <!-- Cards rendered by JS -->
-    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6" id="overview-cards"></div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-gold tracking-wider">Joinings — Last 6 Months</h3>
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider">Joinings Trend</h3>
         <canvas id="chart-joinings-trend" height="180"></canvas>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-gold tracking-wider">30-Day Attrition Trend</h3>
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider">30-Day Attrition Trend</h3>
         <canvas id="chart-attrition-trend" height="180"></canvas>
       </div>
     </div>
@@ -97,16 +121,16 @@
   <!-- 2. RECRUITMENT KPIs -->
   <section id="recruitment">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-navy">Recruitment Performance</h2>
-    <p class="text-gray-600 mt-1">8 deck KPIs · current month vs previous month</p>
+    <h2 class="text-3xl font-bold brand-blue">Recruitment Performance</h2>
+    <p class="text-gray-600 mt-1">8 deck KPIs · current period vs previous</p>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6" id="recruitment-kpis"></div>
 
     <div class="bg-white rounded-lg shadow-sm border p-6 mt-8">
-      <h3 class="text-sm font-semibold uppercase brand-gold tracking-wider mb-3">By Function — Department-wise Breakdown</h3>
+      <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">By Function — Department-wise Breakdown</h3>
       <div class="overflow-x-auto">
         <table class="w-full text-sm compact">
-          <thead class="bg-brand-navy text-white">
+          <thead class="bg-brand-blue text-white">
             <tr>
               <th class="text-left">Metric</th>
               <th>Business (B1+B2)</th>
@@ -115,7 +139,7 @@
               <th>Technology</th>
               <th>BI DS</th>
               <th>Other Support</th>
-              <th class="bg-brand-gold text-black">Overall</th>
+              <th class="bg-brand-blue-dark">Overall</th>
             </tr>
           </thead>
           <tbody id="recruitment-table-body"></tbody>
@@ -127,30 +151,30 @@
   <!-- 3. LEADERSHIP -->
   <section id="leadership">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-navy">Leadership Hiring</h2>
+    <h2 class="text-3xl font-bold brand-blue">Leadership Hiring</h2>
     <p class="text-gray-600 mt-1">B4+ joinings — capability over volume</p>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card">
-        <div class="text-sm uppercase text-gray-500">B4+ Hires this Month</div>
-        <div class="text-5xl font-bold brand-navy mt-2" id="senior-count">—</div>
+        <div class="text-sm uppercase text-gray-500">B4+ Hires this Period</div>
+        <div class="text-5xl font-bold brand-blue mt-2" id="senior-count">—</div>
         <div class="text-xs text-gray-500 mt-1" id="senior-trend">vs prev: —</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card">
         <div class="text-sm uppercase text-gray-500">B4 / B5 / B6 Mix</div>
-        <div class="text-2xl font-bold brand-navy mt-2" id="senior-mix">— / — / —</div>
+        <div class="text-2xl font-bold brand-blue mt-2" id="senior-mix">— / — / —</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card">
         <div class="text-sm uppercase text-gray-500">New vs Replacement</div>
-        <div class="text-2xl font-bold brand-navy mt-2" id="senior-newrep">— / —</div>
+        <div class="text-2xl font-bold brand-blue mt-2" id="senior-newrep">— / —</div>
       </div>
     </div>
 
     <div class="bg-white rounded-lg shadow-sm border p-6 mt-8">
-      <h3 class="text-sm font-semibold uppercase brand-gold tracking-wider mb-3">Senior Hires Detail</h3>
+      <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Senior Hires Detail</h3>
       <div class="overflow-x-auto">
         <table class="w-full text-sm compact">
-          <thead class="bg-brand-navy text-white">
+          <thead class="bg-brand-blue text-white">
             <tr>
               <th class="text-left">Name</th>
               <th>Band</th>
@@ -169,16 +193,16 @@
   <!-- 4. SOURCING -->
   <section id="sourcing">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-navy">Hiring Mix & Sourcing Efficiency</h2>
+    <h2 class="text-3xl font-bold brand-blue">Hiring Mix & Sourcing Efficiency</h2>
     <p class="text-gray-600 mt-1">Channel dependency by function</p>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-gold tracking-wider mb-3">Source Mix (Inbound vs Outbound)</h3>
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Source Mix</h3>
         <canvas id="chart-source-overall" height="200"></canvas>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-gold tracking-wider mb-3">Source by Function</h3>
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Source by Function</h3>
         <canvas id="chart-source-function" height="200"></canvas>
       </div>
     </div>
@@ -187,32 +211,32 @@
   <!-- 5. DIVERSITY -->
   <section id="diversity">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-navy">Gender Diversity</h2>
+    <h2 class="text-3xl font-bold brand-blue">Gender Diversity</h2>
     <p class="text-gray-600 mt-1">Female share by function · MoM tracking</p>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-sm uppercase text-gray-500">Total Hires</div>
-        <div class="text-5xl font-bold brand-navy mt-2" id="div-total">—</div>
+        <div class="text-5xl font-bold brand-blue mt-2" id="div-total">—</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-sm uppercase text-gray-500">Female Share</div>
-        <div class="text-5xl font-bold brand-navy mt-2" id="div-female">—%</div>
+        <div class="text-5xl font-bold brand-blue mt-2" id="div-female">—%</div>
         <div class="text-xs mt-1" id="div-female-delta">—</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-sm uppercase text-gray-500">Male Share</div>
-        <div class="text-5xl font-bold brand-navy mt-2" id="div-male">—%</div>
+        <div class="text-5xl font-bold brand-blue mt-2" id="div-male">—%</div>
       </div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-gold tracking-wider mb-3">Female % by Function</h3>
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Female % by Function</h3>
         <canvas id="chart-diversity-function" height="200"></canvas>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-gold tracking-wider mb-3">Female % by Band</h3>
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Female % by Band</h3>
         <canvas id="chart-diversity-band" height="200"></canvas>
       </div>
     </div>
@@ -221,39 +245,39 @@
   <!-- 6. TECH & PRODUCT -->
   <section id="tech">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-navy">Tech & Product Headcount</h2>
+    <h2 class="text-3xl font-bold brand-blue">Tech & Product Headcount</h2>
     <p class="text-gray-600 mt-1">POD-wise · designation ratios · monthly cost</p>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Tech HC</div>
-        <div class="text-4xl font-bold brand-navy mt-2" id="tech-hc">—</div>
+        <div class="text-4xl font-bold brand-blue mt-2" id="tech-hc">—</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Product HC</div>
-        <div class="text-4xl font-bold brand-navy mt-2" id="product-hc">—</div>
+        <div class="text-4xl font-bold brand-blue mt-2" id="product-hc">—</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Cost / Month</div>
-        <div class="text-4xl font-bold brand-navy mt-2" id="tech-cost">₹—L</div>
+        <div class="text-4xl font-bold brand-blue mt-2" id="tech-cost">₹—L</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Open Roles</div>
-        <div class="text-4xl font-bold brand-navy mt-2" id="tech-open">—</div>
+        <div class="text-4xl font-bold brand-blue mt-2" id="tech-open">—</div>
       </div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-gold tracking-wider mb-3">Backend Layer</h3>
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Backend Layer</h3>
         <canvas id="chart-backend" height="180"></canvas>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-gold tracking-wider mb-3">Frontend Layer</h3>
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Frontend Layer</h3>
         <canvas id="chart-frontend" height="180"></canvas>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-gold tracking-wider mb-3">Mobile Layer</h3>
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Mobile Layer</h3>
         <canvas id="chart-mobile" height="180"></canvas>
       </div>
     </div>
@@ -262,25 +286,25 @@
   <!-- 7. GLASSDOOR -->
   <section id="glassdoor">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-navy">Employer Brand · Glassdoor</h2>
+    <h2 class="text-3xl font-bold brand-blue">Employer Brand · Glassdoor</h2>
     <p class="text-gray-600 mt-1">Live ratings + interview experience</p>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Glassdoor Rating</div>
-        <div class="text-5xl font-bold brand-navy mt-2"><span id="gd-rating">—</span> ★</div>
+        <div class="text-5xl font-bold brand-blue mt-2"><span id="gd-rating">—</span> ★</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Recommend to Friend</div>
-        <div class="text-5xl font-bold brand-navy mt-2"><span id="gd-recommend">—</span>%</div>
+        <div class="text-5xl font-bold brand-blue mt-2"><span id="gd-recommend">—</span>%</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">CEO Approval</div>
-        <div class="text-5xl font-bold brand-navy mt-2"><span id="gd-ceo">—</span>%</div>
+        <div class="text-5xl font-bold brand-blue mt-2"><span id="gd-ceo">—</span>%</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Business Outlook</div>
-        <div class="text-5xl font-bold brand-navy mt-2"><span id="gd-outlook">—</span>%</div>
+        <div class="text-5xl font-bold brand-blue mt-2"><span id="gd-outlook">—</span>%</div>
       </div>
     </div>
   </section>
@@ -288,13 +312,13 @@
   <!-- 8. ATTRITION -->
   <section id="attrition">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-navy">Attrition</h2>
+    <h2 class="text-3xl font-bold brand-blue">Attrition</h2>
     <p class="text-gray-600 mt-1">By function · drivers · trends</p>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Overall Attrition</div>
-        <div class="text-5xl font-bold brand-navy mt-2"><span id="attr-overall">—</span>%</div>
+        <div class="text-5xl font-bold brand-blue mt-2"><span id="attr-overall">—</span>%</div>
       </div>
       <div class="bg-red-50 rounded-lg shadow-sm border border-red-200 p-6 kpi-card text-center">
         <div class="text-xs uppercase text-red-700">High-attrition Functions</div>
@@ -307,7 +331,7 @@
     </div>
 
     <div class="bg-white rounded-lg shadow-sm border p-6 mt-6">
-      <h3 class="text-sm font-semibold uppercase brand-gold tracking-wider mb-3">Top Exit Drivers</h3>
+      <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Top Exit Drivers</h3>
       <ul class="space-y-2" id="attr-drivers"></ul>
     </div>
   </section>
@@ -315,26 +339,26 @@
   <!-- 9. OFFER DROPS -->
   <section id="drops">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-navy">Offer Drops</h2>
+    <h2 class="text-3xl font-bold brand-blue">Offer Drops</h2>
     <p class="text-gray-600 mt-1">Where post-offer drops concentrate</p>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
-        <div class="text-xs uppercase text-gray-500">Total Drops (30d)</div>
-        <div class="text-5xl font-bold brand-navy mt-2" id="drops-total">—</div>
+        <div class="text-xs uppercase text-gray-500">Total Drops (period)</div>
+        <div class="text-5xl font-bold brand-blue mt-2" id="drops-total">—</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Drop Rate</div>
-        <div class="text-5xl font-bold brand-navy mt-2"><span id="drops-rate">—</span>%</div>
+        <div class="text-5xl font-bold brand-blue mt-2"><span id="drops-rate">—</span>%</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Top Function</div>
-        <div class="text-2xl font-bold brand-navy mt-2" id="drops-top">—</div>
+        <div class="text-2xl font-bold brand-blue mt-2" id="drops-top">—</div>
       </div>
     </div>
 
     <div class="bg-white rounded-lg shadow-sm border p-6 mt-6">
-      <h3 class="text-sm font-semibold uppercase brand-gold tracking-wider mb-3">Drops by Function</h3>
+      <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Drops by Function</h3>
       <canvas id="chart-drops" height="160"></canvas>
     </div>
   </section>
@@ -342,38 +366,60 @@
   <!-- 10. TA PIPELINE -->
   <section id="ta">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-navy">TA Pipeline</h2>
+    <h2 class="text-3xl font-bold brand-blue">TA Pipeline</h2>
     <p class="text-gray-600 mt-1">Active reqs · joinings · yet-to-join</p>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Active Reqs</div>
-        <div class="text-5xl font-bold brand-navy mt-2" id="ta-active">—</div>
+        <div class="text-5xl font-bold brand-blue mt-2" id="ta-active">—</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
-        <div class="text-xs uppercase text-gray-500">Closed (30d)</div>
-        <div class="text-5xl font-bold brand-navy mt-2" id="ta-closed">—</div>
+        <div class="text-xs uppercase text-gray-500">Closed (period)</div>
+        <div class="text-5xl font-bold brand-blue mt-2" id="ta-closed">—</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Yet-to-Join</div>
-        <div class="text-5xl font-bold brand-navy mt-2" id="ta-ytj">—</div>
+        <div class="text-5xl font-bold brand-blue mt-2" id="ta-ytj">—</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Recruiter Productivity</div>
-        <div class="text-5xl font-bold brand-navy mt-2"><span id="ta-prod">—</span></div>
+        <div class="text-5xl font-bold brand-blue mt-2"><span id="ta-prod">—</span></div>
       </div>
     </div>
   </section>
 
-  <!-- 11. AUTOMATION -->
+  <!-- 11. WINDOW DETAIL (new) -->
+  <section id="window">
+    <div class="accent-bar mb-3"></div>
+    <h2 class="text-3xl font-bold brand-blue">Window Detail · 26 Apr → 04 May</h2>
+    <p class="text-gray-600 mt-1">Day-wise · entity-wise · top recruiters</p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+      <div class="bg-white rounded-lg shadow-sm border p-6">
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Joinings by Day</h3>
+        <canvas id="chart-window-day" height="180"></canvas>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm border p-6">
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">By Entity</h3>
+        <canvas id="chart-window-entity" height="180"></canvas>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm border p-6">
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Top Recruiters</h3>
+        <ul id="top-recruiters" class="space-y-2 text-sm mt-2"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. AUTOMATION -->
   <section id="automation">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-navy">Automation Status</h2>
+    <h2 class="text-3xl font-bold brand-blue">Automation Status</h2>
     <p class="text-gray-600 mt-1">All 25 agents · last run · next run</p>
 
     <div class="bg-white rounded-lg shadow-sm border p-6 mt-6 overflow-x-auto">
       <table class="w-full text-sm compact">
-        <thead class="bg-brand-navy text-white">
+        <thead class="bg-brand-blue text-white">
           <tr>
             <th class="text-left">Agent</th>
             <th>Replaces</th>
@@ -389,13 +435,20 @@
   </section>
 
   <footer class="text-center text-xs text-gray-500 py-8 border-t mt-12">
-    <div class="font-semibold brand-navy mb-1">Cars24 · People & Culture Central</div>
+    <div class="font-semibold brand-blue mb-1">Cars24 · People & Culture Central</div>
     <div>Data sources: Recruitment Metrics · Joining Master · Tech & Product · Third Party · Glassdoor</div>
-    <div class="mt-2">Built in-house · zero vendor cost · refreshes daily at 6:00 AM IST</div>
+    <div class="mt-2">Built in-house · zero vendor cost · auto-refreshes every 2 hours</div>
   </footer>
 </main>
 
 <script>
+let chartInstances = {};
+
+function destroyCharts() {
+  Object.values(chartInstances).forEach(c => c?.destroy?.());
+  chartInstances = {};
+}
+
 async function loadDashboard() {
   let data;
   try {
@@ -408,8 +461,10 @@ async function loadDashboard() {
   }
 
   document.getElementById('last-refresh').textContent = data.refreshed_at || '—';
+  document.getElementById('period-label').textContent = data.period_label || '';
 
-  // Helper — delta arrow
+  destroyCharts();
+
   const arrow = (delta, lower_is_better = false) => {
     if (delta == null || delta === 0) return '<span class="text-gray-500">—</span>';
     const positive = delta > 0;
@@ -419,7 +474,6 @@ async function loadDashboard() {
     return `<span class="${cls} font-bold">${ar} ${Math.abs(delta).toFixed(2)}</span>`;
   };
 
-  // ============ Overview cards ============
   const ov = data.overview || {};
   const cards = [
     { label: 'Joinings', value: ov.joinings, prev: ov.joinings_prev, lib: false },
@@ -431,29 +485,27 @@ async function loadDashboard() {
     { label: 'Variable CPH', value: ov.cph, prev: ov.cph_prev, lib: true, prefix: '₹' },
     { label: 'Recruiter Prod', value: ov.productivity, prev: ov.productivity_prev, lib: false },
   ];
-  document.getElementById('overview-cards').innerHTML = cards.map(c => {
+  const cardsHTML = cards.map(c => {
     const delta = c.value != null && c.prev != null ? c.value - c.prev : null;
     return `
-      <div class="bg-white rounded-lg shadow-sm border p-5 kpi-card">
+      <div class="rounded-lg shadow-sm border p-5 kpi-card">
         <div class="text-xs uppercase text-gray-500 font-semibold tracking-wide">${c.label}</div>
-        <div class="text-3xl font-bold brand-navy mt-2">${c.prefix || ''}${c.value ?? '—'}${c.suffix || ''}</div>
+        <div class="text-3xl font-bold brand-blue mt-2">${c.prefix || ''}${c.value ?? '—'}${c.suffix || ''}</div>
         <div class="text-xs mt-1">${arrow(delta, c.lib)} <span class="text-gray-500">vs prev: ${c.prev ?? '—'}${c.suffix || ''}</span></div>
       </div>`;
   }).join('');
+  document.getElementById('overview-cards').innerHTML = cardsHTML;
+  document.getElementById('recruitment-kpis').innerHTML = cardsHTML;
 
-  // Same cards for Recruitment KPIs section
-  document.getElementById('recruitment-kpis').innerHTML = document.getElementById('overview-cards').innerHTML;
-
-  // ============ Recruitment by-function table ============
   const fmtRow = (label, byFunc, overall, prev, lib = false, suffix = '') => {
     const delta = overall != null && prev != null ? (overall - prev).toFixed(2) : null;
     const arr = arrow(delta, lib);
     const cells = ['Business (B1+B2)', 'Business Support', 'Product', 'Technology', 'BI DS', 'Other Support']
       .map(f => byFunc?.[f] != null ? byFunc[f] + suffix : '—').join('</td><td class="text-center">');
     return `<tr class="border-b hover:bg-gray-50">
-      <td class="font-semibold brand-navy">${label}</td>
+      <td class="font-semibold brand-blue">${label}</td>
       <td class="text-center">${cells}</td>
-      <td class="text-center bg-yellow-50 font-bold">${overall ?? '—'}${suffix} ${arr}</td>
+      <td class="text-center bg-blue-50 font-bold">${overall ?? '—'}${suffix} ${arr}</td>
     </tr>`;
   };
   const f = data.functionTable || {};
@@ -468,59 +520,53 @@ async function loadDashboard() {
     fmtRow('Joinings', f.joinings_by, ov.joinings, ov.joinings_prev, false, ''),
   ].join('');
 
-  // ============ Trend charts ============
   const months = data.trends?.months || [];
   if (data.trends?.joinings) {
-    new Chart(document.getElementById('chart-joinings-trend'), {
+    chartInstances.joinings = new Chart(document.getElementById('chart-joinings-trend'), {
       type: 'line',
-      data: { labels: months, datasets: [{ label: 'Joinings', data: data.trends.joinings, borderColor: '#0B3D2E', backgroundColor: 'rgba(11,61,46,0.1)', tension: 0.3, fill: true }] },
+      data: { labels: months, datasets: [{ label: 'Joinings', data: data.trends.joinings, borderColor: '#0066CC', backgroundColor: 'rgba(0,102,204,0.1)', tension: 0.3, fill: true, pointBackgroundColor: '#0066CC', pointRadius: 4 }] },
       options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
     });
   }
   if (data.trends?.attrition) {
-    new Chart(document.getElementById('chart-attrition-trend'), {
+    chartInstances.attrition = new Chart(document.getElementById('chart-attrition-trend'), {
       type: 'line',
-      data: { labels: months, datasets: [{ label: 'Attrition %', data: data.trends.attrition, borderColor: '#C62828', backgroundColor: 'rgba(198,40,40,0.1)', tension: 0.3, fill: true }] },
+      data: { labels: months, datasets: [{ label: 'Attrition %', data: data.trends.attrition, borderColor: '#DC2626', backgroundColor: 'rgba(220,38,38,0.1)', tension: 0.3, fill: true, pointBackgroundColor: '#DC2626', pointRadius: 4 }] },
       options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
     });
   }
 
-  // ============ Leadership ============
   const lead = data.leadership || {};
   document.getElementById('senior-count').textContent = lead.total ?? '—';
   document.getElementById('senior-trend').textContent = `vs prev: ${lead.prev ?? '—'}`;
   document.getElementById('senior-mix').textContent = `${lead.b4 ?? 0} / ${lead.b5 ?? 0} / ${lead.b6 ?? 0}`;
   document.getElementById('senior-newrep').textContent = `${lead.new_count ?? 0} / ${lead.replacement ?? 0}`;
   document.getElementById('seniors-table').innerHTML = (lead.list || []).map(s =>
-    `<tr class="border-b hover:bg-gray-50"><td>${s.name}</td><td class="text-center font-bold brand-gold">${s.band}</td><td>${s.designation}</td><td>${s.function}</td><td>${s.entity}</td><td>${s.doj}</td></tr>`
+    `<tr class="border-b hover:bg-gray-50"><td>${s.name}</td><td class="text-center font-bold brand-blue">${s.band}</td><td>${s.designation}</td><td>${s.function}</td><td>${s.entity}</td><td>${s.doj}</td></tr>`
   ).join('');
 
-  // ============ Sourcing ============
   if (data.sourcing?.overall) {
-    const labels = Object.keys(data.sourcing.overall);
-    const values = Object.values(data.sourcing.overall);
-    new Chart(document.getElementById('chart-source-overall'), {
+    chartInstances.sourceOverall = new Chart(document.getElementById('chart-source-overall'), {
       type: 'doughnut',
-      data: { labels, datasets: [{ data: values, backgroundColor: ['#0B3D2E', '#F2C12E', '#2E7D32', '#1976D2', '#7B1FA2', '#666'] }] },
+      data: { labels: Object.keys(data.sourcing.overall), datasets: [{ data: Object.values(data.sourcing.overall), backgroundColor: ['#0066CC', '#4A90E2', '#003D80', '#1976D2', '#7B9DB8', '#90B4D4', '#B3CDE0', '#D6E4F0', '#E6F2FF', '#9CA3AF'] }] },
       options: { responsive: true, maintainAspectRatio: false }
     });
   }
   if (data.sourcing?.by_function) {
     const funcs = ['Business', 'Support', 'T P BI DS'];
-    new Chart(document.getElementById('chart-source-function'), {
+    chartInstances.sourceFunction = new Chart(document.getElementById('chart-source-function'), {
       type: 'bar',
       data: {
         labels: funcs,
         datasets: [
-          { label: 'Inbound %', data: funcs.map(f => data.sourcing.by_function[f]?.inbound ?? 0), backgroundColor: '#0B3D2E' },
-          { label: 'Outbound %', data: funcs.map(f => data.sourcing.by_function[f]?.outbound ?? 0), backgroundColor: '#F2C12E' },
+          { label: 'Inbound %', data: funcs.map(f => data.sourcing.by_function[f]?.inbound ?? 0), backgroundColor: '#0066CC' },
+          { label: 'Outbound %', data: funcs.map(f => data.sourcing.by_function[f]?.outbound ?? 0), backgroundColor: '#4A90E2' },
         ]
       },
       options: { responsive: true, maintainAspectRatio: false, scales: { y: { stacked: true }, x: { stacked: true } } }
     });
   }
 
-  // ============ Diversity ============
   const div = data.diversity || {};
   document.getElementById('div-total').textContent = div.total ?? '—';
   document.getElementById('div-female').textContent = (div.female_pct ?? '—') + '%';
@@ -530,27 +576,20 @@ async function loadDashboard() {
   }
 
   if (div.by_function) {
-    new Chart(document.getElementById('chart-diversity-function'), {
+    chartInstances.divFunc = new Chart(document.getElementById('chart-diversity-function'), {
       type: 'bar',
-      data: {
-        labels: Object.keys(div.by_function),
-        datasets: [{ label: 'Female %', data: Object.values(div.by_function), backgroundColor: '#0B3D2E' }]
-      },
+      data: { labels: Object.keys(div.by_function), datasets: [{ label: 'Female %', data: Object.values(div.by_function), backgroundColor: '#0066CC' }] },
       options: { responsive: true, maintainAspectRatio: false }
     });
   }
   if (div.by_band) {
-    new Chart(document.getElementById('chart-diversity-band'), {
+    chartInstances.divBand = new Chart(document.getElementById('chart-diversity-band'), {
       type: 'bar',
-      data: {
-        labels: Object.keys(div.by_band),
-        datasets: [{ label: 'Female %', data: Object.values(div.by_band), backgroundColor: '#F2C12E' }]
-      },
+      data: { labels: Object.keys(div.by_band), datasets: [{ label: 'Female %', data: Object.values(div.by_band), backgroundColor: '#4A90E2' }] },
       options: { responsive: true, maintainAspectRatio: false }
     });
   }
 
-  // ============ Tech ============
   const tech = data.tech || {};
   document.getElementById('tech-hc').textContent = tech.tech_hc ?? '—';
   document.getElementById('product-hc').textContent = tech.product_hc ?? '—';
@@ -559,64 +598,71 @@ async function loadDashboard() {
 
   ['backend', 'frontend', 'mobile'].forEach(layer => {
     if (tech[layer]) {
-      new Chart(document.getElementById(`chart-${layer}`), {
+      chartInstances[layer] = new Chart(document.getElementById(`chart-${layer}`), {
         type: 'doughnut',
-        data: {
-          labels: ['SDE-1', 'SDE-2', 'SDE-3'],
-          datasets: [{
-            data: [tech[layer].sde1, tech[layer].sde2, tech[layer].sde3],
-            backgroundColor: ['#F2C12E', '#1976D2', '#0B3D2E']
-          }]
-        },
+        data: { labels: ['SDE-1', 'SDE-2', 'SDE-3'], datasets: [{ data: [tech[layer].sde1, tech[layer].sde2, tech[layer].sde3], backgroundColor: ['#4A90E2', '#0066CC', '#003D80'] }] },
         options: { responsive: true, maintainAspectRatio: false }
       });
     }
   });
 
-  // ============ Glassdoor ============
   const gd = data.glassdoor || {};
   document.getElementById('gd-rating').textContent = gd.rating ?? '—';
   document.getElementById('gd-recommend').textContent = gd.recommend ?? '—';
   document.getElementById('gd-ceo').textContent = gd.ceo ?? '—';
   document.getElementById('gd-outlook').textContent = gd.outlook ?? '—';
 
-  // ============ Attrition ============
   const attr = data.attrition || {};
   document.getElementById('attr-overall').textContent = attr.overall ?? '—';
   document.getElementById('attr-high').innerHTML = (attr.high || []).map(h => `${h.func} ${h.pct}%`).join('<br>') || '—';
   document.getElementById('attr-low').innerHTML = (attr.low || []).map(h => `${h.func} ${h.pct}%`).join('<br>') || '—';
   document.getElementById('attr-drivers').innerHTML = (attr.drivers || []).map(d =>
-    `<li class="flex justify-between border-b pb-1"><span class="brand-navy font-semibold">${d.theme}</span><span class="text-gray-700">${d.pct}% (${d.count} exits)</span></li>`
-  ).join('') || '<li class="text-gray-500">No exit data this month</li>';
+    `<li class="flex justify-between border-b pb-1"><span class="brand-blue font-semibold">${d.theme}</span><span class="text-gray-700">${d.pct}% (${d.count} exits)</span></li>`
+  ).join('') || '<li class="text-gray-500">No exit data this period</li>';
 
-  // ============ Drops ============
   const drops = data.drops || {};
   document.getElementById('drops-total').textContent = drops.total ?? '—';
   document.getElementById('drops-rate').textContent = drops.rate ?? '—';
   document.getElementById('drops-top').textContent = drops.top_function ?? '—';
   if (drops.by_function) {
-    new Chart(document.getElementById('chart-drops'), {
+    chartInstances.drops = new Chart(document.getElementById('chart-drops'), {
       type: 'bar',
-      data: {
-        labels: Object.keys(drops.by_function),
-        datasets: [{ label: 'Drops', data: Object.values(drops.by_function), backgroundColor: '#C62828' }]
-      },
+      data: { labels: Object.keys(drops.by_function), datasets: [{ label: 'Drops', data: Object.values(drops.by_function), backgroundColor: '#DC2626' }] },
       options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y' }
     });
   }
 
-  // ============ TA Pipeline ============
   const ta = data.ta || {};
   document.getElementById('ta-active').textContent = ta.active ?? '—';
   document.getElementById('ta-closed').textContent = ta.closed ?? '—';
   document.getElementById('ta-ytj').textContent = ta.ytj ?? '—';
   document.getElementById('ta-prod').textContent = ta.productivity ?? '—';
 
-  // ============ Automation ============
+  const we = data.window_extras || {};
+  if (we.by_day) {
+    chartInstances.byDay = new Chart(document.getElementById('chart-window-day'), {
+      type: 'bar',
+      data: { labels: Object.keys(we.by_day), datasets: [{ label: 'Joinings', data: Object.values(we.by_day), backgroundColor: '#0066CC' }] },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+  }
+  if (we.by_entity) {
+    chartInstances.byEntity = new Chart(document.getElementById('chart-window-entity'), {
+      type: 'doughnut',
+      data: { labels: Object.keys(we.by_entity), datasets: [{ data: Object.values(we.by_entity), backgroundColor: ['#0066CC', '#4A90E2', '#003D80', '#7B9DB8'] }] },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+  }
+  if (we.top_recruiters) {
+    document.getElementById('top-recruiters').innerHTML = we.top_recruiters.map(r =>
+      `<li class="flex justify-between border-b pb-1.5"><span>${r.name}</span><span class="font-bold brand-blue">${r.joinings}</span></li>`
+    ).join('');
+  }
+
   const agents = data.automation || [];
   document.getElementById('automation-table').innerHTML = agents.map(a =>
     `<tr class="border-b hover:bg-gray-50">
-      <td class="font-semibold brand-navy">${a.name}</td>
+      <td class="font-semibold brand-blue">${a.name}</td>
       <td class="text-gray-700 text-xs">${a.replaces}</td>
       <td class="text-center text-xs">${a.cadence}</td>
       <td class="text-center"><span class="px-2 py-1 rounded text-xs font-bold ${a.status === 'LIVE' ? 'bg-green-100 text-green-800' : a.status === 'PARTIAL' ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800'}">${a.status}</span></td>
@@ -626,11 +672,16 @@ async function loadDashboard() {
   ).join('');
 }
 
-// Active nav pill on scroll
 document.addEventListener('DOMContentLoaded', () => {
   loadDashboard();
+  // Auto-refresh JSON every 5 minutes — picks up freshest data without page reload
+  setInterval(loadDashboard, 5 * 60 * 1000);
+  // Refresh whenever tab becomes visible again
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) loadDashboard();
+  });
   document.querySelectorAll('.nav-pill').forEach(pill => {
-    pill.addEventListener('click', e => {
+    pill.addEventListener('click', () => {
       document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
     });
