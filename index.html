@@ -4,25 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cars24 · People & Culture Central · Live Dashboard</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='16' fill='%234945FF'/%3E%3Ccircle cx='40' cy='40' r='22' stroke='%23FFFFFF' stroke-width='6' fill='none'/%3E%3Crect x='14' y='36' width='52' height='8' fill='%234945FF'/%3E%3Ccircle cx='40' cy='40' r='4' fill='%23FFFFFF'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
   body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #FFFFFF; }
-  .brand-blue { color: #4945FF; }
-  .bg-brand-blue { background: #4945FF; }
+  .brand-blue { color: #4736FE; }
+  .bg-brand-blue { background: #4736FE; }
   .bg-brand-blue-dark { background: #3530C7; }
-  .border-brand-blue { border-color: #4945FF; }
-  .text-brand-blue { color: #4945FF; }
+  .border-brand-blue { border-color: #4736FE; }
+  .text-brand-blue { color: #4736FE; }
   .bg-brand-light { background: #E6F2FF; }
   .delta-up { color: #16A34A; }
   .delta-down { color: #DC2626; }
   .kpi-card { transition: transform 0.15s, box-shadow 0.15s; background: #FFFFFF; border: 1px solid #E2E8F0; }
-  .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 102, 204, 0.12); border-color: #4945FF; }
-  .accent-bar { background: linear-gradient(90deg, #4945FF 0%, #4945FF 80px, #7C7AFF 80px, #7C7AFF 120px, transparent 120px); height: 4px; }
+  .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 102, 204, 0.12); border-color: #4736FE; }
+  .accent-bar { background: linear-gradient(90deg, #4736FE 0%, #4736FE 80px, #7C7AFF 80px, #7C7AFF 120px, transparent 120px); height: 4px; }
   .nav-pill { transition: all 0.15s; }
-  .nav-pill.active { background: #4945FF; color: #FFFFFF; }
-  .nav-pill:hover:not(.active) { background: #E6F2FF; color: #4945FF; }
+  .nav-pill.active { background: #4736FE; color: #FFFFFF; }
+  .nav-pill:hover:not(.active) { background: #E6F2FF; color: #4736FE; }
   details summary { list-style: none; cursor: pointer; }
   details summary::-webkit-details-marker { display: none; }
   .data-fresh { animation: pulseBlue 2s infinite; }
@@ -34,29 +34,11 @@
   .cars24-logo {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
     background: #FFFFFF;
-    padding: 8px 14px;
+    padding: 8px 16px;
     border-radius: 10px;
   }
-  .cars24-logo svg { display: block; }
-  .cars24-logo .mark {
-    width: 36px;
-    height: 36px;
-    background: #4945FF;
-    border-radius: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .cars24-logo .wordmark {
-    color: #4945FF;
-    font-weight: 800;
-    font-size: 22px;
-    letter-spacing: -0.5px;
-    line-height: 1;
-  }
+  .cars24-logo img { display: block; height: 36px; width: auto; }
   .section-bg { background: #F8FAFC; padding: 24px; border-radius: 12px; }
 </style>
 </head>
@@ -66,16 +48,9 @@
 <header class="bg-brand-blue text-white shadow-lg sticky top-0 z-50">
   <div class="max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between gap-4 flex-wrap">
     <div class="flex items-center gap-4">
-      <!-- Cars24 Logo: rounded indigo square with split-circle "C" mark + wordmark -->
+      <!-- Official Cars24 logo (mark + wordmark) -->
       <div class="cars24-logo">
-        <span class="mark">
-          <svg width="22" height="22" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="40" cy="40" r="22" stroke="#FFFFFF" stroke-width="8" fill="none"/>
-            <rect x="10" y="36" width="60" height="8" fill="#4945FF"/>
-            <circle cx="40" cy="40" r="5" fill="#FFFFFF"/>
-          </svg>
-        </span>
-        <span class="wordmark">Cars24</span>
+        <img src="cars24-logo.svg" alt="Cars24">
       </div>
       <div class="border-l border-white/30 pl-4">
         <div class="text-xs uppercase tracking-widest text-white/80 font-bold">People & Culture</div>
@@ -539,7 +514,7 @@ async function loadDashboard() {
   if (data.trends?.joinings) {
     chartInstances.joinings = new Chart(document.getElementById('chart-joinings-trend'), {
       type: 'line',
-      data: { labels: months, datasets: [{ label: 'Joinings', data: data.trends.joinings, borderColor: '#4945FF', backgroundColor: 'rgba(0,102,204,0.1)', tension: 0.3, fill: true, pointBackgroundColor: '#4945FF', pointRadius: 4 }] },
+      data: { labels: months, datasets: [{ label: 'Joinings', data: data.trends.joinings, borderColor: '#4736FE', backgroundColor: 'rgba(0,102,204,0.1)', tension: 0.3, fill: true, pointBackgroundColor: '#4736FE', pointRadius: 4 }] },
       options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
     });
   }
@@ -563,7 +538,7 @@ async function loadDashboard() {
   if (data.sourcing?.overall) {
     chartInstances.sourceOverall = new Chart(document.getElementById('chart-source-overall'), {
       type: 'doughnut',
-      data: { labels: Object.keys(data.sourcing.overall), datasets: [{ data: Object.values(data.sourcing.overall), backgroundColor: ['#4945FF', '#7C7AFF', '#3530C7', '#1976D2', '#7B9DB8', '#90B4D4', '#B3CDE0', '#D6E4F0', '#E6F2FF', '#9CA3AF'] }] },
+      data: { labels: Object.keys(data.sourcing.overall), datasets: [{ data: Object.values(data.sourcing.overall), backgroundColor: ['#4736FE', '#7C7AFF', '#3530C7', '#1976D2', '#7B9DB8', '#90B4D4', '#B3CDE0', '#D6E4F0', '#E6F2FF', '#9CA3AF'] }] },
       options: { responsive: true, maintainAspectRatio: false }
     });
   }
@@ -574,7 +549,7 @@ async function loadDashboard() {
       data: {
         labels: funcs,
         datasets: [
-          { label: 'Inbound %', data: funcs.map(f => data.sourcing.by_function[f]?.inbound ?? 0), backgroundColor: '#4945FF' },
+          { label: 'Inbound %', data: funcs.map(f => data.sourcing.by_function[f]?.inbound ?? 0), backgroundColor: '#4736FE' },
           { label: 'Outbound %', data: funcs.map(f => data.sourcing.by_function[f]?.outbound ?? 0), backgroundColor: '#7C7AFF' },
         ]
       },
@@ -593,7 +568,7 @@ async function loadDashboard() {
   if (div.by_function) {
     chartInstances.divFunc = new Chart(document.getElementById('chart-diversity-function'), {
       type: 'bar',
-      data: { labels: Object.keys(div.by_function), datasets: [{ label: 'Female %', data: Object.values(div.by_function), backgroundColor: '#4945FF' }] },
+      data: { labels: Object.keys(div.by_function), datasets: [{ label: 'Female %', data: Object.values(div.by_function), backgroundColor: '#4736FE' }] },
       options: { responsive: true, maintainAspectRatio: false }
     });
   }
@@ -615,7 +590,7 @@ async function loadDashboard() {
     if (tech[layer]) {
       chartInstances[layer] = new Chart(document.getElementById(`chart-${layer}`), {
         type: 'doughnut',
-        data: { labels: ['SDE-1', 'SDE-2', 'SDE-3'], datasets: [{ data: [tech[layer].sde1, tech[layer].sde2, tech[layer].sde3], backgroundColor: ['#7C7AFF', '#4945FF', '#3530C7'] }] },
+        data: { labels: ['SDE-1', 'SDE-2', 'SDE-3'], datasets: [{ data: [tech[layer].sde1, tech[layer].sde2, tech[layer].sde3], backgroundColor: ['#7C7AFF', '#4736FE', '#3530C7'] }] },
         options: { responsive: true, maintainAspectRatio: false }
       });
     }
@@ -657,14 +632,14 @@ async function loadDashboard() {
   if (we.by_day) {
     chartInstances.byDay = new Chart(document.getElementById('chart-window-day'), {
       type: 'bar',
-      data: { labels: Object.keys(we.by_day), datasets: [{ label: 'Joinings', data: Object.values(we.by_day), backgroundColor: '#4945FF' }] },
+      data: { labels: Object.keys(we.by_day), datasets: [{ label: 'Joinings', data: Object.values(we.by_day), backgroundColor: '#4736FE' }] },
       options: { responsive: true, maintainAspectRatio: false }
     });
   }
   if (we.by_entity) {
     chartInstances.byEntity = new Chart(document.getElementById('chart-window-entity'), {
       type: 'doughnut',
-      data: { labels: Object.keys(we.by_entity), datasets: [{ data: Object.values(we.by_entity), backgroundColor: ['#4945FF', '#7C7AFF', '#3530C7', '#7B9DB8'] }] },
+      data: { labels: Object.keys(we.by_entity), datasets: [{ data: Object.values(we.by_entity), backgroundColor: ['#4736FE', '#7C7AFF', '#3530C7', '#7B9DB8'] }] },
       options: { responsive: true, maintainAspectRatio: false }
     });
   }
