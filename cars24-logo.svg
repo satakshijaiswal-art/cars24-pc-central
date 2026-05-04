@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" fill="none">
+  <!-- Logo mark: rounded square with circular "C" cutout -->
+  <rect x="0" y="10" width="80" height="80" rx="16" fill="#4945FF"/>
+  <!-- Outer ring -->
+  <circle cx="40" cy="50" r="22" stroke="#FFFFFF" stroke-width="6" fill="none"/>
+  <!-- Horizontal break across middle (creates split-circle "C" feel) -->
+  <rect x="14" y="46" width="52" height="8" fill="#4945FF"/>
+  <!-- Small white center dot -->
+  <circle cx="40" cy="50" r="4" fill="#FFFFFF"/>
+
+  <!-- Wordmark: Cars24 -->
+  <text x="100" y="72" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif"
+        font-size="64" font-weight="800" fill="#4945FF" letter-spacing="-2">Cars24</text>
+</svg>
