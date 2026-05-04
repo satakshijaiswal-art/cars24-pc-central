@@ -1,0 +1,164 @@
+{
+  "refreshed_at": "2026-05-04 12:50 IST",
+  "source_note": "Auto-pulled from Recruitment Metrics + Joining Master + Tech & Product + Third Party",
+  "overview": {
+    "joinings": 232,
+    "joinings_prev": 269,
+    "attrition": 18.96,
+    "attrition_prev": 11.75,
+    "otj": 92.06,
+    "otj_prev": 95.05,
+    "ttf": 28.8,
+    "ttf_prev": 32.2,
+    "tat": 71.5,
+    "tat_prev": 105.5,
+    "hike": 10.22,
+    "hike_prev": 11.56,
+    "cph": 345,
+    "cph_prev": 528,
+    "productivity": 12,
+    "productivity_prev": 11
+  },
+  "functionTable": {
+    "cph_by": {"Business (B1+B2)": 379, "Business Support": 0, "Product": 0, "Technology": 0, "BI DS": 0, "Other Support": 0},
+    "attrition_by": {"Business (B1+B2)": 21.10, "Business Support": 0, "Product": 0, "Technology": 0, "BI DS": 12.50, "Other Support": 0},
+    "otj_by": {"Business (B1+B2)": 84.40, "Business Support": 50.00, "Product": 25.00, "Technology": 0, "BI DS": 100, "Other Support": 100},
+    "ttf_by": {"Business (B1+B2)": 29.4, "Business Support": 97.0, "Product": 27.0, "Technology": 0, "BI DS": 30.3, "Other Support": 15.2},
+    "tat_by": {"Business (B1+B2)": 61.4, "Business Support": 228.4, "Product": 109.8, "Technology": 22.5, "BI DS": 32.0, "Other Support": 118.2},
+    "hike_by": {"Business (B1+B2)": 8.29, "Business Support": 3.86, "Product": 0, "Technology": 0, "BI DS": 18.15, "Other Support": 23.03},
+    "prod_by": {"Business (B1+B2)": 15, "Business Support": 11, "Product": 3, "Technology": 0, "BI DS": 4, "Other Support": 5},
+    "joinings_by": {"Business (B1+B2)": 211, "Business Support": 1, "Product": 1, "Technology": 0, "BI DS": 6, "Other Support": 13}
+  },
+  "trends": {
+    "months": ["Nov-25", "Dec-25", "Jan-26", "Feb-26", "Mar-26", "Apr-26"],
+    "joinings": [279, 302, 351, 340, 269, 232],
+    "attrition": [12.30, 6.27, 8.07, 11.75, 11.75, 18.96]
+  },
+  "leadership": {
+    "total": 1,
+    "prev": 1,
+    "b4": 0,
+    "b5": 1,
+    "b6": 0,
+    "new_count": 1,
+    "replacement": 0,
+    "list": [
+      {"name": "Data Scientist", "band": "B5", "designation": "Data Scientist", "function": "Data & AI Engineering", "entity": "CFSPL", "doj": "Apr-26"}
+    ]
+  },
+  "sourcing": {
+    "overall": {
+      "Inbound": 30.62,
+      "Consultant": 3.10,
+      "LinkedIn Sourced": 55.81,
+      "Naukri Sourced": 0,
+      "Instahyre Sourced": 0.39,
+      "University Campus": 0
+    },
+    "by_function": {
+      "Business": {"inbound": 29.84, "outbound": 51.94},
+      "Support": {"inbound": 0.39, "outbound": 5.04},
+      "T P BI DS": {"inbound": 0.39, "outbound": 2.33}
+    }
+  },
+  "diversity": {
+    "total": 232,
+    "female_pct": 12.8,
+    "male_pct": 87.2,
+    "female_pct_prev": 15.2,
+    "by_function": {
+      "Business": 11,
+      "Support": 40,
+      "T P BI DS": 25
+    },
+    "by_band": {
+      "B0": 40,
+      "B1": 13,
+      "B2": 17,
+      "B3": 17,
+      "B4": 0,
+      "B5": 0,
+      "Third Party": 9
+    }
+  },
+  "tech": {
+    "tech_hc": 252,
+    "product_hc": 81,
+    "cost_per_month": 820,
+    "open_roles": 10,
+    "backend": {"sde1": 75, "sde2": 14, "sde3": 11},
+    "frontend": {"sde1": 49, "sde2": 27, "sde3": 24},
+    "mobile": {"sde1": 48, "sde2": 28, "sde3": 24}
+  },
+  "glassdoor": {
+    "rating": 4.2,
+    "recommend": 77,
+    "ceo": 84,
+    "outlook": 80
+  },
+  "attrition": {
+    "overall": 7.26,
+    "high": [
+      {"func": "Product", "pct": 17.50},
+      {"func": "HR", "pct": 16.83}
+    ],
+    "low": [
+      {"func": "Legal", "pct": 0},
+      {"func": "Risk", "pct": 0},
+      {"func": "Founder Office", "pct": 0}
+    ],
+    "drivers": [
+      {"theme": "Better external opportunities", "pct": 32, "count": 22},
+      {"theme": "Job security concerns", "pct": 22, "count": 15},
+      {"theme": "Personal reasons", "pct": 18, "count": 12},
+      {"theme": "Culture / leadership challenges", "pct": 15, "count": 10},
+      {"theme": "Role misalignment / relocation", "pct": 13, "count": 9}
+    ]
+  },
+  "drops": {
+    "total": 18,
+    "rate": 7.7,
+    "top_function": "Business (15)",
+    "by_function": {
+      "Business (B1+B2)": 15,
+      "Product Management": 2,
+      "Business Support": 1,
+      "Technology": 0,
+      "BI DS": 0,
+      "Other Support": 0
+    }
+  },
+  "ta": {
+    "active": 34,
+    "closed": 11,
+    "ytj": 15,
+    "productivity": 3
+  },
+  "automation": [
+    {"name": "morning-brief", "replaces": "Daily exec pipeline brief", "cadence": "Daily 9am IST", "status": "LIVE", "last_run": "Today 9:08 AM", "next_run": "Tomorrow 9:00 AM"},
+    {"name": "reply-radar", "replaces": "2pm/7pm reply triage", "cadence": "2pm + 7pm", "status": "LIVE", "last_run": "Today 7:00 PM", "next_run": "Tomorrow 2:00 PM"},
+    {"name": "meeting-reminder-bot", "replaces": "10-min pre-meeting attendee pings", "cadence": "Every 5 min", "status": "LIVE", "last_run": "Just now", "next_run": "5 min"},
+    {"name": "interview-feedback-bot", "replaces": "Auto-rejection emails + positive draft replies", "cadence": "Daily 9:15 AM", "status": "LIVE", "last_run": "Today 9:23 AM", "next_run": "Tomorrow 9:15 AM"},
+    {"name": "interview-scheduler", "replaces": "Manual calendar invites for senior candidates", "cadence": "Event-driven", "status": "LIVE", "last_run": "On request", "next_run": "On request"},
+    {"name": "cto-outreach", "replaces": "CTO/VP Eng candidate sourcing + drafts", "cadence": "Daily 9:05 AM", "status": "LIVE", "last_run": "Today", "next_run": "Tomorrow"},
+    {"name": "cto-reply-monitor", "replaces": "CTO pipeline reply tracking", "cadence": "Every 2 hrs", "status": "LIVE", "last_run": "2 hrs ago", "next_run": "Soon"},
+    {"name": "product-head-outreach", "replaces": "CPO/VP Product sourcing", "cadence": "Daily 9:10 AM", "status": "LIVE", "last_run": "Today", "next_run": "Tomorrow"},
+    {"name": "product-head-reply-monitor", "replaces": "Product Head pipeline tracking", "cadence": "Every 2 hrs", "status": "LIVE", "last_run": "2 hrs ago", "next_run": "Soon"},
+    {"name": "monthly-founder-update", "replaces": "Monthly update for Vikram Chopra", "cadence": "Monthly 25th", "status": "LIVE", "last_run": "25 Apr", "next_run": "25 May"},
+    {"name": "new-joiner-experience", "replaces": "Onboarding 5-customer assignment + template", "cadence": "Tue + Fri 10am", "status": "LIVE", "last_run": "Last Fri", "next_run": "Next Tue"},
+    {"name": "bday-anniversary-bot", "replaces": "Birthdays + anniversaries + service milestones", "cadence": "Daily 9am", "status": "LIVE", "last_run": "Today", "next_run": "Tomorrow"},
+    {"name": "glassdoor-reviews-bot", "replaces": "Glassdoor review auto-replies + harassment escalation", "cadence": "Daily", "status": "LIVE", "last_run": "Today", "next_run": "Tomorrow"},
+    {"name": "certificate-ppt-generator", "replaces": "Award certificates + recognition decks", "cadence": "On demand", "status": "LIVE", "last_run": "On request", "next_run": "On request"},
+    {"name": "certificate-platform", "replaces": "HR certificate React/Vite portal on Netlify", "cadence": "Always-on", "status": "LIVE", "last_run": "Live", "next_run": "Live"},
+    {"name": "brand-voice (suite)", "replaces": "Brand-aligned content generation", "cadence": "On demand", "status": "LIVE", "last_run": "On request", "next_run": "On request"},
+    {"name": "pc-monthly-mis", "replaces": "Building this monthly deck (CPH, attrition, OTJ, etc.)", "cadence": "Monthly 24th 9am", "status": "LIVE", "last_run": "—", "next_run": "24 May"},
+    {"name": "ta-pipeline-tracker", "replaces": "Weekly TA review prep", "cadence": "Mon 9:30 AM", "status": "LIVE", "last_run": "—", "next_run": "Next Mon"},
+    {"name": "ytj-nudge", "replaces": "Manual yet-to-join chase", "cadence": "Mon + Thu 11am", "status": "LIVE", "last_run": "—", "next_run": "Next Thu"},
+    {"name": "flight-risk-pulse", "replaces": "21 ATL calls + 5 pulse checks/month manual", "cadence": "Fri 4pm", "status": "LIVE", "last_run": "—", "next_run": "Next Fri"},
+    {"name": "exit-interview-synth", "replaces": "Theming 69+ exit interviews", "cadence": "Monthly 25th", "status": "LIVE", "last_run": "—", "next_run": "25 May"},
+    {"name": "darwin-ticket-router", "replaces": "199 Darwin/IT/asset tickets/month manual triage", "cadence": "Weekday 10am", "status": "LIVE", "last_run": "—", "next_run": "Tomorrow"},
+    {"name": "offer-drop-tracker", "replaces": "Offer-drop analysis + reason classification", "cadence": "Wed 11am", "status": "LIVE", "last_run": "—", "next_run": "Tomorrow"},
+    {"name": "tech-hc-tracker", "replaces": "POD-wise Tech & Product HC + cost slides 10-13", "cadence": "Monthly 1st 9am", "status": "LIVE", "last_run": "—", "next_run": "1 Jun"},
+    {"name": "dashboard-refresh", "replaces": "Manual data refresh for this dashboard", "cadence": "Daily 6am IST", "status": "LIVE", "last_run": "Today 6:00 AM", "next_run": "Tomorrow 6:00 AM"}
+  ]
+}
