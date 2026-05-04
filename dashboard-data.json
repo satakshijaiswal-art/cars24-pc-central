@@ -67,26 +67,65 @@
   },
   "sourcing": {
     "overall": {
-      "LinkedIn Sourced": 55.81,
-      "Rehire": 8.91,
-      "Naukri Job Applicant": 8.14,
-      "Employee Referral": 8.14,
-      "Business Referral": 4.26,
-      "Consultant": 3.10,
-      "LinkedIn Job Applicant": 0.78,
-      "Careers Page": 0.39,
-      "Instahyre Sourced": 0.39,
-      "Other (Internal/Acquire)": 9.08
+      "LinkedIn Sourced": 49.15,
+      "Rehire": 7.85,
+      "Naukri Job Applicant": 7.17,
+      "Employee Referral": 7.17,
+      "Business Referral": 3.75,
+      "Consultant": 2.73,
+      "LinkedIn Job Applicant": 0.68,
+      "Careers Page": 0.34,
+      "Instahyre Sourced": 0.34,
+      "Other (Internal/Acquire)": 20.82
     },
     "by_function": {
-      "Business":   {"inbound": 29.84, "outbound": 51.94},
-      "Support":    {"inbound": 0.39,  "outbound": 5.04},
-      "T P BI DS":  {"inbound": 0.39,  "outbound": 2.33}
+      "Business":   {"inbound": 26.28, "outbound": 45.73},
+      "Support":    {"inbound": 0.34,  "outbound": 4.44},
+      "T P BI DS":  {"inbound": 0.34,  "outbound": 2.05}
+    },
+    "by_function_detail": {
+      "Business": {
+        "inbound_total": 26.28,
+        "outbound_total": 45.73,
+        "inbound_channels": [
+          {"name": "Business Referral", "pct": 3.75},
+          {"name": "Careers Page", "pct": 0.34},
+          {"name": "Employee Referral", "pct": 7.17},
+          {"name": "LinkedIn Job Applicant", "pct": 0.34},
+          {"name": "Naukri Job Applicant", "pct": 7.17},
+          {"name": "Rehire", "pct": 7.51}
+        ],
+        "outbound_channels": [
+          {"name": "Consultant", "pct": 2.73},
+          {"name": "LinkedIn Sourced", "pct": 42.66},
+          {"name": "Instahyre Sourced", "pct": 0.34}
+        ]
+      },
+      "Support": {
+        "inbound_total": 0.34,
+        "outbound_total": 4.44,
+        "inbound_channels": [
+          {"name": "Rehire", "pct": 0.34}
+        ],
+        "outbound_channels": [
+          {"name": "LinkedIn Sourced", "pct": 4.44}
+        ]
+      },
+      "T P BI DS": {
+        "inbound_total": 0.34,
+        "outbound_total": 2.05,
+        "inbound_channels": [
+          {"name": "LinkedIn Job Applicant", "pct": 0.34}
+        ],
+        "outbound_channels": [
+          {"name": "LinkedIn Sourced", "pct": 2.05}
+        ]
+      }
     },
     "definitions": {
       "Inbound": ["Business Referral", "Careers Page", "Employee Referral", "LinkedIn Job Applicant", "Naukri Job Applicant", "Instahyre Job Applicant", "Rehire"],
       "Outbound": ["Consultant", "LinkedIn Sourced", "Naukri Sourced", "Instahyre Sourced", "University Campus", "Acquire"],
-      "note": "Inbound = candidate self-applied through a posting or referral. Outbound = recruiter actively reached out (LinkedIn-sourced, headhunted, consultant-driven, campus). Source: Recruitment Metric_New sheet, April 2026 column."
+      "note": "Inbound = candidate self-applied (referral, careers page, job application, rehire). Outbound = recruiter actively sourced (LinkedIn Sourced, Consultant, headhunt, campus, acqui-hire). Source: Recruitment Metric_New, Apr-26 column."
     }
   },
   "diversity": {

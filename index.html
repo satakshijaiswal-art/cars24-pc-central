@@ -204,26 +204,29 @@
       </div>
     </div>
 
-    <!-- DEFINITIONS PANEL — what's in inbound vs outbound -->
+    <!-- PER-FUNCTION SOURCE BREAKDOWN — exactly which channels delivered which function's hires -->
+    <h3 class="text-lg font-bold brand-blue mt-8 mb-1">Where each function's hires came from</h3>
+    <p class="text-sm text-gray-600 mb-4">Channel-level breakdown for Business, Support, and T P BI DS · Apr-26 from Recruitment Metric_New</p>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5" id="function-source-cards"></div>
+
+    <!-- LEGEND — what counts as Inbound vs Outbound globally -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-      <div class="rounded-lg border-2 p-5" style="border-color:#4736FE; background:#F5F4FF">
-        <div class="flex items-center gap-2 mb-3">
+      <div class="rounded-lg border-2 p-4" style="border-color:#4736FE; background:#F5F4FF">
+        <div class="flex items-center gap-2 mb-2">
           <span class="text-xs font-bold px-2 py-1 rounded" style="background:#4736FE; color:#FFF">INBOUND</span>
           <span class="text-sm text-gray-700">Candidate came to us</span>
         </div>
-        <ul class="text-sm space-y-1.5" id="inbound-channels"></ul>
-        <div class="text-xs text-gray-500 mt-3 italic">Lower cost · slower funnel · self-selected</div>
+        <ul class="text-xs space-y-1" id="inbound-channels"></ul>
       </div>
-      <div class="rounded-lg border-2 p-5" style="border-color:#7C7AFF; background:#FAFAFF">
-        <div class="flex items-center gap-2 mb-3">
-          <span class="text-xs font-bold px-2 py-1 rounded" style="background:#7C7AFF; color:#FFF">OUTBOUND</span>
+      <div class="rounded-lg border-2 p-4" style="border-color:#F59E0B; background:#FFFBEB">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-xs font-bold px-2 py-1 rounded text-white" style="background:#F59E0B">OUTBOUND</span>
           <span class="text-sm text-gray-700">We reached out to candidate</span>
         </div>
-        <ul class="text-sm space-y-1.5" id="outbound-channels"></ul>
-        <div class="text-xs text-gray-500 mt-3 italic">Higher cost · faster funnel · recruiter-driven</div>
+        <ul class="text-xs space-y-1" id="outbound-channels"></ul>
       </div>
     </div>
-    <div class="text-xs text-gray-600 mt-4 italic" id="sourcing-note"></div>
+    <div class="text-xs text-gray-600 mt-3 italic" id="sourcing-note"></div>
   </section>
 
   <!-- 5. DIVERSITY -->
@@ -577,15 +580,52 @@ async function loadDashboard() {
       data: {
         labels: funcs,
         datasets: [
-          { label: 'Inbound %', data: funcs.map(f => data.sourcing.by_function[f]?.inbound ?? 0), backgroundColor: '#4736FE' },
-          { label: 'Outbound %', data: funcs.map(f => data.sourcing.by_function[f]?.outbound ?? 0), backgroundColor: '#7C7AFF' },
+          { label: 'Inbound %',  data: funcs.map(f => data.sourcing.by_function[f]?.inbound  ?? 0), backgroundColor: '#4736FE' },
+          { label: 'Outbound %', data: funcs.map(f => data.sourcing.by_function[f]?.outbound ?? 0), backgroundColor: '#F59E0B' },
         ]
       },
       options: { responsive: true, maintainAspectRatio: false, scales: { y: { stacked: true }, x: { stacked: true } } }
     });
   }
 
-  // Inbound / Outbound definition panels
+  // Per-function source detail cards
+  const fd = data.sourcing?.by_function_detail || {};
+  const fcardsEl = document.getElementById('function-source-cards');
+  if (fcardsEl) {
+    fcardsEl.innerHTML = ['Business', 'Support', 'T P BI DS'].map(fn => {
+      const d = fd[fn];
+      if (!d) return '';
+      const inboundList  = (d.inbound_channels  || []).map(c => `<li class="flex justify-between text-xs py-1 border-b border-blue-100"><span>${c.name}</span><span class="font-bold" style="color:#4736FE">${c.pct}%</span></li>`).join('');
+      const outboundList = (d.outbound_channels || []).map(c => `<li class="flex justify-between text-xs py-1 border-b border-amber-100"><span>${c.name}</span><span class="font-bold" style="color:#F59E0B">${c.pct}%</span></li>`).join('');
+      const total = (d.inbound_total + d.outbound_total).toFixed(2);
+      const inPct  = total > 0 ? Math.round((d.inbound_total  / total) * 100) : 0;
+      const outPct = total > 0 ? Math.round((d.outbound_total / total) * 100) : 0;
+      return `
+        <div class="rounded-lg border bg-white p-5 shadow-sm">
+          <div class="font-bold text-lg brand-blue">${fn}</div>
+          <div class="text-xs text-gray-500 mb-3">Total of joinings tagged: ${total}%</div>
+
+          <!-- Stacked bar showing inbound vs outbound proportion -->
+          <div class="flex h-3 rounded overflow-hidden mb-1">
+            ${d.inbound_total  > 0 ? `<div style="width:${inPct}%; background:#4736FE"></div>` : ''}
+            ${d.outbound_total > 0 ? `<div style="width:${outPct}%; background:#F59E0B"></div>` : ''}
+          </div>
+          <div class="flex justify-between text-xs text-gray-600 mb-4">
+            <span><span class="inline-block w-2 h-2 rounded-full mr-1" style="background:#4736FE"></span>Inbound ${d.inbound_total}%</span>
+            <span><span class="inline-block w-2 h-2 rounded-full mr-1" style="background:#F59E0B"></span>Outbound ${d.outbound_total}%</span>
+          </div>
+
+          <div class="text-xs font-bold uppercase tracking-wide mb-1" style="color:#4736FE">Inbound channels</div>
+          <ul class="mb-3">${inboundList || '<li class="text-xs text-gray-400 italic py-1">None this period</li>'}</ul>
+
+          <div class="text-xs font-bold uppercase tracking-wide mb-1" style="color:#F59E0B">Outbound channels</div>
+          <ul>${outboundList || '<li class="text-xs text-gray-400 italic py-1">None this period</li>'}</ul>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Global Inbound / Outbound legend lists
   const defs = data.sourcing?.definitions || {};
   const renderChannels = (id, list) => {
     const el = document.getElementById(id);
