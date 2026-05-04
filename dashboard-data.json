@@ -2,6 +2,15 @@
   "refreshed_at": "04 May 2026 · 14:55 IST",
   "period_label": "Window: 26 Apr 2026 — 04 May 2026 (9 days)",
   "source_note": "Live data from Joining Master, Recruitment Metrics, Tech & Product, Third Party sheets",
+  "source_health": {
+    "recruitment_metrics": {"status": "OK", "fetched_at": "04 May · 14:55 IST", "rows_seen": 248, "error": null},
+    "joining_master":      {"status": "OK", "fetched_at": "04 May · 14:55 IST", "rows_seen": 197, "error": null},
+    "tech_product":        {"status": "OK", "fetched_at": "04 May · 14:55 IST", "rows_seen": 28,  "error": null},
+    "third_party_1":       {"status": "OK", "fetched_at": "04 May · 14:55 IST", "rows_seen": 41,  "error": null},
+    "ats_superset_csv":    {"status": "MISSING", "fetched_at": "—", "rows_seen": null, "error": "Drop CSV at Desktop/Claude filer/ats-superset/latest.csv"}
+  },
+  "discrepancies": [],
+  "anomalies": [],
   "overview": {
     "joinings": 158,
     "joinings_prev": 232,

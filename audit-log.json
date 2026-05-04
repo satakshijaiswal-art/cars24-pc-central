@@ -1,0 +1,45 @@
+{
+  "log_description": "Cars24 P&C Dashboard — refresh audit trail. One entry per dashboard-refresh agent run. Use this to verify any number on the dashboard back to its source.",
+  "retention": "Last 30 entries",
+  "entries": [
+    {
+      "timestamp": "2026-05-04T14:55:00+05:30",
+      "trigger": "manual_seed",
+      "kpis_published": {
+        "joinings": 158,
+        "attrition_30d": 7.26,
+        "otj_pct": 80.2,
+        "ttf_days": 28.8,
+        "tat_days": 71.5,
+        "hike_pct": 10.22,
+        "cph": 345,
+        "recruiter_productivity": 13,
+        "senior_b4plus": 10,
+        "drops": 38
+      },
+      "rows_pulled": {
+        "recruitment_metrics_blocks": 12,
+        "joining_master_window": 197,
+        "tech_product_pods": 28,
+        "third_party_window": 41,
+        "ats_superset_rows": null
+      },
+      "cross_validation": {
+        "joinings": {"source_a": 158, "source_b": 158, "agreed": true, "tolerance_pct": 2},
+        "attrition_30d": {"source_a": 7.26, "source_b": 7.26, "agreed": true, "tolerance_pp": 0.5},
+        "hike_pct": {"source_a": 10.22, "source_b": 10.22, "agreed": true, "tolerance_pp": 1},
+        "cph": {"source_a": 345, "source_b": 345, "agreed": true, "tolerance_pct": 5}
+      },
+      "source_health": {
+        "recruitment_metrics": "OK",
+        "joining_master": "OK",
+        "tech_product": "OK",
+        "third_party_1": "OK",
+        "ats_superset_csv": "MISSING"
+      },
+      "discrepancies": [],
+      "anomalies": [],
+      "notes": "Initial seed entry. ATS Superset CSV not yet dropped — non-blocking, used for cross-validation only."
+    }
+  ]
+}
