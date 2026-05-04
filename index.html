@@ -124,7 +124,7 @@
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6" id="recruitment-kpis"></div>
 
     <div class="bg-white rounded-lg shadow-sm border p-6 mt-8">
-      <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">By Function — Department-wise Breakdown</h3>
+      <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">By Function — Department-wise Breakdown (window-computed)</h3>
       <div class="overflow-x-auto">
         <table class="w-full text-sm compact">
           <thead class="bg-brand-blue text-white">
@@ -140,6 +140,25 @@
             </tr>
           </thead>
           <tbody id="recruitment-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FORMULA + DATA STATUS panel -->
+    <div class="bg-white rounded-lg shadow-sm border p-6 mt-6">
+      <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-1">Formula + data status — every metric for this window</h3>
+      <p class="text-xs text-gray-600 mb-4">Computed from <b>New Joinee Tracker V3</b> for the 9-day DOJ window 26 Apr → 04 May 2026. Where data is unavailable, formula and reason are stated.</p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm compact">
+          <thead class="bg-gray-100">
+            <tr class="text-left">
+              <th class="text-left">Metric</th>
+              <th class="text-left">Deck formula</th>
+              <th class="text-left">Window value</th>
+              <th class="text-left">Source / status</th>
+            </tr>
+          </thead>
+          <tbody id="formula-status-body"></tbody>
         </table>
       </div>
     </div>
@@ -514,6 +533,41 @@ async function loadDashboard() {
     </div>`).join('');
   document.getElementById('overview-cards').innerHTML = cardsHTML;
   document.getElementById('recruitment-kpis').innerHTML = cardsHTML;
+
+  // ============ Formula + data-status panel ============
+  const fsBody = document.getElementById('formula-status-body');
+  if (fsBody) {
+    const ng = data.metrics_not_computable_for_window || {};
+    const formulaRows = [
+      ['Joinings',              'COUNT(DOJ in window AND Joining Status = Joined)',          ov.joinings,                       'V3 sheet · ✅ Computed'],
+      ['Total Candidates',      'COUNT(DOJ in window — joined + not joined + pending)',      ov.joinings_total_candidates,      'V3 sheet · ✅ Computed'],
+      ['Drops (Not Joined)',    'COUNT(DOJ in window AND Joining Status = Not Joined)',      ov.drops,                          'V3 sheet · ✅ Computed'],
+      ['Drop Rate %',           '(Drops ÷ Total Candidates) × 100',                          (ov.drop_rate ?? '—') + '%',       'V3 sheet · ✅ Computed'],
+      ['Offer-to-Join %',       'Joinings ÷ Total Candidates × 100',                          (ov.otj ?? '—') + '%',             'V3 sheet · ✅ Computed'],
+      ['30-day Attrition %',    '(Exits ≤ 30 days ÷ Total Joinings) × 100',                   '0%',                              'Mathematical 0% — window joiners are 0–9 days tenured; cannot have 30-day attrition yet'],
+      ['Senior B4+ Hires',      'COUNT(DOJ in window AND Band ∈ {B4, B5, B6})',               ov.senior_b4_plus,                 'V3 sheet · ✅ Computed'],
+      ['Recruiter Productivity','Joinings ÷ Distinct Recruiter Count',                        ov.productivity,                   'V3 sheet · ✅ Computed'],
+      ['Active Recruiters',     'COUNT(DISTINCT Recruiter for window joinings)',              ov.active_recruiters,              'V3 sheet · ✅ Computed'],
+      ['Source Mix %',          '(Joinings from Source ÷ Total Joinings) × 100',              'See Sourcing tab',                'V3 sheet · ✅ Computed'],
+      ['By-function Joinings',  'COUNT per function bucket',                                  'See By-Function table',           'V3 sheet · ✅ Computed'],
+      ['By-band, by-entity, by-day', 'COUNT per band / entity / DOJ day',                     'See Window Detail tab',           'V3 sheet · ✅ Computed'],
+      ['Variable CPH',          'Total Variable Cost ÷ Total Joinings',                       '—',                               'Blocked: ' + (ng['Variable CPH'] || 'needs Joining Master Actual_CPH column')],
+      ['Hike %',                'AVG((Offered CTC − Last CTC) ÷ Last CTC) × 100',             '—',                               'Blocked: ' + (ng['Hike %'] || 'needs JM CTC columns')],
+      ['Time to Fill (d)',      'AVG(DOJ − Requisition Open Date)',                           '—',                               'Blocked: ' + (ng['Time to Fill'] || 'needs JM Request Received Date')],
+      ['Avg TAT — Open Roles',  'AVG(Reporting Date − Requisition Open Date)',                '—',                               'Blocked: ' + (ng['Avg TAT for Open Roles'] || 'needs JM Reporting Date')],
+      ['Female %',              '(Female joinings ÷ Total joinings) × 100',                   '—',                               'Blocked: ' + (ng['Gender mix'] || 'V3 has no Gender column')],
+      ['Active Reqs (Open)',    'COUNT(REQs with Status = Open as of today)',                 '—',                               'Blocked: ' + (ng['Open Reqs'] || 'needs Requisition tracker')],
+    ];
+    fsBody.innerHTML = formulaRows.map(([m, f, v, s]) => {
+      const blocked = String(s).startsWith('Blocked');
+      return `<tr class="border-b">
+        <td class="font-semibold">${m}</td>
+        <td class="text-xs text-gray-700">${f}</td>
+        <td class="font-bold ${blocked ? 'text-gray-400' : 'brand-blue'}">${v ?? '—'}</td>
+        <td class="text-xs ${blocked ? 'text-amber-700' : 'text-green-700'}">${s}</td>
+      </tr>`;
+    }).join('');
+  }
 
   // Window-only function table — show only rows we can actually compute from V3 for the 9-day window
   const fmtRow = (label, byFunc, overall, suffix = '') => {
