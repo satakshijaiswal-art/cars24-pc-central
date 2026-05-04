@@ -31,6 +31,11 @@
     50% { background-color: #22C55E; box-shadow: 0 0 0 6px rgba(22,163,74,0); }
   }
   table.compact td, table.compact th { padding: 6px 10px; }
+  /* Sticky-header offset so anchor links land below the header */
+  section { scroll-margin-top: 160px; }
+  /* Chart containers — give canvases a fixed height so Chart.js can render */
+  .chart-box { position: relative; height: 280px; width: 100%; }
+  .chart-box-sm { position: relative; height: 200px; width: 100%; }
   .cars24-logo {
     display: inline-flex;
     align-items: center;
@@ -99,11 +104,11 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider">Joinings Trend</h3>
-        <canvas id="chart-joinings-trend" height="180"></canvas>
+        <div class="chart-box"><canvas id="chart-joinings-trend"></canvas></div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider">30-Day Attrition Trend</h3>
-        <canvas id="chart-attrition-trend" height="180"></canvas>
+        <div class="chart-box"><canvas id="chart-attrition-trend"></canvas></div>
       </div>
     </div>
   </section>
@@ -189,11 +194,11 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Source Mix</h3>
-        <canvas id="chart-source-overall" height="200"></canvas>
+        <div class="chart-box"><canvas id="chart-source-overall"></canvas></div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Source by Function</h3>
-        <canvas id="chart-source-function" height="200"></canvas>
+        <div class="chart-box"><canvas id="chart-source-function"></canvas></div>
       </div>
     </div>
   </section>
@@ -223,11 +228,11 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Female % by Function</h3>
-        <canvas id="chart-diversity-function" height="200"></canvas>
+        <div class="chart-box"><canvas id="chart-diversity-function"></canvas></div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Female % by Band</h3>
-        <canvas id="chart-diversity-band" height="200"></canvas>
+        <div class="chart-box"><canvas id="chart-diversity-band"></canvas></div>
       </div>
     </div>
   </section>
@@ -260,15 +265,15 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Backend Layer</h3>
-        <canvas id="chart-backend" height="180"></canvas>
+        <div class="chart-box"><canvas id="chart-backend"></canvas></div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Frontend Layer</h3>
-        <canvas id="chart-frontend" height="180"></canvas>
+        <div class="chart-box"><canvas id="chart-frontend"></canvas></div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Mobile Layer</h3>
-        <canvas id="chart-mobile" height="180"></canvas>
+        <div class="chart-box"><canvas id="chart-mobile"></canvas></div>
       </div>
     </div>
   </section>
@@ -349,7 +354,7 @@
 
     <div class="bg-white rounded-lg shadow-sm border p-6 mt-6">
       <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Drops by Function</h3>
-      <canvas id="chart-drops" height="160"></canvas>
+      <div class="chart-box"><canvas id="chart-drops"></canvas></div>
     </div>
   </section>
 
@@ -388,11 +393,11 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Joinings by Day</h3>
-        <canvas id="chart-window-day" height="180"></canvas>
+        <div class="chart-box"><canvas id="chart-window-day"></canvas></div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">By Entity</h3>
-        <canvas id="chart-window-entity" height="180"></canvas>
+        <div class="chart-box"><canvas id="chart-window-entity"></canvas></div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Top Recruiters</h3>
