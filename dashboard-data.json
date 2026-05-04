@@ -1,48 +1,39 @@
 {
-  "refreshed_at": "04 May 2026 · 14:55 IST",
-  "period_label": "Window: 26 Apr 2026 — 04 May 2026 (9 days)",
-  "source_note": "Live data from Joining Master, Recruitment Metrics, Tech & Product, Third Party sheets",
-  "source_health": {
-    "recruitment_metrics": {"status": "OK", "fetched_at": "04 May · 14:55 IST", "rows_seen": 248, "error": null},
-    "joining_master":      {"status": "OK", "fetched_at": "04 May · 14:55 IST", "rows_seen": 197, "error": null},
-    "tech_product":        {"status": "OK", "fetched_at": "04 May · 14:55 IST", "rows_seen": 28,  "error": null},
-    "third_party_1":       {"status": "OK", "fetched_at": "04 May · 14:55 IST", "rows_seen": 41,  "error": null},
-    "ats_superset_csv":    {"status": "MISSING", "fetched_at": "—", "rows_seen": null, "error": "Drop CSV at Desktop/Claude filer/ats-superset/latest.csv"}
-  },
-  "discrepancies": [],
-  "anomalies": [],
+  "refreshed_at": "04 May 2026 \u00b7 18:52 IST",
+  "period_label": "Window: 26 Apr 2026 \u2014 04 May 2026 (9 days)",
+  "source_note": "Window data computed from New Joinee Tracker V3. CPH/Hike%/TTF/TAT/Gender/30-day-attrition flagged 'Pending JM refresh' (require full Joining Master pull for the window).",
   "overview": {
     "joinings": 158,
     "joinings_prev": 232,
-    "attrition": 7.26,
-    "attrition_prev": 11.75,
     "otj": 80.2,
     "otj_prev": 92.06,
-    "ttf": 28.8,
-    "ttf_prev": 32.2,
-    "tat": 71.5,
-    "tat_prev": 105.5,
-    "hike": 10.22,
-    "hike_prev": 11.56,
-    "cph": 345,
-    "cph_prev": 528,
-    "productivity": 13,
-    "productivity_prev": 12
+    "productivity": 8.3,
+    "productivity_prev": 12,
+    "attrition": null,
+    "attrition_prev": 18.96,
+    "ttf": null,
+    "ttf_prev": 28.8,
+    "tat": null,
+    "tat_prev": 71.5,
+    "hike": null,
+    "hike_prev": 10.22,
+    "cph": null,
+    "cph_prev": 345
   },
   "functionTable": {
-    "cph_by": {"Business (B1+B2)": 379, "Business Support": 0, "Product": 0, "Technology": 0, "BI DS": 0, "Other Support": 0},
-    "attrition_by": {"Business (B1+B2)": 21.10, "Business Support": 0, "Product": 17.50, "Technology": 4.98, "BI DS": 12.50, "Other Support": 0},
-    "otj_by": {"Business (B1+B2)": 80.86, "Business Support": 100, "Product": 50, "Technology": 0, "BI DS": 100, "Other Support": 78.13},
-    "ttf_by": {"Business (B1+B2)": 29.4, "Business Support": 97.0, "Product": 27.0, "Technology": 0, "BI DS": 30.3, "Other Support": 15.2},
-    "tat_by": {"Business (B1+B2)": 61.4, "Business Support": 228.4, "Product": 109.8, "Technology": 22.5, "BI DS": 32.0, "Other Support": 118.2},
-    "hike_by": {"Business (B1+B2)": 8.29, "Business Support": 3.86, "Product": 0, "Technology": 0, "BI DS": 18.15, "Other Support": 23.03},
-    "prod_by": {"Business (B1+B2)": 16, "Business Support": 11, "Product": 1, "Technology": 0, "BI DS": 1, "Other Support": 6},
-    "joinings_by": {"Business (B1+B2)": 131, "Business Support": 0, "Product": 1, "Technology": 0, "BI DS": 1, "Other Support": 25}
-  },
-  "trends": {
-    "months": ["Nov-25", "Dec-25", "Jan-26", "Feb-26", "Mar-26", "Apr-26", "26Apr-04May"],
-    "joinings": [279, 302, 351, 340, 269, 232, 158],
-    "attrition": [12.30, 6.27, 8.07, 11.75, 11.75, 18.96, 7.26]
+    "joinings_by": {
+      "Business (B1+B2)": 131,
+      "Other Support": 25,
+      "BI DS": 1,
+      "Product": 1
+    },
+    "cph_by": {},
+    "attrition_by": {},
+    "otj_by": {},
+    "ttf_by": {},
+    "tat_by": {},
+    "hike_by": {},
+    "prod_by": {}
   },
   "leadership": {
     "total": 10,
@@ -50,196 +41,351 @@
     "b4": 7,
     "b5": 3,
     "b6": 0,
-    "new_count": 9,
-    "replacement": 1,
+    "new_count": 10,
+    "replacement": 0,
     "list": [
-      {"name": "Yugesh Kumar", "band": "B5", "designation": "Director", "function": "Business", "entity": "CSPL", "doj": "30-Apr-26"},
-      {"name": "Vinu V", "band": "B5", "designation": "Associate Director", "function": "Business", "entity": "CSPL", "doj": "30-Apr-26"},
-      {"name": "Sudhir Kumar S Pandey", "band": "B5", "designation": "Associate Director", "function": "Business", "entity": "CSPL", "doj": "01-May-26"},
-      {"name": "Able Ambal Cherry", "band": "B4", "designation": "General Manager", "function": "Refurb", "entity": "CSPL", "doj": "30-Apr-26"},
-      {"name": "Saurav Kumar Singh", "band": "B4", "designation": "General Manager", "function": "Business", "entity": "CSPL", "doj": "30-Apr-26"},
-      {"name": "Vignesh Ramalingam", "band": "B4", "designation": "Senior General Manager", "function": "Business", "entity": "CSPL", "doj": "30-Apr-26"},
-      {"name": "Vedant Vinay Kumar Pagare", "band": "B4", "designation": "Senior General Manager", "function": "Business", "entity": "CSPL", "doj": "01-May-26"},
-      {"name": "Utkarsh Mishra", "band": "B4", "designation": "Assistant General Manager", "function": "Business", "entity": "CSPL", "doj": "01-May-26"},
-      {"name": "Kartik Ahuja", "band": "B4", "designation": "General Manager", "function": "Marketing", "entity": "CSPL_International", "doj": "30-Apr-26"},
-      {"name": "Sumit Sharma", "band": "B4", "designation": "Lead Product Designer", "function": "Product Management", "entity": "CSPL", "doj": "04-May-26"}
+      {
+        "name": "Yugesh Kumar",
+        "band": "B5",
+        "designation": "Director",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Able Ambal Cherry",
+        "band": "B4",
+        "designation": "General Manager",
+        "function": "Refurb",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Saurav Kumar Singh",
+        "band": "B4",
+        "designation": "General Manager",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Vignesh Ramalingam",
+        "band": "B4",
+        "designation": "Senior General Manager",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Vinu V",
+        "band": "B5",
+        "designation": "Associate Director",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Vedant Vinay Kumar Pagare",
+        "band": "B4",
+        "designation": "Senior General Manager",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Sudhir Kumar Surendranath Pandey",
+        "band": "B5",
+        "designation": "Associate Director",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Utkarsh Mishra",
+        "band": "B4",
+        "designation": "Assistant General Manager",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Kartik Ahuja",
+        "band": "B4",
+        "designation": "General Manager",
+        "function": "Marketing",
+        "entity": "CSPL_INTERNATIONAL",
+        "doj": "30-Apr-26"
+      },
+      {
+        "name": "Sumit Sharma",
+        "band": "B4",
+        "designation": "Lead Product Designer",
+        "function": "Product Management",
+        "entity": "CSPL",
+        "doj": "27-Apr-26"
+      }
     ]
   },
   "sourcing": {
     "overall": {
-      "LinkedIn Sourced": 49.15,
-      "Rehire": 7.85,
-      "Naukri Job Applicant": 7.17,
-      "Employee Referral": 7.17,
-      "Business Referral": 3.75,
-      "Consultant": 2.73,
-      "LinkedIn Job Applicant": 0.68,
-      "Careers Page": 0.34,
-      "Instahyre Sourced": 0.34,
-      "Other (Internal/Acquire)": 20.82
+      "Direct": 73.6,
+      "Naukri-Headhunt": 7.11,
+      "Referral": 5.08,
+      "Consultant": 3.05,
+      "Business Referral": 2.54,
+      "Rehire": 2.03,
+      "Naukri-Job Application": 2.03,
+      "Unknown": 1.02,
+      "Intern to Permanent": 1.02,
+      "LinkedIn-Headhunt": 0.51
     },
     "by_function": {
-      "Business":   {"inbound": 26.28, "outbound": 45.73},
-      "Support":    {"inbound": 0.34,  "outbound": 4.44},
-      "T P BI DS":  {"inbound": 0.34,  "outbound": 2.05}
+      "Business": {
+        "inbound": 86.42,
+        "outbound": 11.11
+      },
+      "Support": {
+        "inbound": 90.62,
+        "outbound": 9.38
+      },
+      "T P BI DS": {
+        "inbound": 33.33,
+        "outbound": 0.0
+      }
     },
     "by_function_detail": {
       "Business": {
-        "inbound_total": 26.28,
-        "outbound_total": 45.73,
+        "inbound_total": 86.96,
+        "outbound_total": 11.18,
         "inbound_channels": [
-          {"name": "Business Referral", "pct": 3.75},
-          {"name": "Careers Page", "pct": 0.34},
-          {"name": "Employee Referral", "pct": 7.17},
-          {"name": "LinkedIn Job Applicant", "pct": 0.34},
-          {"name": "Naukri Job Applicant", "pct": 7.17},
-          {"name": "Rehire", "pct": 7.51}
+          {
+            "name": "Direct",
+            "n": 121,
+            "pct": 75.16
+          },
+          {
+            "name": "Referral",
+            "n": 6,
+            "pct": 3.73
+          },
+          {
+            "name": "Rehire",
+            "n": 4,
+            "pct": 2.48
+          },
+          {
+            "name": "Business Referral",
+            "n": 4,
+            "pct": 2.48
+          },
+          {
+            "name": "Naukri-Job Application",
+            "n": 3,
+            "pct": 1.86
+          },
+          {
+            "name": "Employee Refferal- 300889",
+            "n": 1,
+            "pct": 0.62
+          },
+          {
+            "name": "Business Reference",
+            "n": 1,
+            "pct": 0.62
+          }
         ],
         "outbound_channels": [
-          {"name": "Consultant", "pct": 2.73},
-          {"name": "LinkedIn Sourced", "pct": 42.66},
-          {"name": "Instahyre Sourced", "pct": 0.34}
+          {
+            "name": "Naukri-Headhunt",
+            "n": 12,
+            "pct": 7.45
+          },
+          {
+            "name": "Consultant",
+            "n": 6,
+            "pct": 3.73
+          }
         ]
       },
       "Support": {
-        "inbound_total": 0.34,
-        "outbound_total": 4.44,
+        "inbound_total": 90.62,
+        "outbound_total": 9.38,
         "inbound_channels": [
-          {"name": "Rehire", "pct": 0.34}
+          {
+            "name": "Direct",
+            "n": 23,
+            "pct": 71.88
+          },
+          {
+            "name": "Referral",
+            "n": 4,
+            "pct": 12.5
+          },
+          {
+            "name": "Naukri-Job Application",
+            "n": 1,
+            "pct": 3.12
+          },
+          {
+            "name": "Business Referral",
+            "n": 1,
+            "pct": 3.12
+          }
         ],
         "outbound_channels": [
-          {"name": "LinkedIn Sourced", "pct": 4.44}
+          {
+            "name": "Naukri-Headhunt",
+            "n": 2,
+            "pct": 6.25
+          },
+          {
+            "name": "LinkedIn-Headhunt",
+            "n": 1,
+            "pct": 3.12
+          }
         ]
       },
       "T P BI DS": {
-        "inbound_total": 0.34,
-        "outbound_total": 2.05,
+        "inbound_total": 50.0,
+        "outbound_total": 0.0,
         "inbound_channels": [
-          {"name": "LinkedIn Job Applicant", "pct": 0.34}
+          {
+            "name": "Direct",
+            "n": 1,
+            "pct": 50.0
+          }
         ],
-        "outbound_channels": [
-          {"name": "LinkedIn Sourced", "pct": 2.05}
-        ]
+        "outbound_channels": []
       }
     },
     "definitions": {
-      "Inbound": ["Business Referral", "Careers Page", "Employee Referral", "LinkedIn Job Applicant", "Naukri Job Applicant", "Instahyre Job Applicant", "Rehire"],
-      "Outbound": ["Consultant", "LinkedIn Sourced", "Naukri Sourced", "Instahyre Sourced", "University Campus", "Acquire"],
-      "note": "Inbound = candidate self-applied (referral, careers page, job application, rehire). Outbound = recruiter actively sourced (LinkedIn Sourced, Consultant, headhunt, campus, acqui-hire). Source: Recruitment Metric_New, Apr-26 column."
+      "Inbound": [
+        "Business Referral",
+        "Employee Referral",
+        "Rehire",
+        "Naukri-Job Application",
+        "Direct (walk-in/applied)"
+      ],
+      "Outbound": [
+        "Consultant",
+        "LinkedIn-Headhunt",
+        "Naukri-Headhunt",
+        "University Campus"
+      ],
+      "Internal": [
+        "Internal Movement",
+        "Intern to Permanent",
+        "E-Code"
+      ],
+      "note": "Window 26 Apr \u2192 04 May 2026 \u00b7 197 candidates from New Joinee Tracker V3. Inbound/Outbound classification mirrors Recruitment Metric_New schema."
     }
   },
-  "diversity": {
-    "total": 158,
-    "female_pct": 13.0,
-    "male_pct": 87.0,
-    "female_pct_prev": 12.8,
-    "by_function": {
-      "Business": 11,
-      "Support": 40,
-      "T P BI DS": 25
-    },
-    "by_band": {
-      "B0": 50,
-      "B1": 13,
-      "B2": 9,
-      "B3": 11,
-      "B4": 14,
-      "B5": 0,
-      "Third Party": 13
-    }
-  },
-  "tech": {
-    "tech_hc": 252,
-    "product_hc": 81,
-    "cost_per_month": 820,
-    "open_roles": 10,
-    "backend": {"sde1": 75, "sde2": 14, "sde3": 11},
-    "frontend": {"sde1": 49, "sde2": 27, "sde3": 24},
-    "mobile": {"sde1": 48, "sde2": 28, "sde3": 24}
-  },
-  "glassdoor": {
-    "rating": 4.2,
-    "recommend": 77,
-    "ceo": 84,
-    "outlook": 80
-  },
-  "attrition": {
-    "overall": 7.26,
-    "high": [
-      {"func": "Product", "pct": 17.50},
-      {"func": "HR", "pct": 16.83}
-    ],
-    "low": [
-      {"func": "Legal", "pct": 0},
-      {"func": "Risk", "pct": 0},
-      {"func": "Founder Office", "pct": 0}
-    ],
-    "drivers": [
-      {"theme": "Better external opportunities", "pct": 32, "count": 22},
-      {"theme": "Job security concerns", "pct": 22, "count": 15},
-      {"theme": "Personal reasons", "pct": 18, "count": 12},
-      {"theme": "Culture / leadership challenges", "pct": 15, "count": 10},
-      {"theme": "Role misalignment / relocation", "pct": 13, "count": 9}
-    ]
-  },
+  "diversity": null,
   "drops": {
     "total": 38,
-    "rate": 19.3,
-    "top_function": "Business (31)",
-    "by_function": {
-      "Business (B1+B2)": 31,
-      "Other Support": 7,
-      "Product": 0,
-      "Technology": 0,
-      "BI DS": 0,
-      "Business Support": 0
-    }
+    "rate": 19.29,
+    "top_function": "\u2014",
+    "by_function": {}
   },
   "ta": {
-    "active": 34,
-    "closed": 11,
+    "active": "\u2014",
+    "closed": 158,
     "ytj": 38,
-    "productivity": 13
+    "productivity": 8.3
   },
   "window_extras": {
-    "by_day": {"27-Apr-26": 38, "30-Apr-26": 50, "01-May-26": 63, "04-May-26": 46},
-    "by_entity": {"CSPL": 179, "CFSPL": 12, "CSPL_International": 6},
+    "by_day": {
+      "27-Apr-26": 38,
+      "30-Apr-26": 50,
+      "01-May-26": 63,
+      "04-May-26": 46
+    },
+    "by_entity": {
+      "CSPL": 179,
+      "CSPL_INTERNATIONAL": 6,
+      "CFSPL": 12
+    },
+    "by_band": {
+      "B1": 82,
+      "B3": 18,
+      "B0": 4,
+      "B2": 44,
+      "Third Party": 8,
+      "Third party": 31,
+      "B5": 3,
+      "B4": 7
+    },
     "top_recruiters": [
-      {"name": "priyanka.khanna1", "joinings": 64},
-      {"name": "deepanshi.1", "joinings": 15},
-      {"name": "banika.rana", "joinings": 14},
-      {"name": "bhawna.aggarwal", "joinings": 12},
-      {"name": "nikita.bhatia1", "joinings": 11},
-      {"name": "devansh.arora1", "joinings": 10},
-      {"name": "aayush.tyagi", "joinings": 9},
-      {"name": "b.kumar", "joinings": 9}
+      {
+        "name": "priyanka.khanna1",
+        "joinings": 63
+      },
+      {
+        "name": "bhawna.aggarwal",
+        "joinings": 13
+      },
+      {
+        "name": "devansh.arora1",
+        "joinings": 9
+      },
+      {
+        "name": "nikita.bhatia1",
+        "joinings": 9
+      },
+      {
+        "name": "deepanshi.1",
+        "joinings": 9
+      },
+      {
+        "name": "b.kumar",
+        "joinings": 8
+      },
+      {
+        "name": "aayush.tyagi",
+        "joinings": 7
+      },
+      {
+        "name": "banika.rana",
+        "joinings": 7
+      },
+      {
+        "name": "samiksha.yadav",
+        "joinings": 6
+      },
+      {
+        "name": "aayush.kharkwal",
+        "joinings": 5
+      }
     ]
   },
-  "automation": [
-    {"name": "morning-brief", "replaces": "Daily exec pipeline brief", "cadence": "Daily 9am IST", "status": "LIVE", "last_run": "Today 9:08 AM", "next_run": "Tomorrow 9:00 AM"},
-    {"name": "reply-radar", "replaces": "2pm/7pm reply triage", "cadence": "2pm + 7pm", "status": "LIVE", "last_run": "Today 7:00 PM", "next_run": "Tomorrow 2:00 PM"},
-    {"name": "meeting-reminder-bot", "replaces": "10-min pre-meeting attendee pings", "cadence": "Every 5 min", "status": "LIVE", "last_run": "Just now", "next_run": "5 min"},
-    {"name": "interview-feedback-bot", "replaces": "Auto-rejection emails + positive draft replies", "cadence": "Daily 9:15 AM", "status": "LIVE", "last_run": "Today 9:23 AM", "next_run": "Tomorrow 9:15 AM"},
-    {"name": "interview-scheduler", "replaces": "Manual calendar invites for senior candidates", "cadence": "Event-driven", "status": "LIVE", "last_run": "On request", "next_run": "On request"},
-    {"name": "cto-outreach", "replaces": "CTO/VP Eng candidate sourcing + drafts", "cadence": "Daily 9:05 AM", "status": "LIVE", "last_run": "Today", "next_run": "Tomorrow"},
-    {"name": "cto-reply-monitor", "replaces": "CTO pipeline reply tracking", "cadence": "Every 2 hrs", "status": "LIVE", "last_run": "2 hrs ago", "next_run": "Soon"},
-    {"name": "product-head-outreach", "replaces": "CPO/VP Product sourcing", "cadence": "Daily 9:10 AM", "status": "LIVE", "last_run": "Today", "next_run": "Tomorrow"},
-    {"name": "product-head-reply-monitor", "replaces": "Product Head pipeline tracking", "cadence": "Every 2 hrs", "status": "LIVE", "last_run": "2 hrs ago", "next_run": "Soon"},
-    {"name": "monthly-founder-update", "replaces": "Monthly update for Vikram Chopra", "cadence": "Monthly 25th", "status": "LIVE", "last_run": "25 Apr", "next_run": "25 May"},
-    {"name": "new-joiner-experience", "replaces": "Onboarding 5-customer assignment + template", "cadence": "Tue + Fri 10am", "status": "LIVE", "last_run": "Last Fri", "next_run": "Next Tue"},
-    {"name": "bday-anniversary-bot", "replaces": "Birthdays + anniversaries + service milestones", "cadence": "Daily 9am", "status": "LIVE", "last_run": "Today", "next_run": "Tomorrow"},
-    {"name": "glassdoor-reviews-bot", "replaces": "Glassdoor review auto-replies + harassment escalation", "cadence": "Daily", "status": "LIVE", "last_run": "Today", "next_run": "Tomorrow"},
-    {"name": "certificate-ppt-generator", "replaces": "Award certificates + recognition decks", "cadence": "On demand", "status": "LIVE", "last_run": "On request", "next_run": "On request"},
-    {"name": "certificate-platform", "replaces": "HR certificate React/Vite portal", "cadence": "Always-on", "status": "LIVE", "last_run": "Live", "next_run": "Live"},
-    {"name": "brand-voice (suite)", "replaces": "Brand-aligned content generation", "cadence": "On demand", "status": "LIVE", "last_run": "On request", "next_run": "On request"},
-    {"name": "pc-monthly-mis", "replaces": "Monthly deck (CPH, attrition, OTJ etc.)", "cadence": "Monthly 24th 9am", "status": "LIVE", "last_run": "—", "next_run": "24 May"},
-    {"name": "ta-pipeline-tracker", "replaces": "Weekly TA review prep", "cadence": "Mon 9:30 AM", "status": "LIVE", "last_run": "—", "next_run": "Next Mon"},
-    {"name": "ytj-nudge", "replaces": "Manual yet-to-join chase", "cadence": "Mon + Thu 11am", "status": "LIVE", "last_run": "—", "next_run": "Next Thu"},
-    {"name": "flight-risk-pulse", "replaces": "ATL calls + pulse checks signal sweep", "cadence": "Fri 4pm", "status": "LIVE", "last_run": "—", "next_run": "Next Fri"},
-    {"name": "exit-interview-synth", "replaces": "Theming exit interviews into deck drivers", "cadence": "Monthly 25th", "status": "LIVE", "last_run": "—", "next_run": "25 May"},
-    {"name": "darwin-ticket-router", "replaces": "199 IT/asset/disciplinary tickets/month", "cadence": "Weekday 10am", "status": "LIVE", "last_run": "—", "next_run": "Tomorrow"},
-    {"name": "offer-drop-tracker", "replaces": "Offer-drop analysis + reason classification", "cadence": "Wed 11am", "status": "LIVE", "last_run": "—", "next_run": "Tomorrow"},
-    {"name": "tech-hc-tracker", "replaces": "POD-wise Tech & Product HC + cost", "cadence": "Monthly 1st 9am", "status": "LIVE", "last_run": "—", "next_run": "1 Jun"},
-    {"name": "dashboard-refresh", "replaces": "Manual dashboard data refresh", "cadence": "Daily 6am IST", "status": "LIVE", "last_run": "Today 6:00 AM", "next_run": "Tomorrow 6:00 AM"}
+  "trends": {
+    "months": [
+      "Jan-26",
+      "Feb-26",
+      "Mar-26",
+      "Apr-26",
+      "26 Apr\u219204 May"
+    ],
+    "joinings": [
+      351,
+      340,
+      269,
+      232,
+      158
+    ],
+    "attrition": [
+      8.07,
+      11.75,
+      11.75,
+      18.96,
+      null
+    ]
+  },
+  "data_gaps": [
+    "Variable CPH \u2014 needs Joining Master Actual_CPH column for window rows",
+    "30-day Attrition \u2014 needs JM Survival Days + Date of Leaving for window joiners (also too early \u2014 9-day-old joiners can't have 30d attrition yet)",
+    "Hike % \u2014 needs JM Last CTC + Offered CTC for window rows",
+    "Time to Fill / Avg TAT \u2014 needs JM Request Received Date + Offered Date + DOJ for window rows",
+    "Gender mix \u2014 V3 has no Gender column; needs JM"
   ]
 }
