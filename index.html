@@ -31,7 +31,10 @@
     50% { background-color: #22C55E; box-shadow: 0 0 0 6px rgba(22,163,74,0); }
   }
   table.compact td, table.compact th { padding: 6px 10px; }
-  /* Sticky-header offset so anchor links land below the header */
+  /* Tab-mode: only the active section is visible (Data Quality stays pinned) */
+  main > section { display: none; }
+  main > section.active-section { display: block; }
+  main > section#quality { display: block; } /* always-on data quality strip */
   section { scroll-margin-top: 160px; }
   /* Chart containers — give canvases a fixed height so Chart.js can render */
   .chart-box { position: relative; height: 280px; width: 100%; }
@@ -780,6 +783,20 @@ async function loadDashboard() {
   ).join('');
 }
 
+function showSection(sectionId) {
+  // Hide every content section, then show only the target
+  document.querySelectorAll('main > section').forEach(s => {
+    if (s.id === 'quality') return; // Data Quality always visible
+    s.classList.toggle('active-section', s.id === sectionId);
+  });
+  // Update active pill
+  document.querySelectorAll('.nav-pill').forEach(p => {
+    p.classList.toggle('active', p.getAttribute('href') === '#' + sectionId);
+  });
+  // Scroll to top of content (just below sticky nav)
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   loadDashboard();
   // Auto-refresh JSON every 5 minutes — picks up freshest data without page reload
@@ -788,12 +805,18 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) loadDashboard();
   });
+  // Wire nav pills as category tabs
   document.querySelectorAll('.nav-pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = pill.getAttribute('href').replace('#', '');
+      showSection(target);
+      history.replaceState(null, '', '#' + target);
     });
   });
+  // Initial section: from URL hash, or default to Overview
+  const initial = (location.hash || '#overview').replace('#', '');
+  showSection(initial);
 });
 </script>
 </body>
