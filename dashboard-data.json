@@ -1,8 +1,13 @@
 {
-  "refreshed_at": "04 May 2026 \u00b7 19:31 IST",
-  "period_label": "Window: 26 Apr 2026 \u2014 04 May 2026 (9 days)",
-  "data_coverage_note": "Operational metrics (joinings, drops, OTJ, senior B4+) from V3 sheet covering all 9 days (197 candidates). Cost/CTC/Gender/Hike% from Joining Master cohort of 64 rows (Apr 27 + Apr 30 only \u2014 May 1\u20134 not yet synced to JM by Finance close).",
-  "source_note": "All values computed FROM SCRATCH using deck formulas. No April-monthly fallbacks.",
+  "refreshed_at": "05 May 2026 \u00b7 13:06 IST",
+  "period_label": "Window: 26 Apr 2026 \u2014 05 May 2026 (10 days)",
+  "window": {
+    "start": "2026-04-26",
+    "end": "2026-05-05",
+    "days": 10
+  },
+  "data_coverage_note": "Operational metrics from V3 sheet covering all 10 days (197 candidates, 158 joined). CTC/Gender/Hike% from Joining Master cohort of 64 rows (later joiners pending JM sync by Finance close). Window auto-rolls daily \u2014 end date = today (IST).",
+  "source_note": "All values computed from raw deck formulas. Window end auto-advances daily.",
   "overview": {
     "joinings": 158,
     "joinings_total_candidates": 197,
@@ -21,10 +26,26 @@
   },
   "functionTable": {
     "joinings_by": {
-      "Other Support": 5,
-      "Business (B1+B2)": 57,
-      "Product": 1,
-      "Technology": 1
+      "Business (B1+B2)": 131,
+      "Other Support": 25,
+      "BI DS": 1,
+      "Product": 1
+    },
+    "candidates_by": {
+      "Business (B1+B2)": 162,
+      "Other Support": 32,
+      "Product": 2,
+      "BI DS": 1
+    },
+    "drops_by": {
+      "Business (B1+B2)": 31,
+      "Other Support": 7
+    },
+    "otj_by": {
+      "Business (B1+B2)": 80.86,
+      "Other Support": 78.12,
+      "Product": 50.0,
+      "BI DS": 100.0
     },
     "cph_by": {
       "Other Support": null,
@@ -45,10 +66,10 @@
       "Technology": 0.0
     },
     "attrition_by": {
-      "Other Support": 0.0,
-      "Business (B1+B2)": 0.0,
-      "Product": 0.0,
-      "Technology": 0.0
+      "Business (B1+B2)": 0,
+      "Other Support": 0,
+      "Product": 0,
+      "BI DS": 0
     }
   },
   "leadership": {
@@ -56,31 +77,90 @@
     "b4": 7,
     "b5": 3,
     "b6": 0,
-    "list_from_v3_count": 10,
-    "list_in_jm_count": 2,
     "list": [
+      {
+        "name": "Yugesh Kumar",
+        "band": "B5",
+        "designation": "Director",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Able Ambal Cherry",
+        "band": "B4",
+        "designation": "General Manager",
+        "function": "Refurb",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Saurav Kumar Singh",
+        "band": "B4",
+        "designation": "General Manager",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Vignesh Ramalingam",
+        "band": "B4",
+        "designation": "Senior General Manager",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Vinu V",
+        "band": "B5",
+        "designation": "Associate Director",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Vedant Vinay Kumar Pagare",
+        "band": "B4",
+        "designation": "Senior General Manager",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Sudhir Kumar Surendranath Pandey",
+        "band": "B5",
+        "designation": "Associate Director",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Utkarsh Mishra",
+        "band": "B4",
+        "designation": "Assistant General Manager",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Kartik Ahuja",
+        "band": "B4",
+        "designation": "General Manager",
+        "function": "Marketing",
+        "entity": "CSPL_INTERNATIONAL",
+        "doj": "30-Apr-26"
+      },
       {
         "name": "Sumit Sharma",
         "band": "B4",
         "designation": "Lead Product Designer",
         "function": "Product Management",
         "entity": "CSPL",
-        "doj": "27/04/2026",
-        "gender": "Male",
-        "city": "Gurgaon"
-      },
-      {
-        "name": "Kartik Kishore Ahuja",
-        "band": "B4",
-        "designation": "General Manager",
-        "function": "Marketing",
-        "entity": "CSPL International",
-        "doj": "30/04/2026",
-        "gender": "Male",
-        "city": "Gurgaon"
+        "doj": "27-Apr-26"
       }
     ],
-    "note_about_count": "V3 has 10 B4+ joiners; JM has 2 (May 1+ joiners not yet synced to JM)"
+    "list_in_jm_count": 2,
+    "note_about_count": "V3 has 10 B4+ joiners; JM has 2 synced (later joiners pending JM update)"
   },
   "diversity": {
     "total": 64,
@@ -95,7 +175,7 @@
       "Technology": 0.0
     },
     "data_rows": 64,
-    "note": "Based on 64/158 joiners synced to JM (Apr 27 + Apr 30)"
+    "note": "Based on 64 of 158 joiners synced to JM"
   },
   "sourcing": {
     "overall": {
@@ -198,14 +278,17 @@
         "LinkedIn-Headhunt",
         "Naukri-Headhunt"
       ],
-      "note": "Computed from 64 JM rows (Apr 27 + Apr 30 \u2014 May not yet synced)."
+      "note": "From 64 JM-synced rows."
     }
   },
   "drops": {
     "total": 38,
     "rate": 19.29,
-    "by_function": {},
-    "top_function": "\u2014"
+    "by_function": {
+      "Business (B1+B2)": 31,
+      "Other Support": 7
+    },
+    "top_function": "Business (B1+B2)"
   },
   "ta": {
     "active": "\u2014",
@@ -213,13 +296,78 @@
     "ytj": 38,
     "productivity": 8.3
   },
+  "window_extras": {
+    "by_day": {
+      "27-Apr-26": 38,
+      "30-Apr-26": 50,
+      "01-May-26": 63,
+      "04-May-26": 46
+    },
+    "by_entity": {
+      "CSPL": 179,
+      "CSPL_INTERNATIONAL": 6,
+      "CFSPL": 12
+    },
+    "by_band": {
+      "B1": 82,
+      "B3": 18,
+      "B0": 4,
+      "B2": 44,
+      "Third Party": 8,
+      "Third party": 31,
+      "B5": 3,
+      "B4": 7
+    },
+    "top_recruiters": [
+      {
+        "name": "priyanka.khanna1",
+        "joinings": 63
+      },
+      {
+        "name": "bhawna.aggarwal",
+        "joinings": 13
+      },
+      {
+        "name": "devansh.arora1",
+        "joinings": 9
+      },
+      {
+        "name": "nikita.bhatia1",
+        "joinings": 9
+      },
+      {
+        "name": "deepanshi.1",
+        "joinings": 9
+      },
+      {
+        "name": "b.kumar",
+        "joinings": 8
+      },
+      {
+        "name": "aayush.tyagi",
+        "joinings": 7
+      },
+      {
+        "name": "banika.rana",
+        "joinings": 7
+      },
+      {
+        "name": "samiksha.yadav",
+        "joinings": 6
+      },
+      {
+        "name": "aayush.kharkwal",
+        "joinings": 5
+      }
+    ]
+  },
   "trends": {
     "months": [
       "Jan-26",
       "Feb-26",
       "Mar-26",
       "Apr-26",
-      "26 Apr\u219204 May"
+      "26 Apr\u219205 May"
     ],
     "joinings": [
       351,
@@ -237,9 +385,9 @@
     ]
   },
   "metrics_not_computable_for_window": {
-    "Time to Fill": "Joining Master doesn't have Requisition Open Date column",
-    "Avg TAT for Open Roles": "Same \u2014 needs Requisition Open Date",
-    "Open Reqs": "Needs separate Requisition tracker (not in JM)",
-    "Variable CPH": "Actual_CPH is 0 for all 64 synced rows \u2014 cost data is entered post finance close"
+    "Time to Fill": "JM has no Requisition Open Date column",
+    "Avg TAT for Open Roles": "Same \u2014 needs Req Open Date",
+    "Open Reqs": "Needs separate Requisition tracker",
+    "Variable CPH": "Actual_CPH still 0 in 64 synced rows \u2014 Finance enters at month-end close"
   }
 }
