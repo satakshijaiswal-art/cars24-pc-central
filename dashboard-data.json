@@ -1,39 +1,45 @@
 {
-  "refreshed_at": "05 May 2026 \u00b7 16:13 IST",
-  "period_label": "Window: 26 Apr 2026 \u2014 05 May 2026 (10 days)",
+  "refreshed_at": "06 May 2026 \u00b7 13:27 IST",
+  "period_label": "Window: 26 Apr 2026 \u2014 06 May 2026 (11 days)",
   "window": {
     "start": "2026-04-26",
-    "end": "2026-05-05",
-    "days": 10
+    "end": "2026-05-06",
+    "days": 11
   },
   "data_sources": {
     "v3_candidates": 197,
     "base_joiners": 178,
-    "base_exits": 115,
+    "base_exits": 119,
     "base_active_hc": 6788,
-    "jm_synced": 64
+    "jm_synced": 64,
+    "rocket_offers_window": 80,
+    "rocket_open_reqs": 16
   },
-  "data_coverage_note": "Joinings: 178 (Base-Live, full coverage). OTJ from V3: 158 of 197. CTC/CPH/Hike from JM cohort of 64 (May data lag). Window auto-rolls daily \u2014 end = today (IST).",
+  "data_coverage_note": "Joinings: 178 (Base-Live). OTJ: 68/80 from Rocket Offers, V3 cross-check 158/197. TTF/Open Reqs from Rocket Offers tab. CTC/CPH/Hike from JM cohort 64. Window auto-rolls daily \u2014 end = today (IST).",
   "overview": {
     "joinings": 178,
     "joinings_total_candidates": 197,
     "drops": 38,
     "drop_rate": 19.29,
-    "otj": 80.2,
+    "otj": 85.0,
     "attrition_30d": 0.0,
-    "attrition_30d_note": "Of window joiners, % already left within 30d (most are <11d tenured \u2014 ceiling)",
-    "overall_attrition_window": 1.6942,
-    "annualised_attrition": 61.84,
-    "exits_in_window": 115,
+    "overall_attrition_window": 1.75,
+    "annualised_attrition": 58.17,
+    "exits_in_window": 119,
     "active_hc": 6788,
     "cph": null,
     "cph_data_rows": 0,
     "hike": 16.85,
     "hike_data_rows": 47,
-    "ttf": null,
-    "tat": null,
+    "ttf": 30.1,
+    "ttf_data_rows": 68,
+    "tat": 65.2,
+    "tat_data_rows": 16,
+    "open_reqs": 16,
     "senior_b4_plus": 11,
-    "productivity": 10.5,
+    "senior_new": 2,
+    "senior_replacement": 0,
+    "productivity": 4.0,
     "active_recruiters": 17
   },
   "functionTable": {
@@ -53,49 +59,66 @@
       "Business Support": 5
     },
     "exits_by": {
-      "Other Support": 23,
-      "Business (B1+B2)": 75,
+      "Other Support": 24,
+      "Business (B1+B2)": 78,
       "Product": 4,
       "BI DS": 2,
       "Technology": 11
     },
     "drops_by": {
-      "Business (B1+B2)": 32,
-      "Other Support": 6,
-      "Product": 1,
+      "Other Support": 0,
+      "Business (B1+B2)": 0,
+      "Technology": 0,
       "BI DS": 0,
-      "Technology": 0
+      "Product": 0,
+      "Business Support": 0
     },
     "otj_by": {
-      "Business (B1+B2)": 80.72,
-      "Other Support": 76.92,
-      "Product": 50.0,
-      "BI DS": 100.0,
-      "Technology": 100.0
+      "Other Support": 86.67,
+      "Business (B1+B2)": 85.25,
+      "Technology": 100.0,
+      "BI DS": 0.0,
+      "Product": 66.67,
+      "Business Support": 0.0
+    },
+    "ttf_by": {
+      "Other Support": 26.4,
+      "Business (B1+B2)": 32.3,
+      "Technology": 1.0,
+      "BI DS": null,
+      "Product": 10.0,
+      "Business Support": null
     },
     "cph_by": {
       "Other Support": null,
       "Business (B1+B2)": null,
-      "Technology": null
+      "Technology": null,
+      "BI DS": null,
+      "Product": null,
+      "Business Support": null
     },
     "hike_by": {
-      "Other Support": 11.38,
-      "Business (B1+B2)": 18.66,
-      "Technology": -8.0
+      "Other Support": null,
+      "Business (B1+B2)": null,
+      "Technology": null,
+      "BI DS": null,
+      "Product": null,
+      "Business Support": null
     },
     "female_by": {
       "Other Support": 25.0,
       "Business (B1+B2)": 7.19,
-      "Product": 0.0,
       "Technology": 0.0,
-      "BI DS": 0.0
+      "BI DS": 0.0,
+      "Product": 0.0,
+      "Business Support": 0
     },
     "attrition_by": {
-      "Other Support": 2.8465,
-      "Business (B1+B2)": 1.3622,
-      "Technology": 3.4375,
-      "BI DS": 2.7397,
-      "Product": 5.2632,
+      "Other Support": 2.97,
+      "Business (B1+B2)": 1.42,
+      "Technology": 3.44,
+      "BI DS": 2.74,
+      "Product": 5.26,
       "Business Support": 0.0
     }
   },
@@ -105,6 +128,8 @@
     "b5": 3,
     "b6": 0,
     "b7": 0,
+    "new": 2,
+    "replacement": 0,
     "list": [
       {
         "name": "Sumit Sharma",
@@ -216,97 +241,121 @@
     "by_function": {
       "Other Support": 25.0,
       "Business (B1+B2)": 7.19,
-      "Product": 0.0,
       "Technology": 0.0,
-      "BI DS": 0.0
+      "BI DS": 0.0,
+      "Product": 0.0,
+      "Business Support": 0
     },
-    "data_rows": 178,
-    "note": "From Base-Live employee data \u2014 full coverage of 178 window joiners"
+    "data_rows": 178
   },
   "sourcing": {
     "overall": {
-      "Direct": 65.62,
-      "Referral": 10.94,
-      "Naukri-Headhunt": 9.38,
-      "Rehire": 4.69,
-      "Business Referral": 3.12,
-      "Consultant": 3.12,
-      "LinkedIn-Job Application": 1.56,
-      "Internal Movement": 1.56
+      "Direct": 56.25,
+      "Referral": 15.0,
+      "Naukri-Headhunt": 11.25,
+      "Consultant": 6.25,
+      "Rehire": 3.75,
+      "": 2.5,
+      "Business Referral": 2.5,
+      "Naukri-Job Application": 1.25,
+      "LinkedIn-Headhunt": 1.25
     },
     "by_function": {
       "Business": {
-        "inbound": 8.0,
-        "outbound": 14.0,
-        "n": 50
+        "inbound": 77.05,
+        "outbound": 21.31
       },
       "Support": {
-        "inbound": 16.67,
-        "outbound": 8.33,
-        "n": 12
+        "inbound": 80.0,
+        "outbound": 13.33
       },
       "T P BI DS": {
-        "inbound": 0.0,
-        "outbound": 0.0,
-        "n": 2
+        "inbound": 75.0,
+        "outbound": 0.0
       }
     },
     "by_function_detail": {
       "Business": {
-        "inbound_total": 8.0,
-        "outbound_total": 14.0,
+        "inbound_total": 77.05,
+        "outbound_total": 21.31,
         "inbound_channels": [
+          {
+            "name": "Direct",
+            "n": 35,
+            "pct": 57.38
+          },
+          {
+            "name": "Referral",
+            "n": 8,
+            "pct": 13.11
+          },
           {
             "name": "Rehire",
             "n": 3,
-            "pct": 6.0
+            "pct": 4.92
           },
           {
             "name": "Business Referral",
             "n": 1,
-            "pct": 2.0
+            "pct": 1.64
           }
         ],
         "outbound_channels": [
           {
             "name": "Naukri-Headhunt",
-            "n": 5,
-            "pct": 10.0
+            "n": 8,
+            "pct": 13.11
           },
           {
             "name": "Consultant",
-            "n": 2,
-            "pct": 4.0
+            "n": 5,
+            "pct": 8.2
           }
         ]
       },
       "Support": {
-        "inbound_total": 16.67,
-        "outbound_total": 8.33,
+        "inbound_total": 80.0,
+        "outbound_total": 13.33,
         "inbound_channels": [
           {
-            "name": "LinkedIn-Job Application",
-            "n": 1,
-            "pct": 8.33
+            "name": "Direct",
+            "n": 7,
+            "pct": 46.67
+          },
+          {
+            "name": "Referral",
+            "n": 4,
+            "pct": 26.67
           },
           {
             "name": "Business Referral",
             "n": 1,
-            "pct": 8.33
+            "pct": 6.67
           }
         ],
         "outbound_channels": [
           {
+            "name": "LinkedIn-Headhunt",
+            "n": 1,
+            "pct": 6.67
+          },
+          {
             "name": "Naukri-Headhunt",
             "n": 1,
-            "pct": 8.33
+            "pct": 6.67
           }
         ]
       },
       "T P BI DS": {
-        "inbound_total": 0.0,
+        "inbound_total": 75.0,
         "outbound_total": 0.0,
-        "inbound_channels": [],
+        "inbound_channels": [
+          {
+            "name": "Direct",
+            "n": 3,
+            "pct": 75.0
+          }
+        ],
         "outbound_channels": []
       }
     },
@@ -317,42 +366,34 @@
         "Employee Referral",
         "LinkedIn Job Applicant",
         "Naukri Job Applicant",
-        "Rehire"
+        "Rehire",
+        "Direct",
+        "Referral"
       ],
       "Outbound": [
         "Consultant",
         "LinkedIn Sourced",
         "Naukri Sourced",
-        "Instahyre Sourced",
         "University Campus",
-        "Acquire",
         "LinkedIn-Headhunt",
         "Naukri-Headhunt"
       ],
-      "note": "Computed from 64 JM-synced rows."
+      "note": "From Rocket Offers tab \u2014 80 offers in window."
     }
   },
   "drops": {
     "total": 38,
     "rate": 19.29,
-    "by_function": {
-      "Business (B1+B2)": 32,
-      "Other Support": 6,
-      "Product": 1,
-      "BI DS": 0,
-      "Technology": 0
-    },
-    "top_function": "Business"
+    "by_function": {},
+    "top_function": "\u2014"
   },
   "ta": {
-    "active": "\u2014",
+    "active": 16,
     "closed": 158,
     "ytj": 38,
-    "productivity": 10.5
+    "productivity": 4.0
   },
   "metrics_not_computable_for_window": {
-    "Time to Fill": "Need Requisition Open Date column (not in any sheet yet)",
-    "Avg TAT for Open Roles": "Same \u2014 needs Req Open Date",
-    "Open Reqs": "Needs Requisition tracker sheet"
+    "Variable CPH": "Actual_CPH still 0 in 64 JM-synced rows \u2014 Finance closes monthly"
   }
 }
