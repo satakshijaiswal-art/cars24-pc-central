@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "06 May 2026 \u00b7 14:14 IST",
+  "refreshed_at": "06 May 2026 \u00b7 14:22 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 06 May 2026 (11 days)",
   "window": {
     "start": "2026-04-26",
@@ -246,7 +246,15 @@
       "Product": 0.0,
       "Business Support": 0
     },
-    "data_rows": 178
+    "data_rows": 178,
+    "by_band": {
+      "B0": 33.33,
+      "B1": 13.21,
+      "B2": 5.0,
+      "B3": 14.29,
+      "B4": 0.0,
+      "B5": 0.0
+    }
   },
   "sourcing": {
     "overall": {
@@ -395,5 +403,83 @@
   },
   "metrics_not_computable_for_window": {
     "Variable CPH": "Actual_CPH still 0 in 64 JM-synced rows \u2014 Finance closes monthly"
+  },
+  "trends": {
+    "months": [
+      "Jan-26",
+      "Feb-26",
+      "Mar-26",
+      "Apr-26",
+      "26 Apr\u2192Today"
+    ],
+    "joinings": [
+      351,
+      340,
+      269,
+      232,
+      178
+    ],
+    "attrition": [
+      8.07,
+      11.75,
+      11.75,
+      18.96,
+      0.0
+    ]
+  },
+  "window_extras": {
+    "by_day": {
+      "27-Apr-26": 29,
+      "30-Apr-26": 37,
+      "1-May-26": 86,
+      "4-May-26": 26
+    },
+    "by_entity": {
+      "CSPL International": 6,
+      "CSPL": 162,
+      "CFSPL": 10
+    },
+    "top_recruiters": [
+      {
+        "name": "Nikita Bhatia",
+        "joinings": 15
+      },
+      {
+        "name": "Praveen Kumar B",
+        "joinings": 10
+      },
+      {
+        "name": "Banika Rana",
+        "joinings": 8
+      },
+      {
+        "name": "Bhawna Aggarwal",
+        "joinings": 6
+      },
+      {
+        "name": "Aayush Tyagi",
+        "joinings": 5
+      },
+      {
+        "name": "Samiksha Yadav",
+        "joinings": 4
+      },
+      {
+        "name": "shrishty",
+        "joinings": 4
+      },
+      {
+        "name": "Muskan Saini",
+        "joinings": 3
+      },
+      {
+        "name": "Aayush Kharkwal",
+        "joinings": 3
+      },
+      {
+        "name": "Manvi Arora",
+        "joinings": 2
+      }
+    ]
   }
 }
