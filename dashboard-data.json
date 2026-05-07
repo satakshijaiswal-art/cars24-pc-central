@@ -1,94 +1,91 @@
 {
-  "refreshed_at": "07 May 2026 \u00b7 13:25 IST",
-  "period_label": "Window: 26 Apr 2026 \u2014 06 May 2026 (11 days)",
+  "refreshed_at": "07 May 2026 \u00b7 21:54 IST",
+  "period_label": "Window: 26 Apr 2026 \u2014 07 May 2026 (12 days)",
   "window": {
     "start": "2026-04-26",
-    "end": "2026-05-06",
-    "days": 11
+    "end": "2026-05-07",
+    "days": 12
   },
   "data_sources": {
-    "v3_candidates": 197,
+    "v3_candidates": 0,
     "base_joiners": 178,
-    "base_exits": 125,
-    "base_active_hc": 6779,
-    "jm_synced": 64,
-    "rocket_offers_window": 80,
-    "rocket_open_reqs": 16
+    "base_exits": 139,
+    "base_active_hc": 6766,
+    "jm_synced": 178,
+    "rocket_offers_window": 84,
+    "rocket_open_reqs": 0
   },
-  "data_coverage_note": "Joinings: 178 (Base-Live). OTJ: 68/80 from Rocket Offers, V3 cross-check 158/197. TTF/Open Reqs from Rocket Offers tab. CTC/CPH/Hike from JM cohort 64. Window auto-rolls daily \u2014 end = today (IST).",
+  "data_coverage_note": "Joinings: 178 (Base-Live). OTJ: 68/84 from Rocket Offers, V3 cross-check 0/0. TTF/Open Reqs from Rocket Offers tab. CTC/CPH/Hike from JM cohort 178. Window auto-rolls daily \u2014 end = today (IST).",
   "overview": {
     "joinings": 178,
-    "joinings_total_candidates": 197,
-    "drops": 38,
-    "drop_rate": 19.29,
-    "otj": 85.0,
+    "joinings_total_candidates": 0,
+    "drops": 0,
+    "drop_rate": 0,
+    "otj": 0,
+    "otj_v3_consistent": 0,
+    "otj_ro_consistent": 80.95,
+    "otj_base_to_v3": 0,
     "attrition_30d": 0.0,
-    "overall_attrition_window": 1.885,
-    "annualised_attrition": 61.18,
-    "exits_in_window": 129,
-    "active_hc": 6779,
-    "cph": null,
-    "cph_data_rows": 0,
-    "hike": 16.85,
-    "hike_data_rows": 47,
-    "ttf": 30.1,
-    "ttf_data_rows": 68,
+    "overall_attrition_window": 2.0335,
+    "overall_attrition_monthly_projected": 5.08,
+    "exits_in_window": 139,
+    "active_hc": 6766,
+    "cph": 5556.0,
+    "cph_data_rows": 9,
+    "cph_note": null,
+    "hike": 6.81,
+    "hike_data_rows": 149,
+    "hike_note": "Based on 149 of 178 joiners (only those synced to JM)",
+    "ttf": null,
+    "ttf_data_rows": 0,
+    "ttf_note": "Based on 0 of 178 joiners (from Rocket Offers tab)",
     "tat": 65.2,
     "tat_data_rows": 16,
-    "open_reqs": 16,
-    "senior_b4_plus": 11,
-    "senior_new": 2,
+    "open_reqs": 0,
+    "senior_b4_plus": 0,
+    "senior_new": 0,
     "senior_replacement": 0,
     "productivity": 10.5,
-    "active_recruiters": 17,
-    "overall_attrition_monthly_projected": 4.71
+    "active_recruiters": 17
   },
   "functionTable": {
     "joinings_by": {
-      "Other Support": 20,
+      "Other Support": 19,
       "Business (B1+B2)": 153,
       "Product": 1,
       "Technology": 1,
-      "BI DS": 3
+      "BI DS": 4
     },
     "active_hc_by": {
-      "Other Support": 807,
-      "Business (B1+B2)": 5500,
+      "Other Support": 802,
+      "Business (B1+B2)": 5492,
       "Technology": 319,
       "BI DS": 72,
       "Product": 76,
       "Business Support": 5
     },
     "exits_by": {
-      "Other Support": 26,
-      "Business (B1+B2)": 82,
+      "Other Support": 28,
+      "Business (B1+B2)": 92,
       "Product": 4,
-      "BI DS": 2,
-      "Technology": 11
+      "BI DS": 3,
+      "Technology": 12
     },
-    "drops_by": {
-      "Other Support": 0,
-      "Business (B1+B2)": 0,
-      "Technology": 0,
-      "BI DS": 0,
-      "Product": 0,
-      "Business Support": 0
-    },
+    "drops_by": {},
     "otj_by": {
-      "Other Support": 86.67,
-      "Business (B1+B2)": 85.25,
       "Technology": 100.0,
-      "BI DS": 0.0,
-      "Product": 66.67,
-      "Business Support": 0.0
+      "Other Support": 100.0,
+      "Product": 100.0,
+      "Business (B1+B2)": 100.0,
+      "BI DS": 100.0
     },
     "ttf_by": {
-      "Other Support": 26.4,
-      "Business (B1+B2)": 32.3,
-      "Technology": 1.0,
+      "Business (B1+B2)": null,
+      "Business Support": null,
+      "Product": null,
+      "Technology": null,
       "BI DS": null,
-      "Product": 10.0,
-      "Business Support": null
+      "Other Support": null
     },
     "cph_by": {
       "Other Support": null,
@@ -107,131 +104,28 @@
       "Business Support": null
     },
     "female_by": {
-      "Other Support": 25.0,
+      "Other Support": 26.32,
       "Business (B1+B2)": 7.19,
-      "Technology": 0.0,
-      "BI DS": 0.0,
       "Product": 0.0,
-      "Business Support": 0
+      "Technology": 0.0,
+      "BI DS": 0.0
     },
     "attrition_by": {
-      "Business (B1+B2)": 1.5455,
+      "Business (B1+B2)": 1.6752,
       "Business Support": 0.0,
       "Product": 5.2632,
       "Technology": 3.7618,
-      "BI DS": 2.7778,
-      "Other Support": 3.2218
+      "BI DS": 4.1667,
+      "Other Support": 3.4913
     }
   },
   "leadership": {
-    "total": 11,
-    "b4": 2,
+    "total": 0,
+    "b4": 0,
     "b5": 0,
     "b6": 0,
     "b7": 0,
-    "new": 2,
-    "replacement": 0,
-    "list": [
-      {
-        "name": "Sumit Sharma",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Product Management",
-        "entity": "CSPL",
-        "doj": "27-Apr-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Yugesh Kumar",
-        "band": "B5",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Able Ambal Cherry",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Refurb",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Saurav Kumar Singh",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Vignesh Ramalingam",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Vinu V",
-        "band": "B5",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Vedant Pagare",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Sudhir Kumar Surendranath Pandey",
-        "band": "B5",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Utkarsh Mishra",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Rajyaguru Chintan",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Aditya Mahesh Venuthurupalli",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      }
-    ]
+    "list": []
   },
   "diversity": {
     "total": 178,
@@ -240,14 +134,12 @@
     "female_pct": 8.99,
     "male_pct": 91.01,
     "by_function": {
-      "Other Support": 25.0,
+      "Other Support": 26.32,
       "Business (B1+B2)": 7.19,
-      "Technology": 0.0,
-      "BI DS": 0.0,
       "Product": 0.0,
-      "Business Support": 0
+      "Technology": 0.0,
+      "BI DS": 0.0
     },
-    "data_rows": 178,
     "by_band": {
       "B0": 33.33,
       "B1": 13.21,
@@ -255,116 +147,92 @@
       "B3": 14.29,
       "B4": 0.0,
       "B5": 0.0
-    }
+    },
+    "data_rows": 178
   },
   "sourcing": {
     "overall": {
-      "Direct": 56.25,
-      "Referral": 15.0,
-      "Naukri-Headhunt": 11.25,
-      "Consultant": 6.25,
-      "Rehire": 3.75,
-      "": 2.5,
-      "Business Referral": 2.5,
-      "Naukri-Job Application": 1.25,
-      "LinkedIn-Headhunt": 1.25
+      "Direct": 82.02,
+      "Naukri-Headhunt": 5.62,
+      "Referral": 5.06,
+      "Rehire": 2.25,
+      "Business Referral": 1.69,
+      "Consultant": 1.12,
+      "LinkedIn-Job Application": 0.56,
+      "Internal Movement": 0.56,
+      "Naukri-Job Application": 0.56,
+      "Intern to Permanent": 0.56
     },
     "by_function": {
       "Business": {
-        "inbound": 77.05,
-        "outbound": 21.31
+        "inbound": 3.9,
+        "outbound": 5.84
       },
       "Support": {
-        "inbound": 80.0,
-        "outbound": 13.33
+        "inbound": 9.09,
+        "outbound": 13.64
       },
       "T P BI DS": {
-        "inbound": 75.0,
+        "inbound": 0.0,
         "outbound": 0.0
       }
     },
     "by_function_detail": {
       "Business": {
-        "inbound_total": 77.05,
-        "outbound_total": 21.31,
+        "inbound_total": 3.9,
+        "outbound_total": 5.84,
         "inbound_channels": [
           {
-            "name": "Direct",
-            "n": 35,
-            "pct": 57.38
-          },
-          {
-            "name": "Referral",
-            "n": 8,
-            "pct": 13.11
-          },
-          {
             "name": "Rehire",
-            "n": 3,
-            "pct": 4.92
+            "n": 4,
+            "pct": 2.6
           },
           {
             "name": "Business Referral",
-            "n": 1,
-            "pct": 1.64
+            "n": 2,
+            "pct": 1.3
           }
         ],
         "outbound_channels": [
           {
             "name": "Naukri-Headhunt",
-            "n": 8,
-            "pct": 13.11
+            "n": 7,
+            "pct": 4.55
           },
           {
             "name": "Consultant",
-            "n": 5,
-            "pct": 8.2
+            "n": 2,
+            "pct": 1.3
           }
         ]
       },
       "Support": {
-        "inbound_total": 80.0,
-        "outbound_total": 13.33,
+        "inbound_total": 9.09,
+        "outbound_total": 13.64,
         "inbound_channels": [
           {
-            "name": "Direct",
-            "n": 7,
-            "pct": 46.67
-          },
-          {
-            "name": "Referral",
-            "n": 4,
-            "pct": 26.67
+            "name": "LinkedIn-Job Application",
+            "n": 1,
+            "pct": 4.55
           },
           {
             "name": "Business Referral",
             "n": 1,
-            "pct": 6.67
+            "pct": 4.55
           }
         ],
         "outbound_channels": [
           {
-            "name": "LinkedIn-Headhunt",
-            "n": 1,
-            "pct": 6.67
-          },
-          {
             "name": "Naukri-Headhunt",
-            "n": 1,
-            "pct": 6.67
+            "n": 3,
+            "pct": 13.64
           }
         ]
       },
       "T P BI DS": {
-        "inbound_total": 75.0,
+        "inbound_total": 0.0,
         "outbound_total": 0.0,
-        "inbound_channels": [
-          {
-            "name": "Direct",
-            "n": 3,
-            "pct": 75.0
-          }
-        ],
+        "inbound_channels": [],
         "outbound_channels": []
       }
     },
@@ -375,35 +243,32 @@
         "Employee Referral",
         "LinkedIn Job Applicant",
         "Naukri Job Applicant",
-        "Rehire",
-        "Direct",
-        "Referral"
+        "Rehire"
       ],
       "Outbound": [
         "Consultant",
         "LinkedIn Sourced",
         "Naukri Sourced",
+        "Instahyre Sourced",
         "University Campus",
+        "Acquire",
         "LinkedIn-Headhunt",
         "Naukri-Headhunt"
       ],
-      "note": "From Rocket Offers tab \u2014 80 offers in window."
+      "note": "Window 26 Apr \u2192 07 May 2026 \u00b7 178 JM-synced rows."
     }
   },
   "drops": {
-    "total": 38,
-    "rate": 19.29,
+    "total": 0,
+    "rate": 0,
     "by_function": {},
     "top_function": "\u2014"
   },
   "ta": {
-    "active": 16,
-    "closed": 158,
-    "ytj": 38,
-    "productivity": 4.0
-  },
-  "metrics_not_computable_for_window": {
-    "Variable CPH": "Actual_CPH still 0 in 64 JM-synced rows \u2014 Finance closes monthly"
+    "active": 0,
+    "closed": 178,
+    "ytj": 0,
+    "productivity": 10.5
   },
   "trends": {
     "months": [
@@ -411,7 +276,7 @@
       "Feb-26",
       "Mar-26",
       "Apr-26",
-      "26 Apr\u2192Today"
+      "26 Apr\u219207 May"
     ],
     "joinings": [
       351,
@@ -425,8 +290,9 @@
       11.75,
       11.75,
       18.96,
-      0.0
-    ]
+      5.08
+    ],
+    "attrition_label": "Monthly attrition % (window value is projected to monthly equivalent)"
   },
   "window_extras": {
     "by_day": {
@@ -442,27 +308,27 @@
     },
     "top_recruiters": [
       {
-        "name": "Nikita Bhatia",
+        "name": "nikita bhatia",
         "joinings": 15
       },
       {
-        "name": "Praveen Kumar B",
+        "name": "praveen kumar b",
         "joinings": 10
       },
       {
-        "name": "Banika Rana",
+        "name": "banika rana",
         "joinings": 8
       },
       {
-        "name": "Bhawna Aggarwal",
+        "name": "bhawna aggarwal",
         "joinings": 6
       },
       {
-        "name": "Aayush Tyagi",
+        "name": "aayush tyagi",
         "joinings": 5
       },
       {
-        "name": "Samiksha Yadav",
+        "name": "samiksha yadav",
         "joinings": 4
       },
       {
@@ -470,17 +336,40 @@
         "joinings": 4
       },
       {
-        "name": "Muskan Saini",
+        "name": "muskan saini",
         "joinings": 3
       },
       {
-        "name": "Aayush Kharkwal",
+        "name": "aayush kharkwal",
         "joinings": 3
       },
       {
-        "name": "Manvi Arora",
+        "name": "manvi arora",
         "joinings": 2
+      },
+      {
+        "name": "devash arora",
+        "joinings": 2
+      },
+      {
+        "name": "ujjawal gupta",
+        "joinings": 2
+      },
+      {
+        "name": "deepanshi",
+        "joinings": 1
+      },
+      {
+        "name": "pradeep kumar",
+        "joinings": 1
+      },
+      {
+        "name": "deepak gowri",
+        "joinings": 1
       }
     ]
+  },
+  "metrics_not_computable_for_window": {
+    "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
   }
 }
