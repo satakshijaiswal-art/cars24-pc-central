@@ -7,7 +7,7 @@
     "days": 12
   },
   "data_sources": {
-    "v3_candidates": 0,
+    "v3_candidates": 244,
     "base_joiners": 178,
     "base_exits": 139,
     "base_active_hc": 6766,
@@ -15,16 +15,16 @@
     "rocket_offers_window": 84,
     "rocket_open_reqs": 0
   },
-  "data_coverage_note": "Joinings: 178 (Base-Live). OTJ: 68/84 from Rocket Offers, V3 cross-check 0/0. TTF/Open Reqs from Rocket Offers tab. CTC/CPH/Hike from JM cohort 178. Window auto-rolls daily \u2014 end = today (IST).",
+  "data_coverage_note": "Joinings: 178 (Base-Live). OTJ: 68/84 from Rocket Offers, V3 cross-check 192/244. TTF/Open Reqs from Rocket Offers tab. CTC/CPH/Hike from JM cohort 178. Window auto-rolls daily \u2014 end = today (IST).",
   "overview": {
     "joinings": 178,
-    "joinings_total_candidates": 0,
-    "drops": 0,
-    "drop_rate": 0,
-    "otj": 0,
-    "otj_v3_consistent": 0,
+    "joinings_total_candidates": 244,
+    "drops": 51,
+    "drop_rate": 20.9,
+    "otj": 78.69,
+    "otj_v3_consistent": 78.69,
     "otj_ro_consistent": 80.95,
-    "otj_base_to_v3": 0,
+    "otj_base_to_v3": 72.95,
     "attrition_30d": 0.0,
     "overall_attrition_window": 2.0335,
     "overall_attrition_monthly_projected": 5.08,
@@ -42,8 +42,8 @@
     "tat": 65.2,
     "tat_data_rows": 16,
     "open_reqs": 0,
-    "senior_b4_plus": 0,
-    "senior_new": 0,
+    "senior_b4_plus": 10,
+    "senior_new": 10,
     "senior_replacement": 0,
     "productivity": 10.5,
     "active_recruiters": 17
@@ -71,13 +71,16 @@
       "BI DS": 3,
       "Technology": 12
     },
-    "drops_by": {},
+    "drops_by": {
+      "Business (B1+B2)": 44,
+      "Other Support": 7
+    },
     "otj_by": {
       "Technology": 100.0,
-      "Other Support": 100.0,
-      "Product": 100.0,
-      "Business (B1+B2)": 100.0,
-      "BI DS": 100.0
+      "BI DS": 100.0,
+      "Business (B1+B2)": 77.66,
+      "Other Support": 73.08,
+      "Product": 100.0
     },
     "ttf_by": {
       "Business (B1+B2)": null,
@@ -120,12 +123,93 @@
     }
   },
   "leadership": {
-    "total": 0,
-    "b4": 0,
-    "b5": 0,
+    "total": 10,
+    "b4": 7,
+    "b5": 3,
     "b6": 0,
     "b7": 0,
-    "list": []
+    "list": [
+      {
+        "name": "Yugesh Kumar",
+        "band": "B5",
+        "designation": "Director",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Able Ambal Cherry",
+        "band": "B4",
+        "designation": "General Manager",
+        "function": "Refurb",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Saurav Kumar Singh",
+        "band": "B4",
+        "designation": "General Manager",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Vignesh Ramalingam",
+        "band": "B4",
+        "designation": "Senior General Manager",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Vinu V",
+        "band": "B5",
+        "designation": "Associate Director",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Vedant Vinay Kumar Pagare",
+        "band": "B4",
+        "designation": "Senior General Manager",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Sudhir Kumar Surendranath Pandey",
+        "band": "B5",
+        "designation": "Associate Director",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Utkarsh Mishra",
+        "band": "B4",
+        "designation": "Assistant General Manager",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "01-May-26"
+      },
+      {
+        "name": "Kartik Ahuja",
+        "band": "B4",
+        "designation": "General Manager",
+        "function": "Marketing",
+        "entity": "CSPL_INTERNATIONAL",
+        "doj": "30-Apr-26"
+      },
+      {
+        "name": "Sumit Sharma",
+        "band": "B4",
+        "designation": "Lead Product Designer",
+        "function": "Product Management",
+        "entity": "CSPL",
+        "doj": "27-Apr-26"
+      }
+    ]
   },
   "diversity": {
     "total": 178,
@@ -259,15 +343,18 @@
     }
   },
   "drops": {
-    "total": 0,
-    "rate": 0,
-    "by_function": {},
-    "top_function": "\u2014"
+    "total": 51,
+    "rate": 20.9,
+    "by_function": {
+      "Business (B1+B2)": 44,
+      "Other Support": 7
+    },
+    "top_function": "Business (B1+B2)"
   },
   "ta": {
     "active": 0,
     "closed": 178,
-    "ytj": 0,
+    "ytj": 51,
     "productivity": 10.5
   },
   "trends": {
@@ -308,15 +395,51 @@
     },
     "top_recruiters": [
       {
+        "name": "priyanka.khanna1",
+        "joinings": 63
+      },
+      {
         "name": "nikita bhatia",
         "joinings": 15
+      },
+      {
+        "name": "aayush.tyagi",
+        "joinings": 13
+      },
+      {
+        "name": "devansh.arora1",
+        "joinings": 12
+      },
+      {
+        "name": "b.kumar",
+        "joinings": 11
+      },
+      {
+        "name": "banika.rana",
+        "joinings": 11
       },
       {
         "name": "praveen kumar b",
         "joinings": 10
       },
       {
+        "name": "bhawna.aggarwal",
+        "joinings": 9
+      },
+      {
+        "name": "nikita.bhatia1",
+        "joinings": 9
+      },
+      {
+        "name": "deepanshi.1",
+        "joinings": 9
+      },
+      {
         "name": "banika rana",
+        "joinings": 8
+      },
+      {
+        "name": "samiksha.yadav",
         "joinings": 8
       },
       {
@@ -324,48 +447,12 @@
         "joinings": 6
       },
       {
+        "name": "aayush.kharkwal",
+        "joinings": 6
+      },
+      {
         "name": "aayush tyagi",
         "joinings": 5
-      },
-      {
-        "name": "samiksha yadav",
-        "joinings": 4
-      },
-      {
-        "name": "shrishty",
-        "joinings": 4
-      },
-      {
-        "name": "muskan saini",
-        "joinings": 3
-      },
-      {
-        "name": "aayush kharkwal",
-        "joinings": 3
-      },
-      {
-        "name": "manvi arora",
-        "joinings": 2
-      },
-      {
-        "name": "devash arora",
-        "joinings": 2
-      },
-      {
-        "name": "ujjawal gupta",
-        "joinings": 2
-      },
-      {
-        "name": "deepanshi",
-        "joinings": 1
-      },
-      {
-        "name": "pradeep kumar",
-        "joinings": 1
-      },
-      {
-        "name": "deepak gowri",
-        "joinings": 1
       }
     ]
   },
