@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "07 May 2026 \u00b7 21:54 IST",
+  "refreshed_at": "07 May 2026 \u00b7 21:57 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 07 May 2026 (12 days)",
   "window": {
     "start": "2026-04-26",
@@ -76,11 +76,11 @@
       "Other Support": 7
     },
     "otj_by": {
-      "Technology": 100.0,
-      "BI DS": 100.0,
       "Business (B1+B2)": 77.66,
-      "Other Support": 73.08,
-      "Product": 100.0
+      "Technology": 100.0,
+      "Product": 100.0,
+      "BI DS": 100.0,
+      "Other Support": 73.08
     },
     "ttf_by": {
       "Business (B1+B2)": null,
