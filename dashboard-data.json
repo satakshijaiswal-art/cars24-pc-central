@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "07 May 2026 \u00b7 22:06 IST",
+  "refreshed_at": "07 May 2026 \u00b7 22:11 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 07 May 2026 (12 days)",
   "window": {
     "start": "2026-04-26",
@@ -77,11 +77,11 @@
       "Other Support": 7
     },
     "otj_by": {
-      "Product": 100.0,
       "Other Support": 73.08,
       "Technology": 100.0,
+      "BI DS": 100.0,
       "Business (B1+B2)": 77.66,
-      "BI DS": 100.0
+      "Product": 100.0
     },
     "ttf_by": {
       "Business (B1+B2)": 38.0,
@@ -348,7 +348,11 @@
     "rate": 20.9,
     "by_function": {
       "Business (B1+B2)": 44,
-      "Other Support": 7
+      "Other Support": 7,
+      "Business Support": 0,
+      "Product": 0,
+      "Technology": 0,
+      "BI DS": 0
     },
     "top_function": "Business (B1+B2)"
   },
@@ -384,10 +388,18 @@
   },
   "window_extras": {
     "by_day": {
+      "26-Apr-26": 0,
       "27-Apr-26": 29,
+      "28-Apr-26": 0,
+      "29-Apr-26": 0,
       "30-Apr-26": 37,
       "1-May-26": 86,
-      "4-May-26": 26
+      "2-May-26": 0,
+      "3-May-26": 0,
+      "4-May-26": 26,
+      "5-May-26": 0,
+      "6-May-26": 0,
+      "7-May-26": 0
     },
     "by_entity": {
       "CSPL International": 6,
@@ -459,5 +471,277 @@
   },
   "metrics_not_computable_for_window": {
     "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
-  }
+  },
+  "tech": {
+    "tech_hc": 252,
+    "product_hc": 81,
+    "cost_per_month": 820,
+    "open_roles": 10,
+    "backend": {
+      "sde1": 75,
+      "sde2": 14,
+      "sde3": 11
+    },
+    "frontend": {
+      "sde1": 49,
+      "sde2": 27,
+      "sde3": 24
+    },
+    "mobile": {
+      "sde1": 48,
+      "sde2": 28,
+      "sde3": 24
+    },
+    "note": "Tech & Product values from April deck \u2014 to wire to live sheet next."
+  },
+  "glassdoor": {
+    "rating": 4.2,
+    "recommend": 77,
+    "ceo": 84,
+    "outlook": 80,
+    "note": "From last Glassdoor scrape via glassdoor-reviews-bot."
+  },
+  "attrition": {
+    "overall": 5.08,
+    "overall_window_raw": 2.0335,
+    "overall_total_exits": 139,
+    "overall_active_hc": 6766,
+    "high": [
+      {
+        "func": "Product",
+        "pct": 5.2632
+      },
+      {
+        "func": "BI DS",
+        "pct": 4.1667
+      }
+    ],
+    "low": [
+      {
+        "func": "Business (B1+B2)",
+        "pct": 1.6752
+      },
+      {
+        "func": "Business Support",
+        "pct": 0.0
+      }
+    ],
+    "drivers": [
+      {
+        "theme": "Business Conditions",
+        "count": 36,
+        "pct": 25.9
+      },
+      {
+        "theme": "Better Opportunity",
+        "count": 35,
+        "pct": 25.2
+      },
+      {
+        "theme": "Personal Reasons",
+        "count": 34,
+        "pct": 24.5
+      },
+      {
+        "theme": "Internship Completion",
+        "count": 8,
+        "pct": 5.8
+      },
+      {
+        "theme": "Absconding",
+        "count": 7,
+        "pct": 5.0
+      },
+      {
+        "theme": "Job Dissatisfaction",
+        "count": 5,
+        "pct": 3.6
+      },
+      {
+        "theme": "Code of Conduct",
+        "count": 3,
+        "pct": 2.2
+      },
+      {
+        "theme": "Performance Issues",
+        "count": 2,
+        "pct": 1.4
+      }
+    ],
+    "exit_types": {
+      "Involuntary": 43,
+      "Voluntary": 96
+    },
+    "note": "Window 26 Apr\u201307 May: 139 exits across 6766 active employees. Monthly-projected to 5.08%."
+  },
+  "automation": [
+    {
+      "name": "morning-brief",
+      "replaces": "Daily exec pipeline brief",
+      "cadence": "Daily 9am",
+      "status": "LIVE",
+      "last_run": "Today",
+      "next_run": "Tomorrow"
+    },
+    {
+      "name": "reply-radar",
+      "replaces": "Slack/email reply triage",
+      "cadence": "2pm + 7pm",
+      "status": "LIVE",
+      "last_run": "Today",
+      "next_run": "Today"
+    },
+    {
+      "name": "meeting-reminder-bot",
+      "replaces": "10-min pre-meeting pings",
+      "cadence": "Every 5 min",
+      "status": "LIVE",
+      "last_run": "Just now",
+      "next_run": "5 min"
+    },
+    {
+      "name": "interview-feedback-bot",
+      "replaces": "Auto-rejection emails",
+      "cadence": "Daily 9:15",
+      "status": "LIVE",
+      "last_run": "Today",
+      "next_run": "Tomorrow"
+    },
+    {
+      "name": "interview-scheduler",
+      "replaces": "Senior calendar invites",
+      "cadence": "Event-driven",
+      "status": "LIVE",
+      "last_run": "\u2014",
+      "next_run": "\u2014"
+    },
+    {
+      "name": "cto-outreach",
+      "replaces": "CTO/VP Eng sourcing",
+      "cadence": "Daily",
+      "status": "LIVE",
+      "last_run": "Today",
+      "next_run": "Tomorrow"
+    },
+    {
+      "name": "product-head-outreach",
+      "replaces": "CPO/VP Product sourcing",
+      "cadence": "Daily",
+      "status": "LIVE",
+      "last_run": "Today",
+      "next_run": "Tomorrow"
+    },
+    {
+      "name": "monthly-founder-update",
+      "replaces": "Monthly Vikram update",
+      "cadence": "Monthly 25th",
+      "status": "LIVE",
+      "last_run": "\u2014",
+      "next_run": "25 May"
+    },
+    {
+      "name": "new-joiner-experience",
+      "replaces": "5-customer onboarding",
+      "cadence": "Tue + Fri 10am",
+      "status": "LIVE",
+      "last_run": "\u2014",
+      "next_run": "\u2014"
+    },
+    {
+      "name": "bday-anniversary-bot",
+      "replaces": "Birthdays + 5/10-yr milestones",
+      "cadence": "Daily 9am",
+      "status": "LIVE",
+      "last_run": "Today",
+      "next_run": "Tomorrow"
+    },
+    {
+      "name": "glassdoor-reviews-bot",
+      "replaces": "Glassdoor auto-replies",
+      "cadence": "Daily",
+      "status": "LIVE",
+      "last_run": "Today",
+      "next_run": "Tomorrow"
+    },
+    {
+      "name": "certificate-ppt-generator",
+      "replaces": "Award certificates",
+      "cadence": "On demand",
+      "status": "LIVE",
+      "last_run": "\u2014",
+      "next_run": "\u2014"
+    },
+    {
+      "name": "pc-monthly-mis",
+      "replaces": "Monthly P&C deck",
+      "cadence": "Monthly 24th",
+      "status": "LIVE",
+      "last_run": "\u2014",
+      "next_run": "24 May"
+    },
+    {
+      "name": "ta-pipeline-tracker",
+      "replaces": "Weekly TA review",
+      "cadence": "Mon 9:30am",
+      "status": "LIVE",
+      "last_run": "\u2014",
+      "next_run": "Next Mon"
+    },
+    {
+      "name": "ytj-nudge",
+      "replaces": "Yet-to-join chase",
+      "cadence": "Mon + Thu 11am",
+      "status": "LIVE",
+      "last_run": "\u2014",
+      "next_run": "\u2014"
+    },
+    {
+      "name": "flight-risk-pulse",
+      "replaces": "ATL signal sweep",
+      "cadence": "Fri 4pm",
+      "status": "LIVE",
+      "last_run": "\u2014",
+      "next_run": "Next Fri"
+    },
+    {
+      "name": "exit-interview-synth",
+      "replaces": "Exit theme synthesis",
+      "cadence": "Monthly 25th",
+      "status": "LIVE",
+      "last_run": "\u2014",
+      "next_run": "25 May"
+    },
+    {
+      "name": "darwin-ticket-router",
+      "replaces": "199 IT/asset tickets/month",
+      "cadence": "Weekday 10am",
+      "status": "LIVE",
+      "last_run": "Today",
+      "next_run": "Tomorrow"
+    },
+    {
+      "name": "offer-drop-tracker",
+      "replaces": "Offer-drop classification",
+      "cadence": "Wed 11am",
+      "status": "LIVE",
+      "last_run": "\u2014",
+      "next_run": "Next Wed"
+    },
+    {
+      "name": "tech-hc-tracker",
+      "replaces": "POD HC + cost",
+      "cadence": "Monthly 1st",
+      "status": "LIVE",
+      "last_run": "\u2014",
+      "next_run": "1 Jun"
+    },
+    {
+      "name": "dashboard-refresh",
+      "replaces": "Live data pull every 2 hrs",
+      "cadence": "Every 2 hrs cron",
+      "status": "LIVE",
+      "last_run": "Just now",
+      "next_run": "2 hrs"
+    }
+  ]
 }
