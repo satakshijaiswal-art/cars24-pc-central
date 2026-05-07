@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "06 May 2026 \u00b7 14:24 IST",
+  "refreshed_at": "07 May 2026 \u00b7 13:25 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 06 May 2026 (11 days)",
   "window": {
     "start": "2026-04-26",
@@ -23,9 +23,9 @@
     "drop_rate": 19.29,
     "otj": 85.0,
     "attrition_30d": 0.0,
-    "overall_attrition_window": 1.84,
+    "overall_attrition_window": 1.885,
     "annualised_attrition": 61.18,
-    "exits_in_window": 125,
+    "exits_in_window": 129,
     "active_hc": 6779,
     "cph": null,
     "cph_data_rows": 0,
@@ -39,8 +39,9 @@
     "senior_b4_plus": 11,
     "senior_new": 2,
     "senior_replacement": 0,
-    "productivity": 4.0,
-    "active_recruiters": 17
+    "productivity": 10.5,
+    "active_recruiters": 17,
+    "overall_attrition_monthly_projected": 4.71
   },
   "functionTable": {
     "joinings_by": {
@@ -114,12 +115,12 @@
       "Business Support": 0
     },
     "attrition_by": {
-      "Other Support": 3.22,
-      "Business (B1+B2)": 1.49,
-      "Technology": 3.45,
-      "BI DS": 2.78,
-      "Product": 5.26,
-      "Business Support": 0.0
+      "Business (B1+B2)": 1.5455,
+      "Business Support": 0.0,
+      "Product": 5.2632,
+      "Technology": 3.7618,
+      "BI DS": 2.7778,
+      "Other Support": 3.2218
     }
   },
   "leadership": {
