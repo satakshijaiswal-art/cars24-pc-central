@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "07 May 2026 \u00b7 22:20 IST",
+  "refreshed_at": "07 May 2026 \u00b7 22:22 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 07 May 2026 (12 days)",
   "window": {
     "start": "2026-04-26",
@@ -77,8 +77,8 @@
       "Other Support": 7
     },
     "otj_by": {
-      "Business (B1+B2)": 77.66,
       "Other Support": 73.08,
+      "Business (B1+B2)": 77.66,
       "Technology": 100.0,
       "Product": 100.0,
       "BI DS": 100.0
@@ -473,26 +473,26 @@
     "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
   },
   "tech": {
-    "tech_hc": 0,
+    "tech_hc": 214,
     "product_hc": 0,
-    "cost_per_month": 0.0,
-    "open_roles": 0,
+    "cost_per_month": 526.0,
+    "open_roles": 25,
     "backend": {
-      "sde1": 0,
-      "sde2": 0,
-      "sde3": 0
+      "sde1": 75.4,
+      "sde2": 13.8,
+      "sde3": 10.9
     },
     "frontend": {
-      "sde1": 0,
-      "sde2": 0,
-      "sde3": 0
+      "sde1": 48.6,
+      "sde2": 27.0,
+      "sde3": 24.3
     },
     "mobile": {
       "sde1": 0,
       "sde2": 0,
       "sde3": 0
     },
-    "note": "Live from Tech & Product sheet \u00b7 0 HC current + 0 offered"
+    "note": "Live from Tech & Product sheet \u00b7 214 HC current + 2 offered"
   },
   "glassdoor": {
     "rating": 4.2,
