@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "07 May 2026 \u00b7 21:57 IST",
+  "refreshed_at": "07 May 2026 \u00b7 22:05 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 07 May 2026 (12 days)",
   "window": {
     "start": "2026-04-26",
@@ -36,17 +36,18 @@
     "hike": 6.81,
     "hike_data_rows": 149,
     "hike_note": "Based on 149 of 178 joiners (only those synced to JM)",
-    "ttf": null,
-    "ttf_data_rows": 0,
-    "ttf_note": "Based on 0 of 178 joiners (from Rocket Offers tab)",
-    "tat": 65.2,
-    "tat_data_rows": 16,
-    "open_reqs": 0,
+    "ttf": 34.6,
+    "ttf_data_rows": 84,
+    "ttf_note": "Based on 84 of 178 window joiners (using RO 'Days' column)",
+    "tat": 416.4,
+    "tat_data_rows": 531,
+    "open_reqs": 531,
     "senior_b4_plus": 10,
     "senior_new": 10,
     "senior_replacement": 0,
     "productivity": 10.5,
-    "active_recruiters": 17
+    "active_recruiters": 17,
+    "tat_note": "Avg(today - REQ Start Date) for 531 open requisitions"
   },
   "functionTable": {
     "joinings_by": {
@@ -83,12 +84,11 @@
       "Other Support": 73.08
     },
     "ttf_by": {
-      "Business (B1+B2)": null,
+      "Business (B1+B2)": 47.8,
+      "Other Support": 25.3,
+      "Product": 17.3,
       "Business Support": null,
-      "Product": null,
-      "Technology": null,
-      "BI DS": null,
-      "Other Support": null
+      "BI DS": null
     },
     "cph_by": {
       "Other Support": null,
@@ -395,63 +395,63 @@
     },
     "top_recruiters": [
       {
-        "name": "priyanka.khanna1",
+        "name": "Priyanka Khanna",
         "joinings": 63
       },
       {
-        "name": "nikita bhatia",
+        "name": "Nikita Bhatia",
         "joinings": 15
       },
       {
-        "name": "aayush.tyagi",
+        "name": "Aayush Tyagi",
         "joinings": 13
       },
       {
-        "name": "devansh.arora1",
+        "name": "Devansh Arora",
         "joinings": 12
       },
       {
-        "name": "b.kumar",
+        "name": "B Kumar",
         "joinings": 11
       },
       {
-        "name": "banika.rana",
+        "name": "Banika Rana",
         "joinings": 11
       },
       {
-        "name": "praveen kumar b",
+        "name": "Praveen Kumar B",
         "joinings": 10
       },
       {
-        "name": "bhawna.aggarwal",
+        "name": "Bhawna Aggarwal",
         "joinings": 9
       },
       {
-        "name": "nikita.bhatia1",
+        "name": "Nikita Bhatia",
         "joinings": 9
       },
       {
-        "name": "deepanshi.1",
+        "name": "Deepanshi",
         "joinings": 9
       },
       {
-        "name": "banika rana",
+        "name": "Banika Rana",
         "joinings": 8
       },
       {
-        "name": "samiksha.yadav",
+        "name": "Samiksha Yadav",
         "joinings": 8
       },
       {
-        "name": "bhawna aggarwal",
+        "name": "Bhawna Aggarwal",
         "joinings": 6
       },
       {
-        "name": "aayush.kharkwal",
+        "name": "Aayush Kharkwal",
         "joinings": 6
       },
       {
-        "name": "aayush tyagi",
+        "name": "Aayush Tyagi",
         "joinings": 5
       }
     ]
