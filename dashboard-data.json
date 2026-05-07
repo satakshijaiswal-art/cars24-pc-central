@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "07 May 2026 \u00b7 22:05 IST",
+  "refreshed_at": "07 May 2026 \u00b7 22:06 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 07 May 2026 (12 days)",
   "window": {
     "start": "2026-04-26",
@@ -13,7 +13,7 @@
     "base_active_hc": 6766,
     "jm_synced": 178,
     "rocket_offers_window": 84,
-    "rocket_open_reqs": 0
+    "rocket_open_reqs": 531
   },
   "data_coverage_note": "Joinings: 178 (Base-Live). OTJ: 68/84 from Rocket Offers, V3 cross-check 192/244. TTF/Open Reqs from Rocket Offers tab. CTC/CPH/Hike from JM cohort 178. Window auto-rolls daily \u2014 end = today (IST).",
   "overview": {
@@ -38,16 +38,16 @@
     "hike_note": "Based on 149 of 178 joiners (only those synced to JM)",
     "ttf": 34.6,
     "ttf_data_rows": 84,
-    "ttf_note": "Based on 84 of 178 window joiners (using RO 'Days' column)",
+    "ttf_note": "Based on 84 of 178 joiners (from Rocket Offers tab)",
     "tat": 416.4,
     "tat_data_rows": 531,
+    "tat_note": "Avg(today - REQ Start Date) for 531 open requisitions",
     "open_reqs": 531,
     "senior_b4_plus": 10,
     "senior_new": 10,
     "senior_replacement": 0,
     "productivity": 10.5,
-    "active_recruiters": 17,
-    "tat_note": "Avg(today - REQ Start Date) for 531 open requisitions"
+    "active_recruiters": 17
   },
   "functionTable": {
     "joinings_by": {
@@ -77,18 +77,19 @@
       "Other Support": 7
     },
     "otj_by": {
-      "Business (B1+B2)": 77.66,
-      "Technology": 100.0,
       "Product": 100.0,
-      "BI DS": 100.0,
-      "Other Support": 73.08
+      "Other Support": 73.08,
+      "Technology": 100.0,
+      "Business (B1+B2)": 77.66,
+      "BI DS": 100.0
     },
     "ttf_by": {
-      "Business (B1+B2)": 47.8,
-      "Other Support": 25.3,
-      "Product": 17.3,
+      "Business (B1+B2)": 38.0,
       "Business Support": null,
-      "BI DS": null
+      "Product": 17.3,
+      "Technology": null,
+      "BI DS": null,
+      "Other Support": 26.9
     },
     "cph_by": {
       "Other Support": null,
@@ -352,7 +353,7 @@
     "top_function": "Business (B1+B2)"
   },
   "ta": {
-    "active": 0,
+    "active": 531,
     "closed": 178,
     "ytj": 51,
     "productivity": 10.5
@@ -395,7 +396,7 @@
     },
     "top_recruiters": [
       {
-        "name": "Priyanka Khanna",
+        "name": "Priyanka Khanna1",
         "joinings": 63
       },
       {
@@ -407,7 +408,7 @@
         "joinings": 13
       },
       {
-        "name": "Devansh Arora",
+        "name": "Devansh Arora1",
         "joinings": 12
       },
       {
@@ -427,7 +428,7 @@
         "joinings": 9
       },
       {
-        "name": "Nikita Bhatia",
+        "name": "Nikita Bhatia1",
         "joinings": 9
       },
       {
