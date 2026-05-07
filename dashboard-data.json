@@ -77,11 +77,11 @@
       "Other Support": 7
     },
     "otj_by": {
-      "Product": 100.0,
-      "BI DS": 100.0,
+      "Business (B1+B2)": 77.66,
       "Other Support": 73.08,
       "Technology": 100.0,
-      "Business (B1+B2)": 77.66
+      "Product": 100.0,
+      "BI DS": 100.0
     },
     "ttf_by": {
       "Business (B1+B2)": 38.0,
@@ -473,26 +473,26 @@
     "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
   },
   "tech": {
-    "tech_hc": 252,
-    "product_hc": 81,
-    "cost_per_month": 820,
-    "open_roles": 10,
+    "tech_hc": 0,
+    "product_hc": 0,
+    "cost_per_month": 0.0,
+    "open_roles": 0,
     "backend": {
-      "sde1": 75,
-      "sde2": 14,
-      "sde3": 11
+      "sde1": 0,
+      "sde2": 0,
+      "sde3": 0
     },
     "frontend": {
-      "sde1": 49,
-      "sde2": 27,
-      "sde3": 24
+      "sde1": 0,
+      "sde2": 0,
+      "sde3": 0
     },
     "mobile": {
-      "sde1": 48,
-      "sde2": 28,
-      "sde3": 24
+      "sde1": 0,
+      "sde2": 0,
+      "sde3": 0
     },
-    "note": "Static fallback \u2014 Tech & Product CSV not available"
+    "note": "Live from Tech & Product sheet \u00b7 0 HC current + 0 offered"
   },
   "glassdoor": {
     "rating": 4.2,
