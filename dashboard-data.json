@@ -478,11 +478,11 @@
     "warehouse": "ANALYTICS_WH",
     "tables_indexed": 116,
     "rows_indexed": 10147830,
-    "note": "Real HR business metrics computed live from Snowflake. MTD = May 2026.",
+    "note": "Real HR metrics computed live from Snowflake using EMPLOYEE_STATUS='Active' (the canonical column). MTD = May 2026. Note: HRMS also has a stale IS_ACTIVE boolean flag with ~11,600 zombie rows \u2014 we don't use it.",
     "headline": [
-      { "label": "Active Headcount (CSPL)", "value": "18,470", "sub": "as on today" },
-      { "label": "Joined May (MTD)", "value": "332", "sub": "13 today" },
-      { "label": "On Notice", "value": "3,691", "sub": "out of 18,470" },
+      { "label": "Active Headcount (CSPL)", "value": "6,856", "sub": "EMPLOYEE_STATUS='Active'" },
+      { "label": "Joined May (MTD)", "value": "151", "sub": "6 today" },
+      { "label": "On Notice", "value": "193", "sub": "out of 6,856" },
       { "label": "Open Requisitions", "value": "822", "sub": "ATS \u2014 Open + Pending" },
       { "label": "Offers Awaiting Acceptance", "value": "2,720", "sub": "released, not yet accepted" },
       { "label": "Separations YTD", "value": "661", "sub": "26 in May MTD \u00b7 92 last 30d" }
@@ -491,22 +491,22 @@
       {
         "name": "Active Headcount \u2014 CSPL",
         "metrics": [
-          { "label": "Active employees", "value": "18,470" },
-          { "label": "Female %", "value": "15.1%" },
-          { "label": "Male %", "value": "84.8%" },
-          { "label": "Joined May (MTD)", "value": "332" },
-          { "label": "Joined last 30 days", "value": "720" },
-          { "label": "Joined today", "value": "13" },
-          { "label": "On notice", "value": "3,691" },
-          { "label": "B4+ leadership active", "value": "672" }
+          { "label": "Active employees", "value": "6,856" },
+          { "label": "Female %", "value": "14.7%" },
+          { "label": "Male %", "value": "85.2%" },
+          { "label": "Joined May (MTD)", "value": "151" },
+          { "label": "Joined last 30 days", "value": "389" },
+          { "label": "Joined today", "value": "6" },
+          { "label": "On notice", "value": "193" },
+          { "label": "B4+ leadership active", "value": "246" }
         ]
       },
       {
         "name": "Org Structure",
         "metrics": [
-          { "label": "Active department codes", "value": "650" },
-          { "label": "Active designations", "value": "35" },
-          { "label": "Active office locations", "value": "172" }
+          { "label": "Active department codes", "value": "209" },
+          { "label": "Active designations", "value": "33" },
+          { "label": "Active office locations", "value": "4" }
         ]
       },
       {
@@ -541,24 +541,24 @@
       {
         "name": "Employee Type Mix (Active CSPL)",
         "metrics": [
-          { "label": "Permanent", "value": "15,246 (82.5%)" },
-          { "label": "Retainer", "value": "1,434 (7.8%)" },
-          { "label": "Intern", "value": "898 (4.9%)" },
-          { "label": "Third-party (TPM)", "value": "818 (4.4%)" },
-          { "label": "Apprentice + Consultant", "value": "68" }
+          { "label": "Permanent", "value": "5,800 (84.6%)" },
+          { "label": "Third-party (TPM)", "value": "618 (9.0%)" },
+          { "label": "Retainer", "value": "334 (4.9%)" },
+          { "label": "Intern", "value": "93 (1.4%)" },
+          { "label": "Consultant + Other", "value": "11" }
         ]
       },
       {
         "name": "Band Distribution (Active CSPL)",
         "metrics": [
-          { "label": "B0", "value": "966" },
-          { "label": "B1", "value": "10,709" },
-          { "label": "B2", "value": "2,911" },
-          { "label": "B3", "value": "897" },
-          { "label": "B4", "value": "421" },
-          { "label": "B5", "value": "173" },
-          { "label": "B6", "value": "77" },
-          { "label": "B7", "value": "1" }
+          { "label": "B0", "value": "98" },
+          { "label": "B1", "value": "4,155" },
+          { "label": "B2", "value": "1,095" },
+          { "label": "B3", "value": "307" },
+          { "label": "B4", "value": "144" },
+          { "label": "B5", "value": "69" },
+          { "label": "B6", "value": "33" },
+          { "label": "Third Party / SLA", "value": "954" }
         ]
       },
       {
