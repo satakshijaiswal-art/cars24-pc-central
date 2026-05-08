@@ -455,39 +455,19 @@
   <!-- 12. AUTOMATION -->
   <section id="snowflake">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-blue">Snowflake Data Inventory</h2>
-    <p class="text-gray-600 mt-1">Live HR data on Snowflake · category-wise · row counts</p>
+    <h2 class="text-3xl font-bold brand-blue">Snowflake — Live HR Metrics</h2>
+    <p class="text-gray-600 mt-1">Real metrics computed live from Snowflake · CSPL + CAPL · refreshed daily 6:30 AM IST</p>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-      <div class="kpi-card rounded-lg p-5">
-        <div class="text-xs text-gray-500 uppercase tracking-wide font-bold">Total Tables</div>
-        <div class="text-3xl font-bold brand-blue mt-2" id="sf-total-tables">—</div>
-      </div>
-      <div class="kpi-card rounded-lg p-5">
-        <div class="text-xs text-gray-500 uppercase tracking-wide font-bold">Total Rows</div>
-        <div class="text-3xl font-bold brand-blue mt-2" id="sf-total-rows">—</div>
-      </div>
-      <div class="kpi-card rounded-lg p-5">
-        <div class="text-xs text-gray-500 uppercase tracking-wide font-bold">Source</div>
-        <div class="text-sm font-semibold mt-2" id="sf-source">—</div>
-        <div class="text-xs text-gray-500 mt-1" id="sf-refreshed">—</div>
-      </div>
-    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mt-6" id="sf-headline"></div>
 
-    <div class="bg-white rounded-lg shadow-sm border p-6 mt-6 overflow-x-auto">
-      <h3 class="text-lg font-bold mb-4">Category-wise Breakdown</h3>
-      <table class="w-full text-sm compact">
-        <thead class="bg-brand-blue text-white">
-          <tr>
-            <th class="text-left">Category</th>
-            <th class="text-right">Tables</th>
-            <th class="text-right">Rows</th>
-            <th class="text-right">Share of Data</th>
-          </tr>
-        </thead>
-        <tbody id="snowflake-table"></tbody>
-      </table>
-      <p class="text-xs text-gray-500 mt-4" id="sf-note">—</p>
+    <div class="mt-3 text-xs text-gray-500" id="sf-refreshed">—</div>
+
+    <div class="space-y-4 mt-6" id="sf-categories"></div>
+
+    <div class="bg-white rounded-lg shadow-sm border p-4 mt-6 text-xs text-gray-600">
+      <span class="font-semibold">Coverage:</span>
+      <span id="sf-coverage">—</span>
+      <span class="ml-2 text-gray-400" id="sf-note">—</span>
     </div>
   </section>
 
@@ -818,28 +798,33 @@ async function loadDashboard() {
   const sf = data.snowflake_catalog;
   if (sf) {
     const fmt = n => (n || 0).toLocaleString('en-IN');
-    document.getElementById('sf-total-tables').textContent = fmt(sf.total_tables);
-    document.getElementById('sf-total-rows').textContent = fmt(sf.total_rows);
-    document.getElementById('sf-source').textContent = sf.source || '—';
-    document.getElementById('sf-refreshed').textContent = 'Refreshed: ' + (sf.refreshed_at || '—');
+    document.getElementById('sf-refreshed').textContent =
+      'Refreshed: ' + (sf.refreshed_at || '—') + '  ·  Source: ' + (sf.source || '');
     document.getElementById('sf-note').textContent = sf.note || '';
-    const totalRows = sf.total_rows || 1;
-    document.getElementById('snowflake-table').innerHTML = (sf.categories || []).map(c => {
-      const share = ((c.rows / totalRows) * 100).toFixed(1);
-      return `<tr class="border-b hover:bg-gray-50">
-        <td class="font-semibold brand-blue py-2">${c.name}</td>
-        <td class="text-right">${fmt(c.tables)}</td>
-        <td class="text-right font-semibold">${fmt(c.rows)}</td>
-        <td class="text-right">
-          <div class="flex items-center gap-2 justify-end">
-            <div class="w-24 bg-gray-200 rounded-full h-2 overflow-hidden">
-              <div class="bg-brand-blue h-full" style="width:${share}%"></div>
+    document.getElementById('sf-coverage').textContent =
+      fmt(sf.tables_indexed) + ' tables  ·  ' + fmt(sf.rows_indexed) + ' rows indexed';
+
+    document.getElementById('sf-headline').innerHTML = (sf.headline || []).map(h =>
+      `<div class="kpi-card rounded-lg p-4">
+        <div class="text-[11px] text-gray-500 uppercase tracking-wide font-bold">${h.label}</div>
+        <div class="text-2xl font-bold brand-blue mt-1">${h.value}</div>
+        <div class="text-[11px] text-gray-500 mt-0.5">${h.sub || ''}</div>
+      </div>`
+    ).join('');
+
+    document.getElementById('sf-categories').innerHTML = (sf.categories || []).map(c => `
+      <div class="bg-white rounded-lg shadow-sm border p-5">
+        <h3 class="text-base font-bold brand-blue">${c.name}</h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-3">
+          ${(c.metrics || []).map(m => `
+            <div class="bg-gray-50 rounded p-3">
+              <div class="text-[11px] text-gray-500 font-semibold">${m.label}</div>
+              <div class="text-lg font-bold text-gray-900 mt-0.5">${m.value}</div>
             </div>
-            <span class="text-xs text-gray-600 w-10 text-right">${share}%</span>
-          </div>
-        </td>
-      </tr>`;
-    }).join('');
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
   }
 
   const agents = data.automation || [];

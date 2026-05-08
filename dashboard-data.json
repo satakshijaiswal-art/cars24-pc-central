@@ -474,39 +474,171 @@
   },
   "snowflake_catalog": {
     "refreshed_at": "08 May 2026 \u00b7 IST",
-    "source": "Snowflake \u00b7 CSPL_HR_DB + CAPL_HR_DB + CSPL_DB (HR_READ_ONLY)",
+    "source": "Snowflake live \u00b7 CSPL_HR_DB + CAPL_HR_DB + CSPL_DB (HR_READ_ONLY)",
     "warehouse": "ANALYTICS_WH",
-    "total_tables": 116,
-    "total_rows": 10147830,
-    "note": "Live SELECT COUNT(*) from every accessible HR table across both Cars24 entities (CSPL + CAPL) + masked directories in CSPL_DB. Sensitive tables (PII, CIBIL, passwords) excluded from public view.",
+    "tables_indexed": 116,
+    "rows_indexed": 10147830,
+    "note": "Real HR business metrics computed live from Snowflake. MTD = May 2026.",
+    "headline": [
+      { "label": "Active Headcount (CSPL)", "value": "18,470", "sub": "as on today" },
+      { "label": "Joined May (MTD)", "value": "332", "sub": "13 today" },
+      { "label": "On Notice", "value": "3,691", "sub": "out of 18,470" },
+      { "label": "Open Requisitions", "value": "822", "sub": "ATS \u2014 Open + Pending" },
+      { "label": "Offers Awaiting Acceptance", "value": "2,720", "sub": "released, not yet accepted" },
+      { "label": "Separations YTD", "value": "661", "sub": "26 in May MTD \u00b7 92 last 30d" }
+    ],
     "categories": [
-      { "name": "Attendance \u2014 HRMS (V1/V2/V3 + holidays)", "tables": 4, "rows": 5738460 },
-      { "name": "Org Structure (CSPL: dept, designation, BU, location, cost-alloc)", "tables": 8, "rows": 2197526 },
-      { "name": "Recruitment \u2014 Candidates & Applicants (ATS)", "tables": 7, "rows": 431207 },
-      { "name": "Attendance \u2014 Biometric (logs + emp roster)", "tables": 2, "rows": 282672 },
-      { "name": "Masked Directories (Employee + Agent + Slack)", "tables": 4, "rows": 251377 },
-      { "name": "Banking (BANK_DETAILS, BANK_INFO, EMPLOYEE_BANK_DETAILS)", "tables": 3, "rows": 193509 },
-      { "name": "Active Headcount (CSPL EMPLOYEES + base view)", "tables": 2, "rows": 182090 },
-      { "name": "Assets \u2014 CSPL (allocation, repair, returns, replacements)", "tables": 7, "rows": 142575 },
-      { "name": "CAPL \u2014 Headcount & Org (Cars24 Auto)", "tables": 6, "rows": 132639 },
-      { "name": "ATS Approvals & Admin (flow, levels, logs, role templates)", "tables": 8, "rows": 130358 },
-      { "name": "Interviews \u2014 Live (schedule, feedback, history, config)", "tables": 4, "rows": 125505 },
-      { "name": "Background Verification (BGV)", "tables": 1, "rows": 58394 },
-      { "name": "Recruitment \u2014 Requisitions & Positions", "tables": 6, "rows": 38140 },
-      { "name": "Attrition & FnF (separations + final settlement)", "tables": 2, "rows": 33344 },
-      { "name": "Pre-Prod \u2014 Employee Snapshots (Darwinbox extracts)", "tables": 4, "rows": 31875 },
-      { "name": "Offers & CTC (offer letters, templates, CTC config)", "tables": 5, "rows": 31346 },
-      { "name": "Pre-Prod \u2014 Darwinbox Separation (CSPL + CAPL)", "tables": 4, "rows": 23310 },
-      { "name": "CAPL \u2014 Other (attendance, PMS, assets)", "tables": 5, "rows": 21953 },
-      { "name": "CAPL \u2014 Recruitment (full ATS funnel)", "tables": 10, "rows": 20180 },
-      { "name": "Pre-Prod \u2014 Leave (application + balance)", "tables": 3, "rows": 20000 },
-      { "name": "Employee Lifecycle History (changes + entity history)", "tables": 2, "rows": 17411 },
-      { "name": "Compliance & Statutory (ESIC, PF, gratuity, compliance)", "tables": 4, "rows": 13369 },
-      { "name": "Joiners / HRMS Candidates (CSPL: candidates, applications, ME careers)", "tables": 3, "rows": 11476 },
-      { "name": "Personal & Education (personal, education, experience)", "tables": 3, "rows": 9712 },
-      { "name": "Performance (PMS_CSPL + PMS_CAPL)", "tables": 2, "rows": 9320 },
-      { "name": "Hiring Drives & Vendors", "tables": 4, "rows": 82 },
-      { "name": "AI Interviews (sessions, scores \u2014 empty so far)", "tables": 3, "rows": 0 }
+      {
+        "name": "Active Headcount \u2014 CSPL",
+        "metrics": [
+          { "label": "Active employees", "value": "18,470" },
+          { "label": "Female %", "value": "15.1%" },
+          { "label": "Male %", "value": "84.8%" },
+          { "label": "Joined May (MTD)", "value": "332" },
+          { "label": "Joined last 30 days", "value": "720" },
+          { "label": "Joined today", "value": "13" },
+          { "label": "On notice", "value": "3,691" },
+          { "label": "B4+ leadership active", "value": "672" }
+        ]
+      },
+      {
+        "name": "Org Structure",
+        "metrics": [
+          { "label": "Active department codes", "value": "650" },
+          { "label": "Active designations", "value": "35" },
+          { "label": "Active office locations", "value": "172" }
+        ]
+      },
+      {
+        "name": "Recruitment Pipeline (ATS)",
+        "metrics": [
+          { "label": "Open requisitions", "value": "822" },
+          { "label": "Offers in progress", "value": "9,855" },
+          { "label": "Offers released (May MTD)", "value": "113" },
+          { "label": "Offers accepted (May MTD)", "value": "95" },
+          { "label": "Offers awaiting acceptance", "value": "2,720" },
+          { "label": "Total offers (lifetime)", "value": "22,432" }
+        ]
+      },
+      {
+        "name": "Interviews (ATS)",
+        "metrics": [
+          { "label": "Scheduled (May MTD)", "value": "332" },
+          { "label": "Scheduled (last 7 days)", "value": "332" },
+          { "label": "Feedback submitted (lifetime)", "value": "30,598" },
+          { "label": "Total interviews (lifetime)", "value": "60,839" }
+        ]
+      },
+      {
+        "name": "Attrition & FnF",
+        "metrics": [
+          { "label": "Separations May MTD", "value": "26" },
+          { "label": "Separations last 30 days", "value": "92" },
+          { "label": "Separations YTD", "value": "661" },
+          { "label": "FnF records (total)", "value": "17,527" }
+        ]
+      },
+      {
+        "name": "Employee Type Mix (Active CSPL)",
+        "metrics": [
+          { "label": "Permanent", "value": "15,246 (82.5%)" },
+          { "label": "Retainer", "value": "1,434 (7.8%)" },
+          { "label": "Intern", "value": "898 (4.9%)" },
+          { "label": "Third-party (TPM)", "value": "818 (4.4%)" },
+          { "label": "Apprentice + Consultant", "value": "68" }
+        ]
+      },
+      {
+        "name": "Band Distribution (Active CSPL)",
+        "metrics": [
+          { "label": "B0", "value": "966" },
+          { "label": "B1", "value": "10,709" },
+          { "label": "B2", "value": "2,911" },
+          { "label": "B3", "value": "897" },
+          { "label": "B4", "value": "421" },
+          { "label": "B5", "value": "173" },
+          { "label": "B6", "value": "77" },
+          { "label": "B7", "value": "1" }
+        ]
+      },
+      {
+        "name": "Performance \u2014 PMS Cycle (CSPL)",
+        "metrics": [
+          { "label": "Employees in cycle", "value": "8,075" },
+          { "label": "Completed", "value": "2,221 (27.5%)" },
+          { "label": "In calibration", "value": "2,757" },
+          { "label": "In reviewer stage", "value": "1,141" },
+          { "label": "Self-rating in progress", "value": "778" },
+          { "label": "Awaiting Evaluator-2", "value": "721" }
+        ]
+      },
+      {
+        "name": "Background Verification (BGV)",
+        "metrics": [
+          { "label": "Total BGV cases", "value": "58,394" },
+          { "label": "Verified / completed", "value": "21,164 (36.2%)" },
+          { "label": "Pending", "value": "33,426 (57.2%)" },
+          { "label": "Insufficient", "value": "2,098" },
+          { "label": "Amber", "value": "991" },
+          { "label": "Discrepancy found", "value": "525" }
+        ]
+      },
+      {
+        "name": "Assets (CSPL)",
+        "metrics": [
+          { "label": "Total allocations (lifetime)", "value": "25,742" },
+          { "label": "Returned", "value": "8,584" },
+          { "label": "Net active allocations", "value": "17,158" },
+          { "label": "Repair history records", "value": "2,041" },
+          { "label": "Replaced assets", "value": "1,388" }
+        ]
+      },
+      {
+        "name": "CAPL \u2014 Cars24 Auto (separate entity)",
+        "metrics": [
+          { "label": "HC in HR view", "value": "2,226" },
+          { "label": "Open requisitions", "value": "2" },
+          { "label": "Offers (May MTD)", "value": "0" },
+          { "label": "Interviews (May MTD)", "value": "0" },
+          { "label": "Recruitment funnel rows", "value": "20,180" }
+        ]
+      },
+      {
+        "name": "Compliance & Statutory",
+        "metrics": [
+          { "label": "PF nominees", "value": "4,030" },
+          { "label": "Gratuity nominees", "value": "4,010" },
+          { "label": "ESIC nominees", "value": "1,833" },
+          { "label": "Compliance records", "value": "3,496" }
+        ]
+      },
+      {
+        "name": "Banking",
+        "metrics": [
+          { "label": "Employee bank details", "value": "9,968" },
+          { "label": "Bank details (master)", "value": "3,618" },
+          { "label": "Bank info history", "value": "1,79,923" }
+        ]
+      },
+      {
+        "name": "Attendance",
+        "metrics": [
+          { "label": "ATTENDANCE V1 (legacy)", "value": "34.9 L rows" },
+          { "label": "ATTENDANCE V2 (legacy)", "value": "22.4 L rows" },
+          { "label": "ATTENDANCE V3 (current)", "value": "6,889 rows" },
+          { "label": "Biometric logs", "value": "2,63,313" },
+          { "label": "Biometric employees", "value": "19,359" }
+        ]
+      },
+      {
+        "name": "Masked Directories (CSPL_DB)",
+        "metrics": [
+          { "label": "Agent Directory (masked)", "value": "1,98,484" },
+          { "label": "Employee Directory (masked)", "value": "46,175" },
+          { "label": "Slack active users log", "value": "6,276" },
+          { "label": "RC Tracker (masked)", "value": "442" }
+        ]
+      }
     ]
   },
   "tech": {
