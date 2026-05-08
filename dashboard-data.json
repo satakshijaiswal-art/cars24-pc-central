@@ -472,6 +472,27 @@
   "metrics_not_computable_for_window": {
     "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
   },
+  "snowflake_catalog": {
+    "refreshed_at": "08 May 2026 \u00b7 IST",
+    "source": "Snowflake \u00b7 CSPL_HR_DB (HR_READ_ONLY)",
+    "warehouse": "ANALYTICS_WH",
+    "total_tables": 99,
+    "total_rows": 9623102,
+    "note": "Live row counts from Snowflake INFORMATION_SCHEMA. Sensitive tables (PII, CIBIL, passwords) excluded from public view.",
+    "categories": [
+      { "name": "Attendance", "tables": 5, "rows": 6021077 },
+      { "name": "Headcount & Org", "tables": 14, "rows": 2251902 },
+      { "name": "Recruitment & ATS", "tables": 35, "rows": 668053 },
+      { "name": "Banking", "tables": 3, "rows": 193509 },
+      { "name": "Assets", "tables": 9, "rows": 142738 },
+      { "name": "Interviews", "tables": 4, "rows": 125505 },
+      { "name": "Darwinbox & Leave (Pre-Prod)", "tables": 13, "rows": 95010 },
+      { "name": "Compliance & Background", "tables": 6, "rows": 81563 },
+      { "name": "Attrition & Separations", "tables": 2, "rows": 33344 },
+      { "name": "Performance", "tables": 2, "rows": 9320 },
+      { "name": "AI Interviews", "tables": 6, "rows": 1081 }
+    ]
+  },
   "tech": {
     "tech_hc": 252,
     "product_hc": 81,
