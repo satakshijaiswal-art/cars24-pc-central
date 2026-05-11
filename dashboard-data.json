@@ -1644,24 +1644,37 @@
         "formula": "COUNT(*)"
       },
       {
-        "name": "Attendance",
+        "name": "Attendance — data pipeline status",
         "metrics": [
           {
-            "label": "Attendance V3 rows (lifetime)",
-            "value": "6,889"
+            "label": "ATTENDANCE_V3 status",
+            "value": "STALE",
+            "sub": "Single-day snapshot dated 17 Apr 2025 only · last Fivetran sync 09 Jul 2025 (10 months ago)"
           },
           {
-            "label": "Rows synced today",
-            "value": "0"
+            "label": "ATTENDANCE_V3 snapshot",
+            "value": "6,889 rows",
+            "sub": "Present 5,109 (74%) · Absent 316 (4.6%) · Weekly Off 373 · partial-day 211 — all from one day in Apr 2025, not live"
           },
           {
-            "label": "Note",
-            "value": "ATTENDANCE_V3 syncs on demand · production attendance lives in BIOMETRIC_DBO schema"
+            "label": "BIOMETRIC_DBO.ATTENDANCELOGS",
+            "value": "DEAD",
+            "sub": "263,313 logs but data ends 09 Jan 2017 — 9 years stale. 1,918 employees in that era; 0 logs in last 30 days"
+          },
+          {
+            "label": "Live attendance in Snowflake",
+            "value": "NONE",
+            "sub": "Neither HRMS nor biometric source is live. Production attendance (Darwin / vendor system) is not piped to Snowflake — no real-time absenteeism, lateness, or productivity signal available"
+          },
+          {
+            "label": "Founder action",
+            "value": "Pipe live source",
+            "sub": "Without a daily attendance feed, no way to track absenteeism trends, frontline reliability, or productivity by POD. Wire Darwin/biometric vendor → Fivetran → Snowflake."
           }
         ],
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.ATTENDANCE_V3",
-        "window": "Records Fivetran-synced today (11 May 2026) — table refreshes incrementally",
-        "formula": "COUNT(*) WHERE _FIVETRAN_SYNCED::DATE = CURRENT_DATE"
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.ATTENDANCE_V3 · CSPL_HR_DB.BIOMETRIC_DBO.ATTENDANCELOGS",
+        "window": "Diagnostic — both source tables audited for freshness as of 11 May 2026",
+        "formula": "MIN/MAX(ATTENDANCEDATE) and MAX(_FIVETRAN_SYNCED) per source"
       },
       {
         "name": "Directories · Masked PII",
