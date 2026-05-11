@@ -1441,41 +1441,49 @@
         "name": "Performance Management",
         "metrics": [
           {
-            "label": "PMS CSPL records",
-            "value": "8,075"
+            "label": "FY25 live appraisals",
+            "value": "5,082",
+            "sub": "CSPL 4,407 + CAPL 675 \u2014 active Pre-filled & Self Reflection cycles"
           },
           {
-            "label": "PMS CAPL records",
-            "value": "1,245"
+            "label": "FY25 stuck at Calibration",
+            "value": "2,952",
+            "sub": "58% of live cycle \u2014 awaiting HR/leadership calibration before close"
           },
           {
-            "label": "Stage: Calibration",
-            "value": "2,757"
+            "label": "FY25 Reviewer pending",
+            "value": "1,027",
+            "sub": "Manager review not yet submitted"
           },
           {
-            "label": "Stage: Completed",
-            "value": "2,221"
+            "label": "FY25 Self-reflection pending",
+            "value": "518",
+            "sub": "Employee has not filled self-rating yet"
           },
           {
-            "label": "Stage: Reviewer",
-            "value": "1,141"
+            "label": "FY24 Top performers (5\u20136)",
+            "value": "27%",
+            "sub": "319 of 1,163 calibrated \u2014 last completed cycle (talent density signal)"
           },
           {
-            "label": "Stage: Self",
-            "value": "778"
+            "label": "FY24 On-track (rating 4)",
+            "value": "36%",
+            "sub": "423 of 1,163 \u2014 meeting expectations"
           },
           {
-            "label": "Stage: Evaluator 2",
-            "value": "721"
+            "label": "FY24 Below par (1\u20133)",
+            "value": "36%",
+            "sub": "421 of 1,163 \u2014 PIP / flight-risk pool"
           },
           {
-            "label": "Stage: Emp Ack",
-            "value": "457"
+            "label": "Lifetime PMS records",
+            "value": "9,320",
+            "sub": "CSPL 8,075 + CAPL 1,245 \u2014 all cycles since FY21"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC: PMS_CSPL \u00b7 PMS_CAPL",
-        "window": "Lifetime appraisal records across all cycles since FY21",
-        "formula": "COUNT(*) per table"
+        "window": "FY25 live (PMS FY 2025 Pre-filled + Self Reflection) \u00b7 FY24 calibrated (PMS_FY23-24_SR) \u00b7 lifetime for totals",
+        "formula": "COUNT(*) grouped by REVIEW_CYCLE_NAME / CURRENT_STAGE / CALIBRATION_RATING"
       },
       {
         "name": "Background Verification",
