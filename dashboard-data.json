@@ -1303,27 +1303,27 @@
           {
             "label": "Top Exit Reason #1",
             "value": "Better Opportunity \u00b7 2,649",
-            "sub": "WHAT: 25% of all reasoned exits cite a better external offer. WHY: Comp + growth + brand pull are losing the war for talent. ACTION: TA to track competitor companies poaching us; comp team to benchmark; L&D to surface internal mobility paths."
+            "sub": "WHAT: 25.5% of all reasoned exits (2,649 of 10,369) cite a better external offer. WHY: Comp + growth + brand pull are losing the war for talent. ACTION: TA to track competitor companies poaching us; comp team to benchmark; L&D to surface internal mobility paths."
           },
           {
             "label": "Top Exit Reason #2",
             "value": "Personal Issues \u00b7 2,190",
-            "sub": "WHAT: 20% \u2014 vague catch-all reason employees pick to avoid a hard conversation. WHY: Likely hides real causes (manager, comp, role). ACTION: Push exit interviews to probe specifics; consider removing 'Personal Issues' as a default option."
+            "sub": "WHAT: 21.1% of all reasoned exits (2,190 of 10,369) \u2014 vague catch-all reason employees pick to avoid a hard conversation. WHY: Likely hides real causes (manager, comp, role). ACTION: Push exit interviews to probe specifics; consider removing 'Personal Issues' as a default option."
           },
           {
             "label": "Top Exit Reason #3",
             "value": "Personal Reasons \u00b7 1,567",
-            "sub": "WHAT: 15% \u2014 another catch-all (almost a duplicate of #2). WHY: Personal Issues + Personal Reasons combined = 35% of all exits = 3,757 cases we have NO real reason for. ACTION: HR system fix \u2014 merge these labels, force more specific reason picks."
+            "sub": "WHAT: 15.1% of reasoned exits \u2014 another catch-all (almost a duplicate of #2). WHY: Personal Issues + Personal Reasons combined = 36.2% of all exits = 3,757 cases we have NO real reason for. ACTION: HR system fix \u2014 merge these labels, force more specific reason picks."
           },
           {
             "label": "Job Dissatisfaction Exits",
             "value": "681",
-            "sub": "WHAT: 6.4% \u2014 employees who explicitly said they were unhappy with the work itself. WHY: Direct role-design / job-fit signal. ACTION: Drill by department \u2014 hotspots reveal teams where the actual job differs from what was sold at hire."
+            "sub": "WHAT: 6.6% of reasoned exits (681 of 10,369) \u2014 employees who explicitly said they were unhappy with the work itself. WHY: Direct role-design / job-fit signal. ACTION: Drill by department \u2014 hotspots reveal teams where the actual job differs from what was sold at hire."
           },
           {
             "label": "Health-related Exits",
             "value": "868",
-            "sub": "WHAT: 8.2% \u2014 exits cited 'Health Problem'. WHY: Could be wellness, shift patterns, on-job stress (esp. frontline ops). ACTION: Cross with function \u2014 if concentrated in field ops, look at shift timings, physical demands, insurance utilisation."
+            "sub": "WHAT: 8.4% of reasoned exits (868 of 10,369) \u2014 exits cited 'Health Problem'. WHY: Could be wellness, shift patterns, on-job stress (esp. frontline ops). ACTION: Cross with function \u2014 if concentrated in field ops, look at shift timings, physical demands, insurance utilisation."
           },
           {
             "label": "\ud83d\udea9 Manager-issue Exits",
