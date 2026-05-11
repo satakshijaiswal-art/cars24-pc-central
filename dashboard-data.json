@@ -1489,53 +1489,49 @@
         "name": "Background Verification",
         "metrics": [
           {
-            "label": "BGV Records (lifetime)",
-            "value": "58,406"
+            "label": "Candidates ever BGV'd",
+            "value": "9,258",
+            "sub": "Unique candidates across 58,406 doc-level checks (~6 docs each)"
           },
           {
-            "label": "Pending",
-            "value": "33,426"
+            "label": "Fully cleared candidates",
+            "value": "645",
+            "sub": "7% \u2014 212 clean + 433 closed with resolved issues. No pending docs."
           },
           {
-            "label": "Completed",
-            "value": "21,176"
+            "label": "Candidates in progress",
+            "value": "8,613",
+            "sub": "93% have at least one pending doc \u2014 2,169 of these also have a red flag"
           },
           {
-            "label": "Insufficient",
-            "value": "2,098"
+            "label": "Stale pending (90d+ old)",
+            "value": "30,456",
+            "sub": "91% of the 33,426 pending bucket is 90+ days old \u2014 likely abandoned, needs cleanup"
           },
           {
-            "label": "Amber",
-            "value": "991"
+            "label": "L3M BGV raised",
+            "value": "3,831",
+            "sub": "Feb\u2013May 2026: 904 completed, 2,921 still pending, 6 issues"
           },
           {
-            "label": "Discrepancy Found",
-            "value": "525"
+            "label": "L90D real red flags",
+            "value": "6",
+            "sub": "issue_highlighted across all recent BGV \u2014 discovery rate <0.2%"
           },
           {
-            "label": "On Hold",
-            "value": "93"
+            "label": "Lifetime serious red flags",
+            "value": "715",
+            "sub": "Discrepancy 525 + On Hold 93 + Case Stopped 67 + Issue Highlighted 30"
           },
           {
-            "label": "Case Stopped",
-            "value": "67"
-          },
-          {
-            "label": "Issue Highlighted",
-            "value": "30"
-          },
-          {
-            "label": "Flagged",
-            "value": "2"
-          },
-          {
-            "label": "Clean",
-            "value": "58,404"
+            "label": "Lifetime BGV docs",
+            "value": "58,406",
+            "sub": "Pending 33,426 \u00b7 Completed 21,176 \u00b7 Insufficient 2,098 \u00b7 Amber 991 \u00b7 Other 715"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.BGV",
-        "window": "Lifetime \u2014 every BGV ever raised",
-        "formula": "COUNT(*)"
+        "window": "Lifetime BGV + L90D ageing + candidate-level rollup",
+        "formula": "COUNT(*) and COUNT(DISTINCT CANDIDATE_ID) grouped by VERIFICATION_STATUS, CREATED_AT bucket"
       },
       {
         "name": "HR Assets",
