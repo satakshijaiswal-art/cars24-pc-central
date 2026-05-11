@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "11 May 2026 \u00b7 12:08 IST",
+  "refreshed_at": "11 May 2026 \u00b7 12:20 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 11 May 2026 (16 days)",
   "window": {
     "start": "2026-04-26",
@@ -79,9 +79,9 @@
     "otj_by": {
       "Other Support": 76.67,
       "Technology": 100.0,
-      "Business (B1+B2)": 80.95,
       "Product": 100.0,
-      "BI DS": 100.0
+      "BI DS": 100.0,
+      "Business (B1+B2)": 80.95
     },
     "ttf_by": {
       "Business (B1+B2)": 34.1,
@@ -476,6 +476,7 @@
   "metrics_not_computable_for_window": {
     "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
   },
+<<<<<<< Updated upstream
   "snowflake_catalog": {
     "refreshed_at": "11 May 2026 \u00b7 IST",
     "as_of_date": "11 May 2026",
@@ -652,6 +653,8 @@
       }
     ]
   },
+=======
+>>>>>>> Stashed changes
   "tech": {
     "tech_hc": 252,
     "product_hc": 81,
