@@ -229,11 +229,17 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Source Mix</h3>
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider">Source Mix</h3>
+          <span class="text-xs text-gray-600"><b id="source-total-joinings">—</b> joinings</span>
+        </div>
         <div class="chart-box"><canvas id="chart-source-overall"></canvas></div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Source by Function</h3>
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider">Source by Function</h3>
+          <span class="text-xs text-gray-600" id="source-by-function-counts">—</span>
+        </div>
         <div class="chart-box"><canvas id="chart-source-function"></canvas></div>
       </div>
     </div>
@@ -765,6 +771,10 @@ async function loadDashboard() {
     `<tr class="border-b hover:bg-gray-50"><td>${s.name}</td><td class="text-center font-bold brand-blue">${s.band}</td><td>${s.designation}</td><td>${s.function}</td><td>${s.entity}</td><td>${s.doj}</td></tr>`
   ).join('');
 
+  // Source Mix total joinings badge
+  const srcTotalEl = document.getElementById('source-total-joinings');
+  if (srcTotalEl) srcTotalEl.textContent = data.sourcing?.overall_total_joinings ?? '—';
+
   if (data.sourcing?.overall) {
     chartInstances.sourceOverall = new Chart(document.getElementById('chart-source-overall'), {
       type: 'doughnut',
@@ -774,10 +784,19 @@ async function loadDashboard() {
   }
   if (data.sourcing?.by_function) {
     const funcs = ['Business', 'Support', 'T P BI DS'];
+    // Build labels with joining counts: "Business (154)"
+    const labelsWithCount = funcs.map(f => {
+      const n = data.sourcing.by_function[f]?.n ?? 0;
+      return `${f} (${n})`;
+    });
+    // Header badge with all counts
+    const countsEl = document.getElementById('source-by-function-counts');
+    if (countsEl) countsEl.textContent = funcs.map(f => `${f}: ${data.sourcing.by_function[f]?.n ?? 0}`).join(' · ');
+
     chartInstances.sourceFunction = new Chart(document.getElementById('chart-source-function'), {
       type: 'bar',
       data: {
-        labels: funcs,
+        labels: labelsWithCount,
         datasets: [
           { label: 'Inbound %',  data: funcs.map(f => data.sourcing.by_function[f]?.inbound  ?? 0), backgroundColor: '#4736FE' },
           { label: 'Outbound %', data: funcs.map(f => data.sourcing.by_function[f]?.outbound ?? 0), backgroundColor: '#F59E0B' },
