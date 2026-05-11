@@ -1558,8 +1558,8 @@
           },
           {
             "label": "Lost / short / disputed",
-            "value": "683",
-            "sub": "419 short-found + 243 disputed + 21 lost \u2014 \u20b91.3 Cr book exposure"
+            "value": "727",
+            "sub": "419 short-found + 243 disputed + 44 lost-under-insurance + 21 lost \u2014 \u20b91.34 Cr purchase value exposure"
           },
           {
             "label": "Total asset records",
@@ -1569,7 +1569,7 @@
           {
             "label": "Allocated / In stock / Maintenance",
             "value": "13,282 / 3,490 / 1,036",
-            "sub": "Active fleet split. Plus 5,907 written-off / sold / exited."
+            "sub": "Active fleet (17,808). Disposed (sold/scrap/exit/written-off) = 9,125. Other (working/moved) = 418."
           },
           {
             "label": "Data quality flag",
