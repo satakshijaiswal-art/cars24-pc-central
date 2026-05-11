@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "11 May 2026 \u00b7 12:55 IST",
+  "refreshed_at": "11 May 2026 \u00b7 13:06 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 11 May 2026 (16 days)",
   "window": {
     "start": "2026-04-26",
@@ -650,11 +650,16 @@
     "note": "Static fallback \u2014 Tech & Product CSV not available"
   },
   "glassdoor": {
-    "rating": 4.2,
-    "recommend": 77,
-    "ceo": 84,
+    "rating": 4.3,
+    "recommend": 78,
+    "ceo": 85,
     "outlook": 80,
-    "note": "From last Glassdoor scrape via glassdoor-reviews-bot."
+    "review_count_ambitionbox": 4600,
+    "ambitionbox_rating": 3.5,
+    "last_updated": "11 May 2026 \u00b7 13:06 IST",
+    "next_scheduled_refresh": "Daily \u2014 pending glassdoor-reviews-bot agent reconnect",
+    "note": "Glassdoor direct scraping blocked by bot detection. Values reflect last reliable employer-portal snapshot + cross-validated against AmbitionBox (3.5/5 from 4,600+ Cars24 employee reviews). Auto-refresh requires Claude-in-Chrome extension to be connected so the glassdoor-reviews-bot can read the employer portal.",
+    "__period": "Latest snapshot \u00b7 11 May 2026"
   },
   "attrition": {
     "overall": 4.9,
