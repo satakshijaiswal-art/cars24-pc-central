@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "11 May 2026 \u00b7 18:58 IST",
+  "refreshed_at": "11 May 2026 \u00b7 19:00 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 11 May 2026 (16 days)",
   "window": {
     "start": "2026-04-26",
@@ -969,7 +969,7 @@
   ],
   "__sections_audited_at": "11 May 2026",
   "snowflake_catalog": {
-    "refreshed_at": "11 May 2026 \u00b7 18:58 IST",
+    "refreshed_at": "11 May 2026 \u00b7 19:00 IST",
     "source": "CSPL_HR_DB + CAPL_HR_DB \u00b7 Fivetran-synced from HRMS Public / HR_ATS Public",
     "tables_indexed": 116,
     "rows_indexed": 266572,
@@ -977,7 +977,7 @@
       {
         "label": "Total Active HC",
         "value": "9,122",
-        "sub": "Across all entities (5 + others)"
+        "sub": "All 5 Cars24 legal entities \u00b7 live"
       },
       {
         "label": "CSPL",
@@ -995,9 +995,9 @@
         "sub": "UAE / Middle East"
       },
       {
-        "label": "CAPL",
+        "label": "CAPL + APL",
         "value": "2,226",
-        "sub": "Cars Auctions Pvt Ltd"
+        "sub": "Cariot Auto + Accelane (Franchise / Auctions)"
       },
       {
         "label": "Open Reqs",
@@ -1017,19 +1017,27 @@
             "value": "9,122"
           },
           {
-            "label": "CSPL (India)",
+            "label": "CSPL \u00b7 Cars24 Services Pvt Ltd",
             "value": "5,827"
           },
           {
-            "label": "CFSPL (NBFC)",
+            "label": "CFSPL \u00b7 Cars24 Financial Services",
             "value": "764"
           },
           {
-            "label": "CSPL International",
+            "label": "CSPL International (UAE)",
             "value": "278"
           },
           {
-            "label": "CAPL",
+            "label": "CAPL \u00b7 Cariot Auto Pvt Ltd",
+            "value": "\u22481,150"
+          },
+          {
+            "label": "APL \u00b7 Accelane Pvt Ltd",
+            "value": "\u22481,076"
+          },
+          {
+            "label": "CAPL + APL combined",
             "value": "2,226"
           },
           {
@@ -1037,11 +1045,11 @@
             "value": "19"
           },
           {
-            "label": "Velocitypedia",
+            "label": "Velocitypedia Pvt Ltd",
             "value": "4"
           },
           {
-            "label": "BU Code Missing",
+            "label": "BU code missing (CSPL)",
             "value": "4"
           },
           {
@@ -1431,14 +1439,34 @@
         "formula": "COUNT(*)"
       },
       {
-        "name": "CAPL Entity Detail",
-        "source": "CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
+        "name": "CAPL + APL Detail (Cariot / Accelane)",
+        "source": "CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES (BUSINESS_UNIT.COMPANY_NAME = 'Cariot Auto Private Limited' / 'Accelane Private Limited')",
         "window": "Snapshot as of today (11 May 2026)",
         "formula": "COUNT(*) WHERE EMPLOYEE_STATUS ILIKE '%active%' AND NOT _FIVETRAN_DELETED",
         "metrics": [
           {
-            "label": "Active HC CAPL",
+            "label": "Total Active (CAPL + APL)",
             "value": "2,226"
+          },
+          {
+            "label": "Retail Core unit",
+            "value": "1,204"
+          },
+          {
+            "label": "Direct GS unit",
+            "value": "860"
+          },
+          {
+            "label": "Edge-Buyer Franchise",
+            "value": "43"
+          },
+          {
+            "label": "Support unit",
+            "value": "40"
+          },
+          {
+            "label": "Retail Corporate",
+            "value": "33"
           },
           {
             "label": "Permanent",
@@ -1453,36 +1481,16 @@
             "value": "82"
           },
           {
-            "label": "Third Party Band",
+            "label": "Top band: Third Party",
             "value": "1,171"
           },
           {
-            "label": "B1 Band",
+            "label": "B1",
             "value": "453"
           },
           {
-            "label": "B2 Band",
+            "label": "B2",
             "value": "322"
-          },
-          {
-            "label": "B3 Band",
-            "value": "112"
-          },
-          {
-            "label": "B0 Band",
-            "value": "91"
-          },
-          {
-            "label": "B4 Band",
-            "value": "55"
-          },
-          {
-            "label": "B5 Band",
-            "value": "16"
-          },
-          {
-            "label": "B6 Band",
-            "value": "5"
           }
         ]
       },
