@@ -1241,25 +1241,39 @@
         "name": "Live Attrition",
         "metrics": [
           {
-            "label": "Exits MTD",
-            "value": "160"
+            "label": "Exits MTD (CSPL+CAPL)",
+            "value": "152",
+            "sub": "01\u201311 May 2026 \u00b7 CSPL 146 + CAPL 6 \u00b7 by EMPLOYEES.DATE_OF_EXIT"
           },
           {
-            "label": "Exits YTD",
-            "value": "1,534"
+            "label": "Exits YTD (CSPL+CAPL)",
+            "value": "2,217",
+            "sub": "01 Jan \u2192 11 May 2026 \u00b7 CSPL 1,485 + CAPL 732"
           },
           {
-            "label": "Separation Records",
-            "value": "4,845"
+            "label": "Separation Workflow \u00b7 Lifetime",
+            "value": "15,830",
+            "sub": "Every resignation/exit event ever raised in SEPARATIONS table. Approved 6,961 \u00b7 Admin Approved 3,441 \u00b7 Revoked 2,157 \u00b7 Pending 1,722 \u00b7 Resigned 792 \u00b7 Rejected 756"
           },
           {
-            "label": "FnF Pending",
-            "value": "17,527"
+            "label": "Separation Pending Approval",
+            "value": "1,722",
+            "sub": "Pending with Manager 1,404 + Pending with Approver 316 + Pending with Administrator 2. These need HR / Manager action."
+          },
+          {
+            "label": "FnF \u00b7 Processed (Lifetime)",
+            "value": "17,394",
+            "sub": "Positive 12,153 + Negative 4,783 + Negative & Recovered 408 + Joined & Left 27 + Recovered 23"
+          },
+          {
+            "label": "FnF \u00b7 On Hold (truly pending)",
+            "value": "133",
+            "sub": "FNF_STATUS='Hold' \u2014 blocked / disputed cases needing HR closure. Earlier 17,527 number was the entire FNF_DATA table size, not pending."
           }
         ],
-        "source": "CSPL_HR_DB.HRMS_PUBLIC: EMPLOYEES.DATE_OF_EXIT \u00b7 SEPARATIONS \u00b7 FNF_DATA",
-        "window": "MTD = 01 May \u2192 11 May 2026  \u00b7  YTD = 01 Jan \u2192 11 May 2026",
-        "formula": "Exits MTD = COUNT(*) WHERE DATE_OF_EXIT \u2265 01-May-2026  \u00b7  Exits YTD = COUNT(*) WHERE DATE_OF_EXIT \u2265 01-Jan-2026"
+        "source": "CSPL_HR_DB.HRMS_PUBLIC: EMPLOYEES.DATE_OF_EXIT \u00b7 SEPARATIONS \u00b7 FNF_DATA \u22c3 CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
+        "window": "MTD = 01\u201311 May 2026 \u00b7 YTD = 01 Jan \u2192 11 May 2026 \u00b7 Workflow + FnF tiles are lifetime",
+        "formula": "Exits = COUNT(*) on EMPLOYEES.DATE_OF_EXIT in window \u00b7 Pending Approval = SEPARATIONS.STATUS LIKE 'Pending%' \u00b7 FnF Hold = FNF_DATA.FNF_STATUS='Hold'"
       },
       {
         "name": "Employee Type",
