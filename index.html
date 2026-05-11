@@ -1019,8 +1019,9 @@ async function loadDashboard() {
       options: { responsive: true, maintainAspectRatio: false }
     });
   }
-  if (we.top_recruiters) {
-    document.getElementById('top-recruiters').innerHTML = we.top_recruiters.map(r =>
+  const topRecEl = document.getElementById('top-recruiters');
+  if (we.top_recruiters && topRecEl) {
+    topRecEl.innerHTML = we.top_recruiters.map(r =>
       `<li class="flex justify-between border-b pb-1.5"><span>${r.name}</span><span class="font-bold brand-blue">${r.joinings}</span></li>`
     ).join('');
   }
