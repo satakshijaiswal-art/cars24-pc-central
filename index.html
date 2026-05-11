@@ -134,7 +134,35 @@
   <section id="recruitment">
     <div class="accent-bar mb-3"></div>
     <h2 class="text-3xl font-bold brand-blue">Recruitment Performance</h2>
-    <p class="text-gray-600 mt-1">8 deck KPIs · current period vs previous</p>
+    <p class="text-gray-600 mt-1">8 deck KPIs · formulas + sources from <i>People &amp; Culture Central · Monthly View – Apr 2026.pptx</i> (slides 3–7)</p>
+
+    <!-- METHODOLOGY PANEL — replaces "current period vs previous" -->
+    <div class="bg-white rounded-lg shadow-sm border p-5 mt-4">
+      <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Methodology — how each KPI is calculated</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs compact">
+          <thead class="bg-gray-100 text-left">
+            <tr>
+              <th class="text-left py-2">#</th>
+              <th class="text-left">KPI</th>
+              <th class="text-left">Formula (April deck)</th>
+              <th class="text-left">Source — where the data is picked from</th>
+            </tr>
+          </thead>
+          <tbody class="align-top">
+            <tr class="border-b"><td class="py-2 font-bold">1</td><td class="font-semibold">Variable CPH</td><td><code>Total Variable Cost ÷ Total Joinings</code></td><td>Joining Master · <code>Actual_CPH</code> column · Finance posts post month-end close</td></tr>
+            <tr class="border-b"><td class="py-2 font-bold">2</td><td class="font-semibold">30-Day Attrition %</td><td><code>(Exits within 30 days of DOJ ÷ Total Joinings) × 100</code></td><td>Base-Live Employee Data · <code>DOJ</code> + <code>Date of Leaving</code> · 30-day window since join</td></tr>
+            <tr class="border-b"><td class="py-2 font-bold">3</td><td class="font-semibold">Offer-to-Join %</td><td><code>(Total Joinings ÷ Total Offers Released) × 100</code></td><td>Recruitment Metric_New · <code>Rocket Offers</code> tab cross-checked with V3 Joinee Tracker</td></tr>
+            <tr class="border-b"><td class="py-2 font-bold">4</td><td class="font-semibold">Time to Fill (d)</td><td><code>AVG(DOJ − Requisition Open Date)</code></td><td>Snowflake · <code>CSPL_HR_DB.HR_ATS_PUBLIC.OFFER_LETTERS_DETAILS</code> ⋈ <code>REQUISITIONS</code> (live)</td></tr>
+            <tr class="border-b"><td class="py-2 font-bold">5</td><td class="font-semibold">Avg TAT — Open Roles</td><td><code>AVG(Today − Requisition Open Date)</code> for <code>STATUS = Open</code></td><td>Snowflake · <code>CSPL_HR_DB.HR_ATS_PUBLIC.REQUISITIONS</code> (live snapshot)</td></tr>
+            <tr class="border-b"><td class="py-2 font-bold">6</td><td class="font-semibold">Hike %</td><td><code>AVG((Offered CTC − Previous CTC) ÷ Previous CTC) × 100</code></td><td>Joining Master · <code>Offered CTC</code> + <code>Last CTC</code> columns · 149 of 217 joiners covered</td></tr>
+            <tr class="border-b"><td class="py-2 font-bold">7</td><td class="font-semibold">Recruiter Productivity</td><td><code>Total Joinings ÷ Total Recruiter HC</code></td><td>V3 Joinee Tracker · <code>Recruiter</code> column (distinct count) ÷ window joinings</td></tr>
+            <tr><td class="py-2 font-bold">8</td><td class="font-semibold">Joinings</td><td><code>COUNT(DOJ in window)</code></td><td>Base-Live Employee Data · <code>DOJ</code> filtered to current window (26 Apr → today)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-500 mt-3 italic">Formulas above are verbatim from the April founder-review deck. The "Formula + data status" panel below shows the live computed value for each + the exact source row count.</p>
+    </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6" id="recruitment-kpis"></div>
 
