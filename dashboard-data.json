@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "11 May 2026 \u00b7 18:41 IST",
+  "refreshed_at": "11 May 2026 \u00b7 18:58 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 11 May 2026 (16 days)",
   "window": {
     "start": "2026-04-26",
@@ -969,18 +969,33 @@
   ],
   "__sections_audited_at": "11 May 2026",
   "snowflake_catalog": {
-    "refreshed_at": "11 May 2026 \u00b7 18:41 IST",
+    "refreshed_at": "11 May 2026 \u00b7 18:58 IST",
     "source": "CSPL_HR_DB + CAPL_HR_DB \u00b7 Fivetran-synced from HRMS Public / HR_ATS Public",
     "tables_indexed": 116,
     "rows_indexed": 266572,
     "headline": [
       {
-        "label": "Active HC (CSPL)",
-        "value": "6,896",
-        "sub": "Cars Sales Pvt Ltd \u00b7 India"
+        "label": "Total Active HC",
+        "value": "9,122",
+        "sub": "Across all entities (5 + others)"
       },
       {
-        "label": "Active HC (CAPL)",
+        "label": "CSPL",
+        "value": "5,827",
+        "sub": "Cars24 Services Pvt Ltd \u00b7 India"
+      },
+      {
+        "label": "CFSPL",
+        "value": "764",
+        "sub": "Cars24 Financial Services \u00b7 NBFC"
+      },
+      {
+        "label": "CSPL International",
+        "value": "278",
+        "sub": "UAE / Middle East"
+      },
+      {
+        "label": "CAPL",
         "value": "2,226",
         "sub": "Cars Auctions Pvt Ltd"
       },
@@ -988,38 +1003,46 @@
         "label": "Open Reqs",
         "value": "649",
         "sub": "ATS \u00b7 live snapshot"
-      },
-      {
-        "label": "Joinings MTD",
-        "value": "478",
-        "sub": "May 2026 to date"
-      },
-      {
-        "label": "Exits MTD",
-        "value": "160",
-        "sub": "May 2026 to date"
-      },
-      {
-        "label": "Applicants Indexed",
-        "value": "63,649",
-        "sub": "ATS lifetime pool"
       }
     ],
     "categories": [
       {
-        "name": "Active Headcount",
+        "name": "Active Headcount \u00b7 By Entity",
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u22c8 BUSINESS_UNIT (COMPANY_NAME) + CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
+        "window": "Snapshot as of today (11 May 2026)",
+        "formula": "COUNT(DISTINCT EMPLOYEE_ID) WHERE EMPLOYEE_STATUS='Active' AND NOT _FIVETRAN_DELETED, grouped by parent company name",
         "metrics": [
           {
-            "label": "Active HC (CSPL)",
-            "value": "6,896"
+            "label": "Total Active HC",
+            "value": "9,122"
           },
           {
-            "label": "Active HC (CAPL)",
+            "label": "CSPL (India)",
+            "value": "5,827"
+          },
+          {
+            "label": "CFSPL (NBFC)",
+            "value": "764"
+          },
+          {
+            "label": "CSPL International",
+            "value": "278"
+          },
+          {
+            "label": "CAPL",
             "value": "2,226"
           },
           {
-            "label": "Total Active",
-            "value": "9,122"
+            "label": "CSPL Reporting",
+            "value": "19"
+          },
+          {
+            "label": "Velocitypedia",
+            "value": "4"
+          },
+          {
+            "label": "BU Code Missing",
+            "value": "4"
           },
           {
             "label": "Records in HRMS",
@@ -1033,10 +1056,7 @@
             "label": "Joinings YTD",
             "value": "2,368"
           }
-        ],
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES + CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
-        "window": "Snapshot as of today (11 May 2026)",
-        "formula": "COUNT(*) WHERE EMPLOYEE_STATUS='Active' AND NOT _FIVETRAN_DELETED"
+        ]
       },
       {
         "name": "Org Structure",
@@ -1411,7 +1431,10 @@
         "formula": "COUNT(*)"
       },
       {
-        "name": "CAPL Entity",
+        "name": "CAPL Entity Detail",
+        "source": "CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
+        "window": "Snapshot as of today (11 May 2026)",
+        "formula": "COUNT(*) WHERE EMPLOYEE_STATUS ILIKE '%active%' AND NOT _FIVETRAN_DELETED",
         "metrics": [
           {
             "label": "Active HC CAPL",
@@ -1461,10 +1484,7 @@
             "label": "B6 Band",
             "value": "5"
           }
-        ],
-        "source": "CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
-        "window": "Snapshot as of today (11 May 2026)",
-        "formula": "COUNT(*) WHERE EMPLOYEE_STATUS ILIKE '%active%'"
+        ]
       },
       {
         "name": "Statutory Compliance",
