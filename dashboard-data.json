@@ -1243,97 +1243,97 @@
           {
             "label": "Exits MTD (CSPL+CAPL)",
             "value": "152",
-            "sub": "01\u201311 May 2026 \u00b7 CSPL 146 + CAPL 6 \u00b7 by EMPLOYEES.DATE_OF_EXIT"
+            "sub": "WHAT: Employees who exited Cars24 between 1\u201311 May 2026 (CSPL 146 + CAPL 6). WHY: Running tally of this month's leavers vs. last month. ACTION: If pacing >150 by 11th, full-month run-rate \u2248 430+. Compare to historical May avg."
           },
           {
             "label": "Exits YTD (CSPL+CAPL)",
             "value": "2,217",
-            "sub": "01 Jan \u2192 11 May 2026 \u00b7 CSPL 1,485 + CAPL 732"
+            "sub": "WHAT: Total employees who left Cars24 since 1 Jan 2026 (CSPL 1,485 + CAPL 732). WHY: Year-to-date attrition volume. ACTION: Divide by 4.5 months & annualize to project full-year exits \u2248 5,900."
           },
           {
             "label": "Trailing 12-Month Exits (CSPL)",
             "value": "4,988",
-            "sub": "Last 365 days of EMPLOYEES.DATE_OF_EXIT in CSPL only. Use for annualized attrition view."
+            "sub": "WHAT: Every CSPL exit in the last 365 days (rolling, not calendar-year). WHY: Smoother view than YTD \u2014 doesn't reset every Jan. ACTION: This is the right denominator for benchmarking attrition vs. industry."
           },
           {
             "label": "Annualized Attrition (rough)",
             "value": "~70%",
-            "sub": "4,988 trailing-12mo exits \u00f7 7,080 current Active HC. High but consistent with frontline-heavy auto-retail industry. Use as directional, not point estimate."
+            "sub": "WHAT: 4,988 trailing-12mo exits \u00f7 7,080 current Active HC = 70.5%. WHY: Headline attrition rate the way most companies report it. ACTION: Auto-retail frontline industry typically sees 40\u201380% \u2014 Cars24 is in band, but high. Drill by function: frontline likely >100%, corporate <20%."
           },
           {
             "label": "Retention Save Rate",
             "value": "16.2%",
-            "sub": "2,157 Revoked \u00f7 13,315 decided resignations (Approved+AdminApproved+Revoked+Rejected). What % of resignations get withdrawn = manager retention wins. Higher = stronger ATL conversations."
+            "sub": "WHAT: 2,157 employees who resigned but later withdrew their resignation, out of 13,315 decided cases. WHY: Direct measure of how often managers/HR successfully retain a resigning employee. ACTION: Higher = strong ATL (Attempt-to-Lose) conversation culture. <10% would be alarming. 16% is healthy."
           },
           {
             "label": "Separation Workflow \u00b7 Lifetime",
             "value": "15,830",
-            "sub": "Every resignation/exit event ever raised. Approved 6,961 \u00b7 Admin Approved 3,441 \u00b7 Revoked 2,157 \u00b7 Resigned 792 \u00b7 Rejected 756 \u00b7 Pending 1,722"
+            "sub": "WHAT: Total number of resignation/exit workflows ever raised in Cars24 HRMS (since system inception). WHY: Lifetime audit trail. Breaks down to: 6,961 Approved + 3,441 Admin Approved + 2,157 Revoked + 1,722 Pending + 792 Resigned + 756 Rejected. ACTION: Use as denominator for retention/rejection rates."
           },
           {
             "label": "Pending Approval \u00b7 Total",
             "value": "1,722",
-            "sub": "Looks like a backlog \u2014 but 94% are zombie records >1yr old (see below). True operational backlog is near-zero."
+            "sub": "WHAT: Resignation workflows currently sitting at 'Pending with Manager/Approver/Admin' status. WHY: Looks like an HR ops backlog. ACTION: DON'T PANIC \u2014 94% are zombie records >1yr old (see next tile). True backlog is 0."
           },
           {
             "label": "Pending \u00b7 ZOMBIES (>1 yr old)",
             "value": "1,615",
-            "sub": "Stuck pending for 365+ days. 93.8% of 'pending' is stale data \u2014 workflows never closed after employee actually left. HR ops action: bulk-close these in HRMS."
+            "sub": "WHAT: Resignation records stuck 'Pending' for over 365 days. WHY: Employees actually left long ago but the HRMS workflow was never closed. Pure data hygiene rot. ACTION: HR Ops must bulk-close these in HRMS \u2014 they inflate every 'pending' metric. Highest age = 1,069 days (~3 years)."
           },
           {
             "label": "Pending \u00b7 181\u2013365 days",
             "value": "65",
-            "sub": "Stale but not ancient. Audit + close."
+            "sub": "WHAT: Pending workflows aged 6 months to 1 year. WHY: Stale but recent enough to investigate. ACTION: HR audit each one \u2014 if employee already left, close; if still active, follow up."
           },
           {
             "label": "Pending \u00b7 \u226490 days (real backlog)",
             "value": "0",
-            "sub": "ZERO recent resignations are stuck. Workflow is operationally clean \u2014 the 1,722 number is purely data-hygiene noise."
+            "sub": "WHAT: Resignations from the last 3 months that are still pending approval. WHY: This is the ONLY number that matters for 'is HR keeping up?'. ACTION: Zero = managers and HR are processing exits on time. Operationally clean."
           },
           {
             "label": "FnF \u00b7 Processed (Lifetime)",
             "value": "17,394",
-            "sub": "Positive 12,153 + Negative 4,783 + Negative & Recovered 408 + Joined & Left 27 + Recovered 23"
+            "sub": "WHAT: Total Full & Final settlements ever closed in HRMS. Includes Positive F&F (12,153 \u2014 clean exit) + Negative F&F (4,783 \u2014 money recovered from employee) + others (458). WHY: Lifetime FnF audit. ACTION: Use to benchmark FnF cycle-time and accuracy."
           },
           {
             "label": "FnF \u00b7 On Hold (truly pending)",
             "value": "133",
-            "sub": "FNF_STATUS='Hold' \u2014 disputed/blocked cases. Real HR-finance action item."
+            "sub": "WHAT: FnFs flagged 'Hold' \u2014 disputed amounts, missing clearance, asset recovery pending, etc. WHY: These are the REAL pending FnFs that need HR/Finance action. ACTION: Each one blocks an employee's final payout \u2014 should be a weekly ops review item."
           },
           {
             "label": "Top Exit Reason #1",
             "value": "Better Opportunity \u00b7 2,649",
-            "sub": "25% of all reasoned exits. Comp/role/growth gaps. TA + L&D + comp benchmarking lever."
+            "sub": "WHAT: 25% of all reasoned exits cite a better external offer. WHY: Comp + growth + brand pull are losing the war for talent. ACTION: TA to track competitor companies poaching us; comp team to benchmark; L&D to surface internal mobility paths."
           },
           {
             "label": "Top Exit Reason #2",
             "value": "Personal Issues \u00b7 2,190",
-            "sub": "20%. Hard to act on directly but often a euphemism \u2014 should probe in exit interviews."
+            "sub": "WHAT: 20% \u2014 vague catch-all reason employees pick to avoid a hard conversation. WHY: Likely hides real causes (manager, comp, role). ACTION: Push exit interviews to probe specifics; consider removing 'Personal Issues' as a default option."
           },
           {
             "label": "Top Exit Reason #3",
             "value": "Personal Reasons \u00b7 1,567",
-            "sub": "15%. Same caveat as Personal Issues \u2014 combined = 35% which is suspiciously high. May be hiding real causes."
+            "sub": "WHAT: 15% \u2014 another catch-all (almost a duplicate of #2). WHY: Personal Issues + Personal Reasons combined = 35% of all exits = 3,757 cases we have NO real reason for. ACTION: HR system fix \u2014 merge these labels, force more specific reason picks."
           },
           {
             "label": "Job Dissatisfaction Exits",
             "value": "681",
-            "sub": "6.4%. Direct manager / role-design signal \u2014 drill by function to find hotspots."
+            "sub": "WHAT: 6.4% \u2014 employees who explicitly said they were unhappy with the work itself. WHY: Direct role-design / job-fit signal. ACTION: Drill by department \u2014 hotspots reveal teams where the actual job differs from what was sold at hire."
           },
           {
             "label": "Health-related Exits",
             "value": "868",
-            "sub": "8.2%. Watch for wellness / shift-pattern issues, especially frontline ops."
+            "sub": "WHAT: 8.2% \u2014 exits cited 'Health Problem'. WHY: Could be wellness, shift patterns, on-job stress (esp. frontline ops). ACTION: Cross with function \u2014 if concentrated in field ops, look at shift timings, physical demands, insurance utilisation."
           },
           {
             "label": "\ud83d\udea9 Manager-issue Exits",
             "value": "77",
-            "sub": "Explicitly 'Issues with Manager'. Small absolute but high signal \u2014 these are quotable cases for ATL coaching."
+            "sub": "WHAT: Employees who explicitly cited 'Issues with Manager' as exit reason. WHY: Small in volume but extremely high signal \u2014 most employees won't put this in writing. Each one is a flag on a specific manager. ACTION: Pull manager name \u2192 if any manager has 2+ such exits, escalate for ATL coaching."
           },
           {
             "label": "\ud83d\udea9 Absconding",
             "value": "76",
-            "sub": "Walked away without notice. Often FnF-negative + BGV-flag. Concentrated functions should be probed."
+            "sub": "WHAT: Employees who left without serving notice or formal resignation. WHY: BGV black mark for future employers; usually FnF-negative (we recover joining bonus / training cost). ACTION: Check if concentrated by location/role \u2014 could indicate hiring quality issue at source."
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC: EMPLOYEES.DATE_OF_EXIT \u00b7 SEPARATIONS \u00b7 FNF_DATA \u22c3 CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
