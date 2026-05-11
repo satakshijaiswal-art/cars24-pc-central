@@ -1644,6 +1644,54 @@
         "formula": "COUNT(*)"
       },
       {
+        "name": "Live Attendance",
+        "metrics": [
+          {
+            "label": "Present rate YTD 2026",
+            "value": "86.4%",
+            "sub": "570,656 Present of 660,771 working-day logs (Jan 1 → May 10, 2026)"
+          },
+          {
+            "label": "Absent rate YTD 2026",
+            "value": "10.5%",
+            "sub": "69,203 absent logs YTD — frontline / SLA roles drive most of the volume"
+          },
+          {
+            "label": "Leave rate YTD 2026",
+            "value": "3.2%",
+            "sub": "20,912 approved leave logs YTD — separate from unplanned absent"
+          },
+          {
+            "label": "MTD May 2026 present",
+            "value": "83.8%",
+            "sub": "1–10 May: 43,995 Present of 52,512 working-day logs. Dip from Apr (87%) — watch May seasonality"
+          },
+          {
+            "label": "MTD May absent",
+            "value": "12.5%",
+            "sub": "6,538 absent in first 10 days of May — running ~2pp higher than YTD"
+          },
+          {
+            "label": "Monthly trend 2026",
+            "value": "Jan→May",
+            "sub": "Logs: Jan 188k · Feb 180k · Mar 198k · Apr 203k · May 68k (MTD). Pacing consistent with active HC"
+          },
+          {
+            "label": "L30D regularizations",
+            "value": "12,715",
+            "sub": "Attendance correction requests submitted in last 30 days — HR ops workflow load (automation opportunity)"
+          },
+          {
+            "label": "Pipeline freshness",
+            "value": "Synced today",
+            "sub": "3.51 M lifetime logs · 8,270 distinct emp in 2026 · last Fivetran sync 11 May 2026 03:17 IST"
+          }
+        ],
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.ATTENDANCE (live · 3.5M rows · Fivetran-synced daily)",
+        "window": "YTD 2026 = 01 Jan → 10 May 2026 · MTD May = 1–10 May 2026 · L30D for regularizations",
+        "formula": "Present% = COUNT(STATUS LIKE 'P%') ÷ COUNT(STATUS IN P/A/L variants). Excludes Weekly Off (W) and Holiday (H) from denominator."
+      },
+      {
         "name": "Directories · Masked PII",
         "metrics": [
           {
