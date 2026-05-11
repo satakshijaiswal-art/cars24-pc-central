@@ -1201,8 +1201,8 @@
         "name": "Employee Type",
         "metrics": [
           {
-            "label": "Permanent",
-            "value": "4,650"
+            "label": "Permanent (CSPL+CAPL)",
+            "value": "4,830"
           },
           {
             "label": "Permanent - CJ",
@@ -1225,43 +1225,47 @@
             "value": "109"
           },
           {
-            "label": "Intern",
-            "value": "93"
+            "label": "Intern (CSPL+CAPL)",
+            "value": "94"
           },
           {
             "label": "Consultant",
             "value": "7"
           },
           {
-            "label": "Test Employee",
-            "value": "3"
+            "label": "Test Employee (CSPL+CAPL)",
+            "value": "6"
           },
           {
             "label": "Suspended",
             "value": "1"
+          },
+          {
+            "label": "Total",
+            "value": "7,080"
           }
         ],
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.EMPLOYEE_TYPE",
-        "window": "Snapshot as of today (11 May 2026)",
-        "formula": "COUNT(*) GROUP BY EMPLOYEE_TYPE WHERE EMPLOYEE_STATUS='Active'"
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.EMPLOYEE_TYPE ⋃ CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES.EMPLOYEE_TYPE",
+        "window": "Snapshot as of today (11 May 2026) · all 5 legal entities",
+        "formula": "COUNT(*) GROUP BY EMPLOYEE_TYPE WHERE EMPLOYEE_STATUS='Active' on BOTH databases (CAPL adds 180 Permanent + 3 test + 1 Intern = 184)"
       },
       {
         "name": "Bands \u00b7 Active HC (All Entities)",
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND  \u22c3  CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES.BAND",
         "window": "Snapshot as of today (11 May 2026) \u00b7 all 5 legal entities",
-        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' \u00b7 B4 + B5 + B6 + 'Builder' band collapsed to single Builders tier",
+        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' on BOTH databases \u00b7 Builders = B4 + B5 + B6 + 'Builder' band (roll-up; B4/B5/B6/Builder shown as sub-lines, NOT additive)",
         "metrics": [
           {
             "label": "Total Active HC",
-            "value": "9,122"
+            "value": "7,080"
           },
           {
             "label": "B0 \u00b7 Interns / Apprentices",
-            "value": "189"
+            "value": "99"
           },
           {
             "label": "B1 \u00b7 Frontline",
-            "value": "4,637"
+            "value": "4,303"
           },
           {
             "label": "B1 Fin \u00b7 Finance Frontline",
@@ -1269,23 +1273,40 @@
           },
           {
             "label": "B2 \u00b7 Senior IC",
-            "value": "1,412"
+            "value": "1,133"
           },
           {
             "label": "B3 \u00b7 Manager / Lead",
-            "value": "420"
+            "value": "315"
           },
           {
-            "label": "Builders (B4+)",
-            "value": "324"
+            "label": "Builders (B4+B5+B6+Builder)",
+            "value": "261"
+          },
+          {
+            "label": "\u2014 B4",
+            "value": "156"
+          },
+          {
+            "label": "\u2014 B5",
+            "value": "69"
+          },
+          {
+            "label": "\u2014 B6",
+            "value": "33"
+          },
+          {
+            "label": "\u2014 Builder band",
+            "value": "3"
           },
           {
             "label": "SLA \u00b7 Service Line Agent",
             "value": "333"
           },
           {
-            "label": "Third Party Manpower",
-            "value": "1,804"
+            "label": "Third Party (BAND='Third Party')",
+            "value": "633",
+            "sub": "Separate 'Third Party Manpower' vendor sheet shows 1,804 \u2014 different source, not from HRMS BAND column"
           }
         ]
       },
@@ -1435,57 +1456,61 @@
       },
       {
         "name": "CAPL + APL Detail (Cariot / Accelane)",
-        "source": "CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES (BUSINESS_UNIT.COMPANY_NAME = 'Cariot Auto Private Limited' / 'Accelane Private Limited')",
-        "window": "Snapshot as of today (11 May 2026)",
-        "formula": "COUNT(*) WHERE EMPLOYEE_STATUS ILIKE '%active%' AND NOT _FIVETRAN_DELETED",
+        "source": "CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES ⋈ BUSINESS_UNIT (COMPANY_NAME)",
+        "window": "Snapshot as of today (11 May 2026) · Active only",
+        "formula": "COUNT(*) WHERE EMPLOYEE_STATUS='Active'. (Earlier 2,226 figure was wrong — it counted Active + Inactive rows. True Active = 184.)",
         "metrics": [
           {
             "label": "Total Active (CAPL + APL)",
-            "value": "2,226"
+            "value": "184"
           },
           {
-            "label": "Retail Core unit",
-            "value": "1,204"
+            "label": "Cariot Auto + Accelane (combined BU tag)",
+            "value": "173"
           },
           {
-            "label": "Direct GS unit",
-            "value": "860"
+            "label": "Cariot Auto Private Limited",
+            "value": "10"
           },
           {
-            "label": "Edge-Buyer Franchise",
-            "value": "43"
-          },
-          {
-            "label": "Support unit",
-            "value": "40"
-          },
-          {
-            "label": "Retail Corporate",
-            "value": "33"
+            "label": "Cariot Auto (legacy tag)",
+            "value": "1"
           },
           {
             "label": "Permanent",
-            "value": "1,231"
+            "value": "180"
           },
           {
-            "label": "Third Party",
-            "value": "901"
+            "label": "test (employee type)",
+            "value": "3"
           },
           {
             "label": "Intern",
-            "value": "82"
-          },
-          {
-            "label": "Top band: Third Party",
-            "value": "1,171"
+            "value": "1"
           },
           {
             "label": "B1",
-            "value": "453"
+            "value": "119"
           },
           {
             "label": "B2",
-            "value": "322"
+            "value": "43"
+          },
+          {
+            "label": "B3",
+            "value": "7"
+          },
+          {
+            "label": "B4",
+            "value": "12"
+          },
+          {
+            "label": "B5",
+            "value": "1"
+          },
+          {
+            "label": "B0",
+            "value": "1"
           }
         ]
       },
@@ -1561,12 +1586,12 @@
         "name": "Directories \u00b7 Masked PII",
         "metrics": [
           {
-            "label": "Active emp records",
-            "value": "6,896"
+            "label": "Active emp records (CSPL+CAPL)",
+            "value": "7,080"
           },
           {
-            "label": "PII records synced",
-            "value": "27,217"
+            "label": "PII records synced (CSPL only)",
+            "value": "28,136"
           },
           {
             "label": "Gender column (HRMS)",
