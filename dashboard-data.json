@@ -1,95 +1,95 @@
 {
-  "refreshed_at": "07 May 2026 \u00b7 22:29 IST",
-  "period_label": "Window: 26 Apr 2026 \u2014 07 May 2026 (12 days)",
+  "refreshed_at": "11 May 2026 \u00b7 12:08 IST",
+  "period_label": "Window: 26 Apr 2026 \u2014 11 May 2026 (16 days)",
   "window": {
     "start": "2026-04-26",
-    "end": "2026-05-07",
-    "days": 12
+    "end": "2026-05-11",
+    "days": 16
   },
   "data_sources": {
     "v3_candidates": 244,
-    "base_joiners": 178,
-    "base_exits": 139,
-    "base_active_hc": 6766,
+    "base_joiners": 217,
+    "base_exits": 179,
+    "base_active_hc": 6761,
     "jm_synced": 178,
-    "rocket_offers_window": 84,
-    "rocket_open_reqs": 531
+    "rocket_offers_window": 134,
+    "rocket_open_reqs": 551
   },
-  "data_coverage_note": "Joinings: 178 (Base-Live). OTJ: 68/84 from Rocket Offers, V3 cross-check 192/244. TTF/Open Reqs from Rocket Offers tab. CTC/CPH/Hike from JM cohort 178. Window auto-rolls daily \u2014 end = today (IST).",
+  "data_coverage_note": "Joinings: 217 (Base-Live). OTJ: 83/134 from Rocket Offers, V3 cross-check 192/244. TTF/Open Reqs from Rocket Offers tab. CTC/CPH/Hike from JM cohort 178. Window auto-rolls daily \u2014 end = today (IST).",
   "overview": {
-    "joinings": 178,
+    "joinings": 217,
     "joinings_total_candidates": 244,
     "drops": 51,
     "drop_rate": 20.9,
     "otj": 78.69,
     "otj_v3_consistent": 78.69,
-    "otj_ro_consistent": 80.95,
-    "otj_base_to_v3": 72.95,
+    "otj_ro_consistent": 61.94,
+    "otj_base_to_v3": 88.93,
     "attrition_30d": 0.0,
-    "overall_attrition_window": 2.0335,
-    "overall_attrition_monthly_projected": 5.08,
-    "exits_in_window": 139,
-    "active_hc": 6766,
+    "overall_attrition_window": 2.6129,
+    "overall_attrition_monthly_projected": 4.9,
+    "exits_in_window": 179,
+    "active_hc": 6761,
     "cph": 5556.0,
     "cph_data_rows": 9,
     "cph_note": null,
     "hike": 6.81,
     "hike_data_rows": 149,
-    "hike_note": "Based on 149 of 178 joiners (only those synced to JM)",
-    "ttf": 34.6,
-    "ttf_data_rows": 84,
-    "ttf_note": "Based on 84 of 178 joiners (from Rocket Offers tab)",
-    "tat": 416.4,
-    "tat_data_rows": 531,
-    "tat_note": "Avg(today - REQ Start Date) for 531 open requisitions",
-    "open_reqs": 531,
+    "hike_note": "Based on 149 of 217 joiners (only those synced to JM)",
+    "ttf": 31.9,
+    "ttf_data_rows": 134,
+    "ttf_note": "Based on 134 of 217 joiners (from Rocket Offers tab)",
+    "tat": 406.2,
+    "tat_data_rows": 551,
+    "tat_note": "Avg(today - REQ Start Date) for 551 open requisitions",
+    "open_reqs": 551,
     "senior_b4_plus": 10,
     "senior_new": 10,
     "senior_replacement": 0,
-    "productivity": 10.5,
+    "productivity": 12.8,
     "active_recruiters": 17
   },
   "functionTable": {
     "joinings_by": {
-      "Other Support": 19,
-      "Business (B1+B2)": 153,
+      "Other Support": 23,
+      "Business (B1+B2)": 187,
       "Product": 1,
       "Technology": 1,
-      "BI DS": 4
+      "BI DS": 5
     },
     "active_hc_by": {
-      "Other Support": 802,
-      "Business (B1+B2)": 5492,
-      "Technology": 319,
+      "Other Support": 801,
+      "Business (B1+B2)": 5494,
+      "Technology": 313,
       "BI DS": 72,
       "Product": 76,
       "Business Support": 5
     },
     "exits_by": {
-      "Other Support": 28,
-      "Business (B1+B2)": 92,
+      "Other Support": 33,
+      "Business (B1+B2)": 121,
       "Product": 4,
-      "BI DS": 3,
-      "Technology": 12
+      "Technology": 17,
+      "BI DS": 4
     },
     "drops_by": {
       "Business (B1+B2)": 44,
       "Other Support": 7
     },
     "otj_by": {
+      "Other Support": 76.67,
       "Technology": 100.0,
-      "BI DS": 100.0,
-      "Business (B1+B2)": 77.66,
+      "Business (B1+B2)": 80.95,
       "Product": 100.0,
-      "Other Support": 73.08
+      "BI DS": 100.0
     },
     "ttf_by": {
-      "Business (B1+B2)": 38.0,
+      "Business (B1+B2)": 34.1,
       "Business Support": null,
       "Product": 17.3,
       "Technology": null,
       "BI DS": null,
-      "Other Support": 26.9
+      "Other Support": 25.8
     },
     "cph_by": {
       "Other Support": null,
@@ -108,19 +108,19 @@
       "Business Support": null
     },
     "female_by": {
-      "Other Support": 26.32,
-      "Business (B1+B2)": 7.19,
+      "Other Support": 26.09,
+      "Business (B1+B2)": 8.56,
       "Product": 0.0,
       "Technology": 0.0,
       "BI DS": 0.0
     },
     "attrition_by": {
-      "Business (B1+B2)": 1.6752,
+      "Business (B1+B2)": 2.2024,
       "Business Support": 0.0,
       "Product": 5.2632,
-      "Technology": 3.7618,
-      "BI DS": 4.1667,
-      "Other Support": 3.4913
+      "Technology": 5.4313,
+      "BI DS": 5.5556,
+      "Other Support": 4.1199
     }
   },
   "leadership": {
@@ -213,27 +213,27 @@
     ]
   },
   "diversity": {
-    "total": 178,
-    "female_count": 16,
-    "male_count": 162,
-    "female_pct": 8.99,
-    "male_pct": 91.01,
+    "total": 217,
+    "female_count": 22,
+    "male_count": 195,
+    "female_pct": 10.14,
+    "male_pct": 89.86,
     "by_function": {
-      "Other Support": 26.32,
-      "Business (B1+B2)": 7.19,
+      "Other Support": 26.09,
+      "Business (B1+B2)": 8.56,
       "Product": 0.0,
       "Technology": 0.0,
       "BI DS": 0.0
     },
     "by_band": {
-      "B0": 33.33,
-      "B1": 13.21,
-      "B2": 5.0,
+      "B0": 40.0,
+      "B1": 14.47,
+      "B2": 4.92,
       "B3": 14.29,
       "B4": 0.0,
       "B5": 0.0
     },
-    "data_rows": 178
+    "data_rows": 217
   },
   "sourcing": {
     "overall": {
@@ -340,7 +340,7 @@
         "LinkedIn-Headhunt",
         "Naukri-Headhunt"
       ],
-      "note": "Window 26 Apr \u2192 07 May 2026 \u00b7 178 JM-synced rows."
+      "note": "Window 26 Apr \u2192 11 May 2026 \u00b7 178 JM-synced rows."
     }
   },
   "drops": {
@@ -357,10 +357,10 @@
     "top_function": "Business (B1+B2)"
   },
   "ta": {
-    "active": 531,
-    "closed": 178,
+    "active": 551,
+    "closed": 217,
     "ytj": 51,
-    "productivity": 10.5
+    "productivity": 12.8
   },
   "trends": {
     "months": [
@@ -368,21 +368,21 @@
       "Feb-26",
       "Mar-26",
       "Apr-26",
-      "26 Apr\u219207 May"
+      "26 Apr\u219211 May"
     ],
     "joinings": [
       351,
       340,
       269,
       232,
-      178
+      217
     ],
     "attrition": [
       8.07,
       11.75,
       11.75,
       18.96,
-      5.08
+      4.9
     ],
     "attrition_label": "Monthly attrition % (window value is projected to monthly equivalent)"
   },
@@ -399,11 +399,15 @@
       "4-May-26": 26,
       "5-May-26": 0,
       "6-May-26": 0,
-      "7-May-26": 0
+      "7-May-26": 33,
+      "8-May-26": 6,
+      "9-May-26": 0,
+      "10-May-26": 0,
+      "11-May-26": 0
     },
     "by_entity": {
-      "CSPL International": 6,
-      "CSPL": 162,
+      "CSPL International": 7,
+      "CSPL": 200,
       "CFSPL": 10
     },
     "top_recruiters": [
@@ -424,16 +428,16 @@
         "joinings": 12
       },
       {
+        "name": "Praveen Kumar B",
+        "joinings": 11
+      },
+      {
         "name": "B Kumar",
         "joinings": 11
       },
       {
         "name": "Banika Rana",
         "joinings": 11
-      },
-      {
-        "name": "Praveen Kumar B",
-        "joinings": 10
       },
       {
         "name": "Bhawna Aggarwal",
@@ -452,20 +456,20 @@
         "joinings": 8
       },
       {
+        "name": "Bhawna Aggarwal",
+        "joinings": 8
+      },
+      {
         "name": "Samiksha Yadav",
         "joinings": 8
       },
       {
-        "name": "Bhawna Aggarwal",
-        "joinings": 6
-      },
-      {
-        "name": "Aayush Kharkwal",
-        "joinings": 6
+        "name": "Samiksha Yadav",
+        "joinings": 7
       },
       {
         "name": "Aayush Tyagi",
-        "joinings": 5
+        "joinings": 6
       }
     ]
   },
@@ -671,25 +675,29 @@
     "note": "From last Glassdoor scrape via glassdoor-reviews-bot."
   },
   "attrition": {
-    "overall": 5.08,
-    "overall_window_raw": 2.0335,
-    "overall_total_exits": 139,
-    "overall_active_hc": 6766,
+    "overall": 4.9,
+    "overall_window_raw": 2.6129,
+    "overall_total_exits": 179,
+    "overall_active_hc": 6761,
     "high": [
+      {
+        "func": "BI DS",
+        "pct": 5.5556
+      },
+      {
+        "func": "Technology",
+        "pct": 5.4313
+      },
       {
         "func": "Product",
         "pct": 5.2632
       },
       {
-        "func": "BI DS",
-        "pct": 4.1667
+        "func": "Other Support",
+        "pct": 4.1199
       }
     ],
     "low": [
-      {
-        "func": "Business (B1+B2)",
-        "pct": 1.6752
-      },
       {
         "func": "Business Support",
         "pct": 0.0
@@ -697,51 +705,51 @@
     ],
     "drivers": [
       {
-        "theme": "Business Conditions",
-        "count": 36,
-        "pct": 25.9
+        "theme": "Better Opportunity",
+        "count": 47,
+        "pct": 26.3
       },
       {
-        "theme": "Better Opportunity",
-        "count": 35,
-        "pct": 25.2
+        "theme": "Business Conditions",
+        "count": 45,
+        "pct": 25.1
       },
       {
         "theme": "Personal Reasons",
-        "count": 34,
-        "pct": 24.5
-      },
-      {
-        "theme": "Internship Completion",
-        "count": 8,
-        "pct": 5.8
+        "count": 39,
+        "pct": 21.8
       },
       {
         "theme": "Absconding",
-        "count": 7,
-        "pct": 5.0
+        "count": 11,
+        "pct": 6.1
+      },
+      {
+        "theme": "Internship Completion",
+        "count": 11,
+        "pct": 6.1
       },
       {
         "theme": "Job Dissatisfaction",
-        "count": 5,
-        "pct": 3.6
-      },
-      {
-        "theme": "Code of Conduct",
-        "count": 3,
-        "pct": 2.2
+        "count": 7,
+        "pct": 3.9
       },
       {
         "theme": "Performance Issues",
-        "count": 2,
-        "pct": 1.4
+        "count": 5,
+        "pct": 2.8
+      },
+      {
+        "theme": "Code of Conduct",
+        "count": 4,
+        "pct": 2.2
       }
     ],
     "exit_types": {
-      "Involuntary": 43,
-      "Voluntary": 96
+      "Involuntary": 56,
+      "Voluntary": 123
     },
-    "note": "Window 26 Apr\u201307 May: 139 exits across 6766 active employees. Monthly-projected to 5.08%."
+    "note": "Window 26 Apr\u201311 May: 179 exits across 6761 active employees. Monthly-projected to 4.9%."
   },
   "automation": [
     {
