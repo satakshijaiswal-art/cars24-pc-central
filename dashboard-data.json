@@ -18,14 +18,14 @@
   "data_coverage_note": "Joinings: 217 (Base-Live). OTJ: 83/134 from Rocket Offers, V3 cross-check 192/244. TTF/Open Reqs from Rocket Offers tab. CTC/CPH/Hike from JM cohort 178. Window auto-rolls daily \u2014 end = today (IST).",
   "overview": {
     "joinings": 217,
-    "joinings_total_candidates": 244,
+    "joinings_total_candidates": 249,
     "drops": 51,
     "drop_rate": 20.9,
     "otj": 78.69,
     "otj_v3_consistent": 78.69,
     "otj_ro_consistent": 61.94,
     "otj_base_to_v3": 88.93,
-    "attrition_30d": 0.0,
+    "attrition_30d": 4.9,
     "overall_attrition_window": 2.6129,
     "overall_attrition_monthly_projected": 4.9,
     "exits_in_window": 179,
@@ -47,7 +47,8 @@
     "senior_new": 10,
     "senior_replacement": 0,
     "productivity": 12.8,
-    "active_recruiters": 17
+    "active_recruiters": 17,
+    "attrition_30d_display": 4.9
   },
   "functionTable": {
     "joinings_by": {
@@ -74,7 +75,11 @@
     },
     "drops_by": {
       "Business (B1+B2)": 44,
-      "Other Support": 7
+      "Other Support": 7,
+      "Business Support": 0,
+      "Product": 0,
+      "Technology": 0,
+      "BI DS": 0
     },
     "otj_by": {
       "Business (B1+B2)": 80.95,
@@ -121,6 +126,14 @@
       "Technology": 5.4313,
       "BI DS": 5.5556,
       "Other Support": 4.1199
+    },
+    "candidates_by": {
+      "Business (B1+B2)": 207,
+      "Other Support": 34,
+      "Product": 2,
+      "Technology": 1,
+      "Business Support": 0,
+      "BI DS": 5
     }
   },
   "leadership": {
