@@ -970,14 +970,14 @@
   "__sections_audited_at": "11 May 2026",
   "snowflake_catalog": {
     "refreshed_at": "11 May 2026 · 19:08 IST",
-    "source": "CSPL_HR_DB + CAPL_HR_DB · Fivetran-synced from HRMS Public / HR_ATS Public",
+    "source": "CSPL_HR_DB · Fivetran-synced from HRMS Public / HR_ATS Public",
     "tables_indexed": 116,
     "rows_indexed": 266572,
     "headline": [
       {
         "label": "Total Active HC",
-        "value": "7,080",
-        "sub": "All 5 Cars24 legal entities · Active only · live"
+        "value": "6,896",
+        "sub": "CSPL · Cars24 Services Pvt Ltd · Active · live"
       },
       {
         "label": "CSPL",
@@ -995,11 +995,6 @@
         "sub": "UAE / Middle East"
       },
       {
-        "label": "CAPL + APL",
-        "value": "184",
-        "sub": "Cariot Auto + Accelane (Franchise / Auctions) · Active"
-      },
-      {
         "label": "Open Reqs",
         "value": "649",
         "sub": "ATS · live snapshot"
@@ -1008,13 +1003,13 @@
     "categories": [
       {
         "name": "Active Headcount · By Entity",
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES ⋈ BUSINESS_UNIT (COMPANY_NAME) + CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES ⋈ BUSINESS_UNIT (COMPANY_NAME)",
         "window": "Snapshot as of today (11 May 2026)",
-        "formula": "COUNT(DISTINCT EMPLOYEE_ID) WHERE EMPLOYEE_STATUS='Active' AND NOT _FIVETRAN_DELETED, grouped by parent company name. CAPL side ALSO filtered on EMPLOYEE_STATUS='Active' (do not count Inactive rows).",
+        "formula": "COUNT(DISTINCT EMPLOYEE_ID) WHERE EMPLOYEE_STATUS='Active' AND NOT _FIVETRAN_DELETED, grouped by parent company name.",
         "metrics": [
           {
             "label": "Total Active HC",
-            "value": "7,080"
+            "value": "6,896"
           },
           {
             "label": "CSPL · Cars24 Services Pvt Ltd",
@@ -1027,11 +1022,6 @@
           {
             "label": "CSPL International (UAE)",
             "value": "278"
-          },
-          {
-            "label": "CAPL + APL combined (Active)",
-            "value": "184",
-            "sub": "CAPL_HR_DB BU table does not split CAPL vs APL cleanly — 173 rows tagged 'Cariot Auto + Accelane', 11 tagged 'Cariot Auto' only"
           },
           {
             "label": "CSPL Reporting",
@@ -1047,8 +1037,8 @@
           },
           {
             "label": "Records in HRMS (Active + Inactive)",
-            "value": "29,729",
-            "sub": "CSPL EMPLOYEES 27,503 + CAPL EMPLOYEES 2,226"
+            "value": "27,503",
+            "sub": "CSPL EMPLOYEES only"
           },
           {
             "label": "PII Records Synced (CSPL only)",
@@ -1061,22 +1051,22 @@
         ]
       },
       {
-        "name": "Org Structure · All Entities",
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND  ⋃  CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES.BAND",
-        "window": "Snapshot as of today (11 May 2026) · all 5 legal entities",
-        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' (BOTH DBs) · B4 + B5 + B6 + 'Builder' band collapsed to single Builders tier · Builders row is the roll-up; B4/B5/B6/Builder shown as sub-lines and NOT additive on top",
+        "name": "Org Structure",
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND",
+        "window": "Snapshot as of today (11 May 2026) · CSPL",
+        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' · Builders = B4 + B5 + B6 + 'Builder' band collapsed (roll-up; sub-lines NOT additive)",
         "metrics": [
           {
             "label": "Total Active HC",
-            "value": "7,080"
+            "value": "6,896"
           },
           {
             "label": "B0 · Interns / Apprentices",
-            "value": "99"
+            "value": "98"
           },
           {
             "label": "B1 · Frontline",
-            "value": "4,303"
+            "value": "4,184"
           },
           {
             "label": "B1 Fin · Finance Frontline",
@@ -1084,15 +1074,15 @@
           },
           {
             "label": "B2 · Senior IC",
-            "value": "1,133"
+            "value": "1,090"
           },
           {
             "label": "B3 · Manager / Lead",
-            "value": "315"
+            "value": "308"
           },
           {
             "label": "Builders (B4+B5+B6+Builder band)",
-            "value": "261"
+            "value": "248"
           },
           {
             "label": "SLA · Service Line Agent",
@@ -1241,24 +1231,24 @@
         "name": "Live Attrition",
         "metrics": [
           {
-            "label": "Exits MTD (CSPL+CAPL)",
-            "value": "152",
-            "sub": "WHAT: Employees who exited Cars24 between 1–11 May 2026 (CSPL 146 + CAPL 6). WHY: Running tally of this month's leavers vs. last month. ACTION: If pacing >150 by 11th, full-month run-rate ≈ 430+. Compare to historical May avg."
+            "label": "Exits MTD",
+            "value": "146",
+            "sub": "WHAT: CSPL employees who exited Cars24 between 1–11 May 2026. WHY: Running tally of this month's leavers vs. last month. ACTION: If pacing >150 by 11th, full-month run-rate ≈ 410+. Compare to historical May avg."
           },
           {
-            "label": "Exits YTD (CSPL+CAPL)",
-            "value": "2,217",
-            "sub": "WHAT: Total employees who left Cars24 since 1 Jan 2026 (CSPL 1,485 + CAPL 732). WHY: Year-to-date attrition volume. ACTION: Divide by 4.5 months & annualize to project full-year exits ≈ 5,900."
+            "label": "Exits YTD",
+            "value": "1,485",
+            "sub": "WHAT: Total CSPL employees who left Cars24 since 1 Jan 2026. WHY: Year-to-date attrition volume. ACTION: Divide by 4.5 months & annualize to project full-year exits ≈ 3,960."
           },
           {
-            "label": "Trailing 12-Month Exits (CSPL)",
+            "label": "Trailing 12-Month Exits",
             "value": "4,988",
             "sub": "WHAT: Every CSPL exit in the last 365 days (rolling, not calendar-year). WHY: Smoother view than YTD — doesn't reset every Jan. ACTION: This is the right denominator for benchmarking attrition vs. industry."
           },
           {
             "label": "Annualized Attrition (rough)",
-            "value": "~70%",
-            "sub": "WHAT: 4,988 trailing-12mo exits ÷ 7,080 current Active HC = 70.5%. WHY: Headline attrition rate the way most companies report it. ACTION: Auto-retail frontline industry typically sees 40–80% — Cars24 is in band, but high. Drill by function: frontline likely >100%, corporate <20%."
+            "value": "~72%",
+            "sub": "WHAT: 4,988 trailing-12mo exits ÷ 6,896 current CSPL Active HC = 72.3%. WHY: Headline attrition rate the way most companies report it. ACTION: Auto-retail frontline industry typically sees 40–80% — Cars24 is in band, but high. Drill by function: frontline likely >100%, corporate <20%."
           },
           {
             "label": "Retention Save Rate",
@@ -1344,8 +1334,8 @@
         "name": "Employee Type",
         "metrics": [
           {
-            "label": "Permanent (CSPL+CAPL)",
-            "value": "4,830"
+            "label": "Permanent",
+            "value": "4,650"
           },
           {
             "label": "Permanent - CJ",
@@ -1368,16 +1358,16 @@
             "value": "109"
           },
           {
-            "label": "Intern (CSPL+CAPL)",
-            "value": "94"
+            "label": "Intern",
+            "value": "93"
           },
           {
             "label": "Consultant",
             "value": "7"
           },
           {
-            "label": "Test Employee (CSPL+CAPL)",
-            "value": "6"
+            "label": "Test Employee",
+            "value": "3"
           },
           {
             "label": "Suspended",
@@ -1385,30 +1375,30 @@
           },
           {
             "label": "Total",
-            "value": "7,080"
+            "value": "6,896"
           }
         ],
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.EMPLOYEE_TYPE ⋃ CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES.EMPLOYEE_TYPE",
-        "window": "Snapshot as of today (11 May 2026) · all 5 legal entities",
-        "formula": "COUNT(*) GROUP BY EMPLOYEE_TYPE WHERE EMPLOYEE_STATUS='Active' on BOTH databases (CAPL adds 180 Permanent + 3 test + 1 Intern = 184)"
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.EMPLOYEE_TYPE",
+        "window": "Snapshot as of today (11 May 2026) · CSPL",
+        "formula": "COUNT(*) GROUP BY EMPLOYEE_TYPE WHERE EMPLOYEE_STATUS='Active'"
       },
       {
-        "name": "Bands · Active HC (All Entities)",
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND  ⋃  CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES.BAND",
-        "window": "Snapshot as of today (11 May 2026) · all 5 legal entities",
-        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' on BOTH databases · Builders = B4 + B5 + B6 + 'Builder' band (roll-up; B4/B5/B6/Builder shown as sub-lines, NOT additive)",
+        "name": "Bands · Active HC",
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND",
+        "window": "Snapshot as of today (11 May 2026) · CSPL",
+        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' · Builders = B4 + B5 + B6 + 'Builder' band (roll-up; sub-lines NOT additive)",
         "metrics": [
           {
             "label": "Total Active HC",
-            "value": "7,080"
+            "value": "6,896"
           },
           {
             "label": "B0 · Interns / Apprentices",
-            "value": "99"
+            "value": "98"
           },
           {
             "label": "B1 · Frontline",
-            "value": "4,303"
+            "value": "4,184"
           },
           {
             "label": "B1 Fin · Finance Frontline",
@@ -1416,15 +1406,15 @@
           },
           {
             "label": "B2 · Senior IC",
-            "value": "1,133"
+            "value": "1,090"
           },
           {
             "label": "B3 · Manager / Lead",
-            "value": "315"
+            "value": "308"
           },
           {
             "label": "Builders (B4+B5+B6+Builder)",
-            "value": "261"
+            "value": "248"
           },
           {
             "label": "SLA · Service Line Agent",
@@ -1442,47 +1432,47 @@
         "metrics": [
           {
             "label": "FY25 live appraisals",
-            "value": "5,082",
-            "sub": "CSPL 4,407 + CAPL 675 — active Pre-filled & Self Reflection cycles"
+            "value": "4,407",
+            "sub": "Active Pre-filled & Self Reflection cycles in CSPL"
           },
           {
             "label": "FY25 stuck at Calibration",
-            "value": "2,952",
-            "sub": "58% of live cycle — awaiting HR/leadership calibration before close"
+            "value": "2,408",
+            "sub": "55% of live cycle — awaiting HR/leadership calibration before close"
           },
           {
             "label": "FY25 Reviewer pending",
-            "value": "1,027",
+            "value": "935",
             "sub": "Manager review not yet submitted"
           },
           {
             "label": "FY25 Self-reflection pending",
-            "value": "518",
+            "value": "504",
             "sub": "Employee has not filled self-rating yet"
           },
           {
             "label": "FY24 Top performers (5–6)",
-            "value": "27%",
-            "sub": "319 of 1,163 calibrated — last completed cycle (talent density signal)"
+            "value": "28%",
+            "sub": "279 of 994 calibrated — last completed cycle (talent density signal)"
           },
           {
             "label": "FY24 On-track (rating 4)",
             "value": "36%",
-            "sub": "423 of 1,163 — meeting expectations"
+            "sub": "354 of 994 — meeting expectations"
           },
           {
             "label": "FY24 Below par (1–3)",
             "value": "36%",
-            "sub": "421 of 1,163 — PIP / flight-risk pool"
+            "sub": "361 of 994 — PIP / flight-risk pool"
           },
           {
             "label": "Lifetime PMS records",
-            "value": "9,320",
-            "sub": "CSPL 8,075 + CAPL 1,245 — all cycles since FY21"
+            "value": "8,075",
+            "sub": "CSPL — all cycles since FY21"
           }
         ],
-        "source": "CSPL_HR_DB.HRMS_PUBLIC: PMS_CSPL · PMS_CAPL",
-        "window": "FY25 live (PMS FY 2025 Pre-filled + Self Reflection) · FY24 calibrated (PMS_FY23-24_SR) · lifetime for totals",
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.PMS_CSPL",
+        "window": "FY25 live (PMS FY 2025 Pre-filled + Self Reflection) · FY24 calibrated (PMS_FY23-24_SR) · lifetime for totals · CSPL",
         "formula": "COUNT(*) grouped by REVIEW_CYCLE_NAME / CURRENT_STAGE / CALIBRATION_RATING"
       },
       {
@@ -1653,8 +1643,8 @@
         "name": "Directories · Masked PII",
         "metrics": [
           {
-            "label": "Active emp records (CSPL+CAPL)",
-            "value": "7,080"
+            "label": "Active emp records",
+            "value": "6,896"
           },
           {
             "label": "PII records synced (CSPL only)",
