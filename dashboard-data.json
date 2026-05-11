@@ -1537,53 +1537,49 @@
         "name": "HR Assets",
         "metrics": [
           {
-            "label": "Asset Records",
-            "value": "28,062"
+            "label": "Lifetime asset spend",
+            "value": "\u20b965.1 Cr",
+            "sub": "Sum of ASSET_COST across 28,078 assets \u2014 total HR hardware + tools capex since inception"
           },
           {
-            "label": "Hardware",
-            "value": "18,591"
+            "label": "Current book value",
+            "value": "\u20b923.2 Cr",
+            "sub": "Sum of CURRENT_COST \u2014 ~65% has depreciated off the books"
           },
           {
-            "label": "Tools",
-            "value": "9,470"
+            "label": "Active deployment value",
+            "value": "\u20b914.8 Cr",
+            "sub": "13,282 allocated assets (47% of fleet) \u2014 what's actually in employees' hands"
           },
           {
-            "label": "Allocated",
-            "value": "13,284"
+            "label": "In-stock dead capital",
+            "value": "\u20b93.8 Cr",
+            "sub": "3,490 assets sitting in stock \u2014 paid for, not deployed"
           },
           {
-            "label": "In Stock",
-            "value": "3,474"
+            "label": "Lost / short / disputed",
+            "value": "683",
+            "sub": "419 short-found + 243 disputed + 21 lost \u2014 \u20b91.3 Cr book exposure"
           },
           {
-            "label": "Sold to Vendor",
-            "value": "3,351"
+            "label": "Total asset records",
+            "value": "28,078",
+            "sub": "Hardware 18,595 \u00b7 Tools 9,482 \u00b7 Uniform 1 \u2014 refreshed live"
           },
           {
-            "label": "EOL Scrap",
-            "value": "2,334"
+            "label": "Allocated / In stock / Maintenance",
+            "value": "13,282 / 3,490 / 1,036",
+            "sub": "Active fleet split. Plus 5,907 written-off / sold / exited."
           },
           {
-            "label": "Exit Recovery",
-            "value": "2,221"
-          },
-          {
-            "label": "Under Maintenance",
-            "value": "1,036"
-          },
-          {
-            "label": "Sold to Employee",
-            "value": "819"
-          },
-          {
-            "label": "Lost",
-            "value": "65"
+            "label": "Data quality flag",
+            "value": "243",
+            "sub": "Disputed case casing dupes: 'Disputed case' (180) + 'Disputed Case' (63) \u2014 needs merge in source"
           }
         ],
         "source": "CSPL_HR_DB.HR_ASSETS_PUBLIC.ASSET_DETAILS",
-        "window": "Lifetime \u2014 every asset assigned / recovered",
-        "formula": "COUNT(*)"
+        "window": "Lifetime \u2014 all assets ever recorded \u00b7 live valuation in INR",
+        "formula": "COUNT(*) and SUM(ASSET_COST/CURRENT_COST) grouped by STOCK_STATUS / ASSET_TYPE"
       },
       {
         "name": "CAPL + APL Detail (Cariot / Accelane)",
