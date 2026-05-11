@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "11 May 2026 \u00b7 12:48 IST",
+  "refreshed_at": "11 May 2026 \u00b7 12:55 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 11 May 2026 (16 days)",
   "window": {
     "start": "2026-04-26",
@@ -77,10 +77,10 @@
       "Other Support": 7
     },
     "otj_by": {
+      "Business (B1+B2)": 80.95,
+      "Technology": 100.0,
       "Product": 100.0,
       "Other Support": 76.67,
-      "Technology": 100.0,
-      "Business (B1+B2)": 80.95,
       "BI DS": 100.0
     },
     "ttf_by": {
@@ -311,6 +311,89 @@
             "n": 2,
             "pct": 1.3
           }
+        ],
+        "outbound_joiners": [
+          {
+            "name": "Vaibhav Rawat",
+            "band": "B1",
+            "designation": "Associate - C2C",
+            "department": "Business",
+            "source": "Naukri-Headhunt",
+            "recruiter": "Banika Rana",
+            "doj": "27/04/2026"
+          },
+          {
+            "name": "Vaishnavi Kanaujiya",
+            "band": "B1",
+            "designation": "Associate - C2C",
+            "department": "Business",
+            "source": "Naukri-Headhunt",
+            "recruiter": "Banika Rana",
+            "doj": "27/04/2026"
+          },
+          {
+            "name": "Naitik Gautam",
+            "band": "B1",
+            "designation": "Associate - C2C",
+            "department": "Business",
+            "source": "Naukri-Headhunt",
+            "recruiter": "Banika Rana",
+            "doj": "30/04/2026"
+          },
+          {
+            "name": "Prikshit",
+            "band": "B1",
+            "designation": "Associate - C2C",
+            "department": "Business",
+            "source": "Naukri-Headhunt",
+            "recruiter": "Banika Rana",
+            "doj": "30/04/2026"
+          },
+          {
+            "name": "Reena",
+            "band": "B1",
+            "designation": "Associate - C2C",
+            "department": "Business",
+            "source": "Naukri-Headhunt",
+            "recruiter": "Banika Rana",
+            "doj": "30/04/2026"
+          },
+          {
+            "name": "Harshil Arvindbhai Vanol",
+            "band": "B1",
+            "designation": "Procurement Associate",
+            "department": "Business",
+            "source": "Consultant",
+            "recruiter": "Bhawna Aggarwal",
+            "doj": "30/04/2026"
+          },
+          {
+            "name": "Udasi Aakash Jagdishbhai",
+            "band": "B1",
+            "designation": "Evaluation Engineer",
+            "department": "Operations",
+            "source": "Consultant",
+            "recruiter": "Aayush Kharkwal",
+            "doj": "30/04/2026"
+          },
+          {
+            "name": "Altafkhan Dilavarkhan Pathan",
+            "band": "B2",
+            "designation": "Relationship Manager",
+            "department": "Business",
+            "source": "Naukri-Headhunt",
+            "recruiter": "Manvi Arora1",
+            "doj": "04/05/2026"
+          },
+          {
+            "name": "Santosh Bhanudas Waghchaure",
+            "band": "B1",
+            "designation": "Retail Associate",
+            "department": "Business",
+            "source": "Naukri-Headhunt",
+            "recruiter": "Yashwardhan",
+            "doj": "04/05/2026"
+          }
         ]
       },
       "Support": {
@@ -344,6 +427,35 @@
             "n": 3,
             "pct": 13.64
           }
+        ],
+        "outbound_joiners": [
+          {
+            "name": "Priya Khokhar",
+            "band": "B1",
+            "designation": "Social Media Manager",
+            "department": "Marketing",
+            "source": "Naukri-Headhunt",
+            "recruiter": "Ujjawal Gupta",
+            "doj": "27/04/2026"
+          },
+          {
+            "name": "Nupur Singh",
+            "band": "B3",
+            "designation": "Lead - HRBP",
+            "department": "People & Culture",
+            "source": "Naukri-Headhunt",
+            "recruiter": "Priyanka Khanna1",
+            "doj": "04/05/2026"
+          },
+          {
+            "name": "SUMAN SHARMA",
+            "band": "B0",
+            "designation": "CA Industrial Trainee",
+            "department": "Finance",
+            "source": "Naukri-Headhunt",
+            "recruiter": "Ujjawal Gupta",
+            "doj": "04/05/2026"
+          }
         ]
       },
       "T P BI DS": {
@@ -356,7 +468,8 @@
             "pct": 100.0
           }
         ],
-        "outbound_channels": []
+        "outbound_channels": [],
+        "outbound_joiners": []
       }
     },
     "definitions": {
