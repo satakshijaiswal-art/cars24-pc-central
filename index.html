@@ -1092,12 +1092,15 @@ async function loadDashboard() {
       }
 
       if (gridEl) {
-        gridEl.innerHTML = (c.metrics || []).map(m => `
+        gridEl.innerHTML = (c.metrics || []).map(m => {
+          const sub = m.sub ? `<div class="text-[11px] text-gray-600 mt-2 leading-snug whitespace-pre-line">${m.sub}</div>` : '';
+          return `
           <div class="bg-gray-50 rounded p-4">
             <div class="text-xs text-gray-500 font-semibold">${m.label}</div>
             <div class="text-2xl font-bold text-gray-900 mt-1">${m.value}</div>
-          </div>
-        `).join('');
+            ${sub}
+          </div>`;
+        }).join('');
       }
     });
   }
