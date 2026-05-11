@@ -476,7 +476,6 @@
   "metrics_not_computable_for_window": {
     "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
   },
-<<<<<<< Updated upstream
   "snowflake_catalog": {
     "refreshed_at": "11 May 2026 \u00b7 IST",
     "as_of_date": "11 May 2026",
@@ -653,8 +652,6 @@
       }
     ]
   },
-=======
->>>>>>> Stashed changes
   "tech": {
     "tech_hc": 252,
     "product_hc": 81,
