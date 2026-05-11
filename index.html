@@ -702,13 +702,27 @@ function destroyCharts() {
 async function loadDashboard() {
   let data;
   try {
-    const res = await fetch('dashboard-data.json?t=' + Date.now());
+    const res = await fetch('dashboard-data.json?t=' + Date.now(), { cache: 'no-store' });
     data = await res.json();
   } catch (e) {
     console.error('Could not load dashboard-data.json', e);
     document.getElementById('last-refresh').textContent = 'data file missing';
     return;
   }
+
+  // Force fresh page on new data version so browsers can't serve stale HTML
+  try {
+    const seenVer = localStorage.getItem('cars24_dash_ver');
+    const liveVer = String(data.refreshed_at || '');
+    if (liveVer && seenVer !== liveVer) {
+      localStorage.setItem('cars24_dash_ver', liveVer);
+      if (seenVer && !location.search.includes('justreloaded=1')) {
+        const sep = location.search ? '&' : '?';
+        location.replace(location.pathname + location.search + sep + 'justreloaded=1' + location.hash);
+        return;
+      }
+    }
+  } catch (_) {}
 
   document.getElementById('last-refresh').textContent = data.refreshed_at || '—';
   document.getElementById('period-label').textContent = data.period_label || '';
