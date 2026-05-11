@@ -1644,54 +1644,6 @@
         "formula": "COUNT(*)"
       },
       {
-        "name": "Attendance",
-        "metrics": [
-          {
-            "label": "Present rate YTD 2026",
-            "value": "86.4%",
-            "sub": "570,656 Present of 660,813 working-day logs (Jan 1 → May 10, 2026). 14,479 distinct employees tracked"
-          },
-          {
-            "label": "Absent rate YTD 2026",
-            "value": "10.5%",
-            "sub": "69,203 absent logs YTD — frontline / SLA roles drive most of the volume"
-          },
-          {
-            "label": "Leave rate YTD 2026",
-            "value": "3.2%",
-            "sub": "20,954 approved leave logs YTD — separate from unplanned absent"
-          },
-          {
-            "label": "MTD May 2026",
-            "value": "83.8%",
-            "sub": "1–10 May: 43,995 Present / 52,512 working-day logs. Slight dip from Apr (87%) — watch for May seasonality"
-          },
-          {
-            "label": "Monthly trend (2026)",
-            "value": "Jan→May",
-            "sub": "Jan 188k logs · Feb 180k · Mar 198k · Apr 203k · May 68k MTD. Pacing consistent with active frontline HC"
-          },
-          {
-            "label": "L30D regularizations",
-            "value": "12,715",
-            "sub": "Attendance correction requests submitted in last 30 days — workflow load on HR ops"
-          },
-          {
-            "label": "Lifetime attendance logs",
-            "value": "3.51 M",
-            "sub": "Coverage: 19 Sep 2024 → 10 May 2026 in CSPL_HR_DB.HRMS_PUBLIC.ATTENDANCE. Older HR_DB.ATTENDANCE_V2 holds 2.24M historical rows"
-          },
-          {
-            "label": "Pipeline freshness",
-            "value": "Synced today",
-            "sub": "Last Fivetran sync 11 May 2026 03:17 IST. ATTENDANCE_V3 + BIOMETRIC_DBO.ATTENDANCELOGS are legacy / unused; ATTENDANCE is the live source"
-          }
-        ],
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.ATTENDANCE (live · 3.5M rows · Fivetran-synced daily)",
-        "window": "YTD 2026 = 01 Jan → 10 May 2026 · MTD May = 1–10 May 2026 · L30D for regularizations",
-        "formula": "Present% = COUNT(STATUS LIKE 'P%') ÷ COUNT(STATUS IN P/A/L variants). Excludes Weekly Off (W) and Holiday (H) from denominator."
-      },
-      {
         "name": "Directories · Masked PII",
         "metrics": [
           {
