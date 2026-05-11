@@ -1095,22 +1095,6 @@
             "value": "261"
           },
           {
-            "label": "\u2014 B4",
-            "value": "156"
-          },
-          {
-            "label": "\u2014 B5",
-            "value": "69"
-          },
-          {
-            "label": "\u2014 B6",
-            "value": "33"
-          },
-          {
-            "label": "\u2014 Builder band",
-            "value": "3"
-          },
-          {
             "label": "SLA \u00b7 Service Line Agent",
             "value": "333"
           },
@@ -1282,22 +1266,6 @@
           {
             "label": "Builders (B4+B5+B6+Builder)",
             "value": "261"
-          },
-          {
-            "label": "\u2014 B4",
-            "value": "156"
-          },
-          {
-            "label": "\u2014 B5",
-            "value": "69"
-          },
-          {
-            "label": "\u2014 B6",
-            "value": "33"
-          },
-          {
-            "label": "\u2014 Builder band",
-            "value": "3"
           },
           {
             "label": "SLA \u00b7 Service Line Agent",
