@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "11 May 2026 \u00b7 12:24 IST",
+  "refreshed_at": "11 May 2026 \u00b7 12:27 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 11 May 2026 (16 days)",
   "window": {
     "start": "2026-04-26",
@@ -77,11 +77,11 @@
       "Other Support": 7
     },
     "otj_by": {
-      "Business (B1+B2)": 80.95,
       "BI DS": 100.0,
+      "Technology": 100.0,
+      "Business (B1+B2)": 80.95,
       "Product": 100.0,
-      "Other Support": 76.67,
-      "Technology": 100.0
+      "Other Support": 76.67
     },
     "ttf_by": {
       "Business (B1+B2)": 34.1,
@@ -250,23 +250,33 @@
     },
     "by_function": {
       "Business": {
-        "inbound": 3.9,
+        "inbound": 94.16,
         "outbound": 5.84
       },
       "Support": {
-        "inbound": 9.09,
+        "inbound": 77.27,
         "outbound": 13.64
       },
       "T P BI DS": {
-        "inbound": 0.0,
+        "inbound": 100.0,
         "outbound": 0.0
       }
     },
     "by_function_detail": {
       "Business": {
-        "inbound_total": 3.9,
+        "inbound_total": 94.16,
         "outbound_total": 5.84,
         "inbound_channels": [
+          {
+            "name": "Direct",
+            "n": 131,
+            "pct": 85.06
+          },
+          {
+            "name": "Referral",
+            "n": 7,
+            "pct": 4.55
+          },
           {
             "name": "Rehire",
             "n": 4,
@@ -276,6 +286,11 @@
             "name": "Business Referral",
             "n": 2,
             "pct": 1.3
+          },
+          {
+            "name": "Naukri-Job Application",
+            "n": 1,
+            "pct": 0.65
           }
         ],
         "outbound_channels": [
@@ -292,9 +307,19 @@
         ]
       },
       "Support": {
-        "inbound_total": 9.09,
+        "inbound_total": 77.27,
         "outbound_total": 13.64,
         "inbound_channels": [
+          {
+            "name": "Direct",
+            "n": 13,
+            "pct": 59.09
+          },
+          {
+            "name": "Referral",
+            "n": 2,
+            "pct": 9.09
+          },
           {
             "name": "LinkedIn-Job Application",
             "n": 1,
@@ -315,9 +340,15 @@
         ]
       },
       "T P BI DS": {
-        "inbound_total": 0.0,
+        "inbound_total": 100.0,
         "outbound_total": 0.0,
-        "inbound_channels": [],
+        "inbound_channels": [
+          {
+            "name": "Direct",
+            "n": 2,
+            "pct": 100.0
+          }
+        ],
         "outbound_channels": []
       }
     },
