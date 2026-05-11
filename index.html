@@ -334,12 +334,22 @@
   <!-- 6. TECH & PRODUCT -->
   <section id="tech">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-blue">Tech & Product Headcount</h2>
-    <p class="text-gray-600 mt-1">POD-wise · designation ratios · monthly cost</p>
+    <h2 class="text-3xl font-bold brand-blue">Tech &amp; Product Headcount</h2>
+    <p class="text-gray-600 mt-1">Live from Snowflake · band-wise · open roles</p>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+    <!-- SOURCE / WINDOW / FORMULA -->
+    <div class="bg-white rounded-lg shadow-sm border p-4 mt-4 text-xs">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div><span class="uppercase text-gray-500 font-semibold">Source</span><div class="brand-blue font-semibold mt-1" id="tech-src"><code class="text-[11px]">—</code></div></div>
+        <div><span class="uppercase text-gray-500 font-semibold">Window / Date Range</span><div class="brand-blue font-semibold mt-1" id="tech-win">—</div></div>
+        <div><span class="uppercase text-gray-500 font-semibold">Formula</span><div class="brand-blue font-semibold mt-1" id="tech-formula"><code class="text-[11px]">—</code></div></div>
+      </div>
+      <p class="text-xs text-gray-500 italic mt-2" id="tech-cost-note">—</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
-        <div class="text-xs uppercase text-gray-500">Tech HC</div>
+        <div class="text-xs uppercase text-gray-500">Technology HC</div>
         <div class="text-4xl font-bold brand-blue mt-2" id="tech-hc">—</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
@@ -347,8 +357,12 @@
         <div class="text-4xl font-bold brand-blue mt-2" id="product-hc">—</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
-        <div class="text-xs uppercase text-gray-500">Cost / Month</div>
-        <div class="text-4xl font-bold brand-blue mt-2" id="tech-cost">₹—L</div>
+        <div class="text-xs uppercase text-gray-500">Data &amp; AI HC</div>
+        <div class="text-4xl font-bold brand-blue mt-2" id="data-hc">—</div>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
+        <div class="text-xs uppercase text-gray-500">Total T·P·D</div>
+        <div class="text-4xl font-bold brand-blue mt-2" id="tech-total">—</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Open Roles</div>
@@ -358,15 +372,15 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Backend Layer</h3>
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Technology · Band Split</h3>
         <div class="chart-box"><canvas id="chart-backend"></canvas></div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Frontend Layer</h3>
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Product Mgmt · Band Split</h3>
         <div class="chart-box"><canvas id="chart-frontend"></canvas></div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Mobile Layer</h3>
+        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Data &amp; AI · Band Split</h3>
         <div class="chart-box"><canvas id="chart-mobile"></canvas></div>
       </div>
     </div>
@@ -929,16 +943,21 @@ async function loadDashboard() {
   }
 
   const tech = data.tech || {};
-  document.getElementById('tech-hc').textContent = tech.tech_hc ?? '—';
+  document.getElementById('tech-hc').textContent    = tech.tech_hc ?? '—';
   document.getElementById('product-hc').textContent = tech.product_hc ?? '—';
-  document.getElementById('tech-cost').textContent = '₹' + (tech.cost_per_month ?? '—') + 'L';
-  document.getElementById('tech-open').textContent = tech.open_roles ?? '—';
+  const dataHcEl = document.getElementById('data-hc');     if (dataHcEl) dataHcEl.textContent = tech.data_hc ?? '—';
+  const totalEl  = document.getElementById('tech-total');  if (totalEl)  totalEl.textContent  = tech.total_hc ?? '—';
+  document.getElementById('tech-open').textContent  = tech.open_roles ?? '—';
+  const srcEl = document.getElementById('tech-src');     if (srcEl) srcEl.innerHTML = `<code class="text-[11px]">${tech.source || '—'}</code>`;
+  const winEl = document.getElementById('tech-win');     if (winEl) winEl.textContent = tech.window || '—';
+  const fmlEl = document.getElementById('tech-formula'); if (fmlEl) fmlEl.innerHTML = `<code class="text-[11px]">${tech.formula || '—'}</code>`;
+  const costNoteEl = document.getElementById('tech-cost-note'); if (costNoteEl) costNoteEl.textContent = tech.cost_note || '';
 
   ['backend', 'frontend', 'mobile'].forEach(layer => {
     if (tech[layer]) {
       chartInstances[layer] = new Chart(document.getElementById(`chart-${layer}`), {
         type: 'doughnut',
-        data: { labels: ['SDE-1', 'SDE-2', 'SDE-3'], datasets: [{ data: [tech[layer].sde1, tech[layer].sde2, tech[layer].sde3], backgroundColor: ['#7C7AFF', '#4736FE', '#3530C7'] }] },
+        data: { labels: ['B0+B1 (SDE-1)', 'B2 (SDE-2)', 'B3 (SDE-3)', 'B4+ (Leaders)'], datasets: [{ data: [tech[layer].sde1, tech[layer].sde2, tech[layer].sde3, tech[layer].leaders ?? 0], backgroundColor: ['#7C7AFF', '#4736FE', '#3530C7', '#1B1B6F'] }] },
         options: { responsive: true, maintainAspectRatio: false }
       });
     }

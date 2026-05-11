@@ -649,26 +649,64 @@
     "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
   },
   "tech": {
-    "tech_hc": 252,
-    "product_hc": 81,
-    "cost_per_month": 820,
-    "open_roles": 10,
+    "tech_hc": 237,
+    "product_hc": 79,
+    "data_hc": 61,
+    "total_hc": 377,
+    "open_roles": 18,
+    "cost_per_month": null,
+    "cost_note": "Cost data not in HR_DB \u2014 Finance feed (\u20b9L) needs separate pipe. Old fallback was \u20b9820L.",
+    "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u22c8 DEPARTMENT (dept name in {Technology, Product Management, Data and AI Engineering})",
+    "window": "Snapshot as of today (11 May 2026)",
+    "formula": "COUNT(DISTINCT EMPLOYEE_ID) WHERE EMPLOYEE_STATUS='Active' AND DEPARTMENT_NAME IN (...)",
     "backend": {
-      "sde1": 75,
-      "sde2": 14,
-      "sde3": 11
+      "sde1": 136,
+      "sde2": 59,
+      "sde3": 26,
+      "leaders": 16
     },
     "frontend": {
-      "sde1": 49,
-      "sde2": 27,
-      "sde3": 24
+      "sde1": 5,
+      "sde2": 30,
+      "sde3": 25,
+      "leaders": 18
     },
     "mobile": {
-      "sde1": 48,
-      "sde2": 28,
-      "sde3": 24
+      "sde1": 20,
+      "sde2": 21,
+      "sde3": 13,
+      "leaders": 7
     },
-    "note": "Static fallback \u2014 Tech & Product CSV not available"
+    "bands_raw": {
+      "Technology": {
+        "B0": 8,
+        "B1": 128,
+        "B2": 59,
+        "B3": 26,
+        "B4": 5,
+        "B5": 5,
+        "B6": 6
+      },
+      "Product Management": {
+        "B0": 3,
+        "B1": 2,
+        "B2": 30,
+        "B3": 25,
+        "B4": 11,
+        "B5": 6,
+        "B6": 1
+      },
+      "Data and AI Engineering": {
+        "B0": 10,
+        "B1": 10,
+        "B2": 21,
+        "B3": 13,
+        "B4": 4,
+        "B5": 1,
+        "B6": 1,
+        "Builder": 1
+      }
+    }
   },
   "glassdoor": {
     "rating": 4.3,
