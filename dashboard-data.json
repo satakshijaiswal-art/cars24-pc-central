@@ -477,30 +477,32 @@
     "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
   },
   "snowflake_catalog": {
-    "refreshed_at": "08 May 2026 \u00b7 IST",
+    "refreshed_at": "11 May 2026 \u00b7 IST",
+    "as_of_date": "11 May 2026",
     "source": "Snowflake live \u00b7 CSPL_HR_DB + CAPL_HR_DB + CSPL_DB (HR_READ_ONLY)",
     "warehouse": "ANALYTICS_WH",
     "tables_indexed": 116,
     "rows_indexed": 10147830,
-    "note": "Real HR metrics computed live from Snowflake using EMPLOYEE_STATUS='Active' (the canonical column). MTD = May 2026. Note: HRMS also has a stale IS_ACTIVE boolean flag with ~11,600 zombie rows \u2014 we don't use it.",
+    "note": "Active HC uses EMPLOYEE_STATUS='Active'. Joiners count ALL DOJ in window (regardless of current status). Offers awaiting = status in (released/generated/approved) AND accept_date null. Open reqs = Open + Pending statuses.",
     "headline": [
+      { "label": "Data as on", "value": "11 May 2026", "sub": "Snowflake live" },
       { "label": "Active Headcount (CSPL)", "value": "6,856", "sub": "EMPLOYEE_STATUS='Active'" },
-      { "label": "Joined May (MTD)", "value": "151", "sub": "6 today" },
-      { "label": "On Notice", "value": "193", "sub": "out of 6,856" },
-      { "label": "Open Requisitions", "value": "822", "sub": "ATS \u2014 Open + Pending" },
-      { "label": "Offers Awaiting Acceptance", "value": "2,720", "sub": "released, not yet accepted" },
-      { "label": "Separations YTD", "value": "661", "sub": "26 in May MTD \u00b7 92 last 30d" }
+      { "label": "Joined May (MTD)", "value": "332", "sub": "13 today \u00b7 681 last 30d" },
+      { "label": "On Notice", "value": "193", "sub": "out of 6,856 active" },
+      { "label": "Open Requisitions", "value": "823", "sub": "660 Open + 163 Pending" },
+      { "label": "Offers Awaiting Acceptance", "value": "1,818", "sub": "released/generated, not accepted" }
     ],
     "categories": [
       {
         "name": "Active Headcount \u2014 CSPL",
         "metrics": [
+          { "label": "Data as on", "value": "11 May 2026" },
           { "label": "Active employees", "value": "6,856" },
           { "label": "Female %", "value": "14.7%" },
           { "label": "Male %", "value": "85.2%" },
-          { "label": "Joined May (MTD)", "value": "151" },
-          { "label": "Joined last 30 days", "value": "389" },
-          { "label": "Joined today", "value": "6" },
+          { "label": "Joined May (MTD) \u2014 all", "value": "332" },
+          { "label": "Joined last 30 days", "value": "681" },
+          { "label": "Joined today", "value": "13" },
           { "label": "On notice", "value": "193" },
           { "label": "B4+ leadership active", "value": "246" }
         ]
@@ -516,19 +518,24 @@
       {
         "name": "Recruitment Pipeline (ATS)",
         "metrics": [
-          { "label": "Open requisitions", "value": "822" },
+          { "label": "Data as on", "value": "11 May 2026" },
+          { "label": "Open requisitions", "value": "823" },
+          { "label": "  └ Open status", "value": "660" },
+          { "label": "  └ Pending status", "value": "163" },
           { "label": "Offers in progress", "value": "9,855" },
+          { "label": "Offers awaiting acceptance", "value": "1,818" },
           { "label": "Offers released (May MTD)", "value": "113" },
           { "label": "Offers accepted (May MTD)", "value": "95" },
-          { "label": "Offers awaiting acceptance", "value": "2,720" },
           { "label": "Total offers (lifetime)", "value": "22,432" }
         ]
       },
       {
         "name": "Interviews (ATS)",
         "metrics": [
+          { "label": "Data as on", "value": "11 May 2026" },
           { "label": "Scheduled (May MTD)", "value": "332" },
-          { "label": "Scheduled (last 7 days)", "value": "332" },
+          { "label": "Upcoming (next 7 days)", "value": "41" },
+          { "label": "Completed (last 7 days)", "value": "302" },
           { "label": "Feedback submitted (lifetime)", "value": "30,598" },
           { "label": "Total interviews (lifetime)", "value": "60,839" }
         ]
@@ -668,11 +675,17 @@
     "note": "Static fallback \u2014 Tech & Product CSV not available"
   },
   "glassdoor": {
-    "rating": 4.2,
-    "recommend": 77,
-    "ceo": 84,
-    "outlook": 80,
-    "note": "From last Glassdoor scrape via glassdoor-reviews-bot."
+    "rating": null,
+    "recommend": null,
+    "ceo": null,
+    "outlook": null,
+    "last_known_rating": 4.2,
+    "last_known_recommend": 77,
+    "last_known_ceo": 84,
+    "last_known_outlook": 80,
+    "as_of_attempt": "11 May 2026",
+    "status": "needs_manual_update",
+    "note": "Glassdoor blocks automated scraping (403 on WebFetch). Last cached values shown above are from prior manual entry. To auto-refresh daily, need Claude-in-Chrome login + extract from the employer dashboard. Provide current numbers manually or approve the Chrome-based scrape."
   },
   "attrition": {
     "overall": 4.9,
