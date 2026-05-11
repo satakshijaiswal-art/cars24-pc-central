@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "11 May 2026 \u00b7 13:06 IST",
+  "refreshed_at": "11 May 2026 \u00b7 18:13 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 11 May 2026 (16 days)",
   "window": {
     "start": "2026-04-26",
@@ -38,18 +38,18 @@
     "hike_note": "Based on 149 of 217 joiners (only those synced to JM)",
     "ttf": 30.9,
     "ttf_data_rows": 109,
-    "ttf_note": "Snowflake CSPL_HR_DB · 109 ATS-linked joiners with JOINING_DATE in window (26 Apr→04 May)",
+    "ttf_note": "Snowflake CSPL_HR_DB \u00b7 109 ATS-linked joiners with JOINING_DATE in window (26 Apr\u219204 May)",
     "ttf_source": "snowflake",
     "tat": 91.4,
     "tat_data_rows": 649,
-    "tat_note": "Snowflake CSPL_HR_DB · AVG(today − START_DATE) across 649 open requisitions (live)",
+    "tat_note": "Snowflake CSPL_HR_DB \u00b7 AVG(today \u2212 START_DATE) across 649 open requisitions (live)",
     "tat_source": "snowflake",
     "open_reqs": 649,
     "open_reqs_source": "snowflake",
     "female_pct": 11.65,
     "female_n": 12,
     "female_base_n": 103,
-    "female_note": "Snowflake CSPL_HR_DB · 12 Female / 103 ATS-tagged joiners with declared gender (window 26 Apr→04 May)",
+    "female_note": "Snowflake CSPL_HR_DB \u00b7 12 Female / 103 ATS-tagged joiners with declared gender (window 26 Apr\u219204 May)",
     "female_source": "snowflake",
     "senior_b4_plus": 10,
     "senior_new": 10,
@@ -929,5 +929,380 @@
       "next_run": "2 hrs"
     }
   ],
-  "__sections_audited_at": "11 May 2026"
+  "__sections_audited_at": "11 May 2026",
+  "snowflake_catalog": {
+    "refreshed_at": "11 May 2026 \u00b7 18:13 IST",
+    "source": "CSPL_HR_DB + CAPL_HR_DB \u00b7 Fivetran-synced from HRMS Public / HR_ATS Public",
+    "tables_indexed": 116,
+    "rows_indexed": 266572,
+    "headline": [
+      {
+        "label": "Active HC (CSPL)",
+        "value": "6,896",
+        "sub": "Cars Sales Pvt Ltd \u00b7 India"
+      },
+      {
+        "label": "Active HC (CAPL)",
+        "value": "2,226",
+        "sub": "Cars Auctions Pvt Ltd"
+      },
+      {
+        "label": "Open Reqs",
+        "value": "649",
+        "sub": "ATS \u00b7 live snapshot"
+      },
+      {
+        "label": "Joinings MTD",
+        "value": "478",
+        "sub": "May 2026 to date"
+      },
+      {
+        "label": "Exits MTD",
+        "value": "160",
+        "sub": "May 2026 to date"
+      },
+      {
+        "label": "Applicants Indexed",
+        "value": "63,649",
+        "sub": "ATS lifetime pool"
+      }
+    ],
+    "categories": [
+      {
+        "name": "Active Headcount",
+        "metrics": [
+          {
+            "label": "Active HC (CSPL)",
+            "value": "6,896"
+          },
+          {
+            "label": "Active HC (CAPL)",
+            "value": "2,226"
+          },
+          {
+            "label": "Total Active",
+            "value": "9,122"
+          },
+          {
+            "label": "Records in HRMS",
+            "value": "27,497"
+          },
+          {
+            "label": "PII Records Synced",
+            "value": "27,217"
+          },
+          {
+            "label": "Joinings YTD",
+            "value": "2,368"
+          }
+        ]
+      },
+      {
+        "name": "Org Structure",
+        "metrics": [
+          {
+            "label": "B0",
+            "value": "98"
+          },
+          {
+            "label": "B1",
+            "value": "4,184"
+          },
+          {
+            "label": "B1 Fin",
+            "value": "1"
+          },
+          {
+            "label": "B2",
+            "value": "1,090"
+          },
+          {
+            "label": "B3",
+            "value": "308"
+          },
+          {
+            "label": "B4",
+            "value": "144"
+          },
+          {
+            "label": "B5",
+            "value": "68"
+          },
+          {
+            "label": "B6",
+            "value": "33"
+          },
+          {
+            "label": "Builder",
+            "value": "3"
+          },
+          {
+            "label": "SLA",
+            "value": "333"
+          },
+          {
+            "label": "Third Party",
+            "value": "633"
+          }
+        ]
+      },
+      {
+        "name": "Recruitment",
+        "metrics": [
+          {
+            "label": "Open Reqs",
+            "value": "649"
+          },
+          {
+            "label": "Closed Reqs (lifetime)",
+            "value": "7,677"
+          },
+          {
+            "label": "Applicants (lifetime)",
+            "value": "63,649"
+          },
+          {
+            "label": "Offers Released",
+            "value": "22,509"
+          },
+          {
+            "label": "Offers Accepted",
+            "value": "9,141"
+          },
+          {
+            "label": "Acceptance Rate",
+            "value": "40.6%"
+          }
+        ]
+      },
+      {
+        "name": "Interviews",
+        "metrics": [
+          {
+            "label": "Schedules (lifetime)",
+            "value": "30,181"
+          },
+          {
+            "label": "Feedback Submissions",
+            "value": "34,734"
+          },
+          {
+            "label": "Feedback per Schedule",
+            "value": "1.15"
+          }
+        ]
+      },
+      {
+        "name": "Live Attrition",
+        "metrics": [
+          {
+            "label": "Exits MTD",
+            "value": "160"
+          },
+          {
+            "label": "Exits YTD",
+            "value": "1,534"
+          },
+          {
+            "label": "Separation Records",
+            "value": "4,845"
+          },
+          {
+            "label": "FnF Pending",
+            "value": "17,527"
+          }
+        ]
+      },
+      {
+        "name": "Employee Type",
+        "metrics": [
+          {
+            "label": "Permanent",
+            "value": "4,650"
+          },
+          {
+            "label": "Permanent - CJ",
+            "value": "1,175"
+          },
+          {
+            "label": "TPM",
+            "value": "524"
+          },
+          {
+            "label": "Retainer",
+            "value": "193"
+          },
+          {
+            "label": "Retainer - CJ",
+            "value": "141"
+          },
+          {
+            "label": "TPM - CJ",
+            "value": "109"
+          },
+          {
+            "label": "Intern",
+            "value": "93"
+          },
+          {
+            "label": "Consultant",
+            "value": "7"
+          },
+          {
+            "label": "Test Employee",
+            "value": "3"
+          },
+          {
+            "label": "Suspended",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "name": "Bands \u00b7 Active HC",
+        "metrics": [
+          {
+            "label": "B0",
+            "value": "98"
+          },
+          {
+            "label": "B1",
+            "value": "4,184"
+          },
+          {
+            "label": "B1 Fin",
+            "value": "1"
+          },
+          {
+            "label": "B2",
+            "value": "1,090"
+          },
+          {
+            "label": "B3",
+            "value": "308"
+          },
+          {
+            "label": "B4",
+            "value": "144"
+          },
+          {
+            "label": "B5",
+            "value": "68"
+          },
+          {
+            "label": "B6",
+            "value": "33"
+          },
+          {
+            "label": "Builder",
+            "value": "3"
+          },
+          {
+            "label": "SLA",
+            "value": "333"
+          },
+          {
+            "label": "Third Party",
+            "value": "633"
+          }
+        ]
+      },
+      {
+        "name": "Performance Management",
+        "metrics": [
+          {
+            "label": "PMS CSPL records",
+            "value": "8,075"
+          },
+          {
+            "label": "PMS CAPL records",
+            "value": "1,245"
+          },
+          {
+            "label": "Total PMS",
+            "value": "9,320"
+          }
+        ]
+      },
+      {
+        "name": "Background Verification",
+        "metrics": [
+          {
+            "label": "BGV Records (lifetime)",
+            "value": "58,406"
+          }
+        ]
+      },
+      {
+        "name": "HR Assets",
+        "metrics": [
+          {
+            "label": "Asset Records",
+            "value": "28,062"
+          }
+        ]
+      },
+      {
+        "name": "CAPL Entity",
+        "metrics": [
+          {
+            "label": "Active HC CAPL",
+            "value": "2,226"
+          },
+          {
+            "label": "CAPL Tables",
+            "value": "37"
+          }
+        ]
+      },
+      {
+        "name": "Compliance",
+        "metrics": [
+          {
+            "label": "Compliance Records",
+            "value": "3,499"
+          }
+        ]
+      },
+      {
+        "name": "Banking",
+        "metrics": [
+          {
+            "label": "Bank Accounts on File",
+            "value": "3,624"
+          }
+        ]
+      },
+      {
+        "name": "Attendance",
+        "metrics": [
+          {
+            "label": "Attendance Table",
+            "value": "ATTENDANCE_V3"
+          },
+          {
+            "label": "Records Synced Today",
+            "value": "0"
+          },
+          {
+            "label": "Note",
+            "value": "Pulled on-demand \u00b7 large table"
+          }
+        ]
+      },
+      {
+        "name": "Masked PII",
+        "metrics": [
+          {
+            "label": "Records masked (Gender column)",
+            "value": "6,896"
+          },
+          {
+            "label": "Cleartext via APPLICANTS table",
+            "value": "Yes"
+          }
+        ]
+      }
+    ]
+  }
 }
