@@ -1654,7 +1654,7 @@
           {
             "label": "Absent rate YTD 2026",
             "value": "10.5%",
-            "sub": "69,203 absent logs YTD — frontline / SLA roles drive most of the volume"
+            "sub": "69,203 absent logs YTD (Jan 1 → May 10, 2026)"
           },
           {
             "label": "Leave rate YTD 2026",
@@ -1664,7 +1664,7 @@
           {
             "label": "MTD May 2026 present",
             "value": "83.8%",
-            "sub": "1–10 May: 43,995 Present of 52,512 working-day logs. Dip from Apr (87%) — watch May seasonality"
+            "sub": "1–10 May: 43,995 Present of 52,512 working-day logs. Dip from Apr (86.7%) — watch May seasonality"
           },
           {
             "label": "MTD May absent",
