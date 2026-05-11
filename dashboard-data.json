@@ -1142,20 +1142,100 @@
         "metrics": [
           {
             "label": "Schedules (lifetime)",
-            "value": "30,181"
+            "value": "30,191"
           },
           {
             "label": "Feedback Submissions",
-            "value": "34,734"
+            "value": "34,744"
           },
           {
-            "label": "Feedback per Schedule",
-            "value": "1.15"
+            "label": "Panel Size (avg interviewers / slot)",
+            "value": "1.15",
+            "sub": "1.0 = pure 1-on-1. 1.15 = ~15% of slots have 2+ panelists. Lower = less rigour at senior rounds."
+          },
+          {
+            "label": "Completion Rate",
+            "value": "88.3%",
+            "sub": "26,660 of 30,191 slots completed. 3,085 still scheduled, 446 rescheduled."
+          },
+          {
+            "label": "No-Show Rate",
+            "value": "2.9%",
+            "sub": "1,019 of 34,744 feedbacks flagged DID_NOT_HAPPEN (candidate / interviewer no-show)."
+          },
+          {
+            "label": "Reschedule Rate",
+            "value": "8.9%",
+            "sub": "2,693 of 30,191 slots rescheduled \u22651\u00d7 \u00b7 12 slots rescheduled 5+ times (red-flag candidates / loops)"
+          },
+          {
+            "label": "Virtual %",
+            "value": "93.3%",
+            "sub": "28,168 Virtual vs 2,023 Physical. Lever: in-person at B3+ for stronger signal?"
+          },
+          {
+            "label": "Overall Select Rate",
+            "value": "90.7%",
+            "sub": "26,956 YES / (26,956 YES + 2,761 NO) verdicts. Excludes blanks & DID_NOT_HAPPEN."
+          },
+          {
+            "label": "Round 1 Select Rate",
+            "value": "85.9%",
+            "sub": "13,323 YES / 15,508 decided \u00b7 This is the screening filter \u2014 tightening R1 reduces panel load downstream."
+          },
+          {
+            "label": "Round 2 Select Rate",
+            "value": "95.1%",
+            "sub": "8,365 YES / 8,800 decided \u00b7 If 95%+ pass R2, R2 may be redundant for some funcs"
+          },
+          {
+            "label": "Round 3 Select Rate",
+            "value": "97.0%",
+            "sub": "3,897 YES / 4,018 decided \u00b7 Rounds 3+ are 95%+ pass \u2014 final rounds barely filter, mostly confirmatory"
+          },
+          {
+            "label": "Round 4 Select Rate",
+            "value": "99.5%"
+          },
+          {
+            "label": "Round Funnel: R1\u2192R2\u2192R3\u2192R4\u2192R5",
+            "value": "16,956 \u2192 8,459 \u2192 3,647 \u2192 970 \u2192 150",
+            "sub": "Biggest drop is R3\u2192R4 (73%). R1\u2192R2 = 50%. Helps identify which round is doing the real filtering by function."
+          },
+          {
+            "label": "#1 Reject Reason",
+            "value": "Skills & Experience Mismatch \u00b7 47%",
+            "sub": "1,308 of 2,761 NO verdicts. TA signal: top JD / candidate-match issue \u2014 fix at sourcing level."
+          },
+          {
+            "label": "#2 Reject Reason",
+            "value": "Technical / Role-specific \u00b7 21%",
+            "sub": "567 NOs \u00b7 Tighten R1 technical screen."
+          },
+          {
+            "label": "#3 Reject Reason",
+            "value": "Problem-Solving / Analytical \u00b7 9%",
+            "sub": "252 NOs"
+          },
+          {
+            "label": "#4 Reject Reason",
+            "value": "Communication \u00b7 7%",
+            "sub": "195 NOs (oral + non-verbal combined)"
+          },
+          {
+            "label": "Cultural Fit Rejects",
+            "value": "185 (6.7%)",
+            "sub": "Cultural Fit + Team Dynamics combined \u2014 small but worth tracking by hiring manager for bias signals"
+          },
+          {
+            "label": "AI Feedback Adoption",
+            "value": "10.6%",
+            "sub": "3,672 of 34,744 feedbacks used AI summary. 89.4% still manual \u2014 big lift opportunity to save IC time."
           }
         ],
         "source": "CSPL_HR_DB.HR_ATS_PUBLIC: INTERVIEW_SCHEDULE \u00b7 INTERVIEW_FEEDBACK",
         "window": "Lifetime cumulative across all reqs",
-        "formula": "Schedules = COUNT(INTERVIEW_SCHEDULE)  \u00b7  Feedback = COUNT(INTERVIEW_FEEDBACK)"
+        "formula": "Schedules = COUNT(INTERVIEW_SCHEDULE) \u00b7 Feedback = COUNT(INTERVIEW_FEEDBACK) \u00b7 Select Rate = YES / (YES+NO) excluding blanks \u00b7 Panel Size = Feedback \u00f7 Schedule"
       },
       {
         "name": "Live Attrition",
