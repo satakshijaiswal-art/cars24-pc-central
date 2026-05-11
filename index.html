@@ -1026,6 +1026,8 @@ async function loadDashboard() {
     ).join('');
   }
 
+  // Snowflake catalog renderer — wrapped so a single error never blanks all 15 sections
+  try {
   const sf = data.snowflake_catalog;
   if (sf) {
     const fmt = n => (n || 0).toLocaleString('en-IN');
@@ -1082,6 +1084,7 @@ async function loadDashboard() {
       }
     });
   }
+  } catch (e) { console.error('Snowflake renderer error:', e); }
 
   const agents = data.automation || [];
   document.getElementById('automation-table').innerHTML = agents.map(a =>
