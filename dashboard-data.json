@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "11 May 2026 \u00b7 19:00 IST",
+  "refreshed_at": "11 May 2026 \u00b7 19:03 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 11 May 2026 (16 days)",
   "window": {
     "start": "2026-04-26",
@@ -969,7 +969,7 @@
   ],
   "__sections_audited_at": "11 May 2026",
   "snowflake_catalog": {
-    "refreshed_at": "11 May 2026 \u00b7 19:00 IST",
+    "refreshed_at": "11 May 2026 \u00b7 19:03 IST",
     "source": "CSPL_HR_DB + CAPL_HR_DB \u00b7 Fivetran-synced from HRMS Public / HR_ATS Public",
     "tables_indexed": 116,
     "rows_indexed": 266572,
@@ -1067,56 +1067,64 @@
         ]
       },
       {
-        "name": "Org Structure",
+        "name": "Org Structure \u00b7 All Entities",
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND  \u22c3  CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES.BAND",
+        "window": "Snapshot as of today (11 May 2026) \u00b7 all 5 legal entities",
+        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active'  \u00b7  B4/B5/B6/Builder rolled up as Builders",
         "metrics": [
           {
-            "label": "B0",
-            "value": "98"
+            "label": "Total Active HC",
+            "value": "9,122"
           },
           {
-            "label": "B1",
-            "value": "4,184"
+            "label": "B0 \u00b7 Interns / Apprentices",
+            "value": "189"
           },
           {
-            "label": "B1 Fin",
+            "label": "B1 \u00b7 Frontline",
+            "value": "4,637"
+          },
+          {
+            "label": "B1 Fin \u00b7 Finance Frontline",
             "value": "1"
           },
           {
-            "label": "B2",
-            "value": "1,090"
+            "label": "B2 \u00b7 Senior IC",
+            "value": "1,412"
           },
           {
-            "label": "B3",
-            "value": "308"
+            "label": "B3 \u00b7 Manager / Lead",
+            "value": "420"
           },
           {
-            "label": "B4",
-            "value": "144"
+            "label": "Builders (B4 + B5 + B6 + Builder band)",
+            "value": "324"
           },
           {
-            "label": "B5",
-            "value": "68"
+            "label": "  \u2013 B4",
+            "value": "199"
           },
           {
-            "label": "B6",
-            "value": "33"
+            "label": "  \u2013 B5",
+            "value": "84"
           },
           {
-            "label": "Builder",
+            "label": "  \u2013 B6",
+            "value": "38"
+          },
+          {
+            "label": "  \u2013 Builder band",
             "value": "3"
           },
           {
-            "label": "SLA",
+            "label": "SLA \u00b7 Service Line Agent",
             "value": "333"
           },
           {
-            "label": "Third Party",
-            "value": "633"
+            "label": "Third Party Manpower",
+            "value": "1,804"
           }
-        ],
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND",
-        "window": "Snapshot as of today (11 May 2026)",
-        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active'"
+        ]
       },
       {
         "name": "Recruitment",
@@ -1243,56 +1251,64 @@
         "formula": "COUNT(*) GROUP BY EMPLOYEE_TYPE WHERE EMPLOYEE_STATUS='Active'"
       },
       {
-        "name": "Bands \u00b7 Active HC",
+        "name": "Bands \u00b7 Active HC (All Entities)",
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND  \u22c3  CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES.BAND",
+        "window": "Snapshot as of today (11 May 2026) \u00b7 all 5 legal entities",
+        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active'  \u00b7  B4/B5/B6/Builder rolled up as Builders",
         "metrics": [
           {
-            "label": "B0",
-            "value": "98"
+            "label": "Total Active HC",
+            "value": "9,122"
           },
           {
-            "label": "B1",
-            "value": "4,184"
+            "label": "B0 \u00b7 Interns / Apprentices",
+            "value": "189"
           },
           {
-            "label": "B1 Fin",
+            "label": "B1 \u00b7 Frontline",
+            "value": "4,637"
+          },
+          {
+            "label": "B1 Fin \u00b7 Finance Frontline",
             "value": "1"
           },
           {
-            "label": "B2",
-            "value": "1,090"
+            "label": "B2 \u00b7 Senior IC",
+            "value": "1,412"
           },
           {
-            "label": "B3",
-            "value": "308"
+            "label": "B3 \u00b7 Manager / Lead",
+            "value": "420"
           },
           {
-            "label": "B4",
-            "value": "144"
+            "label": "Builders (B4 + B5 + B6 + Builder band)",
+            "value": "324"
           },
           {
-            "label": "B5",
-            "value": "68"
+            "label": "  \u2013 B4",
+            "value": "199"
           },
           {
-            "label": "B6",
-            "value": "33"
+            "label": "  \u2013 B5",
+            "value": "84"
           },
           {
-            "label": "Builder",
+            "label": "  \u2013 B6",
+            "value": "38"
+          },
+          {
+            "label": "  \u2013 Builder band",
             "value": "3"
           },
           {
-            "label": "SLA",
+            "label": "SLA \u00b7 Service Line Agent",
             "value": "333"
           },
           {
-            "label": "Third Party",
-            "value": "633"
+            "label": "Third Party Manpower",
+            "value": "1,804"
           }
-        ],
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND",
-        "window": "Snapshot as of today (11 May 2026)",
-        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active'"
+        ]
       },
       {
         "name": "Performance Management",
