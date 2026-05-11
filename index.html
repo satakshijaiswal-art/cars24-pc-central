@@ -837,7 +837,22 @@ async function loadDashboard() {
           <ul class="mb-3">${inboundList || '<li class="text-xs text-gray-400 italic py-1">None this period</li>'}</ul>
 
           <div class="text-xs font-bold uppercase tracking-wide mb-1" style="color:#F59E0B">Outbound channels</div>
-          <ul>${outboundList || '<li class="text-xs text-gray-400 italic py-1">None this period</li>'}</ul>
+          <ul class="mb-3">${outboundList || '<li class="text-xs text-gray-400 italic py-1">None this period</li>'}</ul>
+
+          ${(fn === 'Support' || fn === 'T P BI DS') ? `
+            <div class="text-xs font-bold uppercase tracking-wide mb-1 mt-3" style="color:#F59E0B">Outbound joiners — who + recruiter</div>
+            ${(d.outbound_joiners && d.outbound_joiners.length > 0) ? `
+              <ul class="space-y-1.5 mt-1">
+                ${d.outbound_joiners.map(j => `
+                  <li class="text-xs p-2 rounded" style="background:#FFFBEB; border-left:3px solid #F59E0B">
+                    <div class="font-semibold text-gray-900">${j.name} <span class="text-gray-500 font-normal">· ${j.band} · ${j.designation}</span></div>
+                    <div class="text-gray-600 mt-0.5">${j.department} · ${j.source} · DOJ ${j.doj}</div>
+                    <div class="font-semibold mt-0.5" style="color:#4736FE">Recruiter: ${j.recruiter}</div>
+                  </li>
+                `).join('')}
+              </ul>
+            ` : '<div class="text-xs text-gray-400 italic mt-1">No outbound joiners in this period</div>'}
+          ` : ''}
         </div>
       `;
     }).join('');
