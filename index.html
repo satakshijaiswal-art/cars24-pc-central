@@ -1033,6 +1033,25 @@ async function loadDashboard() {
       const nameEl = sec.querySelector('[data-sf-name]');
       const gridEl = sec.querySelector('[data-sf-grid]');
       if (nameEl) nameEl.textContent = c.name;
+
+      // Inject Source / Window / Formula caption between heading and metric grid
+      let metaEl = sec.querySelector('[data-sf-meta]');
+      if (!metaEl) {
+        metaEl = document.createElement('div');
+        metaEl.setAttribute('data-sf-meta','');
+        metaEl.className = 'bg-white rounded-lg shadow-sm border p-4 mt-3 text-xs';
+        const card = sec.querySelector('[data-sf-grid]')?.closest('.bg-white');
+        if (card) card.parentNode.insertBefore(metaEl, card);
+      }
+      if (c.source || c.window || c.formula) {
+        metaEl.innerHTML = `
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div><span class="uppercase text-gray-500 font-semibold">Source</span><div class="brand-blue font-semibold mt-1"><code class="text-[11px]">${c.source || '—'}</code></div></div>
+            <div><span class="uppercase text-gray-500 font-semibold">Window / Date Range</span><div class="brand-blue font-semibold mt-1">${c.window || '—'}</div></div>
+            <div><span class="uppercase text-gray-500 font-semibold">Formula</span><div class="brand-blue font-semibold mt-1"><code class="text-[11px]">${c.formula || '—'}</code></div></div>
+          </div>`;
+      }
+
       if (gridEl) {
         gridEl.innerHTML = (c.metrics || []).map(m => `
           <div class="bg-gray-50 rounded p-4">

@@ -995,7 +995,10 @@
             "label": "Joinings YTD",
             "value": "2,368"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES + CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
+        "window": "Snapshot as of today (11 May 2026)",
+        "formula": "COUNT(*) WHERE EMPLOYEE_STATUS='Active' AND NOT _FIVETRAN_DELETED"
       },
       {
         "name": "Org Structure",
@@ -1044,7 +1047,10 @@
             "label": "Third Party",
             "value": "633"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND",
+        "window": "Snapshot as of today (11 May 2026)",
+        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active'"
       },
       {
         "name": "Recruitment",
@@ -1073,7 +1079,10 @@
             "label": "Acceptance Rate",
             "value": "40.6%"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HR_ATS_PUBLIC: REQUISITIONS \u00b7 APPLICANTS \u00b7 OFFER_LETTERS",
+        "window": "Open reqs = today's snapshot \u00b7 Closed reqs / Applicants / Offers = lifetime cumulative",
+        "formula": "Open = COUNT(*) WHERE STATUS='Open'  \u00b7  Acceptance Rate = Offers Accepted \u00f7 Offers Released \u00d7 100"
       },
       {
         "name": "Interviews",
@@ -1090,7 +1099,10 @@
             "label": "Feedback per Schedule",
             "value": "1.15"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HR_ATS_PUBLIC: INTERVIEW_SCHEDULE \u00b7 INTERVIEW_FEEDBACK",
+        "window": "Lifetime cumulative across all reqs",
+        "formula": "Schedules = COUNT(INTERVIEW_SCHEDULE)  \u00b7  Feedback = COUNT(INTERVIEW_FEEDBACK)"
       },
       {
         "name": "Live Attrition",
@@ -1111,7 +1123,10 @@
             "label": "FnF Pending",
             "value": "17,527"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HRMS_PUBLIC: EMPLOYEES.DATE_OF_EXIT \u00b7 SEPARATIONS \u00b7 FNF_DATA",
+        "window": "MTD = 01 May \u2192 11 May 2026  \u00b7  YTD = 01 Jan \u2192 11 May 2026",
+        "formula": "Exits MTD = COUNT(*) WHERE DATE_OF_EXIT \u2265 01-May-2026  \u00b7  Exits YTD = COUNT(*) WHERE DATE_OF_EXIT \u2265 01-Jan-2026"
       },
       {
         "name": "Employee Type",
@@ -1156,7 +1171,10 @@
             "label": "Suspended",
             "value": "1"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.EMPLOYEE_TYPE",
+        "window": "Snapshot as of today (11 May 2026)",
+        "formula": "COUNT(*) GROUP BY EMPLOYEE_TYPE WHERE EMPLOYEE_STATUS='Active'"
       },
       {
         "name": "Bands \u00b7 Active HC",
@@ -1205,7 +1223,10 @@
             "label": "Third Party",
             "value": "633"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND",
+        "window": "Snapshot as of today (11 May 2026)",
+        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active'"
       },
       {
         "name": "Performance Management",
@@ -1222,7 +1243,10 @@
             "label": "Total PMS",
             "value": "9,320"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HRMS_PUBLIC: PMS_CSPL \u00b7 PMS_CAPL",
+        "window": "Lifetime appraisal records across all cycles since FY21",
+        "formula": "COUNT(*) per table"
       },
       {
         "name": "Background Verification",
@@ -1231,7 +1255,10 @@
             "label": "BGV Records (lifetime)",
             "value": "58,406"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.BGV",
+        "window": "Lifetime \u2014 every BGV ever raised",
+        "formula": "COUNT(*)"
       },
       {
         "name": "HR Assets",
@@ -1240,7 +1267,10 @@
             "label": "Asset Records",
             "value": "28,062"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HR_ASSETS_PUBLIC.ASSET_DETAILS",
+        "window": "Lifetime \u2014 every asset assigned / recovered",
+        "formula": "COUNT(*)"
       },
       {
         "name": "CAPL Entity",
@@ -1253,7 +1283,10 @@
             "label": "CAPL Tables",
             "value": "37"
           }
-        ]
+        ],
+        "source": "CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
+        "window": "Snapshot as of today (11 May 2026)",
+        "formula": "COUNT(*) WHERE EMPLOYEE_STATUS ILIKE '%active%'"
       },
       {
         "name": "Compliance",
@@ -1262,7 +1295,10 @@
             "label": "Compliance Records",
             "value": "3,499"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.COMPLIANCE_DETAILS",
+        "window": "Lifetime \u2014 every compliance record on file",
+        "formula": "COUNT(*)"
       },
       {
         "name": "Banking",
@@ -1271,7 +1307,10 @@
             "label": "Bank Accounts on File",
             "value": "3,624"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.BANK_DETAILS",
+        "window": "Current snapshot \u2014 every bank account on file for active + inactive emps",
+        "formula": "COUNT(*)"
       },
       {
         "name": "Attendance",
@@ -1288,7 +1327,10 @@
             "label": "Note",
             "value": "Pulled on-demand \u00b7 large table"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.ATTENDANCE_V3",
+        "window": "Records Fivetran-synced today (11 May 2026) \u2014 table refreshes incrementally",
+        "formula": "COUNT(*) WHERE _FIVETRAN_SYNCED::DATE = CURRENT_DATE"
       },
       {
         "name": "Masked PII",
@@ -1301,7 +1343,10 @@
             "label": "Cleartext via APPLICANTS table",
             "value": "Yes"
           }
-        ]
+        ],
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.GENDER (Snowflake row-access policy hashes the column)",
+        "window": "Snapshot as of today (11 May 2026)",
+        "formula": "EMPLOYEES.GENDER returns hash IDs (e.g. 7192606553916495994); cleartext available via HR_ATS_PUBLIC.APPLICANTS.GENDER"
       }
     ]
   }
