@@ -976,8 +976,8 @@
     "headline": [
       {
         "label": "Total Active HC",
-        "value": "9,122",
-        "sub": "All 5 Cars24 legal entities \u00b7 live"
+        "value": "7,080",
+        "sub": "All 5 Cars24 legal entities \u00b7 Active only \u00b7 live"
       },
       {
         "label": "CSPL",
@@ -996,8 +996,8 @@
       },
       {
         "label": "CAPL + APL",
-        "value": "2,226",
-        "sub": "Cariot Auto + Accelane (Franchise / Auctions)"
+        "value": "184",
+        "sub": "Cariot Auto + Accelane (Franchise / Auctions) \u00b7 Active"
       },
       {
         "label": "Open Reqs",
@@ -1010,11 +1010,11 @@
         "name": "Active Headcount \u00b7 By Entity",
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u22c8 BUSINESS_UNIT (COMPANY_NAME) + CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
         "window": "Snapshot as of today (11 May 2026)",
-        "formula": "COUNT(DISTINCT EMPLOYEE_ID) WHERE EMPLOYEE_STATUS='Active' AND NOT _FIVETRAN_DELETED, grouped by parent company name",
+        "formula": "COUNT(DISTINCT EMPLOYEE_ID) WHERE EMPLOYEE_STATUS='Active' AND NOT _FIVETRAN_DELETED, grouped by parent company name. CAPL side ALSO filtered on EMPLOYEE_STATUS='Active' (do not count Inactive rows).",
         "metrics": [
           {
             "label": "Total Active HC",
-            "value": "9,122"
+            "value": "7,080"
           },
           {
             "label": "CSPL \u00b7 Cars24 Services Pvt Ltd",
@@ -1029,16 +1029,9 @@
             "value": "278"
           },
           {
-            "label": "CAPL \u00b7 Cariot Auto Pvt Ltd",
-            "value": "\u22481,150"
-          },
-          {
-            "label": "APL \u00b7 Accelane Pvt Ltd",
-            "value": "\u22481,076"
-          },
-          {
-            "label": "CAPL + APL combined",
-            "value": "2,226"
+            "label": "CAPL + APL combined (Active)",
+            "value": "184",
+            "sub": "CAPL_HR_DB BU table does not split CAPL vs APL cleanly \u2014 173 rows tagged 'Cariot Auto + Accelane', 11 tagged 'Cariot Auto' only"
           },
           {
             "label": "CSPL Reporting",
@@ -1053,12 +1046,13 @@
             "value": "4"
           },
           {
-            "label": "Records in HRMS",
-            "value": "27,497"
+            "label": "Records in HRMS (Active + Inactive)",
+            "value": "29,729",
+            "sub": "CSPL EMPLOYEES 27,503 + CAPL EMPLOYEES 2,226"
           },
           {
-            "label": "PII Records Synced",
-            "value": "27,217"
+            "label": "PII Records Synced (CSPL only)",
+            "value": "28,136"
           },
           {
             "label": "Joinings YTD",
@@ -1070,19 +1064,19 @@
         "name": "Org Structure \u00b7 All Entities",
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND  \u22c3  CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES.BAND",
         "window": "Snapshot as of today (11 May 2026) \u00b7 all 5 legal entities",
-        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' \u00b7 B4 + B5 + B6 + 'Builder' band collapsed to single Builders tier",
+        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' (BOTH DBs) \u00b7 B4 + B5 + B6 + 'Builder' band collapsed to single Builders tier \u00b7 Builders row is the roll-up; B4/B5/B6/Builder shown as sub-lines and NOT additive on top",
         "metrics": [
           {
             "label": "Total Active HC",
-            "value": "9,122"
+            "value": "7,080"
           },
           {
             "label": "B0 \u00b7 Interns / Apprentices",
-            "value": "189"
+            "value": "99"
           },
           {
             "label": "B1 \u00b7 Frontline",
-            "value": "4,637"
+            "value": "4,303"
           },
           {
             "label": "B1 Fin \u00b7 Finance Frontline",
@@ -1090,23 +1084,40 @@
           },
           {
             "label": "B2 \u00b7 Senior IC",
-            "value": "1,412"
+            "value": "1,133"
           },
           {
             "label": "B3 \u00b7 Manager / Lead",
-            "value": "420"
+            "value": "315"
           },
           {
-            "label": "Builders (B4+)",
-            "value": "324"
+            "label": "Builders (B4+B5+B6+Builder band)",
+            "value": "261"
+          },
+          {
+            "label": "\u2014 B4",
+            "value": "156"
+          },
+          {
+            "label": "\u2014 B5",
+            "value": "69"
+          },
+          {
+            "label": "\u2014 B6",
+            "value": "33"
+          },
+          {
+            "label": "\u2014 Builder band",
+            "value": "3"
           },
           {
             "label": "SLA \u00b7 Service Line Agent",
             "value": "333"
           },
           {
-            "label": "Third Party Manpower",
-            "value": "1,804"
+            "label": "Third Party (BAND='Third Party' in EMPLOYEES)",
+            "value": "633",
+            "sub": "Separate 'Third Party Manpower' sheet shows 1,804 \u2014 that is a different source (vendor manpower tracker), not from HRMS EMPLOYEES.BAND"
           }
         ]
       },
