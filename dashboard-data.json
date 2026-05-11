@@ -1692,32 +1692,52 @@
         "formula": "Present% = COUNT(STATUS LIKE 'P%') ÷ COUNT(STATUS IN P/A/L variants). Excludes Weekly Off (W) and Holiday (H) from denominator."
       },
       {
-        "name": "Directories · Masked PII",
+        "name": "Directories · PII & Diversity",
         "metrics": [
           {
-            "label": "Active emp records",
-            "value": "6,896"
+            "label": "Female % · active workforce",
+            "value": "14.6%",
+            "sub": "1,009 of 6,896 active CSPL employees. Hash-mapped from HRMS GENDER column (5,877 Male / 1,009 Female / 10 Other)"
           },
           {
-            "label": "PII records synced (CSPL only)",
-            "value": "28,136"
+            "label": "Female % · applicant pool",
+            "value": "16.0%",
+            "sub": "3,256 Female of 20,341 ATS applicants who declared gender — pipeline mix slightly better than internal HC"
           },
           {
-            "label": "Gender column (HRMS)",
-            "value": "Hashed by row-access policy"
+            "label": "ATS gender data gap",
+            "value": "66%",
+            "sub": "42,302 of 63,659 applicants have blank gender — recruiters not capturing the field consistently"
           },
           {
-            "label": "Gender column (ATS APPLICANTS)",
-            "value": "Cleartext (Male/Female)"
+            "label": "PII records on file",
+            "value": "28,136",
+            "sub": "Employee_PII table — one row per employee (lifetime, incl. ex-staff). Stores PAN, Aadhaar, UAN, DOB, Name"
           },
           {
-            "label": "Email column",
-            "value": "Cleartext (corp emails)"
+            "label": "PAN / Aadhaar / UAN coverage",
+            "value": "99% / 98% / 92%",
+            "sub": "PAN 27,884 · Aadhaar 27,427 · UAN 25,909. Statutory IDs are well-captured"
+          },
+          {
+            "label": "DOB coverage",
+            "value": "0.2%",
+            "sub": "Only 69 of 28,136 PII records have DOB filled — age diversity, retirement planning, age-based compliance reporting all blocked"
+          },
+          {
+            "label": "PII masking policy",
+            "value": "Inconsistent",
+            "sub": "HRMS.GENDER hashed by row-access policy · ATS.APPLICANTS.GENDER cleartext · corp emails cleartext. No uniform standard across systems"
+          },
+          {
+            "label": "Founder action",
+            "value": "Fix DOB capture",
+            "sub": "DOB is the standout data gap. Backfill from joining forms / ID docs to unlock age diversity + statutory age reporting"
           }
         ],
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.GENDER (Snowflake row-access policy hashes the column)",
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES · EMPLOYEE_PII · HR_ATS_PUBLIC.APPLICANTS",
         "window": "Snapshot as of today (11 May 2026)",
-        "formula": "EMPLOYEES.GENDER returns hash IDs (e.g. 7192606553916495994); cleartext available via HR_ATS_PUBLIC.APPLICANTS.GENDER"
+        "formula": "Female% = COUNT(hash=10758599872564880747) ÷ COUNT(Active). PII coverage = COUNT(col IS NOT NULL) ÷ COUNT(*). ATS data gap = COUNT(GENDER='') ÷ COUNT(*)."
       }
     ]
   }
