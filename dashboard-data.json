@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "11 May 2026 \u00b7 12:34 IST",
+  "refreshed_at": "11 May 2026 \u00b7 12:48 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 11 May 2026 (16 days)",
   "window": {
     "start": "2026-04-26",
@@ -47,8 +47,7 @@
     "senior_new": 10,
     "senior_replacement": 0,
     "productivity": 12.8,
-    "active_recruiters": 17,
-    "__period": "26 Apr 2026 \u2192 11 May 2026 (16-day window)"
+    "active_recruiters": 17
   },
   "functionTable": {
     "joinings_by": {
@@ -78,11 +77,11 @@
       "Other Support": 7
     },
     "otj_by": {
-      "BI DS": 100.0,
-      "Technology": 100.0,
-      "Other Support": 76.67,
       "Product": 100.0,
-      "Business (B1+B2)": 80.95
+      "Other Support": 76.67,
+      "Technology": 100.0,
+      "Business (B1+B2)": 80.95,
+      "BI DS": 100.0
     },
     "ttf_by": {
       "Business (B1+B2)": 34.1,
@@ -122,8 +121,7 @@
       "Technology": 5.4313,
       "BI DS": 5.5556,
       "Other Support": 4.1199
-    },
-    "__period": "26 Apr 2026 \u2192 11 May 2026 (16-day window)"
+    }
   },
   "leadership": {
     "total": 10,
@@ -215,8 +213,7 @@
         "entity": "CSPL",
         "doj": "27-Apr-26"
       }
-    ],
-    "__period": "26 Apr 2026 \u2192 11 May 2026 (16-day window)"
+    ]
   },
   "diversity": {
     "total": 217,
@@ -239,8 +236,7 @@
       "B4": 0.0,
       "B5": 0.0
     },
-    "data_rows": 217,
-    "__period": "26 Apr 2026 \u2192 11 May 2026 (16-day window)"
+    "data_rows": 217
   },
   "sourcing": {
     "overall": {
@@ -255,18 +251,22 @@
       "Naukri-Job Application": 0.56,
       "Intern to Permanent": 0.56
     },
+    "overall_total_joinings": 178,
     "by_function": {
       "Business": {
         "inbound": 94.16,
-        "outbound": 5.84
+        "outbound": 5.84,
+        "n": 154
       },
       "Support": {
         "inbound": 77.27,
-        "outbound": 13.64
+        "outbound": 13.64,
+        "n": 22
       },
       "T P BI DS": {
         "inbound": 100.0,
-        "outbound": 0.0
+        "outbound": 0.0,
+        "n": 2
       }
     },
     "by_function_detail": {
@@ -379,8 +379,7 @@
         "Naukri-Headhunt"
       ],
       "note": "Window 26 Apr \u2192 11 May 2026 \u00b7 178 JM-synced rows."
-    },
-    "__period": "26 Apr 2026 \u2192 11 May 2026 (16-day window)"
+    }
   },
   "drops": {
     "total": 51,
@@ -393,15 +392,13 @@
       "Technology": 0,
       "BI DS": 0
     },
-    "top_function": "Business (B1+B2)",
-    "__period": "26 Apr 2026 \u2192 11 May 2026 (16-day window)"
+    "top_function": "Business (B1+B2)"
   },
   "ta": {
     "active": 551,
     "closed": 217,
     "ytj": 51,
-    "productivity": 12.8,
-    "__period": "Snapshot as of 11 May 2026"
+    "productivity": 12.8
   },
   "trends": {
     "months": [
@@ -425,8 +422,7 @@
       18.96,
       4.9
     ],
-    "attrition_label": "Monthly attrition % (window value is projected to monthly equivalent)",
-    "__period": "Last 4 months (Jan-Apr 2026) + current window"
+    "attrition_label": "Monthly attrition % (window value is projected to monthly equivalent)"
   },
   "window_extras": {
     "by_day": {
@@ -513,8 +509,7 @@
         "name": "Aayush Tyagi",
         "joinings": 6
       }
-    ],
-    "__period": "26 Apr 2026 \u2192 11 May 2026 (16-day window)"
+    ]
   },
   "metrics_not_computable_for_window": {
     "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
@@ -539,16 +534,14 @@
       "sde2": 28,
       "sde3": 24
     },
-    "note": "Static fallback \u2014 Tech & Product CSV not available",
-    "__period": "Snapshot as of 11 May 2026"
+    "note": "Static fallback \u2014 Tech & Product CSV not available"
   },
   "glassdoor": {
     "rating": 4.2,
     "recommend": 77,
     "ceo": 84,
     "outlook": 80,
-    "note": "From last Glassdoor scrape via glassdoor-reviews-bot.",
-    "__period": "Latest Glassdoor scrape (static \u2014 wire to glassdoor-reviews-bot for daily)"
+    "note": "From last Glassdoor scrape via glassdoor-reviews-bot."
   },
   "attrition": {
     "overall": 4.9,
@@ -625,8 +618,7 @@
       "Involuntary": 56,
       "Voluntary": 123
     },
-    "note": "Window 26 Apr\u201311 May: 179 exits across 6761 active employees. Monthly-projected to 4.9%.",
-    "__period": "26 Apr 2026 \u2192 11 May 2026 (16-day window of exits + active HC snapshot)"
+    "note": "Window 26 Apr\u201311 May: 179 exits across 6761 active employees. Monthly-projected to 4.9%."
   },
   "automation": [
     {
