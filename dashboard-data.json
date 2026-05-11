@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "11 May 2026 \u00b7 18:13 IST",
+  "refreshed_at": "11 May 2026 \u00b7 18:41 IST",
   "period_label": "Window: 26 Apr 2026 \u2014 11 May 2026 (16 days)",
   "window": {
     "start": "2026-04-26",
@@ -969,7 +969,7 @@
   ],
   "__sections_audited_at": "11 May 2026",
   "snowflake_catalog": {
-    "refreshed_at": "11 May 2026 \u00b7 18:13 IST",
+    "refreshed_at": "11 May 2026 \u00b7 18:41 IST",
     "source": "CSPL_HR_DB + CAPL_HR_DB \u00b7 Fivetran-synced from HRMS Public / HR_ATS Public",
     "tables_indexed": 116,
     "rows_indexed": 266572,
@@ -1278,8 +1278,28 @@
             "value": "1,245"
           },
           {
-            "label": "Total PMS",
-            "value": "9,320"
+            "label": "Stage: Calibration",
+            "value": "2,757"
+          },
+          {
+            "label": "Stage: Completed",
+            "value": "2,221"
+          },
+          {
+            "label": "Stage: Reviewer",
+            "value": "1,141"
+          },
+          {
+            "label": "Stage: Self",
+            "value": "778"
+          },
+          {
+            "label": "Stage: Evaluator 2",
+            "value": "721"
+          },
+          {
+            "label": "Stage: Emp Ack",
+            "value": "457"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC: PMS_CSPL \u00b7 PMS_CAPL",
@@ -1292,6 +1312,46 @@
           {
             "label": "BGV Records (lifetime)",
             "value": "58,406"
+          },
+          {
+            "label": "Pending",
+            "value": "33,426"
+          },
+          {
+            "label": "Completed",
+            "value": "21,176"
+          },
+          {
+            "label": "Insufficient",
+            "value": "2,098"
+          },
+          {
+            "label": "Amber",
+            "value": "991"
+          },
+          {
+            "label": "Discrepancy Found",
+            "value": "525"
+          },
+          {
+            "label": "On Hold",
+            "value": "93"
+          },
+          {
+            "label": "Case Stopped",
+            "value": "67"
+          },
+          {
+            "label": "Issue Highlighted",
+            "value": "30"
+          },
+          {
+            "label": "Flagged",
+            "value": "2"
+          },
+          {
+            "label": "Clean",
+            "value": "58,404"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.BGV",
@@ -1304,6 +1364,46 @@
           {
             "label": "Asset Records",
             "value": "28,062"
+          },
+          {
+            "label": "Hardware",
+            "value": "18,591"
+          },
+          {
+            "label": "Tools",
+            "value": "9,470"
+          },
+          {
+            "label": "Allocated",
+            "value": "13,284"
+          },
+          {
+            "label": "In Stock",
+            "value": "3,474"
+          },
+          {
+            "label": "Sold to Vendor",
+            "value": "3,351"
+          },
+          {
+            "label": "EOL Scrap",
+            "value": "2,334"
+          },
+          {
+            "label": "Exit Recovery",
+            "value": "2,221"
+          },
+          {
+            "label": "Under Maintenance",
+            "value": "1,036"
+          },
+          {
+            "label": "Sold to Employee",
+            "value": "819"
+          },
+          {
+            "label": "Lost",
+            "value": "65"
           }
         ],
         "source": "CSPL_HR_DB.HR_ASSETS_PUBLIC.ASSET_DETAILS",
@@ -1318,8 +1418,48 @@
             "value": "2,226"
           },
           {
-            "label": "CAPL Tables",
-            "value": "37"
+            "label": "Permanent",
+            "value": "1,231"
+          },
+          {
+            "label": "Third Party",
+            "value": "901"
+          },
+          {
+            "label": "Intern",
+            "value": "82"
+          },
+          {
+            "label": "Third Party Band",
+            "value": "1,171"
+          },
+          {
+            "label": "B1 Band",
+            "value": "453"
+          },
+          {
+            "label": "B2 Band",
+            "value": "322"
+          },
+          {
+            "label": "B3 Band",
+            "value": "112"
+          },
+          {
+            "label": "B0 Band",
+            "value": "91"
+          },
+          {
+            "label": "B4 Band",
+            "value": "55"
+          },
+          {
+            "label": "B5 Band",
+            "value": "16"
+          },
+          {
+            "label": "B6 Band",
+            "value": "5"
           }
         ],
         "source": "CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
@@ -1327,10 +1467,22 @@
         "formula": "COUNT(*) WHERE EMPLOYEE_STATUS ILIKE '%active%'"
       },
       {
-        "name": "Compliance",
+        "name": "Statutory Compliance",
         "metrics": [
           {
             "label": "Compliance Records",
+            "value": "3,499"
+          },
+          {
+            "label": "UAN Account Exists",
+            "value": "2,339"
+          },
+          {
+            "label": "UAN Missing",
+            "value": "1,159"
+          },
+          {
+            "label": "PF Forms \u2014 Pending",
             "value": "3,499"
           }
         ],
@@ -1344,6 +1496,18 @@
           {
             "label": "Bank Accounts on File",
             "value": "3,624"
+          },
+          {
+            "label": "Unverified",
+            "value": "3,624"
+          },
+          {
+            "label": "Verified",
+            "value": "0"
+          },
+          {
+            "label": "Action needed",
+            "value": "All accounts in Snowflake show IS_VERIFIED=false \u2014 need ops review"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.BANK_DETAILS",
@@ -1354,16 +1518,16 @@
         "name": "Attendance",
         "metrics": [
           {
-            "label": "Attendance Table",
-            "value": "ATTENDANCE_V3"
+            "label": "Attendance V3 rows (lifetime)",
+            "value": "6,889"
           },
           {
-            "label": "Records Synced Today",
+            "label": "Rows synced today",
             "value": "0"
           },
           {
             "label": "Note",
-            "value": "Pulled on-demand \u00b7 large table"
+            "value": "ATTENDANCE_V3 syncs on demand \u00b7 production attendance lives in BIOMETRIC_DBO schema"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.ATTENDANCE_V3",
@@ -1371,15 +1535,27 @@
         "formula": "COUNT(*) WHERE _FIVETRAN_SYNCED::DATE = CURRENT_DATE"
       },
       {
-        "name": "Masked PII",
+        "name": "Directories \u00b7 Masked PII",
         "metrics": [
           {
-            "label": "Records masked (Gender column)",
+            "label": "Active emp records",
             "value": "6,896"
           },
           {
-            "label": "Cleartext via APPLICANTS table",
-            "value": "Yes"
+            "label": "PII records synced",
+            "value": "27,217"
+          },
+          {
+            "label": "Gender column (HRMS)",
+            "value": "Hashed by row-access policy"
+          },
+          {
+            "label": "Gender column (ATS APPLICANTS)",
+            "value": "Cleartext (Male/Female)"
+          },
+          {
+            "label": "Email column",
+            "value": "Cleartext (corp emails)"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.GENDER (Snowflake row-access policy hashes the column)",
