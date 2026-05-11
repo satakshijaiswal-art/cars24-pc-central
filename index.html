@@ -404,6 +404,17 @@
     <h2 class="text-3xl font-bold brand-blue">Attrition</h2>
     <p class="text-gray-600 mt-1">By function · drivers · trends</p>
 
+    <!-- DATA SOURCE + DATE RANGE -->
+    <div class="bg-white rounded-lg shadow-sm border p-4 mt-4 text-xs">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+        <div><span class="uppercase text-gray-500 font-semibold">Source</span><div class="brand-blue font-semibold mt-1" id="attr-src">Base-Live Employee Data sheet · <code>Date of Leaving</code> column</div></div>
+        <div><span class="uppercase text-gray-500 font-semibold">Window</span><div class="brand-blue font-semibold mt-1" id="attr-window">—</div></div>
+        <div><span class="uppercase text-gray-500 font-semibold">Exits ÷ Active HC</span><div class="brand-blue font-semibold mt-1" id="attr-denom">—</div></div>
+        <div><span class="uppercase text-gray-500 font-semibold">Formula</span><div class="brand-blue font-semibold mt-1"><code>(Exits ÷ Avg HC) × (30 ÷ window days) × 100</code></div></div>
+      </div>
+      <p class="text-xs text-gray-500 italic mt-2" id="attr-note">—</p>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
         <div class="text-xs uppercase text-gray-500">Overall Attrition</div>
@@ -947,6 +958,15 @@ async function loadDashboard() {
   document.getElementById('attr-overall').textContent = attr.overall ?? '—';
   document.getElementById('attr-high').innerHTML = (attr.high || []).map(h => `${h.func} ${h.pct}%`).join('<br>') || '—';
   document.getElementById('attr-low').innerHTML = (attr.low || []).map(h => `${h.func} ${h.pct}%`).join('<br>') || '—';
+  // Data-source line: window range + exits/HC + raw note from JSON
+  const wEl = document.getElementById('attr-window');
+  const dEl = document.getElementById('attr-denom');
+  const nEl = document.getElementById('attr-note');
+  if (wEl) wEl.textContent = data.window ? `${data.window.start} → ${data.window.end} (${data.window.days} days)` : '—';
+  if (dEl) dEl.textContent = (attr.overall_total_exits != null && attr.overall_active_hc != null)
+    ? `${attr.overall_total_exits} exits ÷ ${attr.overall_active_hc.toLocaleString('en-IN')} active HC = ${attr.overall_window_raw ?? '—'}% raw (window) → ${attr.overall ?? '—'}% monthly-projected`
+    : '—';
+  if (nEl) nEl.textContent = attr.note ?? '—';
   document.getElementById('attr-drivers').innerHTML = (attr.drivers || []).map(d =>
     `<li class="flex justify-between border-b pb-1"><span class="brand-blue font-semibold">${d.theme}</span><span class="text-gray-700">${d.pct}% (${d.count} exits)</span></li>`
   ).join('') || '<li class="text-gray-500">No exit data this period</li>';
