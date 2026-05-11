@@ -1575,25 +1575,49 @@
         "name": "Statutory Compliance",
         "metrics": [
           {
-            "label": "Compliance Records",
-            "value": "3,499"
+            "label": "Workforce coverage",
+            "value": "51%",
+            "sub": "3,499 compliance records vs 6,896 active CSPL — 3,397 employees missing from the statutory file"
           },
           {
-            "label": "UAN Account Exists",
-            "value": "2,339"
+            "label": "UAN on file",
+            "value": "2,392",
+            "sub": "68% of compliance records have UAN_NUMBER filled. 1,107 blank — PF portability gap for those joiners"
           },
           {
-            "label": "UAN Missing",
-            "value": "1,159"
+            "label": "PF Form 11 complete",
+            "value": "2 / 3,499",
+            "sub": "0.06% completion. 3,478 pending + 19 flagged with issues — workflow effectively dead"
           },
           {
-            "label": "PF Forms — Pending",
-            "value": "3,499"
+            "label": "NDA / Gratuity / ESI complete",
+            "value": "~0",
+            "sub": "NDA CSPL 0 · NDA CFSPL 0 · Code of Conduct 0 · ESI 0 · Gratuity 0 · PF Form 2 0 — none of the statutory acknowledgement workflows reach 'complete' state"
+          },
+          {
+            "label": "Passport expired",
+            "value": "30",
+            "sub": "Of 377 employees with passports on file, 30 have already expired — visa/travel compliance risk"
+          },
+          {
+            "label": "Prev PF accounts",
+            "value": "662",
+            "sub": "Lateral hires who carried over a PF account — UAN transfer/merger workflow needs closure"
+          },
+          {
+            "label": "L30D new records",
+            "value": "41",
+            "sub": "Far below joiner pace — compliance onboarding lag for recent hires"
+          },
+          {
+            "label": "YTD vs prior year",
+            "value": "812 / 2,686",
+            "sub": "Records created in 2026 (812 to date) vs 2025 (2,686 total) — pace tracks 30% of last year"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.COMPLIANCE_DETAILS",
-        "window": "Lifetime — every compliance record on file",
-        "formula": "COUNT(*)"
+        "window": "Lifetime records on file · L30D activity · coverage vs Active CSPL HC",
+        "formula": "COUNT(*), COUNT(CASE WHEN x IS NOT NULL), COUNT(CASE WHEN STATUS='complete') grouped by form type"
       },
       {
         "name": "Banking",
