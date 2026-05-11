@@ -709,12 +709,12 @@ async function loadDashboard() {
       ['Source Mix %',          '(Joinings from Source ÷ Total Joinings) × 100',              'See Sourcing tab',                'V3 sheet · ✅ Computed'],
       ['By-function Joinings',  'COUNT per function bucket',                                  'See By-Function table',           'V3 sheet · ✅ Computed'],
       ['By-band, by-entity, by-day', 'COUNT per band / entity / DOJ day',                     'See Window Detail tab',           'V3 sheet · ✅ Computed'],
-      ['Variable CPH',          'Total Variable Cost ÷ Total Joinings',                       '—',                               'Blocked: ' + (ng['Variable CPH'] || 'needs Joining Master Actual_CPH column')],
-      ['Hike %',                'AVG((Offered CTC − Last CTC) ÷ Last CTC) × 100',             '—',                               'Blocked: ' + (ng['Hike %'] || 'needs JM CTC columns')],
-      ['Time to Fill (d)',      'AVG(DOJ − Requisition Open Date)',                           '—',                               'Blocked: ' + (ng['Time to Fill'] || 'needs JM Request Received Date')],
-      ['Avg TAT — Open Roles',  'AVG(Reporting Date − Requisition Open Date)',                '—',                               'Blocked: ' + (ng['Avg TAT for Open Roles'] || 'needs JM Reporting Date')],
-      ['Female %',              '(Female joinings ÷ Total joinings) × 100',                   '—',                               'Blocked: ' + (ng['Gender mix'] || 'V3 has no Gender column')],
-      ['Active Reqs (Open)',    'COUNT(REQs with Status = Open as of today)',                 '—',                               'Blocked: ' + (ng['Open Reqs'] || 'needs Requisition tracker')],
+      ['Variable CPH',          'Total Variable Cost ÷ Total Joinings',                       ov.cph != null ? '₹' + Number(ov.cph).toLocaleString('en-IN') : '—',                               ov.cph != null ? 'JM sheet · partial — Finance to backfill Actual_CPH post month-end close' : 'Pending Finance close — Actual_CPH not yet posted in Joining Master for window cohort'],
+      ['Hike %',                'AVG((Offered CTC − Last CTC) ÷ Last CTC) × 100',             (ov.hike ?? '—') + (ov.hike != null ? '%' : ''),                               'JM sheet · ✅ Computed (' + (ov.hike_data_rows ?? '—') + ' joiners). Snowflake ATS has no Offered CTC field — TA must populate.'],
+      ['Time to Fill (d)',      'AVG(DOJ − Requisition Open Date)',                           (ov.ttf ?? '—') + (ov.ttf != null ? ' d' : ''),                                 'Snowflake CSPL_HR_DB · ✅ Live (109 ATS-linked offers in window)'],
+      ['Avg TAT — Open Roles',  'AVG(Today − Requisition Open Date) for STATUS=Open',         (ov.tat ?? '—') + (ov.tat != null ? ' d' : ''),                                 'Snowflake CSPL_HR_DB · ✅ Live (' + (ov.tat_data_rows ?? '—') + ' open reqs, today\'s snapshot)'],
+      ['Female %',              '(Female joinings ÷ Joiners with declared gender) × 100',     (ov.female_pct ?? '—') + (ov.female_pct != null ? '%' : ''),                       'Snowflake CSPL_HR_DB · ✅ Live (' + (ov.female_n ?? '—') + ' / ' + (ov.female_base_n ?? '—') + ' ATS-tagged joiners)'],
+      ['Active Reqs (Open)',    'COUNT(REQs with Status = Open as of today)',                 ov.open_reqs ?? '—',                                                              'Snowflake CSPL_HR_DB · ✅ Live (today\'s snapshot)'],
     ];
     fsBody.innerHTML = formulaRows.map(([m, f, v, s]) => {
       const blocked = String(s).startsWith('Blocked');
