@@ -1251,14 +1251,44 @@
             "sub": "01 Jan \u2192 11 May 2026 \u00b7 CSPL 1,485 + CAPL 732"
           },
           {
-            "label": "Separation Workflow \u00b7 Lifetime",
-            "value": "15,830",
-            "sub": "Every resignation/exit event ever raised in SEPARATIONS table. Approved 6,961 \u00b7 Admin Approved 3,441 \u00b7 Revoked 2,157 \u00b7 Pending 1,722 \u00b7 Resigned 792 \u00b7 Rejected 756"
+            "label": "Trailing 12-Month Exits (CSPL)",
+            "value": "4,988",
+            "sub": "Last 365 days of EMPLOYEES.DATE_OF_EXIT in CSPL only. Use for annualized attrition view."
           },
           {
-            "label": "Separation Pending Approval",
+            "label": "Annualized Attrition (rough)",
+            "value": "~70%",
+            "sub": "4,988 trailing-12mo exits \u00f7 7,080 current Active HC. High but consistent with frontline-heavy auto-retail industry. Use as directional, not point estimate."
+          },
+          {
+            "label": "Retention Save Rate",
+            "value": "16.2%",
+            "sub": "2,157 Revoked \u00f7 13,315 decided resignations (Approved+AdminApproved+Revoked+Rejected). What % of resignations get withdrawn = manager retention wins. Higher = stronger ATL conversations."
+          },
+          {
+            "label": "Separation Workflow \u00b7 Lifetime",
+            "value": "15,830",
+            "sub": "Every resignation/exit event ever raised. Approved 6,961 \u00b7 Admin Approved 3,441 \u00b7 Revoked 2,157 \u00b7 Resigned 792 \u00b7 Rejected 756 \u00b7 Pending 1,722"
+          },
+          {
+            "label": "Pending Approval \u00b7 Total",
             "value": "1,722",
-            "sub": "Pending with Manager 1,404 + Pending with Approver 316 + Pending with Administrator 2. These need HR / Manager action."
+            "sub": "Looks like a backlog \u2014 but 94% are zombie records >1yr old (see below). True operational backlog is near-zero."
+          },
+          {
+            "label": "Pending \u00b7 ZOMBIES (>1 yr old)",
+            "value": "1,615",
+            "sub": "Stuck pending for 365+ days. 93.8% of 'pending' is stale data \u2014 workflows never closed after employee actually left. HR ops action: bulk-close these in HRMS."
+          },
+          {
+            "label": "Pending \u00b7 181\u2013365 days",
+            "value": "65",
+            "sub": "Stale but not ancient. Audit + close."
+          },
+          {
+            "label": "Pending \u00b7 \u226490 days (real backlog)",
+            "value": "0",
+            "sub": "ZERO recent resignations are stuck. Workflow is operationally clean \u2014 the 1,722 number is purely data-hygiene noise."
           },
           {
             "label": "FnF \u00b7 Processed (Lifetime)",
@@ -1268,12 +1298,47 @@
           {
             "label": "FnF \u00b7 On Hold (truly pending)",
             "value": "133",
-            "sub": "FNF_STATUS='Hold' \u2014 blocked / disputed cases needing HR closure. Earlier 17,527 number was the entire FNF_DATA table size, not pending."
+            "sub": "FNF_STATUS='Hold' \u2014 disputed/blocked cases. Real HR-finance action item."
+          },
+          {
+            "label": "Top Exit Reason #1",
+            "value": "Better Opportunity \u00b7 2,649",
+            "sub": "25% of all reasoned exits. Comp/role/growth gaps. TA + L&D + comp benchmarking lever."
+          },
+          {
+            "label": "Top Exit Reason #2",
+            "value": "Personal Issues \u00b7 2,190",
+            "sub": "20%. Hard to act on directly but often a euphemism \u2014 should probe in exit interviews."
+          },
+          {
+            "label": "Top Exit Reason #3",
+            "value": "Personal Reasons \u00b7 1,567",
+            "sub": "15%. Same caveat as Personal Issues \u2014 combined = 35% which is suspiciously high. May be hiding real causes."
+          },
+          {
+            "label": "Job Dissatisfaction Exits",
+            "value": "681",
+            "sub": "6.4%. Direct manager / role-design signal \u2014 drill by function to find hotspots."
+          },
+          {
+            "label": "Health-related Exits",
+            "value": "868",
+            "sub": "8.2%. Watch for wellness / shift-pattern issues, especially frontline ops."
+          },
+          {
+            "label": "\ud83d\udea9 Manager-issue Exits",
+            "value": "77",
+            "sub": "Explicitly 'Issues with Manager'. Small absolute but high signal \u2014 these are quotable cases for ATL coaching."
+          },
+          {
+            "label": "\ud83d\udea9 Absconding",
+            "value": "76",
+            "sub": "Walked away without notice. Often FnF-negative + BGV-flag. Concentrated functions should be probed."
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC: EMPLOYEES.DATE_OF_EXIT \u00b7 SEPARATIONS \u00b7 FNF_DATA \u22c3 CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
-        "window": "MTD = 01\u201311 May 2026 \u00b7 YTD = 01 Jan \u2192 11 May 2026 \u00b7 Workflow + FnF tiles are lifetime",
-        "formula": "Exits = COUNT(*) on EMPLOYEES.DATE_OF_EXIT in window \u00b7 Pending Approval = SEPARATIONS.STATUS LIKE 'Pending%' \u00b7 FnF Hold = FNF_DATA.FNF_STATUS='Hold'"
+        "window": "MTD = 01\u201311 May 2026 \u00b7 YTD = 01 Jan \u2192 11 May 2026 \u00b7 Workflow + FnF + Reasons are lifetime",
+        "formula": "Exits = COUNT(*) on EMPLOYEES.DATE_OF_EXIT in window \u00b7 Pending Approval = SEPARATIONS.STATUS LIKE 'Pending%' \u00b7 Pending age = DATEDIFF(today \u2212 TRIGGERED_DATE) \u00b7 FnF Hold = FNF_DATA.FNF_STATUS='Hold' \u00b7 Save Rate = Revoked \u00f7 (Approved+AdminApproved+Revoked+Rejected)"
       },
       {
         "name": "Employee Type",
