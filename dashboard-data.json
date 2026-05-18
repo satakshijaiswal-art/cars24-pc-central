@@ -1,10 +1,10 @@
 {
-  "refreshed_at": "11 May 2026 · 19:08 IST",
-  "period_label": "Window: 26 Apr 2026 — 11 May 2026 (16 days)",
+  "refreshed_at": "18 May 2026 \u00b7 19:18 IST",
+  "period_label": "26 Apr \u2192 18 May 2026",
   "window": {
     "start": "2026-04-26",
-    "end": "2026-05-11",
-    "days": 16
+    "end": "2026-05-18",
+    "days": 23
   },
   "data_sources": {
     "v3_candidates": 244,
@@ -15,9 +15,9 @@
     "rocket_offers_window": 134,
     "rocket_open_reqs": 551
   },
-  "data_coverage_note": "Joinings: 217 (Base-Live). OTJ: 83/134 from Rocket Offers, V3 cross-check 192/244. CTC/CPH/Hike from JM cohort 178. Time to Fill, Avg TAT (open), Active Reqs, Female % now sourced live from Snowflake CSPL_HR_DB (HR_ATS_PUBLIC). Window auto-rolls daily — end = today (IST).",
+  "data_coverage_note": "Joinings: 217 (Base-Live). OTJ: 83/134 from Rocket Offers, V3 cross-check 192/244. CTC/CPH/Hike from JM cohort 178. Time to Fill, Avg TAT (open), Active Reqs, Female % now sourced live from Snowflake CSPL_HR_DB (HR_ATS_PUBLIC). Window auto-rolls daily \u2014 end = today (IST).",
   "overview": {
-    "joinings": 217,
+    "joinings": 303,
     "joinings_total_candidates": 249,
     "drops": 51,
     "drop_rate": 20.9,
@@ -26,10 +26,10 @@
     "otj_ro_consistent": 61.94,
     "otj_base_to_v3": 88.93,
     "attrition_30d": 4.9,
-    "overall_attrition_window": 2.6129,
-    "overall_attrition_monthly_projected": 4.9,
-    "exits_in_window": 179,
-    "active_hc": 6761,
+    "overall_attrition_window": 4.0081,
+    "overall_attrition_monthly_projected": 5.23,
+    "exits_in_window": 276,
+    "active_hc": 6748,
     "cph": 5556.0,
     "cph_data_rows": 9,
     "cph_note": null,
@@ -37,26 +37,38 @@
     "hike_data_rows": 149,
     "hike_note": "Based on 149 of 217 joiners (only those synced to JM)",
     "ttf": 30.9,
-    "ttf_data_rows": 109,
-    "ttf_note": "Snowflake CSPL_HR_DB · 109 ATS-linked joiners with JOINING_DATE in window (26 Apr→04 May)",
+    "ttf_data_rows": 286,
+    "ttf_note": "Snowflake CSPL_HR_DB \u00b7 109 ATS-linked joiners with JOINING_DATE in window (26 Apr\u219204 May)",
     "ttf_source": "snowflake",
-    "tat": 91.4,
-    "tat_data_rows": 649,
-    "tat_note": "Snowflake CSPL_HR_DB · AVG(today − START_DATE) across 649 open requisitions (live)",
+    "tat": 88.2,
+    "tat_data_rows": 700,
+    "tat_note": "Snowflake CSPL_HR_DB \u00b7 AVG(today \u2212 START_DATE) across 649 open requisitions (live)",
     "tat_source": "snowflake",
-    "open_reqs": 649,
+    "open_reqs": 700,
     "open_reqs_source": "snowflake",
-    "female_pct": 11.65,
-    "female_n": 12,
-    "female_base_n": 103,
-    "female_note": "Snowflake CSPL_HR_DB · 12 Female / 103 ATS-tagged joiners with declared gender (window 26 Apr→04 May)",
+    "female_pct": 9.77,
+    "female_n": 26,
+    "female_base_n": 266,
+    "female_note": "Snowflake CSPL_HR_DB \u00b7 26 Female / 266 ATS-tagged joiners with declared gender",
     "female_source": "snowflake",
-    "senior_b4_plus": 10,
+    "senior_b4_plus": 12,
     "senior_new": 10,
     "senior_replacement": 0,
-    "productivity": 12.8,
+    "productivity": 17.8,
     "active_recruiters": 17,
-    "attrition_30d_display": 4.9
+    "attrition_30d_display": 4.9,
+    "td_active_hc": 7102,
+    "td_builders_b4plus": 271,
+    "td_builder_density_pct": 3.82,
+    "td_tenure_lt_1y_pct": 47.0,
+    "td_tenure_3y_plus_pct": 19.8,
+    "td_early_exit_pct_90d": 21.7,
+    "td_early_exits_90d": 364,
+    "td_exits_90d_total": 1678,
+    "td_b4plus_exits_90d": 56,
+    "td_b4plus_exits_12m": 245,
+    "td_source": "snowflake",
+    "td_note": "Snowflake live \u00b7 CSPL + CAPL EMPLOYEES (EMPLOYEE_STATUS='Active'). Founder-grade talent-density tiles, refreshed daily."
   },
   "functionTable": {
     "joinings_by": {
@@ -128,12 +140,12 @@
       "BI DS": 0.0
     },
     "attrition_by": {
-      "Business (B1+B2)": 2.2024,
+      "Business (B1+B2)": 3.4877,
       "Business Support": 0.0,
-      "Product": 5.2632,
-      "Technology": 5.4313,
-      "BI DS": 5.5556,
-      "Other Support": 4.1199
+      "Product": 9.4595,
+      "Technology": 7.767,
+      "BI DS": 6.25,
+      "Other Support": 6.1947
     },
     "candidates_by": {
       "Business (B1+B2)": 207,
@@ -145,7 +157,7 @@
     }
   },
   "leadership": {
-    "total": 10,
+    "total": 12,
     "b4": 7,
     "b5": 3,
     "b6": 0,
@@ -155,84 +167,112 @@
     "unclassified": 0,
     "list": [
       {
+        "name": "Sumit Sharma",
+        "band": "B4",
+        "designation": "Builder",
+        "function": "Product Management",
+        "entity": "CSPL",
+        "doj": "27-Apr-26",
+        "gender": "Male"
+      },
+      {
         "name": "Yugesh Kumar",
         "band": "B5",
-        "designation": "Director",
+        "designation": "Builder",
         "function": "Business",
         "entity": "CSPL",
-        "doj": "01-May-26"
+        "doj": "1-May-26",
+        "gender": "Male"
       },
       {
         "name": "Able Ambal Cherry",
         "band": "B4",
-        "designation": "General Manager",
+        "designation": "Builder",
         "function": "Refurb",
         "entity": "CSPL",
-        "doj": "01-May-26"
+        "doj": "1-May-26",
+        "gender": "Male"
       },
       {
         "name": "Saurav Kumar Singh",
         "band": "B4",
-        "designation": "General Manager",
+        "designation": "Builder",
         "function": "Business",
         "entity": "CSPL",
-        "doj": "01-May-26"
+        "doj": "1-May-26",
+        "gender": "Male"
       },
       {
         "name": "Vignesh Ramalingam",
         "band": "B4",
-        "designation": "Senior General Manager",
+        "designation": "Builder",
         "function": "Business",
         "entity": "CSPL",
-        "doj": "01-May-26"
+        "doj": "1-May-26",
+        "gender": "Male"
       },
       {
         "name": "Vinu V",
         "band": "B5",
-        "designation": "Associate Director",
+        "designation": "Builder",
         "function": "Business",
         "entity": "CSPL",
-        "doj": "01-May-26"
+        "doj": "1-May-26",
+        "gender": "Male"
       },
       {
-        "name": "Vedant Vinay Kumar Pagare",
+        "name": "Vedant Pagare",
         "band": "B4",
-        "designation": "Senior General Manager",
+        "designation": "Builder",
         "function": "Business",
         "entity": "CSPL",
-        "doj": "01-May-26"
+        "doj": "1-May-26",
+        "gender": "Male"
       },
       {
         "name": "Sudhir Kumar Surendranath Pandey",
         "band": "B5",
-        "designation": "Associate Director",
+        "designation": "Builder",
         "function": "Business",
         "entity": "CSPL",
-        "doj": "01-May-26"
+        "doj": "1-May-26",
+        "gender": "Male"
       },
       {
         "name": "Utkarsh Mishra",
         "band": "B4",
-        "designation": "Assistant General Manager",
+        "designation": "Builder",
         "function": "Business",
         "entity": "CSPL",
-        "doj": "01-May-26"
+        "doj": "1-May-26",
+        "gender": "Male"
       },
       {
-        "name": "Kartik Ahuja",
+        "name": "Rajyaguru Chintan",
         "band": "B4",
-        "designation": "General Manager",
-        "function": "Marketing",
-        "entity": "CSPL_INTERNATIONAL",
-        "doj": "30-Apr-26"
-      },
-      {
-        "name": "Sumit Sharma",
-        "band": "B4",
-        "designation": "Lead Product Designer",
-        "function": "Product Management",
+        "designation": "Builder",
+        "function": "Business",
         "entity": "CSPL",
-        "doj": "27-Apr-26"
+        "doj": "1-May-26",
+        "gender": "Male"
+      },
+      {
+        "name": "Aditya Mahesh Venuthurupalli",
+        "band": "B4",
+        "designation": "Builder",
+        "function": "Business",
+        "entity": "CSPL",
+        "doj": "1-May-26",
+        "gender": "Male"
+      },
+      {
+        "name": "Bharat Garg",
+        "band": "B5",
+        "designation": "Director",
+        "function": "Finance",
+        "entity": "CSPL",
+        "doj": "14-May-26",
+        "gender": "Male"
       }
     ]
   },
@@ -250,10 +290,10 @@
       "BI DS": 0.0
     },
     "by_band": {
-      "B0": 40.0,
-      "B1": 14.47,
-      "B2": 4.92,
-      "B3": 14.29,
+      "B0": 28.57,
+      "B1": 12.88,
+      "B2": 4.76,
+      "B3": 13.64,
       "B4": 0.0,
       "B5": 0.0
     },
@@ -512,7 +552,7 @@
         "LinkedIn-Headhunt",
         "Naukri-Headhunt"
       ],
-      "note": "Window 26 Apr → 11 May 2026 · 178 JM-synced rows."
+      "note": "Window 26 Apr \u2192 11 May 2026 \u00b7 178 JM-synced rows."
     }
   },
   "drops": {
@@ -540,14 +580,14 @@
       "Feb-26",
       "Mar-26",
       "Apr-26",
-      "26 Apr→11 May"
+      "26 Apr\u219218 May"
     ],
     "joinings": [
       351,
       340,
       269,
       232,
-      217
+      303
     ],
     "attrition": [
       8.07,
@@ -555,98 +595,71 @@
       11.75,
       18.96,
       4.9
-    ],
-    "attrition_label": "Monthly attrition % (window value is projected to monthly equivalent)"
+    ]
   },
   "window_extras": {
     "by_day": {
-      "26-Apr-26": 0,
-      "27-Apr-26": 28,
-      "28-Apr-26": 0,
-      "29-Apr-26": 0,
-      "30-Apr-26": 46,
-      "1-May-26": 1,
-      "2-May-26": 0,
-      "3-May-26": 0,
-      "4-May-26": 34,
-      "5-May-26": 0,
-      "6-May-26": 0,
-      "7-May-26": 35,
-      "8-May-26": 3,
-      "9-May-26": 0,
-      "10-May-26": 0,
-      "11-May-26": 57
+      "27-Apr-26": 29,
+      "30-Apr-26": 37,
+      "1-May-26": 86,
+      "4-May-26": 26,
+      "7-May-26": 33,
+      "8-May-26": 6,
+      "11-May-26": 54,
+      "13-May-26": 9,
+      "14-May-26": 1,
+      "15-May-26": 22
     },
     "by_entity": {
-      "CSPL International": 7,
-      "CSPL": 200,
-      "CFSPL": 10
+      "CSPL International": 8,
+      "CSPL": 282,
+      "CFSPL": 13
     },
     "top_recruiters": [
       {
-        "name": "Priyanka Khanna1",
-        "joinings": 63
-      },
-      {
-        "name": "Nikita Bhatia",
-        "joinings": 15
-      },
-      {
-        "name": "Aayush Tyagi",
-        "joinings": 13
-      },
-      {
-        "name": "Devansh Arora1",
-        "joinings": 12
+        "name": "Banika Rana",
+        "joinings": 19
       },
       {
         "name": "Praveen Kumar B",
-        "joinings": 11
+        "joinings": 19
       },
       {
-        "name": "B Kumar",
-        "joinings": 11
-      },
-      {
-        "name": "Banika Rana",
-        "joinings": 11
-      },
-      {
-        "name": "Bhawna Aggarwal",
-        "joinings": 9
-      },
-      {
-        "name": "Nikita Bhatia1",
-        "joinings": 9
-      },
-      {
-        "name": "Deepanshi",
-        "joinings": 9
-      },
-      {
-        "name": "Banika Rana",
-        "joinings": 8
-      },
-      {
-        "name": "Bhawna Aggarwal",
-        "joinings": 8
-      },
-      {
-        "name": "Samiksha Yadav",
-        "joinings": 8
-      },
-      {
-        "name": "Samiksha Yadav",
-        "joinings": 7
+        "name": "Nikita Bhatia",
+        "joinings": 18
       },
       {
         "name": "Aayush Tyagi",
+        "joinings": 18
+      },
+      {
+        "name": "Samiksha Yadav",
+        "joinings": 14
+      },
+      {
+        "name": "Bhawna Aggarwal",
+        "joinings": 12
+      },
+      {
+        "name": "shrishty",
+        "joinings": 11
+      },
+      {
+        "name": "Aayush Kharkwal",
+        "joinings": 11
+      },
+      {
+        "name": "Muskan Gera",
+        "joinings": 8
+      },
+      {
+        "name": "Harshita Sharma",
         "joinings": 6
       }
     ]
   },
   "metrics_not_computable_for_window": {
-    "Variable CPH": "Pending Finance close — Actual_CPH not yet posted in Joining Master for window cohort"
+    "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
   },
   "tech": {
     "tech_hc": 237,
@@ -655,8 +668,8 @@
     "total_hc": 377,
     "open_roles": 18,
     "cost_per_month": null,
-    "cost_note": "Cost data not in HR_DB — Finance feed (₹L) needs separate pipe. Old fallback was ₹820L.",
-    "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES ⋈ DEPARTMENT (dept name in {Technology, Product Management, Data and AI Engineering})",
+    "cost_note": "Cost data not in HR_DB \u2014 Finance feed (\u20b9L) needs separate pipe. Old fallback was \u20b9820L.",
+    "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u22c8 DEPARTMENT (dept name in {Technology, Product Management, Data and AI Engineering})",
     "window": "Snapshot as of today (11 May 2026)",
     "formula": "COUNT(DISTINCT EMPLOYEE_ID) WHERE EMPLOYEE_STATUS='Active' AND DEPARTMENT_NAME IN (...)",
     "backend": {
@@ -715,10 +728,10 @@
     "outlook": 80,
     "review_count_ambitionbox": 4600,
     "ambitionbox_rating": 3.5,
-    "last_updated": "11 May 2026 · 13:06 IST",
-    "next_scheduled_refresh": "Daily — pending glassdoor-reviews-bot agent reconnect",
+    "last_updated": "11 May 2026 \u00b7 13:06 IST",
+    "next_scheduled_refresh": "Daily \u2014 pending glassdoor-reviews-bot agent reconnect",
     "note": "Glassdoor direct scraping blocked by bot detection. Values reflect last reliable employer-portal snapshot + cross-validated against AmbitionBox (3.5/5 from 4,600+ Cars24 employee reviews). Auto-refresh requires Claude-in-Chrome extension to be connected so the glassdoor-reviews-bot can read the employer portal.",
-    "__period": "Latest snapshot · 11 May 2026"
+    "__period": "Latest snapshot \u00b7 11 May 2026"
   },
   "attrition": {
     "overall": 4.9,
@@ -795,7 +808,7 @@
       "Involuntary": 56,
       "Voluntary": 123
     },
-    "note": "Window 26 Apr–11 May: 179 exits across 6761 active employees. Monthly-projected to 4.9%."
+    "note": "Window 26 Apr\u201311 May: 179 exits across 6761 active employees. Monthly-projected to 4.9%."
   },
   "automation": [
     {
@@ -835,8 +848,8 @@
       "replaces": "Senior calendar invites",
       "cadence": "Event-driven",
       "status": "LIVE",
-      "last_run": "—",
-      "next_run": "—"
+      "last_run": "\u2014",
+      "next_run": "\u2014"
     },
     {
       "name": "cto-outreach",
@@ -859,7 +872,7 @@
       "replaces": "Monthly Vikram update",
       "cadence": "Monthly 25th",
       "status": "LIVE",
-      "last_run": "—",
+      "last_run": "\u2014",
       "next_run": "25 May"
     },
     {
@@ -867,8 +880,8 @@
       "replaces": "5-customer onboarding",
       "cadence": "Tue + Fri 10am",
       "status": "LIVE",
-      "last_run": "—",
-      "next_run": "—"
+      "last_run": "\u2014",
+      "next_run": "\u2014"
     },
     {
       "name": "bday-anniversary-bot",
@@ -891,15 +904,15 @@
       "replaces": "Award certificates",
       "cadence": "On demand",
       "status": "LIVE",
-      "last_run": "—",
-      "next_run": "—"
+      "last_run": "\u2014",
+      "next_run": "\u2014"
     },
     {
       "name": "pc-monthly-mis",
       "replaces": "Monthly P&C deck",
       "cadence": "Monthly 24th",
       "status": "LIVE",
-      "last_run": "—",
+      "last_run": "\u2014",
       "next_run": "24 May"
     },
     {
@@ -907,7 +920,7 @@
       "replaces": "Weekly TA review",
       "cadence": "Mon 9:30am",
       "status": "LIVE",
-      "last_run": "—",
+      "last_run": "\u2014",
       "next_run": "Next Mon"
     },
     {
@@ -915,15 +928,15 @@
       "replaces": "Yet-to-join chase",
       "cadence": "Mon + Thu 11am",
       "status": "LIVE",
-      "last_run": "—",
-      "next_run": "—"
+      "last_run": "\u2014",
+      "next_run": "\u2014"
     },
     {
       "name": "flight-risk-pulse",
       "replaces": "ATL signal sweep",
       "cadence": "Fri 4pm",
       "status": "LIVE",
-      "last_run": "—",
+      "last_run": "\u2014",
       "next_run": "Next Fri"
     },
     {
@@ -931,7 +944,7 @@
       "replaces": "Exit theme synthesis",
       "cadence": "Monthly 25th",
       "status": "LIVE",
-      "last_run": "—",
+      "last_run": "\u2014",
       "next_run": "25 May"
     },
     {
@@ -947,7 +960,7 @@
       "replaces": "Offer-drop classification",
       "cadence": "Wed 11am",
       "status": "LIVE",
-      "last_run": "—",
+      "last_run": "\u2014",
       "next_run": "Next Wed"
     },
     {
@@ -955,7 +968,7 @@
       "replaces": "POD HC + cost",
       "cadence": "Monthly 1st",
       "status": "LIVE",
-      "last_run": "—",
+      "last_run": "\u2014",
       "next_run": "1 Jun"
     },
     {
@@ -969,25 +982,25 @@
   ],
   "__sections_audited_at": "11 May 2026",
   "snowflake_catalog": {
-    "refreshed_at": "11 May 2026 · 19:08 IST",
-    "source": "CSPL_HR_DB · Fivetran-synced from HRMS Public / HR_ATS Public",
+    "refreshed_at": "11 May 2026 \u00b7 19:08 IST",
+    "source": "CSPL_HR_DB \u00b7 Fivetran-synced from HRMS Public / HR_ATS Public",
     "tables_indexed": 116,
     "rows_indexed": 266572,
     "headline": [
       {
         "label": "Total Active HC",
         "value": "6,896",
-        "sub": "CSPL · Cars24 Services Pvt Ltd · Active · live"
+        "sub": "CSPL \u00b7 Cars24 Services Pvt Ltd \u00b7 Active \u00b7 live"
       },
       {
         "label": "CSPL",
         "value": "5,827",
-        "sub": "Cars24 Services Pvt Ltd · India"
+        "sub": "Cars24 Services Pvt Ltd \u00b7 India"
       },
       {
         "label": "CFSPL",
         "value": "764",
-        "sub": "Cars24 Financial Services · NBFC"
+        "sub": "Cars24 Financial Services \u00b7 NBFC"
       },
       {
         "label": "CSPL International",
@@ -997,13 +1010,13 @@
       {
         "label": "Open Reqs",
         "value": "649",
-        "sub": "ATS · live snapshot"
+        "sub": "ATS \u00b7 live snapshot"
       }
     ],
     "categories": [
       {
-        "name": "Active Headcount · By Entity",
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES ⋈ BUSINESS_UNIT (COMPANY_NAME)",
+        "name": "Active Headcount \u00b7 By Entity",
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u22c8 BUSINESS_UNIT (COMPANY_NAME)",
         "window": "Snapshot as of today (11 May 2026)",
         "formula": "COUNT(DISTINCT EMPLOYEE_ID) WHERE EMPLOYEE_STATUS='Active' AND NOT _FIVETRAN_DELETED, grouped by parent company name.",
         "metrics": [
@@ -1012,11 +1025,11 @@
             "value": "6,896"
           },
           {
-            "label": "CSPL · Cars24 Services Pvt Ltd",
+            "label": "CSPL \u00b7 Cars24 Services Pvt Ltd",
             "value": "5,827"
           },
           {
-            "label": "CFSPL · Cars24 Financial Services",
+            "label": "CFSPL \u00b7 Cars24 Financial Services",
             "value": "764"
           },
           {
@@ -1053,31 +1066,31 @@
       {
         "name": "Org Structure",
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND",
-        "window": "Snapshot as of today (11 May 2026) · CSPL",
-        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' · Builders = B4 + B5 + B6 + 'Builder' band collapsed (roll-up; sub-lines NOT additive)",
+        "window": "Snapshot as of today (11 May 2026) \u00b7 CSPL",
+        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' \u00b7 Builders = B4 + B5 + B6 + 'Builder' band collapsed (roll-up; sub-lines NOT additive)",
         "metrics": [
           {
             "label": "Total Active HC",
             "value": "6,896"
           },
           {
-            "label": "B0 · Interns / Apprentices",
+            "label": "B0 \u00b7 Interns / Apprentices",
             "value": "98"
           },
           {
-            "label": "B1 · Frontline",
+            "label": "B1 \u00b7 Frontline",
             "value": "4,184"
           },
           {
-            "label": "B1 Fin · Finance Frontline",
+            "label": "B1 Fin \u00b7 Finance Frontline",
             "value": "1"
           },
           {
-            "label": "B2 · Senior IC",
+            "label": "B2 \u00b7 Senior IC",
             "value": "1,090"
           },
           {
-            "label": "B3 · Manager / Lead",
+            "label": "B3 \u00b7 Manager / Lead",
             "value": "308"
           },
           {
@@ -1085,13 +1098,13 @@
             "value": "248"
           },
           {
-            "label": "SLA · Service Line Agent",
+            "label": "SLA \u00b7 Service Line Agent",
             "value": "333"
           },
           {
             "label": "Third Party (BAND='Third Party' in EMPLOYEES)",
             "value": "633",
-            "sub": "Separate 'Third Party Manpower' sheet shows 1,804 — that is a different source (vendor manpower tracker), not from HRMS EMPLOYEES.BAND"
+            "sub": "Separate 'Third Party Manpower' sheet shows 1,804 \u2014 that is a different source (vendor manpower tracker), not from HRMS EMPLOYEES.BAND"
           }
         ]
       },
@@ -1123,9 +1136,9 @@
             "value": "40.6%"
           }
         ],
-        "source": "CSPL_HR_DB.HR_ATS_PUBLIC: REQUISITIONS · APPLICANTS · OFFER_LETTERS",
-        "window": "Open reqs = today's snapshot · Closed reqs / Applicants / Offers = lifetime cumulative",
-        "formula": "Open = COUNT(*) WHERE STATUS='Open'  ·  Acceptance Rate = Offers Accepted ÷ Offers Released × 100"
+        "source": "CSPL_HR_DB.HR_ATS_PUBLIC: REQUISITIONS \u00b7 APPLICANTS \u00b7 OFFER_LETTERS",
+        "window": "Open reqs = today's snapshot \u00b7 Closed reqs / Applicants / Offers = lifetime cumulative",
+        "formula": "Open = COUNT(*) WHERE STATUS='Open'  \u00b7  Acceptance Rate = Offers Accepted \u00f7 Offers Released \u00d7 100"
       },
       {
         "name": "Interviews",
@@ -1156,7 +1169,7 @@
           {
             "label": "Reschedule Rate",
             "value": "8.9%",
-            "sub": "2,693 of 30,191 slots rescheduled ≥1× · 12 slots rescheduled 5+ times (red-flag candidates / loops)"
+            "sub": "2,693 of 30,191 slots rescheduled \u22651\u00d7 \u00b7 12 slots rescheduled 5+ times (red-flag candidates / loops)"
           },
           {
             "label": "Virtual %",
@@ -1171,61 +1184,61 @@
           {
             "label": "Round 1 Select Rate",
             "value": "85.9%",
-            "sub": "13,323 YES / 15,508 decided · This is the screening filter — tightening R1 reduces panel load downstream."
+            "sub": "13,323 YES / 15,508 decided \u00b7 This is the screening filter \u2014 tightening R1 reduces panel load downstream."
           },
           {
             "label": "Round 2 Select Rate",
             "value": "95.1%",
-            "sub": "8,365 YES / 8,800 decided · If 95%+ pass R2, R2 may be redundant for some funcs"
+            "sub": "8,365 YES / 8,800 decided \u00b7 If 95%+ pass R2, R2 may be redundant for some funcs"
           },
           {
             "label": "Round 3 Select Rate",
             "value": "97.0%",
-            "sub": "3,897 YES / 4,018 decided · Rounds 3+ are 95%+ pass — final rounds barely filter, mostly confirmatory"
+            "sub": "3,897 YES / 4,018 decided \u00b7 Rounds 3+ are 95%+ pass \u2014 final rounds barely filter, mostly confirmatory"
           },
           {
             "label": "Round 4 Select Rate",
             "value": "99.5%"
           },
           {
-            "label": "Round Funnel: R1→R2→R3→R4→R5",
-            "value": "16,956 → 8,459 → 3,647 → 970 → 150",
-            "sub": "Biggest drop is R3→R4 (73%). R1→R2 = 50%. Helps identify which round is doing the real filtering by function."
+            "label": "Round Funnel: R1\u2192R2\u2192R3\u2192R4\u2192R5",
+            "value": "16,956 \u2192 8,459 \u2192 3,647 \u2192 970 \u2192 150",
+            "sub": "Biggest drop is R3\u2192R4 (73%). R1\u2192R2 = 50%. Helps identify which round is doing the real filtering by function."
           },
           {
             "label": "#1 Reject Reason",
-            "value": "Skills & Experience Mismatch · 47%",
-            "sub": "1,308 of 2,761 NO verdicts. TA signal: top JD / candidate-match issue — fix at sourcing level."
+            "value": "Skills & Experience Mismatch \u00b7 47%",
+            "sub": "1,308 of 2,761 NO verdicts. TA signal: top JD / candidate-match issue \u2014 fix at sourcing level."
           },
           {
             "label": "#2 Reject Reason",
-            "value": "Technical / Role-specific · 21%",
-            "sub": "567 NOs · Tighten R1 technical screen."
+            "value": "Technical / Role-specific \u00b7 21%",
+            "sub": "567 NOs \u00b7 Tighten R1 technical screen."
           },
           {
             "label": "#3 Reject Reason",
-            "value": "Problem-Solving / Analytical · 9%",
+            "value": "Problem-Solving / Analytical \u00b7 9%",
             "sub": "252 NOs"
           },
           {
             "label": "#4 Reject Reason",
-            "value": "Communication · 7%",
+            "value": "Communication \u00b7 7%",
             "sub": "195 NOs (Communication Skills label only). If you add Oral Communication (23) + Non-verbal (4), combined comm-related = 222 = 8.0% of all rejects."
           },
           {
             "label": "Cultural Fit Rejects",
             "value": "185 (6.7%)",
-            "sub": "Cultural Fit + Team Dynamics combined — small but worth tracking by hiring manager for bias signals"
+            "sub": "Cultural Fit + Team Dynamics combined \u2014 small but worth tracking by hiring manager for bias signals"
           },
           {
             "label": "AI Feedback Adoption",
             "value": "10.6%",
-            "sub": "3,672 of 34,744 feedbacks used AI summary. 89.4% still manual — big lift opportunity to save IC time."
+            "sub": "3,672 of 34,744 feedbacks used AI summary. 89.4% still manual \u2014 big lift opportunity to save IC time."
           }
         ],
-        "source": "CSPL_HR_DB.HR_ATS_PUBLIC: INTERVIEW_SCHEDULE · INTERVIEW_FEEDBACK",
+        "source": "CSPL_HR_DB.HR_ATS_PUBLIC: INTERVIEW_SCHEDULE \u00b7 INTERVIEW_FEEDBACK",
         "window": "Lifetime cumulative across all reqs",
-        "formula": "Schedules = COUNT(INTERVIEW_SCHEDULE) · Feedback = COUNT(INTERVIEW_FEEDBACK) · Select Rate = YES / (YES+NO) excluding blanks · Panel Size = Feedback ÷ Schedule"
+        "formula": "Schedules = COUNT(INTERVIEW_SCHEDULE) \u00b7 Feedback = COUNT(INTERVIEW_FEEDBACK) \u00b7 Select Rate = YES / (YES+NO) excluding blanks \u00b7 Panel Size = Feedback \u00f7 Schedule"
       },
       {
         "name": "Live Attrition",
@@ -1233,22 +1246,22 @@
           {
             "label": "Exits MTD",
             "value": "146",
-            "sub": "WHAT: CSPL employees who exited Cars24 between 1–11 May 2026. WHY: Running tally of this month's leavers vs. last month. ACTION: If pacing >150 by 11th, full-month run-rate ≈ 410+. Compare to historical May avg."
+            "sub": "WHAT: CSPL employees who exited Cars24 between 1\u201311 May 2026. WHY: Running tally of this month's leavers vs. last month. ACTION: If pacing >150 by 11th, full-month run-rate \u2248 410+. Compare to historical May avg."
           },
           {
             "label": "Exits YTD",
             "value": "1,485",
-            "sub": "WHAT: Total CSPL employees who left Cars24 since 1 Jan 2026. WHY: Year-to-date attrition volume. ACTION: Divide by 4.5 months & annualize to project full-year exits ≈ 3,960."
+            "sub": "WHAT: Total CSPL employees who left Cars24 since 1 Jan 2026. WHY: Year-to-date attrition volume. ACTION: Divide by 4.5 months & annualize to project full-year exits \u2248 3,960."
           },
           {
             "label": "Trailing 12-Month Exits",
             "value": "4,988",
-            "sub": "WHAT: Every CSPL exit in the last 365 days (rolling, not calendar-year). WHY: Smoother view than YTD — doesn't reset every Jan. ACTION: This is the right denominator for benchmarking attrition vs. industry."
+            "sub": "WHAT: Every CSPL exit in the last 365 days (rolling, not calendar-year). WHY: Smoother view than YTD \u2014 doesn't reset every Jan. ACTION: This is the right denominator for benchmarking attrition vs. industry."
           },
           {
             "label": "Annualized Attrition (rough)",
             "value": "~72%",
-            "sub": "WHAT: 4,988 trailing-12mo exits ÷ 6,896 current CSPL Active HC = 72.3%. WHY: Headline attrition rate the way most companies report it. ACTION: Auto-retail frontline industry typically sees 40–80% — Cars24 is in band, but high. Drill by function: frontline likely >100%, corporate <20%."
+            "sub": "WHAT: 4,988 trailing-12mo exits \u00f7 6,896 current CSPL Active HC = 72.3%. WHY: Headline attrition rate the way most companies report it. ACTION: Auto-retail frontline industry typically sees 40\u201380% \u2014 Cars24 is in band, but high. Drill by function: frontline likely >100%, corporate <20%."
           },
           {
             "label": "Retention Save Rate",
@@ -1256,79 +1269,79 @@
             "sub": "WHAT: 2,157 employees who resigned but later withdrew their resignation, out of 13,315 decided cases. WHY: Direct measure of how often managers/HR successfully retain a resigning employee. ACTION: Higher = strong ATL (Attempt-to-Lose) conversation culture. <10% would be alarming. 16% is healthy."
           },
           {
-            "label": "Separation Workflow · Lifetime",
+            "label": "Separation Workflow \u00b7 Lifetime",
             "value": "15,830",
             "sub": "WHAT: Total number of resignation/exit workflows ever raised in Cars24 HRMS (since system inception). WHY: Lifetime audit trail. Breaks down to: 6,961 Approved + 3,441 Admin Approved + 2,157 Revoked + 1,722 Pending + 792 Resigned + 756 Rejected. ACTION: Use as denominator for retention/rejection rates."
           },
           {
-            "label": "Pending Approval · Total",
+            "label": "Pending Approval \u00b7 Total",
             "value": "1,722",
-            "sub": "WHAT: Resignation workflows currently sitting at 'Pending with Manager/Approver/Admin' status. WHY: Looks like an HR ops backlog. ACTION: DON'T PANIC — 94% are zombie records >1yr old (see next tile). True backlog is 0."
+            "sub": "WHAT: Resignation workflows currently sitting at 'Pending with Manager/Approver/Admin' status. WHY: Looks like an HR ops backlog. ACTION: DON'T PANIC \u2014 94% are zombie records >1yr old (see next tile). True backlog is 0."
           },
           {
-            "label": "Pending · ZOMBIES (>1 yr old)",
+            "label": "Pending \u00b7 ZOMBIES (>1 yr old)",
             "value": "1,615",
-            "sub": "WHAT: Resignation records stuck 'Pending' for over 365 days. WHY: Employees actually left long ago but the HRMS workflow was never closed. Pure data hygiene rot. ACTION: HR Ops must bulk-close these in HRMS — they inflate every 'pending' metric. Highest age = 1,069 days (~3 years)."
+            "sub": "WHAT: Resignation records stuck 'Pending' for over 365 days. WHY: Employees actually left long ago but the HRMS workflow was never closed. Pure data hygiene rot. ACTION: HR Ops must bulk-close these in HRMS \u2014 they inflate every 'pending' metric. Highest age = 1,069 days (~3 years)."
           },
           {
-            "label": "Pending · 181–365 days",
+            "label": "Pending \u00b7 181\u2013365 days",
             "value": "65",
-            "sub": "WHAT: Pending workflows aged 6 months to 1 year. WHY: Stale but recent enough to investigate. ACTION: HR audit each one — if employee already left, close; if still active, follow up."
+            "sub": "WHAT: Pending workflows aged 6 months to 1 year. WHY: Stale but recent enough to investigate. ACTION: HR audit each one \u2014 if employee already left, close; if still active, follow up."
           },
           {
-            "label": "Pending · ≤90 days (real backlog)",
+            "label": "Pending \u00b7 \u226490 days (real backlog)",
             "value": "0",
             "sub": "WHAT: Resignations from the last 3 months that are still pending approval. WHY: This is the ONLY number that matters for 'is HR keeping up?'. ACTION: Zero = managers and HR are processing exits on time. Operationally clean."
           },
           {
-            "label": "FnF · Processed (Lifetime)",
+            "label": "FnF \u00b7 Processed (Lifetime)",
             "value": "17,394",
-            "sub": "WHAT: Total Full & Final settlements ever closed in HRMS. Includes Positive F&F (12,153 — clean exit) + Negative F&F (4,783 — money recovered from employee) + others (458). WHY: Lifetime FnF audit. ACTION: Use to benchmark FnF cycle-time and accuracy."
+            "sub": "WHAT: Total Full & Final settlements ever closed in HRMS. Includes Positive F&F (12,153 \u2014 clean exit) + Negative F&F (4,783 \u2014 money recovered from employee) + others (458). WHY: Lifetime FnF audit. ACTION: Use to benchmark FnF cycle-time and accuracy."
           },
           {
-            "label": "FnF · On Hold (truly pending)",
+            "label": "FnF \u00b7 On Hold (truly pending)",
             "value": "133",
-            "sub": "WHAT: FnFs flagged 'Hold' — disputed amounts, missing clearance, asset recovery pending, etc. WHY: These are the REAL pending FnFs that need HR/Finance action. ACTION: Each one blocks an employee's final payout — should be a weekly ops review item."
+            "sub": "WHAT: FnFs flagged 'Hold' \u2014 disputed amounts, missing clearance, asset recovery pending, etc. WHY: These are the REAL pending FnFs that need HR/Finance action. ACTION: Each one blocks an employee's final payout \u2014 should be a weekly ops review item."
           },
           {
             "label": "Top Exit Reason #1",
-            "value": "Better Opportunity · 2,649",
+            "value": "Better Opportunity \u00b7 2,649",
             "sub": "WHAT: 25.5% of all reasoned exits (2,649 of 10,369) cite a better external offer. WHY: Comp + growth + brand pull are losing the war for talent. ACTION: TA to track competitor companies poaching us; comp team to benchmark; L&D to surface internal mobility paths."
           },
           {
             "label": "Top Exit Reason #2",
-            "value": "Personal Issues · 2,190",
-            "sub": "WHAT: 21.1% of all reasoned exits (2,190 of 10,369) — vague catch-all reason employees pick to avoid a hard conversation. WHY: Likely hides real causes (manager, comp, role). ACTION: Push exit interviews to probe specifics; consider removing 'Personal Issues' as a default option."
+            "value": "Personal Issues \u00b7 2,190",
+            "sub": "WHAT: 21.1% of all reasoned exits (2,190 of 10,369) \u2014 vague catch-all reason employees pick to avoid a hard conversation. WHY: Likely hides real causes (manager, comp, role). ACTION: Push exit interviews to probe specifics; consider removing 'Personal Issues' as a default option."
           },
           {
             "label": "Top Exit Reason #3",
-            "value": "Personal Reasons · 1,567",
-            "sub": "WHAT: 15.1% of reasoned exits — another catch-all (almost a duplicate of #2). WHY: Personal Issues + Personal Reasons combined = 36.2% of all exits = 3,757 cases we have NO real reason for. ACTION: HR system fix — merge these labels, force more specific reason picks."
+            "value": "Personal Reasons \u00b7 1,567",
+            "sub": "WHAT: 15.1% of reasoned exits \u2014 another catch-all (almost a duplicate of #2). WHY: Personal Issues + Personal Reasons combined = 36.2% of all exits = 3,757 cases we have NO real reason for. ACTION: HR system fix \u2014 merge these labels, force more specific reason picks."
           },
           {
             "label": "Job Dissatisfaction Exits",
             "value": "681",
-            "sub": "WHAT: 6.6% of reasoned exits (681 of 10,369) — employees who explicitly said they were unhappy with the work itself. WHY: Direct role-design / job-fit signal. ACTION: Drill by department — hotspots reveal teams where the actual job differs from what was sold at hire."
+            "sub": "WHAT: 6.6% of reasoned exits (681 of 10,369) \u2014 employees who explicitly said they were unhappy with the work itself. WHY: Direct role-design / job-fit signal. ACTION: Drill by department \u2014 hotspots reveal teams where the actual job differs from what was sold at hire."
           },
           {
             "label": "Health-related Exits",
             "value": "868",
-            "sub": "WHAT: 8.4% of reasoned exits (868 of 10,369) — exits cited 'Health Problem'. WHY: Could be wellness, shift patterns, on-job stress (esp. frontline ops). ACTION: Cross with function — if concentrated in field ops, look at shift timings, physical demands, insurance utilisation."
+            "sub": "WHAT: 8.4% of reasoned exits (868 of 10,369) \u2014 exits cited 'Health Problem'. WHY: Could be wellness, shift patterns, on-job stress (esp. frontline ops). ACTION: Cross with function \u2014 if concentrated in field ops, look at shift timings, physical demands, insurance utilisation."
           },
           {
-            "label": "🚩 Manager-issue Exits",
+            "label": "\ud83d\udea9 Manager-issue Exits",
             "value": "77",
-            "sub": "WHAT: Employees who explicitly cited 'Issues with Manager' as exit reason. WHY: Small in volume but extremely high signal — most employees won't put this in writing. Each one is a flag on a specific manager. ACTION: Pull manager name → if any manager has 2+ such exits, escalate for ATL coaching."
+            "sub": "WHAT: Employees who explicitly cited 'Issues with Manager' as exit reason. WHY: Small in volume but extremely high signal \u2014 most employees won't put this in writing. Each one is a flag on a specific manager. ACTION: Pull manager name \u2192 if any manager has 2+ such exits, escalate for ATL coaching."
           },
           {
-            "label": "🚩 Absconding",
+            "label": "\ud83d\udea9 Absconding",
             "value": "76",
-            "sub": "WHAT: Employees who left without serving notice or formal resignation. WHY: BGV black mark for future employers; usually FnF-negative (we recover joining bonus / training cost). ACTION: Check if concentrated by location/role — could indicate hiring quality issue at source."
+            "sub": "WHAT: Employees who left without serving notice or formal resignation. WHY: BGV black mark for future employers; usually FnF-negative (we recover joining bonus / training cost). ACTION: Check if concentrated by location/role \u2014 could indicate hiring quality issue at source."
           }
         ],
-        "source": "CSPL_HR_DB.HRMS_PUBLIC: EMPLOYEES.DATE_OF_EXIT · SEPARATIONS · FNF_DATA ⋃ CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
-        "window": "MTD = 01–11 May 2026 · YTD = 01 Jan → 11 May 2026 · Workflow + FnF + Reasons are lifetime",
-        "formula": "Exits = COUNT(*) on EMPLOYEES.DATE_OF_EXIT in window · Pending Approval = SEPARATIONS.STATUS LIKE 'Pending%' · Pending age = DATEDIFF(today − TRIGGERED_DATE) · FnF Hold = FNF_DATA.FNF_STATUS='Hold' · Save Rate = Revoked ÷ (Approved+AdminApproved+Revoked+Rejected)"
+        "source": "CSPL_HR_DB.HRMS_PUBLIC: EMPLOYEES.DATE_OF_EXIT \u00b7 SEPARATIONS \u00b7 FNF_DATA \u22c3 CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
+        "window": "MTD = 01\u201311 May 2026 \u00b7 YTD = 01 Jan \u2192 11 May 2026 \u00b7 Workflow + FnF + Reasons are lifetime",
+        "formula": "Exits = COUNT(*) on EMPLOYEES.DATE_OF_EXIT in window \u00b7 Pending Approval = SEPARATIONS.STATUS LIKE 'Pending%' \u00b7 Pending age = DATEDIFF(today \u2212 TRIGGERED_DATE) \u00b7 FnF Hold = FNF_DATA.FNF_STATUS='Hold' \u00b7 Save Rate = Revoked \u00f7 (Approved+AdminApproved+Revoked+Rejected)"
       },
       {
         "name": "Employee Type",
@@ -1379,37 +1392,37 @@
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.EMPLOYEE_TYPE",
-        "window": "Snapshot as of today (11 May 2026) · CSPL",
+        "window": "Snapshot as of today (11 May 2026) \u00b7 CSPL",
         "formula": "COUNT(*) GROUP BY EMPLOYEE_TYPE WHERE EMPLOYEE_STATUS='Active'"
       },
       {
-        "name": "Bands · Active HC",
+        "name": "Bands \u00b7 Active HC",
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND",
-        "window": "Snapshot as of today (11 May 2026) · CSPL",
-        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' · Builders = B4 + B5 + B6 + 'Builder' band (roll-up; sub-lines NOT additive)",
+        "window": "Snapshot as of today (11 May 2026) \u00b7 CSPL",
+        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' \u00b7 Builders = B4 + B5 + B6 + 'Builder' band (roll-up; sub-lines NOT additive)",
         "metrics": [
           {
             "label": "Total Active HC",
             "value": "6,896"
           },
           {
-            "label": "B0 · Interns / Apprentices",
+            "label": "B0 \u00b7 Interns / Apprentices",
             "value": "98"
           },
           {
-            "label": "B1 · Frontline",
+            "label": "B1 \u00b7 Frontline",
             "value": "4,184"
           },
           {
-            "label": "B1 Fin · Finance Frontline",
+            "label": "B1 Fin \u00b7 Finance Frontline",
             "value": "1"
           },
           {
-            "label": "B2 · Senior IC",
+            "label": "B2 \u00b7 Senior IC",
             "value": "1,090"
           },
           {
-            "label": "B3 · Manager / Lead",
+            "label": "B3 \u00b7 Manager / Lead",
             "value": "308"
           },
           {
@@ -1417,13 +1430,13 @@
             "value": "248"
           },
           {
-            "label": "SLA · Service Line Agent",
+            "label": "SLA \u00b7 Service Line Agent",
             "value": "333"
           },
           {
             "label": "Third Party (BAND='Third Party')",
             "value": "633",
-            "sub": "Separate 'Third Party Manpower' vendor sheet shows 1,804 — different source, not from HRMS BAND column"
+            "sub": "Separate 'Third Party Manpower' vendor sheet shows 1,804 \u2014 different source, not from HRMS BAND column"
           }
         ]
       },
@@ -1438,7 +1451,7 @@
           {
             "label": "FY25 stuck at Calibration",
             "value": "2,408",
-            "sub": "55% of live cycle — awaiting HR/leadership calibration before close"
+            "sub": "55% of live cycle \u2014 awaiting HR/leadership calibration before close"
           },
           {
             "label": "FY25 Reviewer pending",
@@ -1451,28 +1464,28 @@
             "sub": "Employee has not filled self-rating yet"
           },
           {
-            "label": "FY24 Top performers (5–6)",
+            "label": "FY24 Top performers (5\u20136)",
             "value": "28%",
-            "sub": "279 of 994 calibrated — last completed cycle (talent density signal)"
+            "sub": "279 of 994 calibrated \u2014 last completed cycle (talent density signal)"
           },
           {
             "label": "FY24 On-track (rating 4)",
             "value": "36%",
-            "sub": "354 of 994 — meeting expectations"
+            "sub": "354 of 994 \u2014 meeting expectations"
           },
           {
-            "label": "FY24 Below par (1–3)",
+            "label": "FY24 Below par (1\u20133)",
             "value": "36%",
-            "sub": "361 of 994 — PIP / flight-risk pool"
+            "sub": "361 of 994 \u2014 PIP / flight-risk pool"
           },
           {
             "label": "Lifetime PMS records",
             "value": "8,075",
-            "sub": "CSPL — all cycles since FY21"
+            "sub": "CSPL \u2014 all cycles since FY21"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.PMS_CSPL",
-        "window": "FY25 live (PMS FY 2025 Pre-filled + Self Reflection) · FY24 calibrated (PMS_FY23-24_SR) · lifetime for totals · CSPL",
+        "window": "FY25 live (PMS FY 2025 Pre-filled + Self Reflection) \u00b7 FY24 calibrated (PMS_FY23-24_SR) \u00b7 lifetime for totals \u00b7 CSPL",
         "formula": "COUNT(*) grouped by REVIEW_CYCLE_NAME / CURRENT_STAGE / CALIBRATION_RATING"
       },
       {
@@ -1486,27 +1499,27 @@
           {
             "label": "Fully cleared candidates",
             "value": "645",
-            "sub": "7% — 212 clean + 433 closed with resolved issues. No pending docs."
+            "sub": "7% \u2014 212 clean + 433 closed with resolved issues. No pending docs."
           },
           {
             "label": "Candidates in progress",
             "value": "8,613",
-            "sub": "93% have at least one pending doc — 2,169 of these also have a red flag"
+            "sub": "93% have at least one pending doc \u2014 2,169 of these also have a red flag"
           },
           {
             "label": "Stale pending (90d+ old)",
             "value": "30,456",
-            "sub": "91% of the 33,426 pending bucket is 90+ days old — likely abandoned, needs cleanup"
+            "sub": "91% of the 33,426 pending bucket is 90+ days old \u2014 likely abandoned, needs cleanup"
           },
           {
             "label": "L3M BGV raised",
             "value": "3,831",
-            "sub": "Feb–May 2026: 904 completed, 2,921 still pending, 6 issues"
+            "sub": "Feb\u2013May 2026: 904 completed, 2,921 still pending, 6 issues"
           },
           {
             "label": "L90D real red flags",
             "value": "6",
-            "sub": "issue_highlighted across all recent BGV — discovery rate <0.2%"
+            "sub": "issue_highlighted across all recent BGV \u2014 discovery rate <0.2%"
           },
           {
             "label": "Lifetime serious red flags",
@@ -1516,7 +1529,7 @@
           {
             "label": "Lifetime BGV docs",
             "value": "58,406",
-            "sub": "Pending 33,426 · Completed 21,176 · Insufficient 2,098 · Amber 991 · Other 715"
+            "sub": "Pending 33,426 \u00b7 Completed 21,176 \u00b7 Insufficient 2,098 \u00b7 Amber 991 \u00b7 Other 715"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.BGV",
@@ -1528,33 +1541,33 @@
         "metrics": [
           {
             "label": "Lifetime asset spend",
-            "value": "₹65.1 Cr",
-            "sub": "Sum of ASSET_COST across 28,078 assets — total HR hardware + tools capex since inception"
+            "value": "\u20b965.1 Cr",
+            "sub": "Sum of ASSET_COST across 28,078 assets \u2014 total HR hardware + tools capex since inception"
           },
           {
             "label": "Current book value",
-            "value": "₹23.2 Cr",
-            "sub": "Sum of CURRENT_COST — ~65% has depreciated off the books"
+            "value": "\u20b923.2 Cr",
+            "sub": "Sum of CURRENT_COST \u2014 ~65% has depreciated off the books"
           },
           {
             "label": "Active deployment value",
-            "value": "₹14.8 Cr",
-            "sub": "13,282 allocated assets (47% of fleet) — what's actually in employees' hands"
+            "value": "\u20b914.8 Cr",
+            "sub": "13,282 allocated assets (47% of fleet) \u2014 what's actually in employees' hands"
           },
           {
             "label": "In-stock dead capital",
-            "value": "₹3.8 Cr",
-            "sub": "3,490 assets sitting in stock — paid for, not deployed"
+            "value": "\u20b93.8 Cr",
+            "sub": "3,490 assets sitting in stock \u2014 paid for, not deployed"
           },
           {
             "label": "Lost / short / disputed",
             "value": "727",
-            "sub": "419 short-found + 243 disputed + 44 lost-under-insurance + 21 lost — ₹1.34 Cr purchase value exposure"
+            "sub": "419 short-found + 243 disputed + 44 lost-under-insurance + 21 lost \u2014 \u20b91.34 Cr purchase value exposure"
           },
           {
             "label": "Total asset records",
             "value": "28,078",
-            "sub": "Hardware 18,595 · Tools 9,482 · Uniform 1 — refreshed live"
+            "sub": "Hardware 18,595 \u00b7 Tools 9,482 \u00b7 Uniform 1 \u2014 refreshed live"
           },
           {
             "label": "Allocated / In stock / Maintenance",
@@ -1564,11 +1577,11 @@
           {
             "label": "Data quality flag",
             "value": "243",
-            "sub": "Disputed case casing dupes: 'Disputed case' (180) + 'Disputed Case' (63) — needs merge in source"
+            "sub": "Disputed case casing dupes: 'Disputed case' (180) + 'Disputed Case' (63) \u2014 needs merge in source"
           }
         ],
         "source": "CSPL_HR_DB.HR_ASSETS_PUBLIC.ASSET_DETAILS",
-        "window": "Lifetime — all assets ever recorded · live valuation in INR",
+        "window": "Lifetime \u2014 all assets ever recorded \u00b7 live valuation in INR",
         "formula": "COUNT(*) and SUM(ASSET_COST/CURRENT_COST) grouped by STOCK_STATUS / ASSET_TYPE"
       },
       {
@@ -1577,46 +1590,46 @@
           {
             "label": "Workforce coverage",
             "value": "51%",
-            "sub": "3,499 compliance records vs 6,896 active CSPL — 3,397 employees missing from the statutory file"
+            "sub": "3,499 compliance records vs 6,896 active CSPL \u2014 3,397 employees missing from the statutory file"
           },
           {
             "label": "UAN on file",
             "value": "2,392",
-            "sub": "68% of compliance records have UAN_NUMBER filled. 1,107 blank — PF portability gap for those joiners"
+            "sub": "68% of compliance records have UAN_NUMBER filled. 1,107 blank \u2014 PF portability gap for those joiners"
           },
           {
             "label": "PF Form 11 complete",
             "value": "2 / 3,499",
-            "sub": "0.06% completion. 3,478 pending + 19 flagged with issues — workflow effectively dead"
+            "sub": "0.06% completion. 3,478 pending + 19 flagged with issues \u2014 workflow effectively dead"
           },
           {
             "label": "NDA / Gratuity / ESI complete",
             "value": "~0",
-            "sub": "NDA CSPL 0 · NDA CFSPL 0 · Code of Conduct 0 · ESI 0 · Gratuity 0 · PF Form 2 0 — none of the statutory acknowledgement workflows reach 'complete' state"
+            "sub": "NDA CSPL 0 \u00b7 NDA CFSPL 0 \u00b7 Code of Conduct 0 \u00b7 ESI 0 \u00b7 Gratuity 0 \u00b7 PF Form 2 0 \u2014 none of the statutory acknowledgement workflows reach 'complete' state"
           },
           {
             "label": "Passport expired",
             "value": "30",
-            "sub": "Of 377 employees with passports on file, 30 have already expired — visa/travel compliance risk"
+            "sub": "Of 377 employees with passports on file, 30 have already expired \u2014 visa/travel compliance risk"
           },
           {
             "label": "Prev PF accounts",
             "value": "662",
-            "sub": "Lateral hires who carried over a PF account — UAN transfer/merger workflow needs closure"
+            "sub": "Lateral hires who carried over a PF account \u2014 UAN transfer/merger workflow needs closure"
           },
           {
             "label": "L30D new records",
             "value": "41",
-            "sub": "Far below joiner pace — compliance onboarding lag for recent hires"
+            "sub": "Far below joiner pace \u2014 compliance onboarding lag for recent hires"
           },
           {
             "label": "YTD vs prior year",
             "value": "812 / 2,686",
-            "sub": "Records created in 2026 (812 to date) vs 2025 (2,686 total) — pace tracks 30% of last year"
+            "sub": "Records created in 2026 (812 to date) vs 2025 (2,686 total) \u2014 pace tracks 30% of last year"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.COMPLIANCE_DETAILS",
-        "window": "Lifetime records on file · L30D activity · coverage vs Active CSPL HC",
+        "window": "Lifetime records on file \u00b7 L30D activity \u00b7 coverage vs Active CSPL HC",
         "formula": "COUNT(*), COUNT(CASE WHEN x IS NOT NULL), COUNT(CASE WHEN STATUS='complete') grouped by form type"
       },
       {
@@ -1636,11 +1649,11 @@
           },
           {
             "label": "Action needed",
-            "value": "All accounts in Snowflake show IS_VERIFIED=false — need ops review"
+            "value": "All accounts in Snowflake show IS_VERIFIED=false \u2014 need ops review"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.BANK_DETAILS",
-        "window": "Current snapshot — every bank account on file for active + inactive emps",
+        "window": "Current snapshot \u2014 every bank account on file for active + inactive emps",
         "formula": "COUNT(*)"
       },
       {
@@ -1649,85 +1662,85 @@
           {
             "label": "Present rate YTD 2026",
             "value": "86.4%",
-            "sub": "570,656 Present of 660,771 working-day logs (Jan 1 → May 10, 2026)"
+            "sub": "570,656 Present of 660,771 working-day logs (Jan 1 \u2192 May 10, 2026)"
           },
           {
             "label": "Absent rate YTD 2026",
             "value": "10.5%",
-            "sub": "69,203 absent logs YTD (Jan 1 → May 10, 2026)"
+            "sub": "69,203 absent logs YTD (Jan 1 \u2192 May 10, 2026)"
           },
           {
             "label": "Leave rate YTD 2026",
             "value": "3.2%",
-            "sub": "20,912 approved leave logs YTD — separate from unplanned absent"
+            "sub": "20,912 approved leave logs YTD \u2014 separate from unplanned absent"
           },
           {
             "label": "MTD May 2026 present",
             "value": "83.8%",
-            "sub": "1–10 May: 43,995 Present of 52,512 working-day logs. Dip from Apr (86.7%) — watch May seasonality"
+            "sub": "1\u201310 May: 43,995 Present of 52,512 working-day logs. Dip from Apr (86.7%) \u2014 watch May seasonality"
           },
           {
             "label": "MTD May absent",
             "value": "12.5%",
-            "sub": "6,538 absent in first 10 days of May — running ~2pp higher than YTD"
+            "sub": "6,538 absent in first 10 days of May \u2014 running ~2pp higher than YTD"
           },
           {
             "label": "Monthly trend 2026",
-            "value": "Jan→May",
-            "sub": "Logs: Jan 188k · Feb 180k · Mar 198k · Apr 203k · May 68k (MTD). Pacing consistent with active HC"
+            "value": "Jan\u2192May",
+            "sub": "Logs: Jan 188k \u00b7 Feb 180k \u00b7 Mar 198k \u00b7 Apr 203k \u00b7 May 68k (MTD). Pacing consistent with active HC"
           },
           {
             "label": "L30D regularizations",
             "value": "12,715",
-            "sub": "Attendance correction requests submitted in last 30 days — HR ops workflow load (automation opportunity)"
+            "sub": "Attendance correction requests submitted in last 30 days \u2014 HR ops workflow load (automation opportunity)"
           },
           {
             "label": "Pipeline freshness",
             "value": "Synced today",
-            "sub": "3.51 M lifetime logs · 8,270 distinct emp in 2026 · last Fivetran sync 11 May 2026 03:17 IST"
+            "sub": "3.51 M lifetime logs \u00b7 8,270 distinct emp in 2026 \u00b7 last Fivetran sync 11 May 2026 03:17 IST"
           }
         ],
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.ATTENDANCE (live · 3.5M rows · Fivetran-synced daily)",
-        "window": "YTD 2026 = 01 Jan → 10 May 2026 · MTD May = 1–10 May 2026 · L30D for regularizations",
-        "formula": "Present% = COUNT(STATUS LIKE 'P%') ÷ COUNT(STATUS IN P/A/L variants). Excludes Weekly Off (W) and Holiday (H) from denominator."
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.ATTENDANCE (live \u00b7 3.5M rows \u00b7 Fivetran-synced daily)",
+        "window": "YTD 2026 = 01 Jan \u2192 10 May 2026 \u00b7 MTD May = 1\u201310 May 2026 \u00b7 L30D for regularizations",
+        "formula": "Present% = COUNT(STATUS LIKE 'P%') \u00f7 COUNT(STATUS IN P/A/L variants). Excludes Weekly Off (W) and Holiday (H) from denominator."
       },
       {
-        "name": "Directories · PII & Diversity",
+        "name": "Directories \u00b7 PII & Diversity",
         "metrics": [
           {
-            "label": "Female % · active workforce",
+            "label": "Female % \u00b7 active workforce",
             "value": "14.6%",
             "sub": "1,009 of 6,896 active CSPL employees. Hash-mapped from HRMS GENDER column (5,877 Male / 1,009 Female / 10 Other)"
           },
           {
-            "label": "Female % · applicant pool",
+            "label": "Female % \u00b7 applicant pool",
             "value": "16.0%",
-            "sub": "3,256 Female of 20,341 ATS applicants who declared gender — pipeline mix slightly better than internal HC"
+            "sub": "3,256 Female of 20,341 ATS applicants who declared gender \u2014 pipeline mix slightly better than internal HC"
           },
           {
             "label": "ATS gender data gap",
             "value": "66%",
-            "sub": "42,302 of 63,659 applicants have blank gender — recruiters not capturing the field consistently"
+            "sub": "42,302 of 63,659 applicants have blank gender \u2014 recruiters not capturing the field consistently"
           },
           {
             "label": "PII records on file",
             "value": "28,136",
-            "sub": "Employee_PII table — one row per employee (lifetime, incl. ex-staff). Stores PAN, Aadhaar, UAN, DOB, Name"
+            "sub": "Employee_PII table \u2014 one row per employee (lifetime, incl. ex-staff). Stores PAN, Aadhaar, UAN, DOB, Name"
           },
           {
             "label": "PAN / Aadhaar / UAN coverage",
             "value": "99% / 98% / 92%",
-            "sub": "PAN 27,884 · Aadhaar 27,427 · UAN 25,909. Statutory IDs are well-captured"
+            "sub": "PAN 27,884 \u00b7 Aadhaar 27,427 \u00b7 UAN 25,909. Statutory IDs are well-captured"
           },
           {
             "label": "DOB coverage",
             "value": "0.2%",
-            "sub": "Only 69 of 28,136 PII records have DOB filled — age diversity, retirement planning, age-based compliance reporting all blocked"
+            "sub": "Only 69 of 28,136 PII records have DOB filled \u2014 age diversity, retirement planning, age-based compliance reporting all blocked"
           },
           {
             "label": "PII masking policy",
             "value": "Inconsistent",
-            "sub": "HRMS.GENDER hashed by row-access policy · ATS.APPLICANTS.GENDER cleartext · corp emails cleartext. No uniform standard across systems"
+            "sub": "HRMS.GENDER hashed by row-access policy \u00b7 ATS.APPLICANTS.GENDER cleartext \u00b7 corp emails cleartext. No uniform standard across systems"
           },
           {
             "label": "Founder action",
@@ -1735,9 +1748,9 @@
             "sub": "DOB is the standout data gap. Backfill from joining forms / ID docs to unlock age diversity + statutory age reporting"
           }
         ],
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES · EMPLOYEE_PII · HR_ATS_PUBLIC.APPLICANTS",
+        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u00b7 EMPLOYEE_PII \u00b7 HR_ATS_PUBLIC.APPLICANTS",
         "window": "Snapshot as of today (11 May 2026)",
-        "formula": "Female% = COUNT(hash=10758599872564880747) ÷ COUNT(Active). PII coverage = COUNT(col IS NOT NULL) ÷ COUNT(*). ATS data gap = COUNT(GENDER='') ÷ COUNT(*)."
+        "formula": "Female% = COUNT(hash=10758599872564880747) \u00f7 COUNT(Active). PII coverage = COUNT(col IS NOT NULL) \u00f7 COUNT(*). ATS data gap = COUNT(GENDER='') \u00f7 COUNT(*)."
       }
     ]
   }

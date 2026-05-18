@@ -120,6 +120,15 @@
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6" id="overview-cards"></div>
 
+    <div class="mt-10">
+      <div class="flex items-baseline justify-between">
+        <h3 class="text-xl font-bold brand-blue">Talent Density — Founder View</h3>
+        <span class="text-xs text-gray-500">Snowflake live · CSPL + CAPL active HC · refreshed daily</span>
+      </div>
+      <p class="text-gray-600 text-sm mt-1">Four metrics that lead with talent density, not BAU recruitment — the lens Vikram has called the #1 people lever.</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4" id="talent-density-cards"></div>
+    </div>
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider">Joinings Trend</h3>
@@ -747,6 +756,43 @@ async function loadDashboard() {
     </div>`).join('');
   document.getElementById('overview-cards').innerHTML = cardsHTML;
   document.getElementById('recruitment-kpis').innerHTML = cardsHTML;
+
+  // ============ Talent Density — Founder View (Snowflake live) ============
+  const tdCards = [
+    {
+      label: 'Builder Density (B4+)',
+      value: ov.td_builder_density_pct != null ? ov.td_builder_density_pct.toFixed(2) + '%' : '—',
+      sub: (ov.td_builders_b4plus ?? '—') + ' builders / ' + (ov.td_active_hc ?? '—').toLocaleString('en-IN') + ' active HC',
+      tone: 'neutral'
+    },
+    {
+      label: 'Org < 1 yr Tenure',
+      value: ov.td_tenure_lt_1y_pct != null ? ov.td_tenure_lt_1y_pct.toFixed(1) + '%' : '—',
+      sub: 'Only ' + (ov.td_tenure_3y_plus_pct ?? '—') + '% have ≥3 yrs — institutional memory risk',
+      tone: 'warn'
+    },
+    {
+      label: 'Early Exits (< 90d tenure)',
+      value: ov.td_early_exit_pct_90d != null ? ov.td_early_exit_pct_90d.toFixed(1) + '%' : '—',
+      sub: (ov.td_early_exits_90d ?? '—') + ' of ' + (ov.td_exits_90d_total ?? '—') + ' exits in last 90 days — hiring-quality signal',
+      tone: 'warn'
+    },
+    {
+      label: 'B4+ Leadership Exits',
+      value: (ov.td_b4plus_exits_90d ?? '—') + ' / 90d',
+      sub: (ov.td_b4plus_exits_12m ?? '—') + ' in last 12 months — net-builder flow',
+      tone: 'alert'
+    },
+  ];
+  const tdToneClass = t => t === 'alert' ? 'border-l-4 border-red-500' : t === 'warn' ? 'border-l-4 border-amber-500' : 'border-l-4 border-blue-500';
+  const tdHTML = tdCards.map(c => `
+    <div class="rounded-lg shadow-sm border bg-white p-5 ${tdToneClass(c.tone)}">
+      <div class="text-xs uppercase text-gray-500 font-semibold tracking-wide">${c.label}</div>
+      <div class="text-3xl font-bold brand-blue mt-2">${c.value}</div>
+      <div class="text-xs text-gray-600 mt-2 leading-snug">${c.sub}</div>
+    </div>`).join('');
+  const tdEl = document.getElementById('talent-density-cards');
+  if (tdEl) tdEl.innerHTML = tdHTML;
 
   // ============ Formula + data-status panel ============
   const fsBody = document.getElementById('formula-status-body');

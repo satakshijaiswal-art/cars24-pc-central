@@ -26,6 +26,42 @@ WINDOW_START = "2026-04-26"
 WINDOW_END   = "2026-05-04"
 
 SQL = {
+    "talent_density": """
+        WITH ALL_EMP AS (
+          SELECT EMPLOYEE_ID, BAND, DATE_OF_JOINING, DATE_OF_EXIT, IS_ACTIVE, EMPLOYEE_STATUS
+          FROM CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES
+          UNION ALL
+          SELECT EMPLOYEE_ID, BAND, DATE_OF_JOINING, DATE_OF_EXIT, IS_ACTIVE, EMPLOYEE_STATUS
+          FROM CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES
+        ),
+        ACTIVE AS (
+          SELECT *, DATEDIFF(month, DATE_OF_JOINING, CURRENT_DATE()) AS TENURE_M
+          FROM ALL_EMP
+          WHERE IS_ACTIVE=TRUE AND EMPLOYEE_STATUS NOT ILIKE '%Inactive%'
+        ),
+        EXITS_90D AS (
+          SELECT *, DATEDIFF(day, DATE_OF_JOINING, DATE_OF_EXIT) AS TENURE_DAYS
+          FROM ALL_EMP
+          WHERE DATE_OF_EXIT BETWEEN DATEADD(day,-90,CURRENT_DATE()) AND CURRENT_DATE()
+        )
+        SELECT
+          (SELECT COUNT(*) FROM ACTIVE)                                                                          AS active_hc,
+          (SELECT SUM(CASE WHEN BAND IN ('B4','B5','B6','Builder') THEN 1 ELSE 0 END) FROM ACTIVE)               AS builders_b4plus,
+          ROUND(100.0*(SELECT SUM(CASE WHEN BAND IN ('B4','B5','B6','Builder') THEN 1 ELSE 0 END) FROM ACTIVE)
+                /(SELECT COUNT(*) FROM ACTIVE),2)                                                                AS builder_density_pct,
+          ROUND(100.0*(SELECT SUM(CASE WHEN TENURE_M<12 THEN 1 ELSE 0 END) FROM ACTIVE)
+                /(SELECT COUNT(*) FROM ACTIVE),1)                                                                AS tenure_lt_1y_pct,
+          ROUND(100.0*(SELECT SUM(CASE WHEN TENURE_M>=36 THEN 1 ELSE 0 END) FROM ACTIVE)
+                /(SELECT COUNT(*) FROM ACTIVE),1)                                                                AS tenure_3y_plus_pct,
+          (SELECT COUNT(*) FROM EXITS_90D)                                                                       AS exits_90d_total,
+          (SELECT SUM(CASE WHEN TENURE_DAYS<90 THEN 1 ELSE 0 END) FROM EXITS_90D)                                AS exits_90d_early,
+          ROUND(100.0*(SELECT SUM(CASE WHEN TENURE_DAYS<90 THEN 1 ELSE 0 END) FROM EXITS_90D)
+                /(SELECT COUNT(*) FROM EXITS_90D),1)                                                             AS early_exit_pct_90d,
+          (SELECT SUM(CASE WHEN BAND IN ('B4','B5','B6','Builder') THEN 1 ELSE 0 END) FROM EXITS_90D)            AS b4plus_exits_90d,
+          (SELECT COUNT(*) FROM ALL_EMP
+            WHERE DATE_OF_EXIT BETWEEN DATEADD(month,-12,CURRENT_DATE()) AND CURRENT_DATE()
+              AND BAND IN ('B4','B5','B6','Builder'))                                                            AS b4plus_exits_12m
+    """,
     "open_reqs": """
         SELECT COUNT(*)                                       AS active_reqs_open,
                AVG(DATEDIFF(day, START_DATE, CURRENT_DATE())) AS avg_tat_open_days
@@ -72,6 +108,7 @@ def main(json_path: str):
     open_reqs = run_query(cur, SQL["open_reqs"])
     ttf       = run_query(cur, SQL["ttf"])
     div       = run_query(cur, SQL["diversity"])
+    td        = run_query(cur, SQL["talent_density"])
     cur.close(); conn.close()
 
     with open(json_path) as f: d = json.load(f)
@@ -92,6 +129,23 @@ def main(json_path: str):
     ov["female_pct"]       = round(100*fem/base, 2) if base else None
     ov["female_source"]    = "snowflake"
     ov["female_note"]      = f"Snowflake CSPL_HR_DB · {fem} Female / {base} ATS-tagged joiners with declared gender"
+
+    # Founder-view Talent Density tiles — Snowflake CSPL + CAPL EMPLOYEES (live)
+    ov["td_active_hc"]            = int(td["active_hc"] or 0)
+    ov["td_builders_b4plus"]      = int(td["builders_b4plus"] or 0)
+    ov["td_builder_density_pct"]  = float(td["builder_density_pct"] or 0)
+    ov["td_tenure_lt_1y_pct"]     = float(td["tenure_lt_1y_pct"] or 0)
+    ov["td_tenure_3y_plus_pct"]   = float(td["tenure_3y_plus_pct"] or 0)
+    ov["td_exits_90d_total"]      = int(td["exits_90d_total"] or 0)
+    ov["td_early_exits_90d"]      = int(td["exits_90d_early"] or 0)
+    ov["td_early_exit_pct_90d"]   = float(td["early_exit_pct_90d"] or 0)
+    ov["td_b4plus_exits_90d"]     = int(td["b4plus_exits_90d"] or 0)
+    ov["td_b4plus_exits_12m"]     = int(td["b4plus_exits_12m"] or 0)
+    ov["td_source"]               = "snowflake"
+    ov["td_note"]                 = (
+        "Snowflake live · CSPL + CAPL EMPLOYEES (active filter on IS_ACTIVE + EMPLOYEE_STATUS). "
+        "Founder-grade talent-density tiles, refreshed daily."
+    )
 
     d["refreshed_at"] = datetime.now(timezone(timedelta(hours=5,minutes=30))).strftime("%d %b %Y · %H:%M IST")
     with open(json_path,"w") as f: json.dump(d,f,indent=2)
