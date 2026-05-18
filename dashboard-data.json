@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "18 May 2026 \u00b7 19:36 IST",
+  "refreshed_at": "18 May 2026 \u00b7 19:43 IST",
   "period_label": "26 Apr \u2192 18 May 2026",
   "window": {
     "start": "2026-04-26",
@@ -17,7 +17,7 @@
   },
   "data_coverage_note": "Joinings: 217 (Base-Live). OTJ: 83/134 from Rocket Offers, V3 cross-check 192/244. CTC/CPH/Hike from JM cohort 178. Time to Fill, Avg TAT (open), Active Reqs, Female % now sourced live from Snowflake CSPL_HR_DB (HR_ATS_PUBLIC). Window auto-rolls daily \u2014 end = today (IST).",
   "overview": {
-    "joinings": 303,
+    "joinings": 340,
     "joinings_total_candidates": 249,
     "drops": 51,
     "drop_rate": 20.9,
@@ -25,11 +25,11 @@
     "otj_v3_consistent": 78.69,
     "otj_ro_consistent": 61.94,
     "otj_base_to_v3": 88.93,
-    "attrition_30d": 4.9,
-    "overall_attrition_window": 4.0081,
-    "overall_attrition_monthly_projected": 5.23,
-    "exits_in_window": 276,
-    "active_hc": 6748,
+    "attrition_30d": 4.8,
+    "overall_attrition_window": 4.077,
+    "overall_attrition_monthly_projected": 5.32,
+    "exits_in_window": 288,
+    "active_hc": 6920,
     "cph": 5556.0,
     "cph_data_rows": 9,
     "cph_note": null,
@@ -56,7 +56,7 @@
     "senior_replacement": 0,
     "productivity": 17.8,
     "active_recruiters": 17,
-    "attrition_30d_display": 4.9,
+    "attrition_30d_display": 4.8,
     "td_active_hc": 7102,
     "td_builders_b4plus": 271,
     "td_builder_density_pct": 3.82,
@@ -73,7 +73,27 @@
     "joinings_snowflake_pending": 408,
     "exits_in_window_snowflake": 288,
     "active_hc_snowflake_cspl": 6920,
-    "_source_note": "Headline joinings/drops/OTJ kept on Recruitment-Metrics CSV (operational view). Function tile and B4+ tiles use Snowflake CSPL_HR_DB (system of record)."
+    "_source_note": "Headline joinings/drops/OTJ kept on Recruitment-Metrics CSV (operational view). Function tile and B4+ tiles use Snowflake CSPL_HR_DB (system of record).",
+    "joinings_csv_recruitment": 303,
+    "joinings_pending_pipeline": 408,
+    "_sources": {
+      "joinings (340)": "Snowflake \u00b7 CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u00b7 DATE_OF_JOINING in window AND EMPLOYEE_STATUS IN ('Active','InActive')",
+      "joinings_pending_pipeline": "Snowflake \u00b7 same as above but EMPLOYEE_STATUS='Pending' (offer accepted, DOJ set, onboarding in progress)",
+      "joinings_csv_recruitment": "Base-Live CSV (recruitment team operational tracker) \u2014 historical reconciliation only",
+      "drops / drop_rate / otj": "Rocket Offers CSV (Recruitment Metrics) \u00b7 Joining Status != 'Joined' for offered candidates",
+      "exits_in_window": "Snowflake \u00b7 CSPL_HR_DB EMPLOYEES \u00b7 DATE_OF_EXIT in window",
+      "active_hc": "Snowflake \u00b7 CSPL_HR_DB EMPLOYEES \u00b7 EMPLOYEE_STATUS='Active'",
+      "attrition_30d / window / monthly_projected": "Snowflake \u00b7 exits / active HC with avg_hc denominator (deck formula)",
+      "cph / cph_data_rows": "Joining Master CSV \u00b7 Actual_CPH for window joiners (Finance posts monthly \u2014 lag is normal)",
+      "hike": "Joining Master CSV \u00b7 Hike % for window joiners synced to JM",
+      "ttf / ttf_data_rows": "Snowflake \u00b7 CSPL_HR_DB.HR_ATS_PUBLIC.OFFER_LETTERS_DETAILS \u22c8 REQUISITIONS \u00b7 AVG(DOJ \u2212 START_DATE) for window joiners",
+      "tat / open_reqs": "Snowflake \u00b7 CSPL_HR_DB.HR_ATS_PUBLIC.REQUISITIONS \u00b7 STATUS='Open'",
+      "female_pct / female_n": "Snowflake \u00b7 CSPL_HR_DB.HR_ATS_PUBLIC.APPLICANTS \u22c8 OFFER_LETTERS_DETAILS \u00b7 LOWER(GENDER) IN ('male','female') \u2014 HRMS GENDER is hashed for privacy",
+      "senior_b4_plus": "Snowflake \u00b7 CSPL_HR_DB EMPLOYEES \u00b7 BAND IN ('B4','B5','B6','Builder') AND DOJ in window",
+      "productivity / active_recruiters": "Recruitment Metrics CSV \u00b7 joinings/recruiter, recruiter count locked at 17",
+      "td_* (Talent Density tiles)": "Snowflake live \u00b7 CSPL_HR_DB + CAPL_HR_DB EMPLOYEES \u00b7 founder-grade builder density per Vikram's #1 lever"
+    },
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
   },
   "functionTable": {
     "joinings_by": {
@@ -165,7 +185,22 @@
       "Product": 7,
       "Technology": 5
     },
-    "_source": "Snowflake CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u00b7 DEPARTMENT_CODE bucketed \u00b7 joinings_by excludes Pending (still-onboarding offers)"
+    "_source": "Snowflake \u00b7 CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u00b7 DEPARTMENT_CODE bucketed (Tech/Product/BI DS/Business/Other)",
+    "_sources_by_metric": {
+      "joinings_by": "Snowflake \u00b7 DOJ in window AND status IN ('Active','InActive')",
+      "joinings_by_incl_pending": "Snowflake \u00b7 DOJ in window (any status incl. Pending)",
+      "exits_by": "Snowflake \u00b7 DATE_OF_EXIT in window",
+      "active_hc_by": "Snowflake \u00b7 EMPLOYEE_STATUS='Active'",
+      "attrition_by": "Computed \u00b7 exits_by / active_hc_by \u00d7 100",
+      "drops_by": "Rocket Offers CSV \u00b7 drops by function (Snowflake doesn't track drops)",
+      "otj_by": "Rocket Offers CSV \u00b7 joined / offered by function",
+      "ttf_by": "Snowflake ATS \u00b7 AVG(DOJ \u2212 requisition START_DATE) by department",
+      "cph_by": "JM CSV \u00b7 Actual_CPH by function (Finance posts monthly)",
+      "hike_by": "JM CSV \u00b7 Hike% by function",
+      "female_by": "Base-Live CSV \u00b7 joiners by function \u00d7 gender (Snowflake GENDER is hashed)",
+      "candidates_by": "V3 / Rocket Offers CSV \u00b7 total offered candidates by function"
+    },
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
   },
   "leadership": {
     "total": 12,
@@ -285,7 +320,9 @@
         "doj": "14-May-26",
         "gender": "Male"
       }
-    ]
+    ],
+    "_source": "Base-Live CSV \u00b7 B4+ joiners in window with unhashed names (Snowflake HRMS hashes PII). Snowflake count cross-check: 12 distinct B4+ EMPLOYEE_IDs with EMPLOYEE_STATUS='Active' AND DOJ in window.",
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
   },
   "diversity": {
     "total": 217,
@@ -308,7 +345,9 @@
       "B4": 0.0,
       "B5": 0.0
     },
-    "data_rows": 217
+    "data_rows": 217,
+    "_source": "Base-Live CSV \u00b7 217 window joiners with unhashed gender. Snowflake ATS APPLICANTS cross-check for ATS-tagged subset: 26 Female / 240 Male / 266 = 9.77% (see overview.female_pct).",
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
   },
   "sourcing": {
     "overall": {
@@ -564,7 +603,9 @@
         "Naukri-Headhunt"
       ],
       "note": "Window 26 Apr \u2192 11 May 2026 \u00b7 178 JM-synced rows."
-    }
+    },
+    "_source": "Rocket Offers CSV (Recruitment Metrics) \u00b7 Source Category \u00d7 Joining Status for window. Snowflake doesn't track source-of-hire.",
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
   },
   "drops": {
     "total": 51,
@@ -577,13 +618,17 @@
       "Technology": 0,
       "BI DS": 0
     },
-    "top_function": "Business (B1+B2)"
+    "top_function": "Business (B1+B2)",
+    "_source": "Rocket Offers CSV \u00b7 Joining Status != 'Joined' for offered candidates in window. Snowflake ATS doesn't have clean drop tracking.",
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
   },
   "ta": {
-    "active": 551,
+    "active": 700,
     "closed": 217,
     "ytj": 51,
-    "productivity": 12.8
+    "productivity": 12.8,
+    "_source": "Mixed \u00b7 active (700) from Snowflake CSPL_HR_DB.HR_ATS_PUBLIC.REQUISITIONS STATUS='Open' \u00b7 closed/ytj/productivity from Joining Master CSV",
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
   },
   "trends": {
     "months": [
@@ -606,7 +651,9 @@
       11.75,
       18.96,
       4.9
-    ]
+    ],
+    "_source": "Months Jan-Apr 26 = historical (static) from prior monthly MIS. '26 Apr\u2192Today' bar = current window from Snowflake.",
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
   },
   "window_extras": {
     "by_day": {
@@ -619,12 +666,14 @@
       "11-May-26": 54,
       "13-May-26": 9,
       "14-May-26": 1,
-      "15-May-26": 22
+      "15-May-26": 22,
+      "18-May-26": 37
     },
     "by_entity": {
-      "CSPL International": 8,
-      "CSPL": 282,
-      "CFSPL": 13
+      "CSPL": 315,
+      "CFSPL": 14,
+      "CSPL International": 10,
+      "Other (VPPL)": 1
     },
     "top_recruiters": [
       {
@@ -667,70 +716,35 @@
         "name": "Harshita Sharma",
         "joinings": 6
       }
-    ]
+    ],
+    "_source": "by_day + by_entity from Snowflake CSPL_HR_DB (DOJ in window, status IN Active/InActive). top_recruiters from Rocket Offers CSV (Snowflake doesn't track recruiter).",
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
   },
   "metrics_not_computable_for_window": {
     "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
   },
   "tech": {
-    "tech_hc": 237,
-    "product_hc": 79,
-    "data_hc": 61,
-    "total_hc": 377,
-    "open_roles": 18,
+    "tech_hc": 276,
+    "product_hc": 74,
+    "data_hc": 54,
+    "bi_hc": 50,
+    "total_hc": 454,
+    "open_roles": 700,
     "cost_per_month": null,
-    "cost_note": "Cost data not in HR_DB \u2014 Finance feed (\u20b9L) needs separate pipe. Old fallback was \u20b9820L.",
-    "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u22c8 DEPARTMENT (dept name in {Technology, Product Management, Data and AI Engineering})",
-    "window": "Snapshot as of today (11 May 2026)",
-    "formula": "COUNT(DISTINCT EMPLOYEE_ID) WHERE EMPLOYEE_STATUS='Active' AND DEPARTMENT_NAME IN (...)",
-    "backend": {
-      "sde1": 136,
-      "sde2": 59,
-      "sde3": 26,
-      "leaders": 16
+    "cost_note": "Cost data not in Snowflake HR_DB \u2014 Finance feed (\u20b9L) needs separate pipe",
+    "pod_breakdown": {
+      "Backend": 129,
+      "Frontend": 37,
+      "IT/Tech Support": 30,
+      "Engineering (general)": 18,
+      "Mobile": 17,
+      "QA": 16,
+      "AI/Data Eng": 10,
+      "Management/Leaders": 10,
+      "DevOps/Security": 9
     },
-    "frontend": {
-      "sde1": 5,
-      "sde2": 30,
-      "sde3": 25,
-      "leaders": 18
-    },
-    "mobile": {
-      "sde1": 20,
-      "sde2": 21,
-      "sde3": 13,
-      "leaders": 7
-    },
-    "bands_raw": {
-      "Technology": {
-        "B0": 8,
-        "B1": 128,
-        "B2": 59,
-        "B3": 26,
-        "B4": 5,
-        "B5": 5,
-        "B6": 6
-      },
-      "Product Management": {
-        "B0": 3,
-        "B1": 2,
-        "B2": 30,
-        "B3": 25,
-        "B4": 11,
-        "B5": 6,
-        "B6": 1
-      },
-      "Data and AI Engineering": {
-        "B0": 10,
-        "B1": 10,
-        "B2": 21,
-        "B3": 13,
-        "B4": 4,
-        "B5": 1,
-        "B6": 1,
-        "Builder": 1
-      }
-    }
+    "_source": "Snowflake \u00b7 CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u00b7 EMPLOYEE_STATUS='Active' grouped by DEPARTMENT_CODE (Technology / Product Management / Data and AI Engineering / Business Intelligence) and SUB_DEPARTMENT_CODE for POD split. SDE1/2/3 split needs JOB_LEVEL_CODE \u2014 currently hashed in Snowflake; reach out to platform team to unhash.",
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
   },
   "glassdoor": {
     "rating": 4.3,
@@ -739,16 +753,17 @@
     "outlook": 80,
     "review_count_ambitionbox": 4600,
     "ambitionbox_rating": 3.5,
-    "last_updated": "11 May 2026 \u00b7 13:06 IST",
+    "last_updated": "11 May 2026 \u00b7 13:06 IST (external \u2014 not refreshed by daily job)",
     "next_scheduled_refresh": "Daily \u2014 pending glassdoor-reviews-bot agent reconnect",
     "note": "Glassdoor direct scraping blocked by bot detection. Values reflect last reliable employer-portal snapshot + cross-validated against AmbitionBox (3.5/5 from 4,600+ Cars24 employee reviews). Auto-refresh requires Claude-in-Chrome extension to be connected so the glassdoor-reviews-bot can read the employer portal.",
-    "__period": "Latest snapshot \u00b7 11 May 2026"
+    "__period": "Latest snapshot \u00b7 11 May 2026",
+    "_source": "External \u00b7 Glassdoor employer portal (direct scraping bot-blocked) + AmbitionBox rating. Manual refresh via glassdoor-reviews-bot."
   },
   "attrition": {
-    "overall": 4.9,
-    "overall_window_raw": 2.6129,
-    "overall_total_exits": 179,
-    "overall_active_hc": 6761,
+    "overall": 4.8,
+    "overall_window_raw": 4.077,
+    "overall_total_exits": 288,
+    "overall_active_hc": 6920,
     "high": [
       {
         "func": "BI DS",
@@ -819,7 +834,9 @@
       "Involuntary": 56,
       "Voluntary": 123
     },
-    "note": "Window 26 Apr\u201311 May: 179 exits across 6761 active employees. Monthly-projected to 4.9%."
+    "note": "Window 26 Apr\u201318 May (23 days): 288 exits across 6,920 active employees. 30-day rate: 4.8%.",
+    "_source": "Snowflake \u00b7 CSPL_HR_DB EMPLOYEES \u00b7 exits / active HC. High/low/drivers list curated from monthly MIS.",
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
   },
   "automation": [
     {
@@ -991,9 +1008,9 @@
       "next_run": "2 hrs"
     }
   ],
-  "__sections_audited_at": "11 May 2026",
+  "__sections_audited_at": "18 May 2026",
   "snowflake_catalog": {
-    "refreshed_at": "11 May 2026 \u00b7 19:08 IST",
+    "refreshed_at": "18 May 2026 \u00b7 19:43 IST",
     "source": "CSPL_HR_DB \u00b7 Fivetran-synced from HRMS Public / HR_ATS Public",
     "tables_indexed": 116,
     "rows_indexed": 266572,
@@ -1763,6 +1780,8 @@
         "window": "Snapshot as of today (11 May 2026)",
         "formula": "Female% = COUNT(hash=10758599872564880747) \u00f7 COUNT(Active). PII coverage = COUNT(col IS NOT NULL) \u00f7 COUNT(*). ATS data gap = COUNT(GENDER='') \u00f7 COUNT(*)."
       }
-    ]
-  }
+    ],
+    "_source": "Snowflake CSPL_HR_DB \u00b7 Fivetran-synced from HRMS Public / HR_ATS Public schemas"
+  },
+  "_master_source_note": "Mixed-source dashboard. Snowflake CSPL_HR_DB is the system of record for headcount, joinings/exits, function breakdown, talent density. Recruitment Metrics CSVs (Joining Master + Rocket Offers + Base-Live) own operational metrics \u2014 drops, OTJ, source-of-hire, recruiter productivity, hike%, CPH, gender (HRMS PII hashed). Each subsection has _source."
 }
