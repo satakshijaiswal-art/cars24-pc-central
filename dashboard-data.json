@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "18 May 2026 \u00b7 19:18 IST",
+  "refreshed_at": "18 May 2026 \u00b7 19:36 IST",
   "period_label": "26 Apr \u2192 18 May 2026",
   "window": {
     "start": "2026-04-26",
@@ -68,30 +68,34 @@
     "td_b4plus_exits_90d": 56,
     "td_b4plus_exits_12m": 245,
     "td_source": "snowflake",
-    "td_note": "Snowflake live \u00b7 CSPL + CAPL EMPLOYEES (EMPLOYEE_STATUS='Active'). Founder-grade talent-density tiles, refreshed daily."
+    "td_note": "Snowflake live \u00b7 CSPL + CAPL EMPLOYEES (EMPLOYEE_STATUS='Active'). Founder-grade talent-density tiles, refreshed daily.",
+    "joinings_snowflake_actual": 340,
+    "joinings_snowflake_pending": 408,
+    "exits_in_window_snowflake": 288,
+    "active_hc_snowflake_cspl": 6920,
+    "_source_note": "Headline joinings/drops/OTJ kept on Recruitment-Metrics CSV (operational view). Function tile and B4+ tiles use Snowflake CSPL_HR_DB (system of record)."
   },
   "functionTable": {
     "joinings_by": {
-      "Other Support": 23,
-      "Business (B1+B2)": 187,
-      "Product": 1,
-      "Technology": 1,
-      "BI DS": 5
+      "Business (B1+B2)": 292,
+      "Other Support": 34,
+      "BI DS": 9,
+      "Product": 3,
+      "Technology": 2
     },
     "active_hc_by": {
-      "Other Support": 801,
-      "Business (B1+B2)": 5494,
-      "Technology": 313,
-      "BI DS": 72,
-      "Product": 76,
-      "Business Support": 5
+      "Business (B1+B2)": 5529,
+      "Other Support": 937,
+      "Technology": 276,
+      "BI DS": 104,
+      "Product": 74
     },
     "exits_by": {
-      "Other Support": 33,
-      "Business (B1+B2)": 121,
-      "Product": 4,
-      "Technology": 17,
-      "BI DS": 4
+      "Business (B1+B2)": 196,
+      "Other Support": 54,
+      "Technology": 21,
+      "BI DS": 10,
+      "Product": 7
     },
     "drops_by": {
       "Business (B1+B2)": 44,
@@ -140,12 +144,11 @@
       "BI DS": 0.0
     },
     "attrition_by": {
-      "Business (B1+B2)": 3.4877,
-      "Business Support": 0.0,
-      "Product": 9.4595,
-      "Technology": 7.767,
-      "BI DS": 6.25,
-      "Other Support": 6.1947
+      "Business (B1+B2)": 3.5449,
+      "Other Support": 5.7631,
+      "Technology": 7.6087,
+      "BI DS": 9.6154,
+      "Product": 9.4595
     },
     "candidates_by": {
       "Business (B1+B2)": 207,
@@ -154,7 +157,15 @@
       "Technology": 1,
       "Business Support": 0,
       "BI DS": 5
-    }
+    },
+    "joinings_by_incl_pending": {
+      "Business (B1+B2)": 637,
+      "Other Support": 82,
+      "BI DS": 17,
+      "Product": 7,
+      "Technology": 5
+    },
+    "_source": "Snowflake CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u00b7 DEPARTMENT_CODE bucketed \u00b7 joinings_by excludes Pending (still-onboarding offers)"
   },
   "leadership": {
     "total": 12,
