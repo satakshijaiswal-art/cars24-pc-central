@@ -116,7 +116,8 @@
   <section id="overview">
     <div class="accent-bar mb-3"></div>
     <h2 class="text-3xl font-bold brand-blue">Overview</h2>
-    <p class="text-gray-600 mt-1">Headline KPIs · live data from Joining Master + Recruitment Metrics + Tech & Product</p>
+    <p class="text-gray-600 mt-1">Headline KPIs · <b>Snowflake CSPL_HR_DB</b> is system of record (HC, joinings, exits, attrition, function breakdown). Recruitment Metrics CSV owns operational metrics (drops, OTJ, source-of-hire, recruiter productivity, hike%, CPH).</p>
+    <p class="text-xs text-gray-500 mt-1" id="overview-source-pill"></p>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6" id="overview-cards"></div>
 
@@ -162,13 +163,13 @@
           </thead>
           <tbody class="align-top">
             <tr class="border-b"><td class="py-2 font-bold">1</td><td class="font-semibold">Variable CPH</td><td><code>Total Variable Cost ÷ Total Joinings</code></td><td>Joining Master · <code>Actual_CPH</code> column · Finance posts post month-end close</td></tr>
-            <tr class="border-b"><td class="py-2 font-bold">2</td><td class="font-semibold">30-Day Attrition %</td><td><code>(Exits within 30 days of DOJ ÷ Total Joinings) × 100</code></td><td>Base-Live Employee Data · <code>DOJ</code> + <code>Date of Leaving</code> · 30-day window since join</td></tr>
+            <tr class="border-b"><td class="py-2 font-bold">2</td><td class="font-semibold">30-Day Attrition %</td><td><code>(Exits in last 30 days ÷ Active HC) × 100</code></td><td><b>Snowflake</b> · <code>CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES</code> · DATE_OF_EXIT in last 30d ÷ EMPLOYEE_STATUS='Active'</td></tr>
             <tr class="border-b"><td class="py-2 font-bold">3</td><td class="font-semibold">Offer-to-Join %</td><td><code>(Total Joinings ÷ Total Offers Released) × 100</code></td><td>Recruitment Metric_New · <code>Rocket Offers</code> tab cross-checked with V3 Joinee Tracker</td></tr>
             <tr class="border-b"><td class="py-2 font-bold">4</td><td class="font-semibold">Time to Fill (d)</td><td><code>AVG(DOJ − Requisition Open Date)</code></td><td>Snowflake · <code>CSPL_HR_DB.HR_ATS_PUBLIC.OFFER_LETTERS_DETAILS</code> ⋈ <code>REQUISITIONS</code> (live)</td></tr>
             <tr class="border-b"><td class="py-2 font-bold">5</td><td class="font-semibold">Avg TAT — Open Roles</td><td><code>AVG(Today − Requisition Open Date)</code> for <code>STATUS = Open</code></td><td>Snowflake · <code>CSPL_HR_DB.HR_ATS_PUBLIC.REQUISITIONS</code> (live snapshot)</td></tr>
             <tr class="border-b"><td class="py-2 font-bold">6</td><td class="font-semibold">Hike %</td><td><code>AVG((Offered CTC − Previous CTC) ÷ Previous CTC) × 100</code></td><td>Joining Master · <code>Offered CTC</code> + <code>Last CTC</code> columns · 149 of 217 joiners covered</td></tr>
             <tr class="border-b"><td class="py-2 font-bold">7</td><td class="font-semibold">Recruiter Productivity</td><td><code>Total Joinings ÷ Total Recruiter HC</code></td><td>V3 Joinee Tracker · <code>Recruiter</code> column (distinct count) ÷ window joinings</td></tr>
-            <tr><td class="py-2 font-bold">8</td><td class="font-semibold">Joinings</td><td><code>COUNT(DOJ in window)</code></td><td>Base-Live Employee Data · <code>DOJ</code> filtered to current window (26 Apr → today)</td></tr>
+            <tr><td class="py-2 font-bold">8</td><td class="font-semibold">Joinings</td><td><code>COUNT(DOJ in window AND status IN Active/InActive)</code></td><td><b>Snowflake</b> · <code>CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES</code> · system of record (replaces older Base-Live CSV view which under-counted Tech/Product)</td></tr>
           </tbody>
         </table>
       </div>
@@ -201,7 +202,7 @@
     <!-- FORMULA + DATA STATUS panel -->
     <div class="bg-white rounded-lg shadow-sm border p-6 mt-6">
       <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-1">Formula + data status — every metric for this window</h3>
-      <p class="text-xs text-gray-600 mb-4">Computed from <b>New Joinee Tracker V3</b> for the 9-day DOJ window 26 Apr → 04 May 2026. Where data is unavailable, formula and reason are stated.</p>
+      <p class="text-xs text-gray-600 mb-4">Computed from <b>Snowflake CSPL_HR_DB</b> (joinings, exits, HC, function breakdown) + <b>Recruitment Metrics CSV</b> (drops, OTJ, source-of-hire, recruiter productivity, hike%, CPH) for the window <span id="window-label-formula">—</span>. Where data is unavailable, formula and reason are stated.</p>
       <div class="overflow-x-auto">
         <table class="w-full text-sm compact">
           <thead class="bg-gray-100">
@@ -517,7 +518,7 @@
   <!-- 11. WINDOW DETAIL (new) -->
   <section id="window">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-blue">Window Detail · 26 Apr → 11 May</h2>
+    <h2 class="text-3xl font-bold brand-blue">Window Detail · <span id="window-label-detail">—</span></h2>
     <p class="text-gray-600 mt-1">Day-wise · entity-wise · top recruiters · live thru today</p>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
@@ -726,6 +727,47 @@ async function loadDashboard() {
   document.getElementById('last-refresh').textContent = data.refreshed_at || '—';
   document.getElementById('period-label').textContent = data.period_label || '';
 
+  // Fill dynamic window labels (replaces stale hardcoded "26 Apr → 04/11 May" everywhere)
+  const winLabel = data.period_label || '';
+  ['window-label-formula','window-label-detail'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = winLabel;
+  });
+
+  // ============ SOURCE-OF-TRUTH PILLS — render under every section H2 ============
+  // Reads `_source` from each top-level JSON key and renders a "Source:" badge
+  // under that section's heading so leadership can see provenance at a glance.
+  const SECTION_MAP = {
+    overview:        { id: 'overview',        sourceKey: 'overview',        fallback: 'Snowflake CSPL_HR_DB + Rocket Offers CSV (per-tile source map below)' },
+    recruitment:     { id: 'recruitment',     sourceKey: 'overview',        fallback: 'Snowflake CSPL_HR_DB + Rocket Offers CSV' },
+    leadership:      { id: 'leadership',      sourceKey: 'leadership' },
+    sourcing:        { id: 'sourcing',        sourceKey: 'sourcing' },
+    diversity:       { id: 'diversity',       sourceKey: 'diversity' },
+    tech:            { id: 'tech',            sourceKey: 'tech' },
+    glassdoor:       { id: 'glassdoor',       sourceKey: 'glassdoor' },
+    attrition:       { id: 'attrition',       sourceKey: 'attrition' },
+    drops:           { id: 'drops',           sourceKey: 'drops' },
+    ta:              { id: 'ta',              sourceKey: 'ta' },
+    window:          { id: 'window',          sourceKey: 'window_extras' },
+  };
+  Object.values(SECTION_MAP).forEach(cfg => {
+    const sec = document.getElementById(cfg.id);
+    if (!sec) return;
+    const h2 = sec.querySelector('h2');
+    if (!h2) return;
+    if (sec.querySelector('.source-pill')) return; // don't double-inject
+    const src = (data[cfg.sourceKey] && data[cfg.sourceKey]._source) || cfg.fallback || '—';
+    const refreshed = (data[cfg.sourceKey] && data[cfg.sourceKey]._refreshed_at) || data.refreshed_at || '';
+    const pill = document.createElement('p');
+    pill.className = 'source-pill text-xs mt-1';
+    pill.style.cssText = 'background:#eef2ff;border-left:3px solid #4736FE;padding:6px 10px;color:#374151;border-radius:4px;display:inline-block;max-width:100%;';
+    pill.innerHTML = `<b style="color:#4736FE">Source of truth:</b> ${src} <span style="color:#6b7280">· refreshed ${refreshed}</span>`;
+    // Insert right after the existing intro <p> if present, else right after h2
+    const introP = h2.nextElementSibling && h2.nextElementSibling.tagName === 'P' ? h2.nextElementSibling : null;
+    if (introP) introP.insertAdjacentElement('afterend', pill);
+    else h2.insertAdjacentElement('afterend', pill);
+  });
+
   destroyCharts();
 
   const arrow = (delta, lower_is_better = false) => {
@@ -738,21 +780,22 @@ async function loadDashboard() {
   };
 
   const ov = data.overview || {};
-  // Window-only KPI cards — ONLY metrics that are meaningful for a 9-day window
+  // Window-only KPI cards — Snowflake-first; CSV-derived clearly tagged
   const cards = [
-    { label: 'Total Candidates',    value: ov.joinings_total_candidates, suffix: '' },
-    { label: 'Joined',              value: ov.joinings,                  suffix: '' },
-    { label: 'Not Joined / Drops',  value: ov.drops,                     suffix: '' },
-    { label: 'Offer-to-Join',       value: ov.otj,                       suffix: '%' },
-    { label: 'Drop Rate',           value: ov.drop_rate,                 suffix: '%' },
-    { label: 'Senior B4+ Hires',    value: ov.senior_b4_plus,            suffix: '' },
-    { label: 'Active Recruiters',   value: ov.active_recruiters,         suffix: '' },
-    { label: 'Joinings / Recruiter',value: ov.productivity,              suffix: '' },
+    { label: 'Total Candidates',    value: ov.joinings_total_candidates, suffix: '', sub: 'Rocket Offers CSV' },
+    { label: 'Joined',              value: ov.joinings,                  suffix: '', sub: 'Snowflake CSPL · +' + (ov.joinings_pending_pipeline ?? '—') + ' in pipeline (Pending)' },
+    { label: 'Not Joined / Drops',  value: ov.drops,                     suffix: '', sub: 'Rocket Offers CSV' },
+    { label: 'Offer-to-Join',       value: ov.otj,                       suffix: '%', sub: 'Rocket Offers CSV' },
+    { label: 'Drop Rate',           value: ov.drop_rate,                 suffix: '%', sub: 'Rocket Offers CSV' },
+    { label: 'Senior B4+ Hires',    value: ov.senior_b4_plus,            suffix: '', sub: 'Snowflake CSPL · B4+B5+B6+Builder' },
+    { label: 'Active Recruiters',   value: ov.active_recruiters,         suffix: '', sub: 'Rocket Offers CSV' },
+    { label: 'Joinings / Recruiter',value: ov.productivity,              suffix: '', sub: 'Computed · Joinings ÷ 17' },
   ];
   const cardsHTML = cards.map(c => `
     <div class="rounded-lg shadow-sm border p-5 kpi-card">
       <div class="text-xs uppercase text-gray-500 font-semibold tracking-wide">${c.label}</div>
       <div class="text-3xl font-bold brand-blue mt-2">${c.value ?? '—'}${c.value != null ? c.suffix : ''}</div>
+      ${c.sub ? `<div class="text-[10px] text-gray-500 mt-1.5 leading-tight">${c.sub}</div>` : ''}
     </div>`).join('');
   document.getElementById('overview-cards').innerHTML = cardsHTML;
   document.getElementById('recruitment-kpis').innerHTML = cardsHTML;
@@ -799,18 +842,19 @@ async function loadDashboard() {
   if (fsBody) {
     const ng = data.metrics_not_computable_for_window || {};
     const formulaRows = [
-      ['Joinings',              'COUNT(DOJ in window AND Joining Status = Joined)',          ov.joinings,                       'V3 sheet · ✅ Computed'],
-      ['Total Candidates',      'COUNT(DOJ in window — joined + not joined + pending)',      ov.joinings_total_candidates,      'V3 sheet · ✅ Computed'],
-      ['Drops (Not Joined)',    'COUNT(DOJ in window AND Joining Status = Not Joined)',      ov.drops,                          'V3 sheet · ✅ Computed'],
-      ['Drop Rate %',           '(Drops ÷ Total Candidates) × 100',                          (ov.drop_rate ?? '—') + '%',       'V3 sheet · ✅ Computed'],
-      ['Offer-to-Join %',       'Joinings ÷ Total Candidates × 100',                          (ov.otj ?? '—') + '%',             'V3 sheet · ✅ Computed'],
-      ['30-day Attrition %',    '(Exits ≤ 30 days ÷ Total Joinings) × 100',                   '0%',                              'Mathematical 0% — window joiners are 0–9 days tenured; cannot have 30-day attrition yet'],
-      ['Senior B4+ Hires',      'COUNT(DOJ in window AND Band ∈ {B4, B5, B6})',               ov.senior_b4_plus,                 'V3 sheet · ✅ Computed'],
-      ['Recruiter Productivity','Joinings ÷ Distinct Recruiter Count',                        ov.productivity,                   'V3 sheet · ✅ Computed'],
-      ['Active Recruiters',     'COUNT(DISTINCT Recruiter for window joinings)',              ov.active_recruiters,              'V3 sheet · ✅ Computed'],
-      ['Source Mix %',          '(Joinings from Source ÷ Total Joinings) × 100',              'See Sourcing tab',                'V3 sheet · ✅ Computed'],
-      ['By-function Joinings',  'COUNT per function bucket',                                  'See By-Function table',           'V3 sheet · ✅ Computed'],
-      ['By-band, by-entity, by-day', 'COUNT per band / entity / DOJ day',                     'See Window Detail tab',           'V3 sheet · ✅ Computed'],
+      ['Joinings',              'COUNT(DOJ in window AND status IN Active/InActive)',         ov.joinings,                       'Snowflake CSPL_HR_DB · ✅ Live (340 actual; 408 in pipeline = pending onboarding)'],
+      ['Total Candidates',      'COUNT(offered candidates in window)',                        ov.joinings_total_candidates,      'Rocket Offers CSV · ✅ Computed'],
+      ['Drops (Not Joined)',    'COUNT(Joining Status = Not Joined for offers in window)',    ov.drops,                          'Rocket Offers CSV · ✅ Computed (Snowflake doesn\'t track drops)'],
+      ['Drop Rate %',           '(Drops ÷ Total Candidates) × 100',                          (ov.drop_rate ?? '—') + '%',       'Rocket Offers CSV · ✅ Computed'],
+      ['Offer-to-Join %',       'Joinings ÷ Total Candidates × 100',                          (ov.otj ?? '—') + '%',             'Rocket Offers CSV · ✅ Computed'],
+      ['30-day Attrition %',    '(Exits in last 30d ÷ Active HC) × 100',                      (ov.attrition_30d ?? '—') + '%',  'Snowflake CSPL_HR_DB · ✅ Live'],
+      ['Window Attrition %',    '(Window exits ÷ Avg HC) × 100',                              (ov.overall_attrition_window != null ? ov.overall_attrition_window.toFixed(2) : '—') + '%',  'Snowflake CSPL_HR_DB · ✅ Live'],
+      ['Senior B4+ Hires',      'COUNT(DOJ in window AND Band ∈ {B4, B5, B6, Builder})',      ov.senior_b4_plus,                 'Snowflake CSPL_HR_DB · ✅ Live (Builder roll-up per memory)'],
+      ['Recruiter Productivity','Joinings ÷ Distinct Recruiter Count (17)',                   ov.productivity,                   'Rocket Offers CSV · ✅ Computed (Snowflake doesn\'t track recruiter)'],
+      ['Active Recruiters',     'COUNT(DISTINCT Recruiter for window joinings)',              ov.active_recruiters,              'Rocket Offers CSV · locked at 17'],
+      ['Source Mix %',          '(Joinings from Source ÷ Total Joinings) × 100',              'See Sourcing tab',                'Rocket Offers CSV · ✅ Computed'],
+      ['By-function Joinings',  'COUNT per function bucket (Snowflake DEPARTMENT_CODE)',      'See By-Function table',           'Snowflake CSPL_HR_DB · ✅ Live (replaces stale CSV view)'],
+      ['By-band, by-entity, by-day', 'COUNT per band / entity / DOJ day',                     'See Window Detail tab',           'Snowflake CSPL_HR_DB · ✅ Live'],
       ['Variable CPH',          'Total Variable Cost ÷ Total Joinings',                       ov.cph != null ? '₹' + Number(ov.cph).toLocaleString('en-IN') : '—',                               ov.cph != null ? 'JM sheet · partial — Finance to backfill Actual_CPH post month-end close' : 'Pending Finance close — Actual_CPH not yet posted in Joining Master for window cohort'],
       ['Hike %',                'AVG((Offered CTC − Last CTC) ÷ Last CTC) × 100',             (ov.hike ?? '—') + (ov.hike != null ? '%' : ''),                               'JM sheet · ✅ Computed (' + (ov.hike_data_rows ?? '—') + ' joiners). Snowflake ATS has no Offered CTC field — TA must populate.'],
       ['Time to Fill (d)',      'AVG(DOJ − Requisition Open Date)',                           (ov.ttf ?? '—') + (ov.ttf != null ? ' d' : ''),                                 'Snowflake CSPL_HR_DB · ✅ Live (109 ATS-linked offers in window)'],
