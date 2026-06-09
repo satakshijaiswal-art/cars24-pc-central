@@ -116,7 +116,6 @@
     <a href="#attrition" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Attrition</a>
     <a href="#drops" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Offer Drops</a>
     <a href="#ta" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">TA Pipeline</a>
-    <a href="#window" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Window Detail</a>
     <a href="#hrbp" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">HRBP Updates</a>
     <a href="#sf-headcount" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Active HC</a>
     <a href="#sf-org" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Org Structure</a>
@@ -564,24 +563,6 @@
     </div>
   </section>
 
-  <!-- 11. WINDOW DETAIL (new) -->
-  <section id="window">
-    <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-blue">Window Detail · <span id="window-label-detail">—</span></h2>
-    <p class="text-gray-600 mt-1">Day-wise · entity-wise · top recruiters · live thru today</p>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-      <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">Joinings by Day</h3>
-        <div class="chart-box"><canvas id="chart-window-day"></canvas></div>
-      </div>
-      <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-3">By Entity</h3>
-        <div class="chart-box"><canvas id="chart-window-entity"></canvas></div>
-      </div>
-    </div>
-  </section>
-
   <!-- 11b. HRBP UPDATES -->
   <section id="hrbp">
     <div class="accent-bar mb-3"></div>
@@ -786,7 +767,7 @@ async function loadDashboard() {
 
   // Fill dynamic window labels (replaces stale hardcoded "26 Apr → 04/11 May" everywhere)
   const winLabel = data.period_label || '';
-  ['window-label-formula','window-label-detail'].forEach(id => {
+  ['window-label-formula'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.textContent = winLabel;
   });
@@ -805,7 +786,6 @@ async function loadDashboard() {
     attrition:       { id: 'attrition',       sourceKey: 'attrition' },
     drops:           { id: 'drops',           sourceKey: 'drops' },
     ta:              { id: 'ta',              sourceKey: 'ta' },
-    window:          { id: 'window',          sourceKey: 'window_extras' },
     hrbp:            { id: 'hrbp',            sourceKey: 'hrbp' },
   };
   Object.values(SECTION_MAP).forEach(cfg => {
@@ -912,7 +892,6 @@ async function loadDashboard() {
       ['Active Recruiters',     'COUNT(DISTINCT Recruiter for month joinings)',               ov.active_recruiters,              'Attached P&C workbook · ✅ May-26'],
       ['Source Mix %',          '(Joinings from Source ÷ Total Joinings) × 100',              'See Sourcing tab',                'Rocket Offers CSV · ✅ Computed'],
       ['By-function Joinings',  'COUNT per function bucket (joinings, excl. movements)',      'See By-Function table',           'Recruitment sheet / OTJ-by-Dept tab · ✅ May-26 (not Snowflake — movements excluded)'],
-      ['By-band, by-entity, by-day', 'COUNT per band / entity / DOJ day',                     'See Window Detail tab',           'Snowflake CSPL_HR_DB · ✅ Live'],
       ['Variable CPH',          'Total Variable Cost ÷ Total Joinings',                       ov.cph != null ? '₹' + Number(ov.cph).toLocaleString('en-IN') : '—',                               ov.cph != null ? 'JM sheet · partial — Finance to backfill Actual_CPH post month-end close' : 'Pending Finance close — Actual_CPH not yet posted in Joining Master for window cohort'],
       ['Hike %',                'AVG((Offered CTC − Last CTC) ÷ Last CTC) × 100',             (ov.hike ?? '—') + (ov.hike != null ? '%' : ''),                               'JM sheet · ✅ Computed (' + (ov.hike_data_rows ?? '—') + ' joiners). Snowflake ATS has no Offered CTC field — TA must populate.'],
       ['Time to Fill (d)',      'AVG(DOJ − Requisition Open Date)',                           (ov.ttf ?? '—') + (ov.ttf != null ? ' d' : ''),                                 'Snowflake CSPL_HR_DB · ✅ Live (109 ATS-linked offers in window)'],
@@ -1158,28 +1137,6 @@ async function loadDashboard() {
   document.getElementById('ta-closed').textContent = ta.closed ?? '—';
   document.getElementById('ta-ytj').textContent = ta.ytj ?? '—';
   document.getElementById('ta-prod').textContent = ta.productivity ?? '—';
-
-  const we = data.window_extras || {};
-  if (we.by_day) {
-    chartInstances.byDay = new Chart(document.getElementById('chart-window-day'), {
-      type: 'bar',
-      data: { labels: Object.keys(we.by_day), datasets: [{ label: 'Joinings', data: Object.values(we.by_day), backgroundColor: '#4736FE' }] },
-      options: { responsive: true, maintainAspectRatio: false }
-    });
-  }
-  if (we.by_entity) {
-    chartInstances.byEntity = new Chart(document.getElementById('chart-window-entity'), {
-      type: 'doughnut',
-      data: { labels: Object.keys(we.by_entity), datasets: [{ data: Object.values(we.by_entity), backgroundColor: ['#4736FE', '#7C7AFF', '#3530C7', '#7B9DB8'] }] },
-      options: { responsive: true, maintainAspectRatio: false }
-    });
-  }
-  const topRecEl = document.getElementById('top-recruiters');
-  if (we.top_recruiters && topRecEl) {
-    topRecEl.innerHTML = we.top_recruiters.map(r =>
-      `<li class="flex justify-between border-b pb-1.5"><span>${r.name}</span><span class="font-bold brand-blue">${r.joinings}</span></li>`
-    ).join('');
-  }
 
   // ============ HRBP Updates ============
   const hrbp = data.hrbp || {};
