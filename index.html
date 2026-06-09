@@ -840,14 +840,14 @@ async function loadDashboard() {
   const ov = data.overview || {};
   // Window-only KPI cards — Snowflake-first; CSV-derived clearly tagged
   const cards = [
-    { label: 'Total Candidates',    value: ov.joinings_total_candidates, suffix: '', sub: 'Rocket Offers CSV' },
+    { label: 'Total Candidates',    value: ov.joinings_total_candidates, suffix: '', sub: 'Joined + Yet-to-Join + Drops · Recruitment sheet · excl. internal movements' },
     { label: 'Joined',              value: ov.joinings,                  suffix: '', sub: 'Recruitment sheet · excl. movements · ' + (ov.yet_to_join ?? '—') + ' yet-to-join' },
-    { label: 'Not Joined / Drops',  value: ov.drops,                     suffix: '', sub: 'Rocket Offers CSV' },
-    { label: 'Offer-to-Join',       value: ov.otj,                       suffix: '%', sub: 'Rocket Offers CSV' },
-    { label: 'Drop Rate',           value: ov.drop_rate,                 suffix: '%', sub: 'Rocket Offers CSV' },
-    { label: 'Senior B4+ Hires',    value: ov.senior_b4_plus,            suffix: '', sub: 'Snowflake CSPL · B4+B5+B6+Builder' },
-    { label: 'Active Recruiters',   value: ov.active_recruiters,         suffix: '', sub: 'Rocket Offers CSV' },
-    { label: 'Joined / Recruiter',  value: ov.productivity,              suffix: '', sub: 'Workbook · Joined ÷ 25 recruiters (May-26)' },
+    { label: 'Not Joined / Drops',  value: ov.drops,                     suffix: '', sub: 'Recruitment sheet · past-DOJ no-shows · excl. movements' },
+    { label: 'Offer-to-Join',       value: ov.otj,                       suffix: '%', sub: 'Recruitment sheet · Joined ÷ Offers · excl. movements' },
+    { label: 'Drop Rate',           value: ov.drop_rate,                 suffix: '%', sub: 'Recruitment sheet · excl. movements' },
+    { label: 'Senior B4+ Hires',    value: ov.senior_b4_plus,            suffix: '', sub: 'Recruitment sheet · B4+ pipeline · excl. movements' },
+    { label: 'Active Recruiters',   value: ov.active_recruiters,         suffix: '', sub: 'Recruitment sheet (May-26)' },
+    { label: 'Joined / Recruiter',  value: ov.productivity,              suffix: '', sub: 'Recruitment sheet · Joined ÷ 25 recruiters · excl. movements' },
   ];
   const cardsHTML = cards.map(c => `
     <div class="rounded-lg shadow-sm border p-5 kpi-card">
