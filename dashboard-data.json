@@ -571,7 +571,7 @@
       4.9,
       5.22,
       5.26,
-      7.78
+      5.33
     ],
     "_source": "Joinings: Recruitment sheet / P&C app 12-mo trend (EXCLUDES internal movements). Attrition: Snowflake CSPL exits \u00f7 active HC, monthly.",
     "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
@@ -702,9 +702,9 @@
     "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
   },
   "attrition": {
-    "overall": 7.78,
-    "overall_window_raw": 5.52,
-    "overall_total_exits": 392,
+    "overall": 5.33,
+    "overall_window_raw": 5.33,
+    "overall_total_exits": 378,
     "overall_active_hc": 7097,
     "high": [
       {
@@ -733,36 +733,36 @@
     "drivers": [
       {
         "theme": "Better Opportunity",
-        "count": 2649,
-        "pct": 25.5
-      },
-      {
-        "theme": "Personal Issues",
-        "count": 2190,
-        "pct": 21.1
+        "count": 122,
+        "pct": 26.5
       },
       {
         "theme": "Personal Reasons",
-        "count": 1567,
-        "pct": 15.1
+        "count": 104,
+        "pct": 22.6
       },
       {
-        "theme": "Health-related",
-        "count": 868,
-        "pct": 8.4
+        "theme": "Absconding",
+        "count": 73,
+        "pct": 15.8
+      },
+      {
+        "theme": "Business Conditions",
+        "count": 56,
+        "pct": 12.1
       },
       {
         "theme": "Job Dissatisfaction",
-        "count": 681,
-        "pct": 6.6
+        "count": 42,
+        "pct": 9.1
       }
     ],
     "exit_types": {
       "Involuntary": 56,
       "Voluntary": 123
     },
-    "note": "Overall month-wise org attrition (May'26) = 7.78% \u2014 this is the figure to use in the overall attrition field. 30-day recruitment attrition = 7.14% (do not mix the two definitions). Per May 2026 reconciliation. Drivers are Snowflake lifetime reasoned-exit shares.",
-    "_source": "Snowflake CSPL+CAPL_HR_DB \u00b7 DATE_OF_EXIT (last 30d) \u00f7 active HC; drivers from reasoned exits.",
+    "note": "May 2026 org attrition = 5.33% (378 exits \u00f7 7,097 active HC, CSPL+CAPL EMPLOYEES, live). Exit drivers are MAY 2026 ONLY (not lifetime) \u2014 from EMPLOYEE_BASE_VIEW (Base-Live), Date of Leaving in May: 461 reasoned of 467 total May exits; % = share of reasoned May exits. (Recruitment 30-day attrition = 7.14% is a separate TA metric and is not the org figure.)",
+    "_source": "Snowflake live \u00b7 org attrition = CSPL+CAPL EMPLOYEES DATE_OF_EXIT in May 2026 \u00f7 active HC. Exit drivers = EMPLOYEE_BASE_VIEW.EXIT_REASON, DATE_OF_EXIT in May 2026.",
     "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
   },
   "automation": [
