@@ -1,10 +1,10 @@
 {
-  "refreshed_at": "18 May 2026 \u00b7 19:43 IST",
-  "period_label": "26 Apr \u2192 18 May 2026",
+  "refreshed_at": "09 Jun 2026 \u00b7 18:30 IST",
+  "period_label": "May 2026 \u00b7 full month \u00b7 refreshed 09 Jun 2026",
   "window": {
-    "start": "2026-04-26",
-    "end": "2026-05-18",
-    "days": 23
+    "start": "2026-05-01",
+    "end": "2026-05-31",
+    "days": 31
   },
   "data_sources": {
     "v3_candidates": 244,
@@ -17,12 +17,12 @@
   },
   "data_coverage_note": "Joinings: 217 (Base-Live). OTJ: 83/134 from Rocket Offers, V3 cross-check 192/244. CTC/CPH/Hike from JM cohort 178. Time to Fill, Avg TAT (open), Active Reqs, Female % now sourced live from Snowflake CSPL_HR_DB (HR_ATS_PUBLIC). Window auto-rolls daily \u2014 end = today (IST).",
   "overview": {
-    "joinings": 340,
-    "joinings_total_candidates": 249,
-    "drops": 51,
-    "drop_rate": 20.9,
-    "otj": 78.69,
-    "otj_v3_consistent": 78.69,
+    "joinings": 295,
+    "joinings_total_candidates": 338,
+    "drops": 43,
+    "drop_rate": 12.7,
+    "otj": 87.28,
+    "otj_v3_consistent": 87.28,
     "otj_ro_consistent": 61.94,
     "otj_base_to_v3": 88.93,
     "attrition_30d": 4.8,
@@ -51,11 +51,11 @@
     "female_base_n": 266,
     "female_note": "Snowflake CSPL_HR_DB \u00b7 26 Female / 266 ATS-tagged joiners with declared gender",
     "female_source": "snowflake",
-    "senior_b4_plus": 12,
-    "senior_new": 10,
+    "senior_b4_plus": 6,
+    "senior_new": 6,
     "senior_replacement": 0,
-    "productivity": 17.8,
-    "active_recruiters": 17,
+    "productivity": 12.0,
+    "active_recruiters": 25,
     "attrition_30d_display": 4.8,
     "td_active_hc": 7102,
     "td_builders_b4plus": 271,
@@ -75,7 +75,7 @@
     "active_hc_snowflake_cspl": 6920,
     "_source_note": "Headline joinings/drops/OTJ kept on Recruitment-Metrics CSV (operational view). Function tile and B4+ tiles use Snowflake CSPL_HR_DB (system of record).",
     "joinings_csv_recruitment": 303,
-    "joinings_pending_pipeline": 408,
+    "joinings_pending_pipeline": 13,
     "_sources": {
       "joinings (340)": "Snowflake \u00b7 CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u00b7 DATE_OF_JOINING in window AND EMPLOYEE_STATUS IN ('Active','InActive')",
       "joinings_pending_pipeline": "Snowflake \u00b7 same as above but EMPLOYEE_STATUS='Pending' (offer accepted, DOJ set, onboarding in progress)",
@@ -93,15 +93,17 @@
       "productivity / active_recruiters": "Recruitment Metrics CSV \u00b7 joinings/recruiter, recruiter count locked at 17",
       "td_* (Talent Density tiles)": "Snowflake live \u00b7 CSPL_HR_DB + CAPL_HR_DB EMPLOYEES \u00b7 founder-grade builder density per Vikram's #1 lever"
     },
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
+    "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST",
+    "_source": "Attached P&C workbook (May-26): Joined/Offers/Drops/OTJ/productivity. Talent-density & live HC/attrition/TTF tiles carried from last Snowflake sync (18 May)."
   },
   "functionTable": {
     "joinings_by": {
-      "Business (B1+B2)": 292,
-      "Other Support": 34,
-      "BI DS": 9,
-      "Product": 3,
-      "Technology": 2
+      "Business (B1+B2)": 276,
+      "Business Support": 1,
+      "Product": 2,
+      "Technology": 2,
+      "BI DS": 1,
+      "Other Support": 13
     },
     "active_hc_by": {
       "Business (B1+B2)": 5529,
@@ -118,19 +120,20 @@
       "Product": 7
     },
     "drops_by": {
-      "Business (B1+B2)": 44,
-      "Other Support": 7,
+      "Business (B1+B2)": 36,
       "Business Support": 0,
-      "Product": 0,
-      "Technology": 0,
-      "BI DS": 0
+      "Product": 3,
+      "Technology": 2,
+      "BI DS": 1,
+      "Other Support": 1
     },
     "otj_by": {
-      "Business (B1+B2)": 80.95,
-      "Technology": 100.0,
-      "Product": 100.0,
-      "Other Support": 76.67,
-      "BI DS": 100.0
+      "Business (B1+B2)": 88.46,
+      "Business Support": 100.0,
+      "Product": 40.0,
+      "Technology": 50.0,
+      "BI DS": 50.0,
+      "Other Support": 92.86
     },
     "ttf_by": {
       "Business (B1+B2)": 34.1,
@@ -171,12 +174,12 @@
       "Product": 9.4595
     },
     "candidates_by": {
-      "Business (B1+B2)": 207,
-      "Other Support": 34,
-      "Product": 2,
-      "Technology": 1,
-      "Business Support": 0,
-      "BI DS": 5
+      "Business (B1+B2)": 312,
+      "Business Support": 1,
+      "Product": 5,
+      "Technology": 4,
+      "BI DS": 2,
+      "Other Support": 14
     },
     "joinings_by_incl_pending": {
       "Business (B1+B2)": 637,
@@ -185,7 +188,7 @@
       "Product": 7,
       "Technology": 5
     },
-    "_source": "Snowflake \u00b7 CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u00b7 DEPARTMENT_CODE bucketed (Tech/Product/BI DS/Business/Other)",
+    "_source": "Attached P&C workbook \u00b7 OTJ-by-Dept_Type tab (May-26). Offers/Joined/Drops/OTJ recomputed; HC & attrition columns carried from last Snowflake sync.",
     "_sources_by_metric": {
       "joinings_by": "Snowflake \u00b7 DOJ in window AND status IN ('Active','InActive')",
       "joinings_by_incl_pending": "Snowflake \u00b7 DOJ in window (any status incl. Pending)",
@@ -200,129 +203,75 @@
       "female_by": "Base-Live CSV \u00b7 joiners by function \u00d7 gender (Snowflake GENDER is hashed)",
       "candidates_by": "V3 / Rocket Offers CSV \u00b7 total offered candidates by function"
     },
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
+    "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
   },
   "leadership": {
-    "total": 12,
-    "b4": 7,
-    "b5": 3,
-    "b6": 0,
+    "total": 6,
+    "b4": 2,
+    "b5": 1,
+    "b6": 3,
     "b7": 0,
-    "new_count": 10,
+    "new_count": 6,
     "replacement": 0,
     "unclassified": 0,
     "list": [
       {
-        "name": "Sumit Sharma",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Product Management",
-        "entity": "CSPL",
-        "doj": "27-Apr-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Yugesh Kumar",
+        "name": "Vishal Jindal",
         "band": "B5",
-        "designation": "Builder",
-        "function": "Business",
+        "designation": "Builder (Tech Support)",
+        "function": "Technology",
         "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
+        "doj": "08-Jun-26",
+        "gender": ""
       },
       {
-        "name": "Able Ambal Cherry",
+        "name": "Ankit Jha",
         "band": "B4",
         "designation": "Builder",
-        "function": "Refurb",
+        "function": "Product / Tech",
         "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
+        "doj": "15-Jun-26",
+        "gender": ""
       },
       {
-        "name": "Saurav Kumar Singh",
+        "name": "Lokesh",
+        "band": "B6",
+        "designation": "Associate Vice President",
+        "function": "Central",
+        "entity": "CSPL",
+        "doj": "15-Jun-26",
+        "gender": ""
+      },
+      {
+        "name": "Vaibhav Singhal",
+        "band": "B6",
+        "designation": "Associate Vice President",
+        "function": "Central",
+        "entity": "CSPL",
+        "doj": "02-Jul-26",
+        "gender": ""
+      },
+      {
+        "name": "Hitesh Sharma",
+        "band": "B6",
+        "designation": "Vice President (Builder)",
+        "function": "Central",
+        "entity": "CSPL",
+        "doj": "06-Jul-26",
+        "gender": ""
+      },
+      {
+        "name": "Sree Sai Ganesh A",
         "band": "B4",
         "designation": "Builder",
-        "function": "Business",
+        "function": "Technology",
         "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Vignesh Ramalingam",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Vinu V",
-        "band": "B5",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Vedant Pagare",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Sudhir Kumar Surendranath Pandey",
-        "band": "B5",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Utkarsh Mishra",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Rajyaguru Chintan",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Aditya Mahesh Venuthurupalli",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Business",
-        "entity": "CSPL",
-        "doj": "1-May-26",
-        "gender": "Male"
-      },
-      {
-        "name": "Bharat Garg",
-        "band": "B5",
-        "designation": "Director",
-        "function": "Finance",
-        "entity": "CSPL",
-        "doj": "14-May-26",
-        "gender": "Male"
+        "doj": "27-Jul-26",
+        "gender": ""
       }
     ],
-    "_source": "Base-Live CSV \u00b7 B4+ joiners in window with unhashed names (Snowflake HRMS hashes PII). Snowflake count cross-check: 12 distinct B4+ EMPLOYEE_IDs with EMPLOYEE_STATUS='Active' AND DOJ in window.",
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
+    "_source": "Attached P&C workbook \u00b7 senior offer-accepted / released tabs + Central pipeline \u00b7 B4+ landing Jun\u2013Jul 2026",
+    "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
   },
   "diversity": {
     "total": 217,
@@ -347,7 +296,8 @@
     },
     "data_rows": 217,
     "_source": "Base-Live CSV \u00b7 217 window joiners with unhashed gender. Snowflake ATS APPLICANTS cross-check for ATS-tagged subset: 26 Female / 240 Male / 266 = 9.77% (see overview.female_pct).",
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST",
+    "_carried_note": "Carried from last sync (18 May 2026) \u2014 attached workbook is recruitment/offer + employer-brand centric and does not refresh this metric."
   },
   "sourcing": {
     "overall": {
@@ -605,30 +555,31 @@
       "note": "Window 26 Apr \u2192 11 May 2026 \u00b7 178 JM-synced rows."
     },
     "_source": "Rocket Offers CSV (Recruitment Metrics) \u00b7 Source Category \u00d7 Joining Status for window. Snowflake doesn't track source-of-hire.",
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST",
+    "_carried_note": "Carried from last sync (18 May 2026) \u2014 attached workbook is recruitment/offer + employer-brand centric and does not refresh this metric."
   },
   "drops": {
-    "total": 51,
-    "rate": 20.9,
+    "total": 43,
+    "rate": 12.7,
     "by_function": {
-      "Business (B1+B2)": 44,
-      "Other Support": 7,
-      "Business Support": 0,
-      "Product": 0,
-      "Technology": 0,
-      "BI DS": 0
+      "Business (B1+B2)": 36,
+      "Product": 3,
+      "Technology": 2,
+      "BI DS": 1,
+      "Other Support": 1,
+      "Business Support": 0
     },
     "top_function": "Business (B1+B2)",
-    "_source": "Rocket Offers CSV \u00b7 Joining Status != 'Joined' for offered candidates in window. Snowflake ATS doesn't have clean drop tracking.",
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
+    "_source": "Attached P&C workbook \u00b7 OTJ tab (May-26) \u00b7 Drops = Offers \u2212 Joined per Dept_Type",
+    "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
   },
   "ta": {
     "active": 700,
-    "closed": 217,
+    "closed": 295,
     "ytj": 51,
-    "productivity": 12.8,
-    "_source": "Mixed \u00b7 active (700) from Snowflake CSPL_HR_DB.HR_ATS_PUBLIC.REQUISITIONS STATUS='Open' \u00b7 closed/ytj/productivity from Joining Master CSV",
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
+    "productivity": 12.0,
+    "_source": "Closed (295 joined) + productivity (12, joined\u00f7recruiters) from attached workbook May-26. Active reqs (company-wide) & YTJ carried from last Snowflake/Rocket sync.",
+    "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
   },
   "trends": {
     "months": [
@@ -636,14 +587,14 @@
       "Feb-26",
       "Mar-26",
       "Apr-26",
-      "26 Apr\u219218 May"
+      "May-26"
     ],
     "joinings": [
       351,
       340,
       269,
-      232,
-      303
+      294,
+      295
     ],
     "attrition": [
       8.07,
@@ -652,8 +603,8 @@
       18.96,
       4.9
     ],
-    "_source": "Months Jan-Apr 26 = historical (static) from prior monthly MIS. '26 Apr\u2192Today' bar = current window from Snowflake.",
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
+    "_source": "Jan-Mar 26 historical (prior MIS); Apr-26 (294) & May-26 (295) Joined from attached workbook OTJ tab. Attrition line carried from prior sync.",
+    "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
   },
   "window_extras": {
     "by_day": {
@@ -718,46 +669,67 @@
       }
     ],
     "_source": "by_day + by_entity from Snowflake CSPL_HR_DB (DOJ in window, status IN Active/InActive). top_recruiters from Rocket Offers CSV (Snowflake doesn't track recruiter).",
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST",
+    "_carried_note": "Carried from last sync (18 May 2026) \u2014 attached workbook is recruitment/offer + employer-brand centric and does not refresh this metric."
   },
   "metrics_not_computable_for_window": {
     "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
   },
   "tech": {
-    "tech_hc": 276,
-    "product_hc": 74,
+    "tech_hc": 191,
+    "product_hc": 72,
     "data_hc": 54,
     "bi_hc": 50,
-    "total_hc": 454,
-    "open_roles": 700,
+    "total_hc": 317,
+    "open_roles": 164,
     "cost_per_month": null,
-    "cost_note": "Cost data not in Snowflake HR_DB \u2014 Finance feed (\u20b9L) needs separate pipe",
+    "cost_note": "Technology 191 (incl. eng/QA/support skills) + Product Mgmt 72 from workbook rosters. Data&AI 54 carried from last Snowflake sync. Open reqs 164 (52 New / 9 Replacement) from workbook requisitions tab \u2014 narrower than company-wide ATS view.",
     "pod_breakdown": {
-      "Backend": 129,
-      "Frontend": 37,
-      "IT/Tech Support": 30,
-      "Engineering (general)": 18,
-      "Mobile": 17,
-      "QA": 16,
-      "AI/Data Eng": 10,
-      "Management/Leaders": 10,
-      "DevOps/Security": 9
+      "Backend": 110,
+      "Frontend": 30,
+      "Quality Assurance": 14,
+      "Mobile": 8,
+      "Tech Support": 8,
+      "Management": 7,
+      "AI Science": 6,
+      "DevOps & Security": 3
     },
-    "_source": "Snowflake \u00b7 CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u00b7 EMPLOYEE_STATUS='Active' grouped by DEPARTMENT_CODE (Technology / Product Management / Data and AI Engineering / Business Intelligence) and SUB_DEPARTMENT_CODE for POD split. SDE1/2/3 split needs JOB_LEVEL_CODE \u2014 currently hashed in Snowflake; reach out to platform team to unhash.",
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
+    "_source": "Attached P&C workbook \u00b7 Tech builder roster + Product Mgmt roster + Requisitions tab",
+    "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST",
+    "backend": {
+      "sde1": 109,
+      "sde2": 48,
+      "sde3": 23,
+      "leaders": 11
+    },
+    "frontend": {
+      "sde1": 6,
+      "sde2": 28,
+      "sde3": 22,
+      "leaders": 16
+    },
+    "source": "Attached P&C workbook \u00b7 Tech builder roster + Product Mgmt roster + Requisitions tab",
+    "window": "Roster snapshot \u00b7 May-26 (synced 09 Jun 2026)",
+    "formula": "COUNT by Band per roster; Open Roles = SUM(no_of_openings) on Status=Open reqs"
   },
   "glassdoor": {
-    "rating": 4.3,
+    "rating": 4.1,
     "recommend": 78,
     "ceo": 85,
-    "outlook": 80,
+    "outlook": 81,
     "review_count_ambitionbox": 4600,
     "ambitionbox_rating": 3.5,
-    "last_updated": "11 May 2026 \u00b7 13:06 IST (external \u2014 not refreshed by daily job)",
+    "last_updated": "May 2026 \u00b7 from attached P&C workbook \u00b7 synced 09 Jun 2026",
     "next_scheduled_refresh": "Daily \u2014 pending glassdoor-reviews-bot agent reconnect",
-    "note": "Glassdoor direct scraping blocked by bot detection. Values reflect last reliable employer-portal snapshot + cross-validated against AmbitionBox (3.5/5 from 4,600+ Cars24 employee reviews). Auto-refresh requires Claude-in-Chrome extension to be connected so the glassdoor-reviews-bot can read the employer portal.",
-    "__period": "Latest snapshot \u00b7 11 May 2026",
-    "_source": "External \u00b7 Glassdoor employer portal (direct scraping bot-blocked) + AmbitionBox rating. Manual refresh via glassdoor-reviews-bot."
+    "note": "May'26: 4.1\u2605 on 824 reviews \u00b7 78% recommend \u00b7 85% CEO approval \u00b7 81% outlook \u00b7 interview positive 51%. From attached workbook Glassdoor tab (Mar-May'26 trend present).",
+    "__period": "May 2026",
+    "_source": "Attached P&C workbook \u00b7 Glassdoor monthly tab (May'26)",
+    "review_count": 824,
+    "interview_difficulty": 3,
+    "interview_positive": 51,
+    "interview_negative": 35,
+    "interview_neutral": 14,
+    "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
   },
   "attrition": {
     "overall": 4.8,
@@ -836,7 +808,8 @@
     },
     "note": "Window 26 Apr\u201318 May (23 days): 288 exits across 6,920 active employees. 30-day rate: 4.8%.",
     "_source": "Snowflake \u00b7 CSPL_HR_DB EMPLOYEES \u00b7 exits / active HC. High/low/drivers list curated from monthly MIS.",
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST"
+    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST",
+    "_carried_note": "Carried from last sync (18 May 2026) \u2014 attached workbook is recruitment/offer + employer-brand centric and does not refresh this metric."
   },
   "automation": [
     {
