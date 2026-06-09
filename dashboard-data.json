@@ -708,26 +708,30 @@
     "overall_active_hc": 7097,
     "high": [
       {
-        "func": "BI DS",
-        "pct": 5.5556
+        "func": "Product Management",
+        "pct": 15.19
+      },
+      {
+        "func": "Credit",
+        "pct": 7.14
       },
       {
         "func": "Technology",
-        "pct": 5.4313
+        "pct": 7.12
       },
       {
-        "func": "Product",
-        "pct": 5.2632
-      },
-      {
-        "func": "Other Support",
-        "pct": 4.1199
+        "func": "Partner Experience",
+        "pct": 5.77
       }
     ],
     "low": [
       {
-        "func": "Business Support",
+        "func": "Retail",
         "pct": 0.0
+      },
+      {
+        "func": "Marketing",
+        "pct": 3.06
       }
     ],
     "drivers": [
@@ -758,11 +762,11 @@
       }
     ],
     "exit_types": {
-      "Involuntary": 56,
-      "Voluntary": 123
+      "Voluntary": 309,
+      "Involuntary": 158
     },
-    "note": "May 2026 org attrition = 5.33% (378 exits \u00f7 7,097 active HC, CSPL+CAPL EMPLOYEES, live). Exit drivers are MAY 2026 ONLY (not lifetime) \u2014 from EMPLOYEE_BASE_VIEW (Base-Live), Date of Leaving in May: 461 reasoned of 467 total May exits; % = share of reasoned May exits. (Recruitment 30-day attrition = 7.14% is a separate TA metric and is not the org figure.)",
-    "_source": "Snowflake live \u00b7 org attrition = CSPL+CAPL EMPLOYEES DATE_OF_EXIT in May 2026 \u00f7 active HC. Exit drivers = EMPLOYEE_BASE_VIEW.EXIT_REASON, DATE_OF_EXIT in May 2026.",
+    "note": "Cross-checked live against Snowflake (09 Jun 2026). May 2026 on-roll org attrition = 5.33% = 378 exits \u00f7 7,097 active HC (CSPL+CAPL EMPLOYEES). ~5%/month is the normal run-rate for an auto-retail frontline workforce (annualised \u2248 64%, in line with the trailing-12-month ~72%). High-attrition functions, exit types (Voluntary 309 / Involuntary 158) and drivers are MAY-ONLY, from EMPLOYEE_BASE_VIEW (Base-Live, Date of Leaving in May: 467 exits, 461 reasoned). NOTE: Base-Live is the full workforce incl. third-party (10,502), so its department rates sit alongside the 7,097 on-roll headline. The recruitment 30-day attrition (7.14%) is a separate TA metric, not the org figure.",
+    "_source": "Snowflake live (cross-checked 09 Jun 2026) \u00b7 Headline = CSPL+CAPL HRMS_PUBLIC.EMPLOYEES, DATE_OF_EXIT in May 2026 \u00f7 EMPLOYEE_STATUS='Active'. By-function, exit types & drivers = HRMS_PUBLIC.EMPLOYEE_BASE_VIEW (DEPARTMENT, EXIT_TYPE, EXIT_REASON), Date of Leaving in May 2026.",
     "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
   },
   "automation": [

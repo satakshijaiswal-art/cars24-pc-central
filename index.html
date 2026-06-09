@@ -481,10 +481,10 @@
     <!-- DATA SOURCE + DATE RANGE -->
     <div class="bg-white rounded-lg shadow-sm border p-4 mt-4 text-xs">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
-        <div><span class="uppercase text-gray-500 font-semibold">Source</span><div class="brand-blue font-semibold mt-1" id="attr-src">Base-Live Employee Data sheet · <code>Date of Leaving</code> column</div></div>
+        <div><span class="uppercase text-gray-500 font-semibold">Source</span><div class="brand-blue font-semibold mt-1" id="attr-src">Snowflake live · <code>EMPLOYEES</code> (exits ÷ active HC) + <code>EMPLOYEE_BASE_VIEW</code> (reasons / types / dept)</div></div>
         <div><span class="uppercase text-gray-500 font-semibold">Window</span><div class="brand-blue font-semibold mt-1" id="attr-window">—</div></div>
         <div><span class="uppercase text-gray-500 font-semibold">Exits ÷ Active HC</span><div class="brand-blue font-semibold mt-1" id="attr-denom">—</div></div>
-        <div><span class="uppercase text-gray-500 font-semibold">Formula</span><div class="brand-blue font-semibold mt-1"><code>(Exits ÷ Avg HC) × (30 ÷ window days) × 100</code></div></div>
+        <div><span class="uppercase text-gray-500 font-semibold">Formula</span><div class="brand-blue font-semibold mt-1"><code>(Exits in month ÷ Active HC) × 100</code></div></div>
       </div>
       <p class="text-xs text-gray-500 italic mt-2" id="attr-note">—</p>
     </div>
@@ -818,6 +818,8 @@ async function loadDashboard() {
   };
 
   const ov = data.overview || {};
+  // Expose the authoritative active HC so the People Search line shows the same number as the header tiles
+  window.DASH_ACTIVE_HC = ov.active_hc ?? ov.td_active_hc ?? null;
   // Window-only KPI cards — Snowflake-first; CSV-derived clearly tagged
   const cards = [
     { label: 'Total Candidates',    value: ov.joinings_total_candidates, suffix: '', sub: 'Offers in May 2026 · Recruitment sheet · strictly May-filtered · excl. internal movements' },
@@ -1113,7 +1115,7 @@ async function loadDashboard() {
   const nEl = document.getElementById('attr-note');
   if (wEl) wEl.textContent = data.window ? `${data.window.start} → ${data.window.end} (${data.window.days} days)` : '—';
   if (dEl) dEl.textContent = (attr.overall_total_exits != null && attr.overall_active_hc != null)
-    ? `${attr.overall_total_exits} exits ÷ ${attr.overall_active_hc.toLocaleString('en-IN')} active HC = ${attr.overall_window_raw ?? '—'}% raw (window) → ${attr.overall ?? '—'}% monthly-projected`
+    ? `${attr.overall_total_exits} exits ÷ ${attr.overall_active_hc.toLocaleString('en-IN')} active HC = ${attr.overall ?? '—'}% (May 2026)`
     : '—';
   if (nEl) nEl.textContent = attr.note ?? '—';
   document.getElementById('attr-drivers').innerHTML = (attr.drivers || []).map(d =>
@@ -1250,9 +1252,11 @@ async function initEmpSearch() {
   const C = {}; DB.cols.forEach((c, i) => C[c] = i);
   // clean emp code (strip trailing .0)
   DB.rows.forEach(r => { r[C.code] = String(r[C.code] || '').replace(/\.0$/, ''); });
-  const activeCount = DB.rows.filter(r => (r[C.status] || '').toLowerCase() === 'active').length;
+  const indexedActive = DB.rows.filter(r => (r[C.status] || '').toLowerCase() === 'active').length;
+  // Show the authoritative total active HC (same Snowflake figure as the header tiles), not the directory subset
+  const officialHC = (typeof window.DASH_ACTIVE_HC === 'number') ? window.DASH_ACTIVE_HC : indexedActive;
   const metaEl = document.getElementById('emp-meta');
-  if (metaEl) metaEl.textContent = activeCount.toLocaleString() + ' active employees · source: Base-Live / Snowflake';
+  if (metaEl) metaEl.textContent = officialHC.toLocaleString('en-IN') + ' active employees · source: Snowflake (CSPL + CAPL)';
 
   function tags(r) {
     const f = (r[C.func] || '').toLowerCase(), sf = (r[C.subfunc] || '').toLowerCase(),
