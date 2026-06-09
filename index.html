@@ -395,8 +395,8 @@
   <!-- 6. TECH & PRODUCT -->
   <section id="tech">
     <div class="accent-bar mb-3"></div>
-    <h2 class="text-3xl font-bold brand-blue">Tech &amp; Product Headcount</h2>
-    <p class="text-gray-600 mt-1">Live from Snowflake · band-wise · open roles</p>
+    <h2 class="text-3xl font-bold brand-blue">Tech &amp; Product · May 2026</h2>
+    <p class="text-gray-600 mt-1">May joined + offered (Tech Data + Product Data + Offered-Tech + Offered-Product) · band split = joined roster · open roles</p>
 
     <!-- SOURCE / WINDOW / FORMULA -->
     <div class="bg-white rounded-lg shadow-sm border p-4 mt-4 text-xs">
@@ -410,11 +410,11 @@
 
     <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-6">
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
-        <div class="text-xs uppercase text-gray-500">Technology HC</div>
+        <div class="text-xs uppercase text-gray-500">Technology (May)</div>
         <div class="text-4xl font-bold brand-blue mt-2" id="tech-hc">—</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
-        <div class="text-xs uppercase text-gray-500">Product HC</div>
+        <div class="text-xs uppercase text-gray-500">Product (May)</div>
         <div class="text-4xl font-bold brand-blue mt-2" id="product-hc">—</div>
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6 kpi-card text-center">
@@ -840,14 +840,14 @@ async function loadDashboard() {
   const ov = data.overview || {};
   // Window-only KPI cards — Snowflake-first; CSV-derived clearly tagged
   const cards = [
-    { label: 'Total Candidates',    value: ov.joinings_total_candidates, suffix: '', sub: 'Joined + Yet-to-Join + Drops · Recruitment sheet · excl. internal movements' },
+    { label: 'Total Candidates',    value: ov.joinings_total_candidates, suffix: '', sub: 'Offers in May 2026 · Recruitment sheet · strictly May-filtered · excl. internal movements' },
     { label: 'Joined',              value: ov.joinings,                  suffix: '', sub: 'Recruitment sheet · excl. movements · ' + (ov.yet_to_join ?? '—') + ' yet-to-join' },
     { label: 'Not Joined / Drops',  value: ov.drops,                     suffix: '', sub: 'Recruitment sheet · past-DOJ no-shows · excl. movements' },
     { label: 'Offer-to-Join',       value: ov.otj,                       suffix: '%', sub: 'Recruitment sheet · Joined ÷ Offers · excl. movements' },
     { label: 'Drop Rate',           value: ov.drop_rate,                 suffix: '%', sub: 'Recruitment sheet · excl. movements' },
     { label: 'Senior B4+ Hires',    value: ov.senior_b4_plus,            suffix: '', sub: 'Recruitment sheet · B4+ pipeline · excl. movements' },
     { label: 'Active Recruiters',   value: ov.active_recruiters,         suffix: '', sub: 'Recruitment sheet (May-26)' },
-    { label: 'Joined / Recruiter',  value: ov.productivity,              suffix: '', sub: 'Recruitment sheet · Joined ÷ 25 recruiters · excl. movements' },
+    { label: 'Joined / Recruiter',  value: ov.productivity,              suffix: '', sub: 'Recruitment sheet · Joined ÷ 24 recruiters · excl. movements' },
   ];
   const cardsHTML = cards.map(c => `
     <div class="rounded-lg shadow-sm border p-5 kpi-card">
@@ -908,7 +908,7 @@ async function loadDashboard() {
       ['30-day Attrition %',    '(Exits in last 30d ÷ Active HC) × 100',                      (ov.attrition_30d ?? '—') + '%',  'Snowflake CSPL_HR_DB · ✅ Live'],
       ['Window Attrition %',    '(Window exits ÷ Avg HC) × 100',                              (ov.overall_attrition_window != null ? ov.overall_attrition_window.toFixed(2) : '—') + '%',  'Snowflake CSPL_HR_DB · ✅ Live'],
       ['Senior B4+ Hires',      'COUNT(DOJ in window AND Band ∈ {B4, B5, B6, Builder})',      ov.senior_b4_plus,                 'Snowflake CSPL_HR_DB · ✅ Live (Builder roll-up per memory)'],
-      ['Recruiter Productivity','Joined ÷ Distinct Recruiter Count (25)',                     ov.productivity,                   'Attached P&C workbook · ✅ May-26 (recruiter productivity tab)'],
+      ['Recruiter Productivity','Joined ÷ Distinct Recruiter Count (24)',                     ov.productivity,                   'Attached P&C workbook · ✅ May-26 (recruiter productivity tab)'],
       ['Active Recruiters',     'COUNT(DISTINCT Recruiter for month joinings)',               ov.active_recruiters,              'Attached P&C workbook · ✅ May-26'],
       ['Source Mix %',          '(Joinings from Source ÷ Total Joinings) × 100',              'See Sourcing tab',                'Rocket Offers CSV · ✅ Computed'],
       ['By-function Joinings',  'COUNT per function bucket (joinings, excl. movements)',      'See By-Function table',           'Recruitment sheet / OTJ-by-Dept tab · ✅ May-26 (not Snowflake — movements excluded)'],

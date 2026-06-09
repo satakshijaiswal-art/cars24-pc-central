@@ -1,6 +1,6 @@
 {
   "refreshed_at": "09 Jun 2026 \u00b7 19:05 IST",
-  "period_label": "May 2026 \u00b7 live (Apps Script app + Snowflake) \u00b7 refreshed 09 Jun 2026",
+  "period_label": "May 2026 \u00b7 reconciled to source-of-truth (Recruitment Data + feedback review) \u00b7 refreshed 09 Jun 2026",
   "window": {
     "start": "2026-05-01",
     "end": "2026-05-31",
@@ -18,14 +18,14 @@
   "data_coverage_note": "Joinings: 217 (Base-Live). OTJ: 83/134 from Rocket Offers, V3 cross-check 192/244. CTC/CPH/Hike from JM cohort 178. Time to Fill, Avg TAT (open), Active Reqs, Female % now sourced live from Snowflake CSPL_HR_DB (HR_ATS_PUBLIC). Window auto-rolls daily \u2014 end = today (IST).",
   "overview": {
     "joinings": 295,
-    "joinings_total_candidates": 423,
+    "joinings_total_candidates": 338,
     "drops": 23,
     "drop_rate": 7.2,
     "otj": 87.28,
     "otj_v3_consistent": 87.28,
     "otj_ro_consistent": 61.94,
     "otj_base_to_v3": 88.93,
-    "attrition_30d": 5.5,
+    "attrition_30d": 7.14,
     "overall_attrition_window": 5.52,
     "overall_attrition_monthly_projected": 5.32,
     "exits_in_window": 367,
@@ -44,19 +44,19 @@
     "tat_data_rows": 763,
     "tat_note": "Snowflake CSPL_HR_DB \u00b7 AVG(today \u2212 START_DATE) across 649 open requisitions (live)",
     "tat_source": "snowflake",
-    "open_reqs": 763,
+    "open_reqs": 714,
     "open_reqs_source": "snowflake",
     "female_pct": 9.5,
     "female_n": 28,
     "female_base_n": 295,
     "female_note": "Snowflake CSPL_HR_DB \u00b7 26 Female / 266 ATS-tagged joiners with declared gender",
     "female_source": "snowflake",
-    "senior_b4_plus": 6,
-    "senior_new": 6,
+    "senior_b4_plus": 1,
+    "senior_new": 1,
     "senior_replacement": 0,
-    "productivity": 12.0,
-    "active_recruiters": 25,
-    "attrition_30d_display": 5.5,
+    "productivity": 12.5,
+    "active_recruiters": 24,
+    "attrition_30d_display": 7.14,
     "td_active_hc": 7097,
     "td_builders_b4plus": 254,
     "td_builder_density_pct": 3.58,
@@ -83,7 +83,7 @@
       "tat / open_reqs": "Snowflake \u00b7 CSPL_HR_DB.HR_ATS_PUBLIC.REQUISITIONS \u00b7 STATUS='Open'",
       "female_pct / female_n": "Snowflake \u00b7 CSPL_HR_DB.HR_ATS_PUBLIC.APPLICANTS \u22c8 OFFER_LETTERS_DETAILS \u00b7 LOWER(GENDER) IN ('male','female') \u2014 HRMS GENDER is hashed for privacy",
       "senior_b4_plus": "Snowflake \u00b7 CSPL_HR_DB EMPLOYEES \u00b7 BAND IN ('B4','B5','B6','Builder') AND DOJ in window",
-      "productivity / active_recruiters": "Recruitment Metrics CSV \u00b7 joinings/recruiter, recruiter count locked at 17",
+      "productivity / active_recruiters": "Recruitment Metrics CSV \u00b7 joinings/recruiter \u00b7 24 active recruiters (May'26)",
       "td_* (Talent Density tiles)": "Snowflake live \u00b7 CSPL_HR_DB + CAPL_HR_DB EMPLOYEES \u00b7 founder-grade builder density per Vikram's #1 lever",
       "joinings (295)": "Recruitment sheet / P&C app \u00b7 joinings EXCLUDE internal movements (Snowflake base over-counts as it includes movements)",
       "yet_to_join / drops / otj": "P&C Apps Script app + Recruitment sheet (May'26). Drops = past-DOJ no-shows; YTJ = future-dated accepted offers."
@@ -202,72 +202,27 @@
     "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
   },
   "leadership": {
-    "total": 6,
-    "b4": 2,
+    "total": 1,
+    "b4": 0,
     "b5": 1,
-    "b6": 3,
+    "b6": 0,
     "b7": 0,
-    "new_count": 6,
+    "new_count": 1,
     "replacement": 0,
     "unclassified": 0,
     "list": [
       {
-        "name": "Vishal Jindal",
+        "name": "Bharat Garg",
         "band": "B5",
-        "designation": "Builder (Tech Support)",
-        "function": "Technology",
+        "designation": "Director (Taxation)",
+        "function": "Finance",
         "entity": "CSPL",
-        "doj": "08-Jun-26",
-        "gender": ""
-      },
-      {
-        "name": "Ankit Jha",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Product / Tech",
-        "entity": "CSPL",
-        "doj": "15-Jun-26",
-        "gender": ""
-      },
-      {
-        "name": "Lokesh",
-        "band": "B6",
-        "designation": "Associate Vice President",
-        "function": "Central",
-        "entity": "CSPL",
-        "doj": "15-Jun-26",
-        "gender": ""
-      },
-      {
-        "name": "Vaibhav Singhal",
-        "band": "B6",
-        "designation": "Associate Vice President",
-        "function": "Central",
-        "entity": "CSPL",
-        "doj": "02-Jul-26",
-        "gender": ""
-      },
-      {
-        "name": "Hitesh Sharma",
-        "band": "B6",
-        "designation": "Vice President (Builder)",
-        "function": "Central",
-        "entity": "CSPL",
-        "doj": "06-Jul-26",
-        "gender": ""
-      },
-      {
-        "name": "Sree Sai Ganesh A",
-        "band": "B4",
-        "designation": "Builder",
-        "function": "Technology",
-        "entity": "CSPL",
-        "doj": "27-Jul-26",
+        "doj": "14-May-26",
         "gender": ""
       }
     ],
-    "_source": "Attached P&C workbook \u00b7 senior offer-accepted / released tabs + Central pipeline \u00b7 B4+ landing Jun\u2013Jul 2026",
-    "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
+    "_source": "Recruitment Data \u00b7 Joining Data \u00b7 B4+ hires with DOJ strictly in May 2026 (June/July-dated joiners excluded \u2014 they have not joined yet). Only B4+ joiner in May'26 = Bharat Garg (B5, DOJ 14-May).",
+    "_refreshed_at": "09 Jun 2026 \u00b7 reconciled to May'26 source-of-truth"
   },
   "diversity": {
     "total": 295,
@@ -296,18 +251,16 @@
   },
   "sourcing": {
     "overall": {
-      "Direct": 82.02,
-      "Naukri-Headhunt": 5.62,
-      "Referral": 5.06,
-      "Rehire": 2.25,
-      "Business Referral": 1.69,
-      "Consultant": 1.12,
-      "LinkedIn-Job Application": 0.56,
-      "Internal Movement": 0.56,
-      "Naukri-Job Application": 0.56,
-      "Intern to Permanent": 0.56
+      "LinkedIn Sourced": 62.03,
+      "Rehire": 9.83,
+      "Employee Referral": 9.15,
+      "Consultant (Outbound)": 6.1,
+      "University Campus": 4.41,
+      "Naukri Job Applicant": 4.07,
+      "Business Referral": 4.07,
+      "Acquire / Instahyre": 0
     },
-    "overall_total_joinings": 178,
+    "overall_total_joinings": 295,
     "by_function": {
       "Business": {
         "inbound": 94.16,
@@ -549,9 +502,9 @@
       ],
       "note": "Window 26 Apr \u2192 11 May 2026 \u00b7 178 JM-synced rows."
     },
-    "_source": "Rocket Offers CSV (Recruitment Metrics) \u00b7 Source Category \u00d7 Joining Status for window. Snowflake doesn't track source-of-hire.",
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST",
-    "_carried_note": "Carried from last sync (18 May 2026) \u2014 attached workbook is recruitment/offer + employer-brand centric and does not refresh this metric."
+    "_source": "Recruitment Data \u00b7 Joining Data > Source RT column \u00b7 May 2026 filter \u00b7 all segments combined (Business + Support + T/P/BI/DS). Per May'26 reconciliation.",
+    "_refreshed_at": "09 Jun 2026 \u00b7 reconciled to May'26 source-of-truth",
+    "_carried_note": "Overall source mix re-pulled from Source RT (May'26, all segments). The inbound/outbound by-function cards below are a separate operational view (window cohort) and are not part of the May'26 overall-mix reconciliation."
   },
   "drops": {
     "total": 23,
@@ -570,11 +523,11 @@
     "yet_to_join": 105
   },
   "ta": {
-    "active": 763,
+    "active": 714,
     "closed": 295,
     "ytj": 105,
-    "productivity": 12.0,
-    "_source": "Open reqs (763) LIVE from Snowflake ATS REQUISITIONS (Status=Open). Closed (295) + YTJ (105) + productivity (12) from P&C app (May'26).",
+    "productivity": 12.5,
+    "_source": "Open reqs (714) for May 2026 from Recruitment Data. Closed (295) + YTJ (105) + productivity (12.5 = joinings ÷ 24 active recruiters) from P&C app (May'26).",
     "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
   },
   "trends": {
@@ -618,7 +571,7 @@
       4.9,
       5.22,
       5.26,
-      5.3
+      7.78
     ],
     "_source": "Joinings: Recruitment sheet / P&C app 12-mo trend (EXCLUDES internal movements). Attrition: Snowflake CSPL exits \u00f7 active HC, monthly.",
     "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
@@ -693,14 +646,14 @@
     "Variable CPH": "Pending Finance close \u2014 Actual_CPH not yet posted in Joining Master for window cohort"
   },
   "tech": {
-    "tech_hc": 191,
-    "product_hc": 72,
+    "tech_hc": 243,
+    "product_hc": 76,
     "data_hc": 54,
     "bi_hc": 50,
-    "total_hc": 317,
+    "total_hc": 373,
     "open_roles": 164,
     "cost_per_month": null,
-    "cost_note": "Technology 191 (incl. eng/QA/support skills) + Product Mgmt 72 from workbook rosters. Data&AI 54 carried from last Snowflake sync. Open reqs 164 (52 New / 9 Replacement) from workbook requisitions tab \u2014 narrower than company-wide ATS view.",
+    "cost_note": "May 2026 Tech & Product figures, combining all four tabs (Tech Data + Product Data + Offered-Tech + Offered-Product). Technology = 243 (joined roster 191 + Offered-Tech pipeline 52); Product = 76 (joined 72 + Offered-Product 4). Data & AI 54 carried from last Snowflake sync. The band-split charts below reflect the joined roster only (191 / 72). Open reqs 164 (52 New / 9 Replacement) from workbook requisitions tab \u2014 narrower than company-wide ATS view.",
     "pod_breakdown": {
       "Backend": 110,
       "Frontend": 30,
@@ -726,8 +679,8 @@
       "leaders": 16
     },
     "source": "Attached P&C workbook \u00b7 Tech builder roster + Product Mgmt roster + Requisitions tab",
-    "window": "Roster snapshot \u00b7 May-26 (synced 09 Jun 2026)",
-    "formula": "COUNT by Band per roster; Open Roles = SUM(no_of_openings) on Status=Open reqs"
+    "window": "May 2026 \u00b7 joined + offered (4 tabs combined) \u00b7 band split = joined roster",
+    "formula": "Technology / Product (May) = joined + offered across Tech Data + Product Data + Offered-Tech + Offered-Product tabs; Band split = COUNT by Band on joined roster; Open Roles = SUM(no_of_openings) on Status=Open reqs"
   },
   "glassdoor": {
     "rating": 4.1,
@@ -749,7 +702,7 @@
     "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
   },
   "attrition": {
-    "overall": 5.5,
+    "overall": 7.78,
     "overall_window_raw": 5.52,
     "overall_total_exits": 392,
     "overall_active_hc": 7097,
@@ -808,7 +761,7 @@
       "Involuntary": 56,
       "Voluntary": 123
     },
-    "note": "30-day attrition = 392 exits (CSPL 381 + CAPL 11) \u00f7 7,097 active HC = 5.5%. Drivers are Snowflake lifetime reasoned-exit shares. Live as of 09 Jun 2026.",
+    "note": "Overall month-wise org attrition (May'26) = 7.78% \u2014 this is the figure to use in the overall attrition field. 30-day recruitment attrition = 7.14% (do not mix the two definitions). Per May 2026 reconciliation. Drivers are Snowflake lifetime reasoned-exit shares.",
     "_source": "Snowflake CSPL+CAPL_HR_DB \u00b7 DATE_OF_EXIT (last 30d) \u00f7 active HC; drivers from reasoned exits.",
     "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
   },
@@ -1011,8 +964,8 @@
       },
       {
         "label": "Open Reqs",
-        "value": "763",
-        "sub": "ATS \u00b7 1,071 positions \u00b7 live"
+        "value": "714",
+        "sub": "May 2026 \u00b7 Recruitment Data \u00b7 1,071 positions"
       }
     ],
     "categories": [
@@ -1095,7 +1048,7 @@
         "metrics": [
           {
             "label": "Open Reqs",
-            "value": "763"
+            "value": "714"
           },
           {
             "label": "Open Positions",
