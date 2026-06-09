@@ -1,6 +1,6 @@
 {
-  "refreshed_at": "09 Jun 2026 \u00b7 18:30 IST",
-  "period_label": "May 2026 \u00b7 full month \u00b7 refreshed 09 Jun 2026",
+  "refreshed_at": "09 Jun 2026 \u00b7 19:05 IST",
+  "period_label": "May 2026 \u00b7 live (Apps Script app + Snowflake) \u00b7 refreshed 09 Jun 2026",
   "window": {
     "start": "2026-05-01",
     "end": "2026-05-31",
@@ -18,18 +18,18 @@
   "data_coverage_note": "Joinings: 217 (Base-Live). OTJ: 83/134 from Rocket Offers, V3 cross-check 192/244. CTC/CPH/Hike from JM cohort 178. Time to Fill, Avg TAT (open), Active Reqs, Female % now sourced live from Snowflake CSPL_HR_DB (HR_ATS_PUBLIC). Window auto-rolls daily \u2014 end = today (IST).",
   "overview": {
     "joinings": 295,
-    "joinings_total_candidates": 338,
-    "drops": 43,
-    "drop_rate": 12.7,
+    "joinings_total_candidates": 423,
+    "drops": 23,
+    "drop_rate": 7.2,
     "otj": 87.28,
     "otj_v3_consistent": 87.28,
     "otj_ro_consistent": 61.94,
     "otj_base_to_v3": 88.93,
-    "attrition_30d": 4.8,
-    "overall_attrition_window": 4.077,
+    "attrition_30d": 5.5,
+    "overall_attrition_window": 5.52,
     "overall_attrition_monthly_projected": 5.32,
-    "exits_in_window": 288,
-    "active_hc": 6920,
+    "exits_in_window": 367,
+    "active_hc": 7097,
     "cph": 5556.0,
     "cph_data_rows": 9,
     "cph_note": null,
@@ -40,15 +40,15 @@
     "ttf_data_rows": 286,
     "ttf_note": "Snowflake CSPL_HR_DB \u00b7 109 ATS-linked joiners with JOINING_DATE in window (26 Apr\u219204 May)",
     "ttf_source": "snowflake",
-    "tat": 88.2,
-    "tat_data_rows": 700,
+    "tat": 84.5,
+    "tat_data_rows": 763,
     "tat_note": "Snowflake CSPL_HR_DB \u00b7 AVG(today \u2212 START_DATE) across 649 open requisitions (live)",
     "tat_source": "snowflake",
-    "open_reqs": 700,
+    "open_reqs": 763,
     "open_reqs_source": "snowflake",
-    "female_pct": 9.77,
-    "female_n": 26,
-    "female_base_n": 266,
+    "female_pct": 9.5,
+    "female_n": 28,
+    "female_base_n": 295,
     "female_note": "Snowflake CSPL_HR_DB \u00b7 26 Female / 266 ATS-tagged joiners with declared gender",
     "female_source": "snowflake",
     "senior_b4_plus": 6,
@@ -56,17 +56,17 @@
     "senior_replacement": 0,
     "productivity": 12.0,
     "active_recruiters": 25,
-    "attrition_30d_display": 4.8,
-    "td_active_hc": 7102,
-    "td_builders_b4plus": 271,
-    "td_builder_density_pct": 3.82,
-    "td_tenure_lt_1y_pct": 47.0,
-    "td_tenure_3y_plus_pct": 19.8,
-    "td_early_exit_pct_90d": 21.7,
-    "td_early_exits_90d": 364,
-    "td_exits_90d_total": 1678,
-    "td_b4plus_exits_90d": 56,
-    "td_b4plus_exits_12m": 245,
+    "attrition_30d_display": 5.5,
+    "td_active_hc": 7097,
+    "td_builders_b4plus": 254,
+    "td_builder_density_pct": 3.58,
+    "td_tenure_lt_1y_pct": 48.3,
+    "td_tenure_3y_plus_pct": 19.9,
+    "td_early_exit_pct_90d": 22.6,
+    "td_early_exits_90d": 242,
+    "td_exits_90d_total": 1072,
+    "td_b4plus_exits_90d": 55,
+    "td_b4plus_exits_12m": 224,
     "td_source": "snowflake",
     "td_note": "Snowflake live \u00b7 CSPL + CAPL EMPLOYEES (EMPLOYEE_STATUS='Active'). Founder-grade talent-density tiles, refreshed daily.",
     "joinings_snowflake_actual": 340,
@@ -93,8 +93,9 @@
       "productivity / active_recruiters": "Recruitment Metrics CSV \u00b7 joinings/recruiter, recruiter count locked at 17",
       "td_* (Talent Density tiles)": "Snowflake live \u00b7 CSPL_HR_DB + CAPL_HR_DB EMPLOYEES \u00b7 founder-grade builder density per Vikram's #1 lever"
     },
-    "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST",
-    "_source": "Attached P&C workbook (May-26): Joined/Offers/Drops/OTJ/productivity. Talent-density & live HC/attrition/TTF tiles carried from last Snowflake sync (18 May)."
+    "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST",
+    "_source": "Recruitment headline (Joinings/YTJ/Drops/OTJ/productivity) from P&C Apps Script app (May'26). HC/attrition/tenure/builder-density LIVE from Snowflake CSPL+CAPL_HR_DB (09 Jun 2026).",
+    "yet_to_join": 105
   },
   "functionTable": {
     "joinings_by": {
@@ -274,11 +275,11 @@
     "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
   },
   "diversity": {
-    "total": 217,
-    "female_count": 22,
-    "male_count": 195,
-    "female_pct": 10.14,
-    "male_pct": 89.86,
+    "total": 295,
+    "female_count": 28,
+    "male_count": 267,
+    "female_pct": 9.5,
+    "male_pct": 90.5,
     "by_function": {
       "Other Support": 26.09,
       "Business (B1+B2)": 8.56,
@@ -294,10 +295,9 @@
       "B4": 0.0,
       "B5": 0.0
     },
-    "data_rows": 217,
-    "_source": "Base-Live CSV \u00b7 217 window joiners with unhashed gender. Snowflake ATS APPLICANTS cross-check for ATS-tagged subset: 26 Female / 240 Male / 266 = 9.77% (see overview.female_pct).",
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST",
-    "_carried_note": "Carried from last sync (18 May 2026) \u2014 attached workbook is recruitment/offer + employer-brand centric and does not refresh this metric."
+    "data_rows": 295,
+    "_source": "P&C Apps Script app \u00b7 May'26 joiners \u00b7 28 Female / 295 joinings = 9.5%. By-function/band carried from workbook.",
+    "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
   },
   "sourcing": {
     "overall": {
@@ -559,8 +559,8 @@
     "_carried_note": "Carried from last sync (18 May 2026) \u2014 attached workbook is recruitment/offer + employer-brand centric and does not refresh this metric."
   },
   "drops": {
-    "total": 43,
-    "rate": 12.7,
+    "total": 23,
+    "rate": 7.2,
     "by_function": {
       "Business (B1+B2)": 36,
       "Product": 3,
@@ -570,41 +570,63 @@
       "Business Support": 0
     },
     "top_function": "Business (B1+B2)",
-    "_source": "Attached P&C workbook \u00b7 OTJ tab (May-26) \u00b7 Drops = Offers \u2212 Joined per Dept_Type",
-    "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
+    "_source": "P&C Apps Script app \u00b7 May'26 \u00b7 Drops = past-DOJ not-joined; Yet-to-Join = future-dated accepted offers.",
+    "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST",
+    "yet_to_join": 105
   },
   "ta": {
-    "active": 700,
+    "active": 763,
     "closed": 295,
-    "ytj": 51,
+    "ytj": 105,
     "productivity": 12.0,
-    "_source": "Closed (295 joined) + productivity (12, joined\u00f7recruiters) from attached workbook May-26. Active reqs (company-wide) & YTJ carried from last Snowflake/Rocket sync.",
-    "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
+    "_source": "Open reqs (763) LIVE from Snowflake ATS REQUISITIONS (Status=Open). Closed (295) + YTJ (105) + productivity (12) from P&C app (May'26).",
+    "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
   },
   "trends": {
     "months": [
-      "Jan-26",
-      "Feb-26",
-      "Mar-26",
-      "Apr-26",
-      "May-26"
+      "Jun'25",
+      "Jul'25",
+      "Aug'25",
+      "Sep'25",
+      "Oct'25",
+      "Nov'25",
+      "Dec'25",
+      "Jan'26",
+      "Feb'26",
+      "Mar'26",
+      "Apr'26",
+      "May'26"
     ],
     "joinings": [
-      351,
-      340,
+      486,
+      567,
+      522,
+      503,
+      304,
+      252,
+      271,
+      322,
+      315,
       269,
       294,
       295
     ],
     "attrition": [
-      8.07,
-      11.75,
-      11.75,
-      18.96,
-      4.9
+      8.41,
+      7.0,
+      5.9,
+      6.26,
+      6.07,
+      6.2,
+      6.56,
+      4.48,
+      4.9,
+      5.22,
+      5.26,
+      5.3
     ],
-    "_source": "Jan-Mar 26 historical (prior MIS); Apr-26 (294) & May-26 (295) Joined from attached workbook OTJ tab. Attrition line carried from prior sync.",
-    "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
+    "_source": "Joinings: P&C Apps Script app (12-mo). Attrition: Snowflake CSPL exits \u00f7 active HC, monthly.",
+    "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
   },
   "window_extras": {
     "by_day": {
@@ -732,10 +754,10 @@
     "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
   },
   "attrition": {
-    "overall": 4.8,
-    "overall_window_raw": 4.077,
-    "overall_total_exits": 288,
-    "overall_active_hc": 6920,
+    "overall": 5.5,
+    "overall_window_raw": 5.52,
+    "overall_total_exits": 392,
+    "overall_active_hc": 7097,
     "high": [
       {
         "func": "BI DS",
@@ -763,53 +785,37 @@
     "drivers": [
       {
         "theme": "Better Opportunity",
-        "count": 47,
-        "pct": 26.3
+        "count": 2649,
+        "pct": 25.5
       },
       {
-        "theme": "Business Conditions",
-        "count": 45,
-        "pct": 25.1
+        "theme": "Personal Issues",
+        "count": 2190,
+        "pct": 21.1
       },
       {
         "theme": "Personal Reasons",
-        "count": 39,
-        "pct": 21.8
+        "count": 1567,
+        "pct": 15.1
       },
       {
-        "theme": "Absconding",
-        "count": 11,
-        "pct": 6.1
-      },
-      {
-        "theme": "Internship Completion",
-        "count": 11,
-        "pct": 6.1
+        "theme": "Health-related",
+        "count": 868,
+        "pct": 8.4
       },
       {
         "theme": "Job Dissatisfaction",
-        "count": 7,
-        "pct": 3.9
-      },
-      {
-        "theme": "Performance Issues",
-        "count": 5,
-        "pct": 2.8
-      },
-      {
-        "theme": "Code of Conduct",
-        "count": 4,
-        "pct": 2.2
+        "count": 681,
+        "pct": 6.6
       }
     ],
     "exit_types": {
       "Involuntary": 56,
       "Voluntary": 123
     },
-    "note": "Window 26 Apr\u201318 May (23 days): 288 exits across 6,920 active employees. 30-day rate: 4.8%.",
-    "_source": "Snowflake \u00b7 CSPL_HR_DB EMPLOYEES \u00b7 exits / active HC. High/low/drivers list curated from monthly MIS.",
-    "_refreshed_at": "18 May 2026 \u00b7 19:43 IST",
-    "_carried_note": "Carried from last sync (18 May 2026) \u2014 attached workbook is recruitment/offer + employer-brand centric and does not refresh this metric."
+    "note": "30-day attrition = 392 exits (CSPL 381 + CAPL 11) \u00f7 7,097 active HC = 5.5%. Drivers are Snowflake lifetime reasoned-exit shares. Live as of 09 Jun 2026.",
+    "_source": "Snowflake CSPL+CAPL_HR_DB \u00b7 DATE_OF_EXIT (last 30d) \u00f7 active HC; drivers from reasoned exits.",
+    "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
   },
   "automation": [
     {
@@ -983,163 +989,144 @@
   ],
   "__sections_audited_at": "18 May 2026",
   "snowflake_catalog": {
-    "refreshed_at": "18 May 2026 \u00b7 19:43 IST",
+    "refreshed_at": "09 Jun 2026 \u00b7 19:05 IST",
     "source": "CSPL_HR_DB \u00b7 Fivetran-synced from HRMS Public / HR_ATS Public",
     "tables_indexed": 116,
     "rows_indexed": 266572,
     "headline": [
       {
         "label": "Total Active HC",
-        "value": "6,896",
-        "sub": "CSPL \u00b7 Cars24 Services Pvt Ltd \u00b7 Active \u00b7 live"
+        "value": "7,097",
+        "sub": "CSPL 6,919 + CAPL 178 \u00b7 live"
       },
       {
         "label": "CSPL",
-        "value": "5,827",
+        "value": "6,919",
         "sub": "Cars24 Services Pvt Ltd \u00b7 India"
       },
       {
-        "label": "CFSPL",
-        "value": "764",
-        "sub": "Cars24 Financial Services \u00b7 NBFC"
+        "label": "CAPL",
+        "value": "178",
+        "sub": "Cars24 Australia"
       },
       {
-        "label": "CSPL International",
-        "value": "278",
-        "sub": "UAE / Middle East"
+        "label": "B4+ Builders",
+        "value": "254",
+        "sub": "B4+B5+B6 \u00b7 CSPL 242 + CAPL 12"
       },
       {
         "label": "Open Reqs",
-        "value": "649",
-        "sub": "ATS \u00b7 live snapshot"
+        "value": "763",
+        "sub": "ATS \u00b7 1,071 positions \u00b7 live"
       }
     ],
     "categories": [
       {
         "name": "Active Headcount \u00b7 By Entity",
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u22c8 BUSINESS_UNIT (COMPANY_NAME)",
-        "window": "Snapshot as of today (11 May 2026)",
+        "window": "Snapshot as of 09 Jun 2026 \u00b7 live",
         "formula": "COUNT(DISTINCT EMPLOYEE_ID) WHERE EMPLOYEE_STATUS='Active' AND NOT _FIVETRAN_DELETED, grouped by parent company name.",
         "metrics": [
           {
             "label": "Total Active HC",
-            "value": "6,896"
+            "value": "7,097"
           },
           {
             "label": "CSPL \u00b7 Cars24 Services Pvt Ltd",
-            "value": "5,827"
+            "value": "6,919"
           },
           {
-            "label": "CFSPL \u00b7 Cars24 Financial Services",
-            "value": "764"
+            "label": "CAPL \u00b7 Cars24 Australia",
+            "value": "178"
           },
           {
-            "label": "CSPL International (UAE)",
-            "value": "278"
+            "label": "B4+ Builders",
+            "value": "254"
           },
           {
-            "label": "CSPL Reporting",
-            "value": "19"
+            "label": "<1yr tenure",
+            "value": "48.3%"
           },
           {
-            "label": "Velocitypedia Pvt Ltd",
-            "value": "4"
-          },
-          {
-            "label": "BU code missing (CSPL)",
-            "value": "4"
-          },
-          {
-            "label": "Records in HRMS (Active + Inactive)",
-            "value": "27,503",
-            "sub": "CSPL EMPLOYEES only"
-          },
-          {
-            "label": "PII Records Synced (CSPL only)",
-            "value": "28,136"
-          },
-          {
-            "label": "Joinings YTD",
-            "value": "2,368"
+            "label": "\u22653yr tenure",
+            "value": "19.9%"
           }
-        ]
+        ],
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
         "name": "Org Structure",
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND",
-        "window": "Snapshot as of today (11 May 2026) \u00b7 CSPL",
+        "window": "Snapshot as of 09 Jun 2026 \u00b7 live",
         "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' \u00b7 Builders = B4 + B5 + B6 + 'Builder' band collapsed (roll-up; sub-lines NOT additive)",
         "metrics": [
           {
-            "label": "Total Active HC",
-            "value": "6,896"
+            "label": "Transaction-Wholesale",
+            "value": "4,298"
           },
           {
-            "label": "B0 \u00b7 Interns / Apprentices",
-            "value": "98"
+            "label": "Transaction-Retail",
+            "value": "1,160"
           },
           {
-            "label": "B1 \u00b7 Frontline",
-            "value": "4,184"
+            "label": "NBFC",
+            "value": "705"
           },
           {
-            "label": "B1 Fin \u00b7 Finance Frontline",
-            "value": "1"
+            "label": "Central",
+            "value": "374"
           },
           {
-            "label": "B2 \u00b7 Senior IC",
-            "value": "1,090"
+            "label": "Australia",
+            "value": "123"
           },
           {
-            "label": "B3 \u00b7 Manager / Lead",
-            "value": "308"
+            "label": "UAE",
+            "value": "78"
           },
           {
-            "label": "Builders (B4+B5+B6+Builder band)",
-            "value": "248"
+            "label": "CarInfo",
+            "value": "55"
           },
           {
-            "label": "SLA \u00b7 Service Line Agent",
-            "value": "333"
-          },
-          {
-            "label": "Third Party (BAND='Third Party' in EMPLOYEES)",
-            "value": "633",
-            "sub": "Separate 'Third Party Manpower' sheet shows 1,804 \u2014 that is a different source (vendor manpower tracker), not from HRMS EMPLOYEES.BAND"
+            "label": "New Business",
+            "value": "18"
           }
-        ]
+        ],
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
         "name": "Recruitment",
         "metrics": [
           {
             "label": "Open Reqs",
-            "value": "649"
+            "value": "763"
           },
           {
-            "label": "Closed Reqs (lifetime)",
-            "value": "7,677"
+            "label": "Open Positions",
+            "value": "1,071"
           },
           {
-            "label": "Applicants (lifetime)",
-            "value": "63,649"
+            "label": "Avg TAT (open)",
+            "value": "84.5 d"
           },
           {
-            "label": "Offers Released",
-            "value": "22,509"
+            "label": "Joinings May'26",
+            "value": "295"
           },
           {
-            "label": "Offers Accepted",
-            "value": "9,141"
+            "label": "Yet-to-Join",
+            "value": "105"
           },
           {
-            "label": "Acceptance Rate",
-            "value": "40.6%"
+            "label": "Drops (past DOJ)",
+            "value": "23"
           }
         ],
         "source": "CSPL_HR_DB.HR_ATS_PUBLIC: REQUISITIONS \u00b7 APPLICANTS \u00b7 OFFER_LETTERS",
-        "window": "Open reqs = today's snapshot \u00b7 Closed reqs / Applicants / Offers = lifetime cumulative",
-        "formula": "Open = COUNT(*) WHERE STATUS='Open'  \u00b7  Acceptance Rate = Offers Accepted \u00f7 Offers Released \u00d7 100"
+        "window": "Snapshot as of 09 Jun 2026 \u00b7 live",
+        "formula": "Open = COUNT(*) WHERE STATUS='Open'  \u00b7  Acceptance Rate = Offers Accepted \u00f7 Offers Released \u00d7 100",
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
         "name": "Interviews",
@@ -1239,15 +1226,16 @@
         ],
         "source": "CSPL_HR_DB.HR_ATS_PUBLIC: INTERVIEW_SCHEDULE \u00b7 INTERVIEW_FEEDBACK",
         "window": "Lifetime cumulative across all reqs",
-        "formula": "Schedules = COUNT(INTERVIEW_SCHEDULE) \u00b7 Feedback = COUNT(INTERVIEW_FEEDBACK) \u00b7 Select Rate = YES / (YES+NO) excluding blanks \u00b7 Panel Size = Feedback \u00f7 Schedule"
+        "formula": "Schedules = COUNT(INTERVIEW_SCHEDULE) \u00b7 Feedback = COUNT(INTERVIEW_FEEDBACK) \u00b7 Select Rate = YES / (YES+NO) excluding blanks \u00b7 Panel Size = Feedback \u00f7 Schedule",
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
         "name": "Live Attrition",
         "metrics": [
           {
             "label": "Exits MTD",
-            "value": "146",
-            "sub": "WHAT: CSPL employees who exited Cars24 between 1\u201311 May 2026. WHY: Running tally of this month's leavers vs. last month. ACTION: If pacing >150 by 11th, full-month run-rate \u2248 410+. Compare to historical May avg."
+            "value": "367",
+            "sub": "CSPL exits May'26 (full month)"
           },
           {
             "label": "Exits YTD",
@@ -1341,105 +1329,95 @@
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC: EMPLOYEES.DATE_OF_EXIT \u00b7 SEPARATIONS \u00b7 FNF_DATA \u22c3 CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
-        "window": "MTD = 01\u201311 May 2026 \u00b7 YTD = 01 Jan \u2192 11 May 2026 \u00b7 Workflow + FnF + Reasons are lifetime",
-        "formula": "Exits = COUNT(*) on EMPLOYEES.DATE_OF_EXIT in window \u00b7 Pending Approval = SEPARATIONS.STATUS LIKE 'Pending%' \u00b7 Pending age = DATEDIFF(today \u2212 TRIGGERED_DATE) \u00b7 FnF Hold = FNF_DATA.FNF_STATUS='Hold' \u00b7 Save Rate = Revoked \u00f7 (Approved+AdminApproved+Revoked+Rejected)"
+        "window": "MTD = May'26 \u00b7 30-day exits 392 (CSPL+CAPL) \u00b7 lifetime tiles cumulative \u00b7 as of 09 Jun 2026",
+        "formula": "Exits = COUNT(*) on EMPLOYEES.DATE_OF_EXIT in window \u00b7 Pending Approval = SEPARATIONS.STATUS LIKE 'Pending%' \u00b7 Pending age = DATEDIFF(today \u2212 TRIGGERED_DATE) \u00b7 FnF Hold = FNF_DATA.FNF_STATUS='Hold' \u00b7 Save Rate = Revoked \u00f7 (Approved+AdminApproved+Revoked+Rejected)",
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
         "name": "Employee Type",
         "metrics": [
           {
             "label": "Permanent",
-            "value": "4,650"
+            "value": "4,627"
           },
           {
             "label": "Permanent - CJ",
-            "value": "1,175"
+            "value": "1,218"
           },
           {
             "label": "TPM",
-            "value": "524"
+            "value": "548"
           },
           {
             "label": "Retainer",
-            "value": "193"
+            "value": "181"
           },
           {
             "label": "Retainer - CJ",
-            "value": "141"
+            "value": "139"
           },
           {
             "label": "TPM - CJ",
-            "value": "109"
+            "value": "104"
           },
           {
             "label": "Intern",
-            "value": "93"
+            "value": "90"
           },
           {
             "label": "Consultant",
-            "value": "7"
-          },
-          {
-            "label": "Test Employee",
-            "value": "3"
-          },
-          {
-            "label": "Suspended",
-            "value": "1"
+            "value": "8"
           },
           {
             "label": "Total",
-            "value": "6,896"
+            "value": "6,919"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.EMPLOYEE_TYPE",
-        "window": "Snapshot as of today (11 May 2026) \u00b7 CSPL",
-        "formula": "COUNT(*) GROUP BY EMPLOYEE_TYPE WHERE EMPLOYEE_STATUS='Active'"
+        "window": "Snapshot as of 09 Jun 2026 \u00b7 live",
+        "formula": "COUNT(*) GROUP BY EMPLOYEE_TYPE WHERE EMPLOYEE_STATUS='Active'",
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
         "name": "Bands \u00b7 Active HC",
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND",
-        "window": "Snapshot as of today (11 May 2026) \u00b7 CSPL",
+        "window": "Snapshot as of 09 Jun 2026 \u00b7 live",
         "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' \u00b7 Builders = B4 + B5 + B6 + 'Builder' band (roll-up; sub-lines NOT additive)",
         "metrics": [
           {
-            "label": "Total Active HC",
-            "value": "6,896"
+            "label": "Total Active HC (CSPL)",
+            "value": "6,919"
           },
           {
             "label": "B0 \u00b7 Interns / Apprentices",
-            "value": "98"
+            "value": "95"
           },
           {
             "label": "B1 \u00b7 Frontline",
-            "value": "4,184"
-          },
-          {
-            "label": "B1 Fin \u00b7 Finance Frontline",
-            "value": "1"
+            "value": "4,266"
           },
           {
             "label": "B2 \u00b7 Senior IC",
-            "value": "1,090"
+            "value": "1,051"
           },
           {
             "label": "B3 \u00b7 Manager / Lead",
-            "value": "308"
+            "value": "292"
           },
           {
-            "label": "Builders (B4+B5+B6+Builder)",
-            "value": "248"
+            "label": "Builders (B4+B5+B6)",
+            "value": "242"
           },
           {
             "label": "SLA \u00b7 Service Line Agent",
-            "value": "333"
+            "value": "319"
           },
           {
-            "label": "Third Party (BAND='Third Party')",
-            "value": "633",
-            "sub": "Separate 'Third Party Manpower' vendor sheet shows 1,804 \u2014 different source, not from HRMS BAND column"
+            "label": "Third Party (BAND)",
+            "value": "652"
           }
-        ]
+        ],
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
         "name": "Performance Management",
@@ -1487,7 +1465,8 @@
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.PMS_CSPL",
         "window": "FY25 live (PMS FY 2025 Pre-filled + Self Reflection) \u00b7 FY24 calibrated (PMS_FY23-24_SR) \u00b7 lifetime for totals \u00b7 CSPL",
-        "formula": "COUNT(*) grouped by REVIEW_CYCLE_NAME / CURRENT_STAGE / CALIBRATION_RATING"
+        "formula": "COUNT(*) grouped by REVIEW_CYCLE_NAME / CURRENT_STAGE / CALIBRATION_RATING",
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
         "name": "Background Verification",
@@ -1535,7 +1514,8 @@
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.BGV",
         "window": "Lifetime BGV + L90D ageing + candidate-level rollup",
-        "formula": "COUNT(*) and COUNT(DISTINCT CANDIDATE_ID) grouped by VERIFICATION_STATUS, CREATED_AT bucket"
+        "formula": "COUNT(*) and COUNT(DISTINCT CANDIDATE_ID) grouped by VERIFICATION_STATUS, CREATED_AT bucket",
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
         "name": "HR Assets",
@@ -1583,7 +1563,8 @@
         ],
         "source": "CSPL_HR_DB.HR_ASSETS_PUBLIC.ASSET_DETAILS",
         "window": "Lifetime \u2014 all assets ever recorded \u00b7 live valuation in INR",
-        "formula": "COUNT(*) and SUM(ASSET_COST/CURRENT_COST) grouped by STOCK_STATUS / ASSET_TYPE"
+        "formula": "COUNT(*) and SUM(ASSET_COST/CURRENT_COST) grouped by STOCK_STATUS / ASSET_TYPE",
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
         "name": "Statutory Compliance",
@@ -1631,7 +1612,8 @@
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.COMPLIANCE_DETAILS",
         "window": "Lifetime records on file \u00b7 L30D activity \u00b7 coverage vs Active CSPL HC",
-        "formula": "COUNT(*), COUNT(CASE WHEN x IS NOT NULL), COUNT(CASE WHEN STATUS='complete') grouped by form type"
+        "formula": "COUNT(*), COUNT(CASE WHEN x IS NOT NULL), COUNT(CASE WHEN STATUS='complete') grouped by form type",
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
         "name": "Banking",
@@ -1655,7 +1637,8 @@
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.BANK_DETAILS",
         "window": "Current snapshot \u2014 every bank account on file for active + inactive emps",
-        "formula": "COUNT(*)"
+        "formula": "COUNT(*)",
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
         "name": "Live Attendance",
@@ -1703,7 +1686,8 @@
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.ATTENDANCE (live \u00b7 3.5M rows \u00b7 Fivetran-synced daily)",
         "window": "YTD 2026 = 01 Jan \u2192 10 May 2026 \u00b7 MTD May = 1\u201310 May 2026 \u00b7 L30D for regularizations",
-        "formula": "Present% = COUNT(STATUS LIKE 'P%') \u00f7 COUNT(STATUS IN P/A/L variants). Excludes Weekly Off (W) and Holiday (H) from denominator."
+        "formula": "Present% = COUNT(STATUS LIKE 'P%') \u00f7 COUNT(STATUS IN P/A/L variants). Excludes Weekly Off (W) and Holiday (H) from denominator.",
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
         "name": "Directories \u00b7 PII & Diversity",
@@ -1751,10 +1735,79 @@
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u00b7 EMPLOYEE_PII \u00b7 HR_ATS_PUBLIC.APPLICANTS",
         "window": "Snapshot as of today (11 May 2026)",
-        "formula": "Female% = COUNT(hash=10758599872564880747) \u00f7 COUNT(Active). PII coverage = COUNT(col IS NOT NULL) \u00f7 COUNT(*). ATS data gap = COUNT(GENDER='') \u00f7 COUNT(*)."
+        "formula": "Female% = COUNT(hash=10758599872564880747) \u00f7 COUNT(Active). PII coverage = COUNT(col IS NOT NULL) \u00f7 COUNT(*). ATS data gap = COUNT(GENDER='') \u00f7 COUNT(*).",
+        "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       }
     ],
-    "_source": "Snowflake CSPL_HR_DB \u00b7 Fivetran-synced from HRMS Public / HR_ATS Public schemas"
+    "_source": "Snowflake CSPL_HR_DB \u00b7 Fivetran-synced from HRMS Public / HR_ATS Public schemas",
+    "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
   },
-  "_master_source_note": "Mixed-source dashboard. Snowflake CSPL_HR_DB is the system of record for headcount, joinings/exits, function breakdown, talent density. Recruitment Metrics CSVs (Joining Master + Rocket Offers + Base-Live) own operational metrics \u2014 drops, OTJ, source-of-hire, recruiter productivity, hike%, CPH, gender (HRMS PII hashed). Each subsection has _source."
+  "_master_source_note": "Mixed-source dashboard. Snowflake CSPL_HR_DB is the system of record for headcount, joinings/exits, function breakdown, talent density. Recruitment Metrics CSVs (Joining Master + Rocket Offers + Base-Live) own operational metrics \u2014 drops, OTJ, source-of-hire, recruiter productivity, hike%, CPH, gender (HRMS PII hashed). Each subsection has _source.",
+  "hrbp": {
+    "_period": "May 2026",
+    "_source": "P&C HRBP monthly update (workbook narrative tabs) \u00b7 synced 09 Jun 2026",
+    "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST",
+    "categories": [
+      {
+        "title": "Onboarding, Induction & Early Engagement",
+        "icon": "\ud83d\ude80",
+        "items": [
+          {
+            "text": "Conducted 12 induction sessions across teams in May 2026",
+            "output": "New joiners onboarded with a structured Day-1 experience across departments; faster integration and early engagement."
+          },
+          {
+            "text": "Conducted 14 pre-onboarding connects",
+            "output": "Improved new-joiner readiness, reduced early-attrition risk, and strengthened leadership connect before Day 1."
+          }
+        ]
+      },
+      {
+        "title": "Exit Management & Retention",
+        "icon": "\ud83d\udedf",
+        "items": [
+          {
+            "text": "Managed 5 retention / conversion cases: Manmeet Singh (Data Scientist) \u2014 retained; Teena (Growth Marketing) \u2014 converted to full-time from internship; Prince Popli \u2014 retained; Abhishek Khandelwal \u2014 offered full-time post-internship; Paridhi Agarwal \u2014 retained",
+            "output": "Key talent retained; new-hire costs reduced through internal absorption and conversion."
+          },
+          {
+            "text": "Conducted ATL calls (19 cases) to ensure smooth, dignified exits for separated employees",
+            "output": "Smooth exit process ensured; proper documentation and communication handled for all separation cases."
+          }
+        ]
+      },
+      {
+        "title": "Employee Engagement & Rewards & Recognition",
+        "icon": "\ud83c\udf89",
+        "items": [
+          {
+            "text": "Organised & executed the Mother's Day event \u2014 wishes board in the central area; invited employees and their mothers to the office",
+            "output": "Boosted engagement and workplace culture; strengthened sense of belonging."
+          },
+          {
+            "text": "TOKEN '26 Hackathon \u2014 participant coordination, follow-ups, and clear process communication",
+            "output": "Seamless event execution; stronger engagement, employer branding, and talent pool."
+          },
+          {
+            "text": "Managed May-born birthday celebrations + 5-year & 10-year service-milestone trophy distribution",
+            "output": "Inclusive, appreciative culture; reinforced long-term association and recognition of tenured employees."
+          },
+          {
+            "text": "T-shirt distribution + welcome card & 'Welcome to Cars24' desk hoarding for new joiners",
+            "output": "Stronger employer branding; warm, personalised Day-1 experience."
+          }
+        ]
+      },
+      {
+        "title": "Hiring Process Automation & AI",
+        "icon": "\ud83e\udd16",
+        "items": [
+          {
+            "text": "AI Interview went live on Darwin for Product Manager, Product Designer, HR, SEO Analyst and AI Analytics Engineer roles \u2014 structured, scalable screening",
+            "output": "Optimised panellist time; reduced manual interview bandwidth; improved screening quality and process efficiency."
+          }
+        ]
+      }
+    ]
+  }
 }
