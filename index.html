@@ -165,7 +165,7 @@
   <section id="overview">
     <div class="accent-bar mb-3"></div>
     <h2 class="text-3xl font-bold brand-blue">Overview</h2>
-    <p class="text-gray-600 mt-1">Headline KPIs · <b>Snowflake CSPL_HR_DB</b> is system of record (HC, joinings, exits, attrition, function breakdown). Recruitment Metrics CSV owns operational metrics (drops, OTJ, source-of-hire, recruiter productivity, hike%, CPH).</p>
+    <p class="text-gray-600 mt-1">Headline KPIs · <b>Joinings, OTJ, drops, source-of-hire & recruiter productivity come from the Recruitment sheets / P&C app</b> (these EXCLUDE internal movements). <b>Snowflake CSPL_HR_DB</b> is system of record for HC, exits/attrition, bands, tenure, open reqs & TAT only — it is <i>not</i> used for joinings because its base includes movements.</p>
     <p class="text-xs text-gray-500 mt-1" id="overview-source-pill"></p>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6" id="overview-cards"></div>
@@ -218,7 +218,7 @@
             <tr class="border-b"><td class="py-2 font-bold">5</td><td class="font-semibold">Avg TAT — Open Roles</td><td><code>AVG(Today − Requisition Open Date)</code> for <code>STATUS = Open</code></td><td>Snowflake · <code>CSPL_HR_DB.HR_ATS_PUBLIC.REQUISITIONS</code> (live snapshot)</td></tr>
             <tr class="border-b"><td class="py-2 font-bold">6</td><td class="font-semibold">Hike %</td><td><code>AVG((Offered CTC − Previous CTC) ÷ Previous CTC) × 100</code></td><td>Joining Master · <code>Offered CTC</code> + <code>Last CTC</code> columns · 149 of 217 joiners covered</td></tr>
             <tr class="border-b"><td class="py-2 font-bold">7</td><td class="font-semibold">Recruiter Productivity</td><td><code>Total Joinings ÷ Total Recruiter HC</code></td><td>V3 Joinee Tracker · <code>Recruiter</code> column (distinct count) ÷ window joinings</td></tr>
-            <tr><td class="py-2 font-bold">8</td><td class="font-semibold">Joinings</td><td><code>COUNT(DOJ in window AND status IN Active/InActive)</code></td><td><b>Snowflake</b> · <code>CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES</code> · system of record (replaces older Base-Live CSV view which under-counted Tech/Product)</td></tr>
+            <tr><td class="py-2 font-bold">8</td><td class="font-semibold">Joinings</td><td><code>COUNT(joinings in month, EXCLUDING internal movements)</code></td><td><b>Recruitment sheet / P&C app</b> · joinings exclude internal movements. Snowflake base is NOT used here — it over-counts because it includes movements.</td></tr>
           </tbody>
         </table>
       </div>
@@ -251,7 +251,7 @@
     <!-- FORMULA + DATA STATUS panel -->
     <div class="bg-white rounded-lg shadow-sm border p-6 mt-6">
       <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-1">Formula + data status — every metric for this window</h3>
-      <p class="text-xs text-gray-600 mb-4">Computed from <b>Snowflake CSPL_HR_DB</b> (joinings, exits, HC, function breakdown) + <b>Recruitment Metrics CSV</b> (drops, OTJ, source-of-hire, recruiter productivity, hike%, CPH) for the window <span id="window-label-formula">—</span>. Where data is unavailable, formula and reason are stated.</p>
+      <p class="text-xs text-gray-600 mb-4"><b>Joinings, OTJ, drops, source-of-hire, recruiter productivity</b> from <b>Recruitment sheets / P&C app</b> (exclude internal movements). <b>HC, exits/attrition, bands, tenure, open reqs, TAT</b> from <b>Snowflake CSPL+CAPL_HR_DB</b> (live). For <span id="window-label-formula">—</span>. Where data is unavailable, formula and reason are stated.</p>
       <div class="overflow-x-auto">
         <table class="w-full text-sm compact">
           <thead class="bg-gray-100">
@@ -841,7 +841,7 @@ async function loadDashboard() {
   // Window-only KPI cards — Snowflake-first; CSV-derived clearly tagged
   const cards = [
     { label: 'Total Candidates',    value: ov.joinings_total_candidates, suffix: '', sub: 'Rocket Offers CSV' },
-    { label: 'Joined',              value: ov.joinings,                  suffix: '', sub: 'Snowflake CSPL · +' + (ov.joinings_pending_pipeline ?? '—') + ' in pipeline (Pending)' },
+    { label: 'Joined',              value: ov.joinings,                  suffix: '', sub: 'Recruitment sheet · excl. movements · ' + (ov.yet_to_join ?? '—') + ' yet-to-join' },
     { label: 'Not Joined / Drops',  value: ov.drops,                     suffix: '', sub: 'Rocket Offers CSV' },
     { label: 'Offer-to-Join',       value: ov.otj,                       suffix: '%', sub: 'Rocket Offers CSV' },
     { label: 'Drop Rate',           value: ov.drop_rate,                 suffix: '%', sub: 'Rocket Offers CSV' },
@@ -900,7 +900,7 @@ async function loadDashboard() {
   if (fsBody) {
     const ng = data.metrics_not_computable_for_window || {};
     const formulaRows = [
-      ['Joinings',              'COUNT(Joined in month)',                                     ov.joinings,                       'Attached P&C workbook · ✅ May-26 (295 joined; 13 future-dated accepted offers in pipeline)'],
+      ['Joinings',              'COUNT(joinings in month, EXCL. internal movements)',          ov.joinings,                       'Recruitment sheet / P&C app · ✅ May-26 (295 joined; 105 yet-to-join). Snowflake NOT used — its base includes movements.'],
       ['Total Candidates',      'COUNT(offered candidates in window)',                        ov.joinings_total_candidates,      'Rocket Offers CSV · ✅ Computed'],
       ['Drops (Not Joined)',    'COUNT(Joining Status = Not Joined for offers in window)',    ov.drops,                          'Rocket Offers CSV · ✅ Computed (Snowflake doesn\'t track drops)'],
       ['Drop Rate %',           '(Drops ÷ Total Candidates) × 100',                          (ov.drop_rate ?? '—') + '%',       'Rocket Offers CSV · ✅ Computed'],
@@ -911,13 +911,13 @@ async function loadDashboard() {
       ['Recruiter Productivity','Joined ÷ Distinct Recruiter Count (25)',                     ov.productivity,                   'Attached P&C workbook · ✅ May-26 (recruiter productivity tab)'],
       ['Active Recruiters',     'COUNT(DISTINCT Recruiter for month joinings)',               ov.active_recruiters,              'Attached P&C workbook · ✅ May-26'],
       ['Source Mix %',          '(Joinings from Source ÷ Total Joinings) × 100',              'See Sourcing tab',                'Rocket Offers CSV · ✅ Computed'],
-      ['By-function Joinings',  'COUNT per function bucket (Snowflake DEPARTMENT_CODE)',      'See By-Function table',           'Snowflake CSPL_HR_DB · ✅ Live (replaces stale CSV view)'],
+      ['By-function Joinings',  'COUNT per function bucket (joinings, excl. movements)',      'See By-Function table',           'Recruitment sheet / OTJ-by-Dept tab · ✅ May-26 (not Snowflake — movements excluded)'],
       ['By-band, by-entity, by-day', 'COUNT per band / entity / DOJ day',                     'See Window Detail tab',           'Snowflake CSPL_HR_DB · ✅ Live'],
       ['Variable CPH',          'Total Variable Cost ÷ Total Joinings',                       ov.cph != null ? '₹' + Number(ov.cph).toLocaleString('en-IN') : '—',                               ov.cph != null ? 'JM sheet · partial — Finance to backfill Actual_CPH post month-end close' : 'Pending Finance close — Actual_CPH not yet posted in Joining Master for window cohort'],
       ['Hike %',                'AVG((Offered CTC − Last CTC) ÷ Last CTC) × 100',             (ov.hike ?? '—') + (ov.hike != null ? '%' : ''),                               'JM sheet · ✅ Computed (' + (ov.hike_data_rows ?? '—') + ' joiners). Snowflake ATS has no Offered CTC field — TA must populate.'],
       ['Time to Fill (d)',      'AVG(DOJ − Requisition Open Date)',                           (ov.ttf ?? '—') + (ov.ttf != null ? ' d' : ''),                                 'Snowflake CSPL_HR_DB · ✅ Live (109 ATS-linked offers in window)'],
       ['Avg TAT — Open Roles',  'AVG(Today − Requisition Open Date) for STATUS=Open',         (ov.tat ?? '—') + (ov.tat != null ? ' d' : ''),                                 'Snowflake CSPL_HR_DB · ✅ Live (' + (ov.tat_data_rows ?? '—') + ' open reqs, today\'s snapshot)'],
-      ['Female %',              '(Female joinings ÷ Joiners with declared gender) × 100',     (ov.female_pct ?? '—') + (ov.female_pct != null ? '%' : ''),                       'Snowflake CSPL_HR_DB · ✅ Live (' + (ov.female_n ?? '—') + ' / ' + (ov.female_base_n ?? '—') + ' ATS-tagged joiners)'],
+      ['Female %',              '(Female joinings ÷ Total joinings) × 100',                   (ov.female_pct ?? '—') + (ov.female_pct != null ? '%' : ''),                       'Recruitment sheet / P&C app · ✅ May-26 (' + (ov.female_n ?? '—') + ' / ' + (ov.female_base_n ?? '—') + ' joiners)'],
       ['Active Reqs (Open)',    'COUNT(REQs with Status = Open as of today)',                 ov.open_reqs ?? '—',                                                              'Snowflake CSPL_HR_DB · ✅ Live (today\'s snapshot)'],
     ];
     fsBody.innerHTML = formulaRows.map(([m, f, v, s]) => {

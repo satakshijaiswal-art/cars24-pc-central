@@ -69,17 +69,10 @@
     "td_b4plus_exits_12m": 224,
     "td_source": "snowflake",
     "td_note": "Snowflake live \u00b7 CSPL + CAPL EMPLOYEES (EMPLOYEE_STATUS='Active'). Founder-grade talent-density tiles, refreshed daily.",
-    "joinings_snowflake_actual": 340,
-    "joinings_snowflake_pending": 408,
     "exits_in_window_snowflake": 288,
     "active_hc_snowflake_cspl": 6920,
-    "_source_note": "Headline joinings/drops/OTJ kept on Recruitment-Metrics CSV (operational view). Function tile and B4+ tiles use Snowflake CSPL_HR_DB (system of record).",
-    "joinings_csv_recruitment": 303,
-    "joinings_pending_pipeline": 13,
+    "_source_note": "Joinings, OTJ, drops, recruiter productivity, source-of-hire = Recruitment sheets / P&C app (exclude internal movements). HC, attrition, bands, tenure, open reqs, TAT = Snowflake CSPL+CAPL_HR_DB (live). Snowflake is NOT used for joinings \u2014 its base includes movements which we do not count as joinings.",
     "_sources": {
-      "joinings (340)": "Snowflake \u00b7 CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u00b7 DATE_OF_JOINING in window AND EMPLOYEE_STATUS IN ('Active','InActive')",
-      "joinings_pending_pipeline": "Snowflake \u00b7 same as above but EMPLOYEE_STATUS='Pending' (offer accepted, DOJ set, onboarding in progress)",
-      "joinings_csv_recruitment": "Base-Live CSV (recruitment team operational tracker) \u2014 historical reconciliation only",
       "drops / drop_rate / otj": "Rocket Offers CSV (Recruitment Metrics) \u00b7 Joining Status != 'Joined' for offered candidates",
       "exits_in_window": "Snowflake \u00b7 CSPL_HR_DB EMPLOYEES \u00b7 DATE_OF_EXIT in window",
       "active_hc": "Snowflake \u00b7 CSPL_HR_DB EMPLOYEES \u00b7 EMPLOYEE_STATUS='Active'",
@@ -91,10 +84,12 @@
       "female_pct / female_n": "Snowflake \u00b7 CSPL_HR_DB.HR_ATS_PUBLIC.APPLICANTS \u22c8 OFFER_LETTERS_DETAILS \u00b7 LOWER(GENDER) IN ('male','female') \u2014 HRMS GENDER is hashed for privacy",
       "senior_b4_plus": "Snowflake \u00b7 CSPL_HR_DB EMPLOYEES \u00b7 BAND IN ('B4','B5','B6','Builder') AND DOJ in window",
       "productivity / active_recruiters": "Recruitment Metrics CSV \u00b7 joinings/recruiter, recruiter count locked at 17",
-      "td_* (Talent Density tiles)": "Snowflake live \u00b7 CSPL_HR_DB + CAPL_HR_DB EMPLOYEES \u00b7 founder-grade builder density per Vikram's #1 lever"
+      "td_* (Talent Density tiles)": "Snowflake live \u00b7 CSPL_HR_DB + CAPL_HR_DB EMPLOYEES \u00b7 founder-grade builder density per Vikram's #1 lever",
+      "joinings (295)": "Recruitment sheet / P&C app \u00b7 joinings EXCLUDE internal movements (Snowflake base over-counts as it includes movements)",
+      "yet_to_join / drops / otj": "P&C Apps Script app + Recruitment sheet (May'26). Drops = past-DOJ no-shows; YTJ = future-dated accepted offers."
     },
     "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST",
-    "_source": "Recruitment headline (Joinings/YTJ/Drops/OTJ/productivity) from P&C Apps Script app (May'26). HC/attrition/tenure/builder-density LIVE from Snowflake CSPL+CAPL_HR_DB (09 Jun 2026).",
+    "_source": "Joinings/OTJ/drops from Recruitment sheets + P&C app (May'26, excl. movements). HC/attrition/tenure/builder-density LIVE from Snowflake CSPL+CAPL_HR_DB (09 Jun 2026).",
     "yet_to_join": 105
   },
   "functionTable": {
@@ -625,7 +620,7 @@
       5.26,
       5.3
     ],
-    "_source": "Joinings: P&C Apps Script app (12-mo). Attrition: Snowflake CSPL exits \u00f7 active HC, monthly.",
+    "_source": "Joinings: Recruitment sheet / P&C app 12-mo trend (EXCLUDES internal movements). Attrition: Snowflake CSPL exits \u00f7 active HC, monthly.",
     "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
   },
   "window_extras": {
@@ -1111,21 +1106,14 @@
             "value": "84.5 d"
           },
           {
-            "label": "Joinings May'26",
-            "value": "295"
-          },
-          {
-            "label": "Yet-to-Join",
-            "value": "105"
-          },
-          {
-            "label": "Drops (past DOJ)",
-            "value": "23"
+            "label": "Reqs \u00b7 New",
+            "value": "\u2014",
+            "sub": "ATS REQUISITIONS \u00b7 Status=Open"
           }
         ],
         "source": "CSPL_HR_DB.HR_ATS_PUBLIC: REQUISITIONS \u00b7 APPLICANTS \u00b7 OFFER_LETTERS",
         "window": "Snapshot as of 09 Jun 2026 \u00b7 live",
-        "formula": "Open = COUNT(*) WHERE STATUS='Open'  \u00b7  Acceptance Rate = Offers Accepted \u00f7 Offers Released \u00d7 100",
+        "formula": "Snowflake ATS REQUISITIONS (Status=Open). NOTE: joinings/YTJ/drops are NOT taken from Snowflake \u2014 they live on the Recruitment sheet (Overview tab) because Snowflake base includes internal movements.",
         "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
