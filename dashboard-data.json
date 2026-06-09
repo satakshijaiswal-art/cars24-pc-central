@@ -60,8 +60,8 @@
     "td_active_hc": 7097,
     "td_builders_b4plus": 254,
     "td_builder_density_pct": 3.58,
-    "td_tenure_lt_1y_pct": 48.3,
-    "td_tenure_3y_plus_pct": 19.9,
+    "td_tenure_lt_1y_pct": 46.0,
+    "td_tenure_3y_plus_pct": 20.1,
     "td_early_exit_pct_90d": 22.6,
     "td_early_exits_90d": 242,
     "td_exits_90d_total": 1072,
@@ -997,11 +997,11 @@
           },
           {
             "label": "<1yr tenure",
-            "value": "48.3%"
+            "value": "46.0%"
           },
           {
             "label": "\u22653yr tenure",
-            "value": "19.9%"
+            "value": "20.1%"
           }
         ],
         "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
