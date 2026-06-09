@@ -50,6 +50,30 @@
   }
   .cars24-logo img { display: block; height: 36px; width: auto; }
   .section-bg { background: #F8FAFC; padding: 24px; border-radius: 12px; }
+  /* People Search — brand-themed */
+  #search .search-hero { background: linear-gradient(135deg, #4736FE 0%, #3530C7 100%); border-radius: 14px; padding: 22px; }
+  #search #emp-q { width:100%; padding:14px 16px; font-size:17px; border:0; border-radius:12px; outline:none; box-shadow:0 6px 24px rgba(71,54,254,.25); }
+  #search .emp-chips { display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; }
+  #search .emp-chip { background:rgba(255,255,255,.14); color:#fff; border:1px solid rgba(255,255,255,.28); padding:5px 11px; border-radius:999px; font-size:12px; cursor:pointer; }
+  #search .emp-chip:hover { background:rgba(255,255,255,.26); }
+  #search .emp-hint { margin-top:10px; color:#dcd9ff; font-size:12.5px; }
+  #search .emp-hint b { color:#fff; }
+  #search .emp-results { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px; margin:8px 0 40px; }
+  #search .emp-card { background:#fff; border:1px solid #E2E8F0; border-radius:12px; padding:14px 15px; box-shadow:0 1px 2px rgba(16,24,40,.04); }
+  #search .emp-card .nm { font-weight:700; font-size:16px; color:#0b1220; }
+  #search .emp-card .ds { color:#5b6573; font-size:13px; margin-top:1px; }
+  #search .emp-badge { display:inline-block; font-size:11px; font-weight:600; padding:2px 7px; border-radius:6px; margin-left:6px; vertical-align:middle; }
+  #search .b-band { background:#E6F2FF; color:#3530C7; }
+  #search .b-builder { background:#FFF7DA; color:#A16207; border:1px solid #F4D35E; }
+  #search .b-notice { background:#FFF1E0; color:#D97706; }
+  #search .emp-kv { margin-top:9px; display:grid; grid-template-columns:84px 1fr; gap:3px 8px; font-size:13px; }
+  #search .emp-kv .k { color:#5b6573; } #search .emp-kv .v { color:#0b1220; }
+  #search .em { color:#4736FE; cursor:pointer; text-decoration:none; } #search .em:hover { text-decoration:underline; }
+  #search .hr-card { background:#4736FE; border:0; } #search .hr-card .nm { color:#fff; }
+  #search .hr-card .ds { color:#c7c2ff; } #search .hr-card .emp-kv .k { color:#c7c2ff; } #search .hr-card .emp-kv .v { color:#fff; }
+  #search mark { background:#FFE45C; color:#111; padding:0 1px; border-radius:2px; }
+  #search .emp-empty { color:#5b6573; padding:40px 0; text-align:center; grid-column:1/-1; }
+  #search .emp-sec { font-size:12px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; color:#5b6573; margin:18px 0 2px; grid-column:1/-1; }
 </style>
 </head>
 <body class="text-gray-900">
@@ -81,7 +105,8 @@
 <!-- Tab Navigation -->
 <nav class="bg-white border-b sticky top-[88px] z-40 shadow-sm">
   <div class="max-w-screen-2xl mx-auto px-6 flex gap-1 overflow-x-auto py-2 text-sm">
-    <a href="#overview" class="nav-pill active px-4 py-2 rounded-full font-semibold whitespace-nowrap">Overview</a>
+    <a href="#search" class="nav-pill active px-4 py-2 rounded-full font-semibold whitespace-nowrap">People Search</a>
+    <a href="#overview" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Overview</a>
     <a href="#recruitment" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Recruitment KPIs</a>
     <a href="#leadership" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Leadership</a>
     <a href="#sourcing" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Sourcing Mix</a>
@@ -112,6 +137,29 @@
 </nav>
 
 <main class="max-w-screen-2xl mx-auto px-6 py-8 space-y-12">
+
+  <!-- 0. PEOPLE SEARCH -->
+  <section id="search">
+    <div class="accent-bar mb-3"></div>
+    <h2 class="text-3xl font-bold brand-blue">People Search</h2>
+    <p class="text-gray-600 mt-1">Search any employee, function, team, band or builder · <span id="emp-meta">loading directory…</span></p>
+
+    <div class="search-hero mt-5">
+      <input id="emp-q" autocomplete="off" placeholder="Search a function, team, band or name — e.g. tech hr, brand builders, collection builder">
+      <div class="emp-chips" id="emp-examples">
+        <span class="emp-chip">tech hr</span><span class="emp-chip">brand builders</span>
+        <span class="emp-chip">collection builder</span><span class="emp-chip">product builders</span>
+        <span class="emp-chip">finance hrbp</span><span class="emp-chip">data ai engineering</span>
+      </div>
+      <div class="emp-hint">Words are matched together (AND). Shorthand: <b>hr</b>=People&amp;Culture, <b>tech</b>=Technology, <b>builders</b>=Builder leaders (B4–B6), <b>brand</b>=Marketing/Branding, <b>ops</b>=Operations.</div>
+    </div>
+    <div class="flex gap-5 items-center mt-4 flex-wrap text-sm text-gray-600">
+      <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" id="emp-onnotice"> include “On Notice”</label>
+      <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" id="emp-buildersonly"> builders only (B4–B6 / Builder)</label>
+      <div id="emp-count" style="margin-left:auto" class="text-gray-500"></div>
+    </div>
+    <div class="emp-results" id="emp-results"><div class="emp-empty">Loading employee directory…</div></div>
+  </section>
 
   <!-- 1. OVERVIEW -->
   <section id="overview">
@@ -1228,7 +1276,156 @@ async function loadDashboard() {
   ).join('');
 }
 
+// ============ People Search (lazy-loaded) ============
+let EMP_LOADED = false, EMP_LOADING = false;
+async function initEmpSearch() {
+  if (EMP_LOADED || EMP_LOADING) return;
+  EMP_LOADING = true;
+  const resEl = document.getElementById('emp-results');
+  let DB;
+  try {
+    const r = await fetch('emp-data.json?t=' + Date.now(), { cache: 'force-cache' });
+    DB = await r.json();
+  } catch (e) {
+    if (resEl) resEl.innerHTML = '<div class="emp-empty">Could not load employee directory.</div>';
+    EMP_LOADING = false; return;
+  }
+  const C = {}; DB.cols.forEach((c, i) => C[c] = i);
+  // clean emp code (strip trailing .0)
+  DB.rows.forEach(r => { r[C.code] = String(r[C.code] || '').replace(/\.0$/, ''); });
+  const activeCount = DB.rows.filter(r => (r[C.status] || '').toLowerCase() === 'active').length;
+  const metaEl = document.getElementById('emp-meta');
+  if (metaEl) metaEl.textContent = activeCount.toLocaleString() + ' active employees · source: Base-Live / Snowflake';
+
+  function tags(r) {
+    const f = (r[C.func] || '').toLowerCase(), sf = (r[C.subfunc] || '').toLowerCase(),
+          ed = (r[C.extDesig] || '').toLowerCase(), bd = (r[C.band] || '').toLowerCase();
+    const t = []; const add = s => t.push(s);
+    if (f.includes('people') || f.includes('human')) add('hr hrbp human resources people culture p&c');
+    if (f.includes('technology') || f.includes('engineering')) add('tech technology engineering eng dev');
+    if (f.includes('information technology') || f === 'it') add('it infosec information technology');
+    if (f.includes('operations')) add('ops operations');
+    if (f.includes('finance')) add('fin finance');
+    if (f.includes('collection')) add('collection collections recovery');
+    if (f.includes('marketing')) add('marketing brand branding growth');
+    if (f.includes('product management')) add('pm product');
+    if (f.includes('product design')) add('design product');
+    if (f.includes('partner experience')) add('cx customer experience partner dealer');
+    if (f.includes('data and ai')) add('data ai ml machine learning datascience analytics engineering');
+    if (f.includes('business intelligence')) add('bi analytics data');
+    if (f.includes('credit')) add('credit underwriting risk');
+    if (f.includes('legal')) add('legal compliance');
+    if (f.includes('management') || f.includes('founder')) add('leadership management founder office cxo');
+    if (sf.includes('brand')) add('brand branding');
+    if (sf.includes('talent acquisition')) add('ta recruiting recruitment hiring');
+    if (sf.includes('learning')) add('l&d learning development');
+    if (ed.includes('builder')) add('builder builders leader leadership');
+    if (['b4', 'b5', 'b6', 'b7'].includes(bd)) add('builder builders senior leader leadership');
+    return t.join(' ');
+  }
+  function wordMatch(tok, wordset) {
+    if (tok.length >= 3) { for (const w of wordset) { if (w.indexOf(tok) === 0) return true; } return false; }
+    return wordset.has(tok);
+  }
+  const toWords = s => new Set(s.toLowerCase().split(/[^a-z0-9&]+/).filter(Boolean));
+  DB.rows.forEach(r => {
+    r._blob = [r[C.name], r[C.code], r[C.func], r[C.subfunc], r[C.funnel], r[C.band], r[C.grade],
+               r[C.extDesig], r[C.intDesig], r[C.bu], r[C.lob], r[C.entity], r[C.site], r[C.region],
+               r[C.email], r[C.hrbp], r[C.l1], tags(r)].join(' ').toLowerCase();
+    r._words = toWords(r._blob);
+    r._builder = (r[C.extDesig] || '').toLowerCase().includes('builder') || ['b4', 'b5', 'b6', 'b7'].includes((r[C.band] || '').toLowerCase());
+  });
+  const hrIndex = (() => {
+    const m = {};
+    DB.rows.forEach(r => { const f = r[C.func], h = r[C.hrbp]; if (!f || !h) return; m[f] = m[f] || {}; m[f][h] = (m[f][h] || 0) + 1; });
+    const cards = [];
+    Object.keys(m).forEach(f => {
+      const hrbps = Object.entries(m[f]).sort((a, b) => b[1] - a[1]);
+      const total = hrbps.reduce((s, x) => s + x[1], 0);
+      cards.push({ func: f, hrbps, total, words: toWords(f + ' hr hrbp human resources people culture ' + hrbps.map(x => x[0]).join(' ')) });
+    });
+    return cards;
+  })();
+  const HR_WORDS = ['hr', 'hrbp'];
+  const esc = s => (s || '').replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+  function hl(s, toks) { s = esc(s); toks.forEach(t => { if (t.length < 2) return; s = s.replace(new RegExp('(' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig'), '<mark>$1</mark>'); }); return s; }
+  function empCard(r, toks) {
+    const desig = r[C.intDesig] || r[C.extDesig] || '';
+    const fn = [r[C.func], r[C.subfunc]].filter(Boolean).join(' › ');
+    const loc = [r[C.site], r[C.region]].filter(Boolean).join(' · ');
+    let badges = '';
+    if (r[C.band]) badges += `<span class="emp-badge b-band">${esc(r[C.band])}</span>`;
+    if (r._builder) badges += `<span class="emp-badge b-builder">Builder</span>`;
+    if ((r[C.status] || '').toLowerCase() === 'on notice') badges += `<span class="emp-badge b-notice">On Notice</span>`;
+    const row = (k, v) => v ? `<div class="k">${k}</div><div class="v">${hl(v, toks)}</div>` : '';
+    return `<div class="emp-card">
+      <div class="nm">${hl(r[C.name], toks)}${badges}</div>
+      <div class="ds">${hl(desig, toks)}${r[C.grade] ? ' · ' + esc(r[C.grade]) : ''}</div>
+      <div class="emp-kv">
+        ${row('Function', fn)}
+        ${row('Business', [r[C.bu], r[C.lob]].filter(Boolean).join(' · '))}
+        ${row('Location', [loc, r[C.entity]].filter(Boolean).join(' · '))}
+        ${r[C.email] ? `<div class="k">Email</div><div class="v"><a class="em" onclick="navigator.clipboard&&navigator.clipboard.writeText('${r[C.email]}')" title="click to copy">${hl(r[C.email], toks)}</a></div>` : ''}
+        ${row('HRBP', r[C.hrbp])}
+        ${row('Manager', r[C.l1])}
+        ${row('Emp code', r[C.code])}
+      </div></div>`;
+  }
+  function hrCard(c, toks) {
+    const list = c.hrbps.map(([n, k]) => `${esc(n)} <span style="opacity:.7">(${k})</span>`).join(' · ');
+    return `<div class="emp-card hr-card">
+      <div class="nm">${hl(c.func, toks)} — HRBP coverage</div>
+      <div class="ds">${c.total} employees · People & Culture</div>
+      <div class="emp-kv"><div class="k">HRBP(s)</div><div class="v">${hl(list, toks)}</div></div>
+    </div>`;
+  }
+  function search() {
+    const raw = document.getElementById('emp-q').value.trim().toLowerCase();
+    const onNotice = document.getElementById('emp-onnotice').checked;
+    const buildersOnly = document.getElementById('emp-buildersonly').checked;
+    const toks = raw.split(/\s+/).filter(Boolean);
+    const res = document.getElementById('emp-results');
+    let pool = DB.rows.filter(r => onNotice || (r[C.status] || '').toLowerCase() === 'active');
+    if (buildersOnly) pool = pool.filter(r => r._builder);
+    let people = pool, hrcards = [];
+    if (toks.length) {
+      people = pool.filter(r => toks.every(t => wordMatch(t, r._words)));
+      if (toks.some(t => HR_WORDS.includes(t))) {
+        const other = toks.filter(t => !HR_WORDS.includes(t));
+        hrcards = hrIndex.filter(c => other.every(t => wordMatch(t, c.words)));
+      }
+    }
+    people.sort((a, b) => {
+      const an = a[C.name].toLowerCase().startsWith(raw), bn = b[C.name].toLowerCase().startsWith(raw);
+      if (an !== bn) return an ? -1 : 1;
+      if (a._builder !== b._builder) return a._builder ? -1 : 1;
+      return a[C.name].localeCompare(b[C.name]);
+    });
+    document.getElementById('emp-count').textContent = (toks.length ? people.length.toLocaleString() + ' match' + (people.length === 1 ? '' : 'es') : people.length.toLocaleString() + ' employees');
+    if (!toks.length && !buildersOnly) { res.innerHTML = '<div class="emp-empty">Start typing — try “tech hr”, “brand builders”, or a name.</div>'; return; }
+    if (!people.length && !hrcards.length) { res.innerHTML = '<div class="emp-empty">No matches for “' + esc(raw) + '”. Try fewer or different words.</div>'; return; }
+    let html = '';
+    if (hrcards.length) { html += '<div class="emp-sec">HRBP coverage</div>' + hrcards.map(c => hrCard(c, toks)).join(''); }
+    const cap = 400;
+    if (people.length) {
+      html += '<div class="emp-sec">People (' + people.length.toLocaleString() + ')</div>';
+      html += people.slice(0, cap).map(r => empCard(r, toks)).join('');
+      if (people.length > cap) html += '<div class="emp-sec" style="color:#9aa3af">Showing first ' + cap + ' — refine your search to narrow down.</div>';
+    }
+    res.innerHTML = html;
+  }
+  document.getElementById('emp-q').addEventListener('input', search);
+  document.getElementById('emp-onnotice').addEventListener('change', search);
+  document.getElementById('emp-buildersonly').addEventListener('change', search);
+  document.getElementById('emp-examples').addEventListener('click', e => {
+    if (e.target.classList.contains('emp-chip')) { document.getElementById('emp-q').value = e.target.textContent; search(); document.getElementById('emp-q').focus(); }
+  });
+  EMP_LOADED = true; EMP_LOADING = false;
+  search();
+}
+
 function showSection(sectionId) {
+  if (sectionId === 'search') initEmpSearch();
   // Hide every content section, then show only the target
   document.querySelectorAll('main > section').forEach(s => {
     if (s.id === 'quality') return; // Data Quality always visible
@@ -1260,7 +1457,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   // Initial section: from URL hash, or default to Overview
-  const initial = (location.hash || '#overview').replace('#', '');
+  const initial = (location.hash || '#search').replace('#', '');
   showSection(initial);
 });
 </script>
