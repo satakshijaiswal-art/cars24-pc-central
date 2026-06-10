@@ -326,10 +326,11 @@
       </div>
     </div>
 
-    <!-- PER-FUNCTION SOURCE BREAKDOWN — exactly which channels delivered which function's hires -->
-    <h3 class="text-lg font-bold brand-blue mt-8 mb-1">Where each function's hires came from</h3>
-    <p class="text-sm text-gray-600 mb-4">Channel-level breakdown for Business, Support, and T P BI DS · Apr-26 from Recruitment Metric_New</p>
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5" id="function-source-cards"></div>
+    <!-- CHANNEL-WISE CONTRIBUTION — every inbound & outbound channel as % of total joinings -->
+    <h3 class="text-lg font-bold brand-blue mt-8 mb-1">Channel-wise hiring contribution</h3>
+    <p class="text-sm text-gray-600 mb-4">Every inbound &amp; outbound channel as a share of total May'26 joinings · reconciled 10 Jun 2026</p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="channel-contribution"></div>
+    <div class="text-xs text-gray-600 mt-3 italic" id="channel-note"></div>
 
     <!-- LEGEND — what counts as Inbound vs Outbound globally -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
@@ -931,7 +932,7 @@ async function loadDashboard() {
     });
     // Header badge with all counts
     const countsEl = document.getElementById('source-by-function-counts');
-    if (countsEl) countsEl.textContent = funcs.map(f => `${f}: ${data.sourcing.by_function[f]?.n ?? 0}`).join(' · ');
+    if (countsEl) countsEl.textContent = '% of total joinings · in/out';
 
     chartInstances.sourceFunction = new Chart(document.getElementById('chart-source-function'), {
       type: 'bar',
@@ -946,56 +947,36 @@ async function loadDashboard() {
     });
   }
 
-  // Per-function source detail cards
-  const fd = data.sourcing?.by_function_detail || {};
-  const fcardsEl = document.getElementById('function-source-cards');
-  if (fcardsEl) {
-    fcardsEl.innerHTML = ['Business', 'Support', 'T P BI DS'].map(fn => {
-      const d = fd[fn];
-      if (!d) return '';
-      const inboundList  = (d.inbound_channels  || []).map(c => `<li class="flex justify-between text-xs py-1 border-b border-blue-100"><span>${c.name}</span><span class="font-bold" style="color:#4736FE">${c.pct}%</span></li>`).join('');
-      const outboundList = (d.outbound_channels || []).map(c => `<li class="flex justify-between text-xs py-1 border-b border-amber-100"><span>${c.name}</span><span class="font-bold" style="color:#F59E0B">${c.pct}%</span></li>`).join('');
-      const total = (d.inbound_total + d.outbound_total).toFixed(2);
-      const inPct  = total > 0 ? Math.round((d.inbound_total  / total) * 100) : 0;
-      const outPct = total > 0 ? Math.round((d.outbound_total / total) * 100) : 0;
-      return `
-        <div class="rounded-lg border bg-white p-5 shadow-sm">
-          <div class="font-bold text-lg brand-blue">${fn}</div>
-          <div class="text-xs text-gray-500 mb-3">Total of joinings tagged: ${total}%</div>
-
-          <!-- Stacked bar showing inbound vs outbound proportion -->
-          <div class="flex h-3 rounded overflow-hidden mb-1">
-            ${d.inbound_total  > 0 ? `<div style="width:${inPct}%; background:#4736FE"></div>` : ''}
-            ${d.outbound_total > 0 ? `<div style="width:${outPct}%; background:#F59E0B"></div>` : ''}
+  // Channel-wise contribution table — every inbound & outbound channel as % of total joinings
+  const ch = data.sourcing?.channels || {};
+  const chEl = document.getElementById('channel-contribution');
+  if (chEl) {
+    const sum = list => (list || []).reduce((a, c) => a + (c.pct || 0), 0);
+    const rows = (list, color) => (list || [])
+      .slice().sort((a, b) => (b.pct || 0) - (a.pct || 0))
+      .map(c => {
+        const zero = !c.pct;
+        return `<li class="flex justify-between items-center text-sm py-1.5 border-b border-gray-100 ${zero ? 'opacity-50' : ''}">
+            <span>${c.name}${zero ? ' <span class="text-[10px] text-gray-400 italic">no joinings</span>' : ''}</span>
+            <span class="font-bold" style="color:${color}">${(c.pct || 0).toFixed(2)}%</span>
+          </li>`;
+      }).join('');
+    const panel = (title, badge, color, bg, list) => `
+      <div class="rounded-lg border-2 p-5 shadow-sm" style="border-color:${color}; background:${bg}">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold px-2 py-1 rounded text-white" style="background:${color}">${badge}</span>
+            <span class="text-sm font-semibold text-gray-700">${title}</span>
           </div>
-          <div class="flex justify-between text-xs text-gray-600 mb-4">
-            <span><span class="inline-block w-2 h-2 rounded-full mr-1" style="background:#4736FE"></span>Inbound ${d.inbound_total}%</span>
-            <span><span class="inline-block w-2 h-2 rounded-full mr-1" style="background:#F59E0B"></span>Outbound ${d.outbound_total}%</span>
-          </div>
-
-          <div class="text-xs font-bold uppercase tracking-wide mb-1" style="color:#4736FE">Inbound channels</div>
-          <ul class="mb-3">${inboundList || '<li class="text-xs text-gray-400 italic py-1">None this period</li>'}</ul>
-
-          <div class="text-xs font-bold uppercase tracking-wide mb-1" style="color:#F59E0B">Outbound channels</div>
-          <ul class="mb-3">${outboundList || '<li class="text-xs text-gray-400 italic py-1">None this period</li>'}</ul>
-
-          ${(fn === 'Support' || fn === 'T P BI DS') ? `
-            <div class="text-xs font-bold uppercase tracking-wide mb-1 mt-3" style="color:#F59E0B">Outbound joiners — who + recruiter</div>
-            ${(d.outbound_joiners && d.outbound_joiners.length > 0) ? `
-              <ul class="space-y-1.5 mt-1">
-                ${d.outbound_joiners.map(j => `
-                  <li class="text-xs p-2 rounded" style="background:#FFFBEB; border-left:3px solid #F59E0B">
-                    <div class="font-semibold text-gray-900">${j.name} <span class="text-gray-500 font-normal">· ${j.band} · ${j.designation}</span></div>
-                    <div class="text-gray-600 mt-0.5">${j.department} · ${j.source} · DOJ ${j.doj}</div>
-                    <div class="font-semibold mt-0.5" style="color:#4736FE">Recruiter: ${j.recruiter}</div>
-                  </li>
-                `).join('')}
-              </ul>
-            ` : '<div class="text-xs text-gray-400 italic mt-1">No outbound joiners in this period</div>'}
-          ` : ''}
+          <span class="text-lg font-bold" style="color:${color}">${sum(list).toFixed(2)}%</span>
         </div>
-      `;
-    }).join('');
+        <ul>${rows(list, color)}</ul>
+      </div>`;
+    chEl.innerHTML =
+      panel('Outbound — we reached out', 'OUTBOUND', '#F59E0B', '#FFFBEB', ch.outbound) +
+      panel('Inbound — candidate came to us', 'INBOUND', '#4736FE', '#F5F4FF', ch.inbound);
+    const cnote = document.getElementById('channel-note');
+    if (cnote) cnote.textContent = ch.definition || '';
   }
 
   // Global Inbound / Outbound legend lists
