@@ -126,6 +126,7 @@
     <a href="#sf-assets" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Assets</a>
     <a href="#automation" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Automation</a>
     <a href="#certificates" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Certificates</a>
+    <a href="#analytics" class="nav-pill px-4 py-2 rounded-full font-semibold whitespace-nowrap">Analytics &amp; MIS</a>
   </div>
 </nav>
 
@@ -692,6 +693,21 @@
     </div>
   </section>
 
+  <!-- ANALYTICS & MIS -->
+  <section id="analytics">
+    <div class="accent-bar mb-3"></div>
+    <h2 class="text-3xl font-bold brand-blue">Analytics &amp; MIS Work</h2>
+    <p class="text-gray-600 mt-1">Core MIS deliverables · <span id="analytics-period">—</span></p>
+    <div class="bg-white rounded-lg shadow-sm border p-6 mt-6">
+      <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider mb-4">Core MIS Deliverables</h3>
+      <ul class="space-y-3" id="analytics-list"></ul>
+    </div>
+    <div class="rounded-lg p-4 mt-5 flex items-start gap-2" style="background:#DCFCE7" id="analytics-summary-box">
+      <span style="color:#16a34a">✓</span>
+      <span class="text-sm text-gray-800" id="analytics-summary"></span>
+    </div>
+  </section>
+
   <footer class="text-center text-xs text-gray-500 py-8 border-t mt-12">
     <div class="font-semibold brand-blue mb-1">Cars24 · People & Culture Central</div>
     <div>Data sources: Recruitment Metrics · Joining Master · Tech & Product · Third Party · Glassdoor</div>
@@ -757,6 +773,7 @@ async function loadDashboard() {
     drops:           { id: 'drops',           sourceKey: 'drops' },
     ta:              { id: 'ta',              sourceKey: 'ta' },
     hrbp:            { id: 'hrbp',            sourceKey: 'hrbp' },
+    analytics:       { id: 'analytics',       sourceKey: 'analytics' },
   };
   Object.values(SECTION_MAP).forEach(cfg => {
     const sec = document.getElementById(cfg.id);
@@ -1266,6 +1283,22 @@ async function loadDashboard() {
         </ul>
       </div>`).join('') || '<div class="text-gray-500">No HRBP updates this period</div>';
   }
+
+  // ============ Analytics & MIS ============
+  const an = data.analytics || {};
+  const anPeriodEl = document.getElementById('analytics-period');
+  if (anPeriodEl) anPeriodEl.textContent = an._period || '';
+  const anListEl = document.getElementById('analytics-list');
+  if (anListEl) {
+    anListEl.innerHTML = (an.deliverables || []).map(t => `
+      <li class="flex items-start gap-2 border-l-2 pl-3 py-1" style="border-color:#4736FE">
+        <span class="text-sm text-gray-900">${t}</span>
+      </li>`).join('') || '<li class="text-gray-500">No MIS work logged this period</li>';
+  }
+  const anSumEl = document.getElementById('analytics-summary');
+  if (anSumEl) anSumEl.textContent = an.summary || '';
+  const anSumBox = document.getElementById('analytics-summary-box');
+  if (anSumBox && !an.summary) anSumBox.style.display = 'none';
 
   // Snowflake catalog renderer — wrapped so a single error never blanks all 15 sections
   try {

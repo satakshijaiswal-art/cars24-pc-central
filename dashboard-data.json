@@ -2424,5 +2424,19 @@
         ]
       }
     ]
+  },
+  "analytics": {
+    "_period": "May 2026",
+    "title": "Analytics & MIS Work Summary",
+    "deliverables": [
+      "Maintained and validated joining MIS across all entities — Cars24, NBFC, International, and third-party resources",
+      "Proactively identified and resolved offer-vs-joining data mismatches with the onboarding team",
+      "Managed end-to-end recruitment metrics — offers, open REQs, feedback data, and hiring KPIs across all dashboards",
+      "Delivered month-end MIS reports (department-wise and entity-wise) for leadership reviews",
+      "Provided attendance dashboards, headcount tracking, attrition analysis, and cost data for HR and business stakeholders",
+      "Handled PR (Purchase Requisition) activities — timely raising, tracking, and coordination aligned with hiring needs; additionally managed TOKEN '26 Hackathon related PR, invoice processing, and end-to-end event reporting and documentation"
+    ],
+    "summary": "MIS delivery in May remained structured and reliable, with strong focus on data accuracy, proactive issue resolution, and stakeholder support.",
+    "_source": "P&C MIS work summary · May 2026"
   }
 }
