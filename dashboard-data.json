@@ -1306,7 +1306,7 @@
         "name": "Bands \u00b7 Active HC",
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND",
         "window": "Snapshot as of 09 Jun 2026 \u00b7 live",
-        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' \u00b7 Builders = B4 + B5 + B6 + 'Builder' band (roll-up; sub-lines NOT additive)",
+        "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' \u00b7 Builders = B4 + B5 + B6 + 'Builder' band (roll-up; sub-lines NOT additive). \ud83d\udd34 Serving notice period = Active employees with a resignation in progress (Administrator Approved + Pending with Manager) \u2014 a senior-talent flight-risk signal.",
         "metrics": [
           {
             "label": "Total Active HC (CSPL)",
@@ -1322,15 +1322,18 @@
           },
           {
             "label": "B2 \u00b7 Senior IC",
-            "value": "1,051"
+            "value": "1,051",
+            "sub": "\ud83d\udd34 33 serving notice period (3.1%)"
           },
           {
             "label": "B3 \u00b7 Manager / Lead",
-            "value": "292"
+            "value": "292",
+            "sub": "\ud83d\udd34 16 serving notice period (5.5%)"
           },
           {
             "label": "Builders (B4+B5+B6)",
-            "value": "241"
+            "value": "241",
+            "sub": "\ud83d\udd34 23 serving notice period (9.5%) \u2014 highest senior flight risk"
           },
           {
             "label": "SLA \u00b7 Service Line Agent",
