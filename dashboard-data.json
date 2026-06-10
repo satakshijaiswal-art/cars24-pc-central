@@ -1057,56 +1057,56 @@
         "metrics": [
           {
             "label": "Schedules (lifetime)",
-            "value": "30,191"
+            "value": "31,652"
           },
           {
             "label": "Feedback Submissions",
-            "value": "34,744"
+            "value": "36,736"
           },
           {
             "label": "Panel Size (avg interviewers / slot)",
-            "value": "1.15",
-            "sub": "1.0 = pure 1-on-1. 1.15 = ~15% of slots have 2+ panelists. Lower = less rigour at senior rounds."
+            "value": "1.16",
+            "sub": "1.0 = pure 1-on-1. 1.16 = ~16% of slots have 2+ panelists. Lower = less rigour at senior rounds."
           },
           {
             "label": "Completion Rate",
-            "value": "88.3%",
-            "sub": "26,660 of 30,191 slots completed. 3,085 still scheduled, 446 rescheduled."
+            "value": "88.2%",
+            "sub": "27,921 of 31,652 slots completed. 3,249 still scheduled, 482 rescheduled."
           },
           {
             "label": "No-Show Rate",
             "value": "2.9%",
-            "sub": "1,019 of 34,744 feedbacks flagged DID_NOT_HAPPEN (candidate / interviewer no-show)."
+            "sub": "1,061 of 36,736 feedbacks flagged DID_NOT_HAPPEN (candidate / interviewer no-show)."
           },
           {
             "label": "Reschedule Rate",
-            "value": "8.9%",
-            "sub": "2,693 of 30,191 slots rescheduled \u22651\u00d7 \u00b7 12 slots rescheduled 5+ times (red-flag candidates / loops)"
+            "value": "9.1%",
+            "sub": "2,876 of 31,652 slots rescheduled \u22651\u00d7 \u00b7 14 slots rescheduled 5+ times (red-flag candidates / loops)"
           },
           {
             "label": "Virtual %",
             "value": "93.3%",
-            "sub": "28,168 Virtual vs 2,023 Physical. Lever: in-person at B3+ for stronger signal?"
+            "sub": "29,542 Virtual vs 2,110 Physical. Lever: in-person at B3+ for stronger signal?"
           },
           {
             "label": "Overall Select Rate",
-            "value": "90.7%",
-            "sub": "26,956 YES / (26,956 YES + 2,761 NO) verdicts. Excludes blanks & DID_NOT_HAPPEN."
+            "value": "90.9%",
+            "sub": "28,550 YES / (28,550 YES + 2,854 NO) verdicts. Excludes blanks & DID_NOT_HAPPEN."
           },
           {
             "label": "Round 1 Select Rate",
-            "value": "85.9%",
-            "sub": "13,323 YES / 15,508 decided \u00b7 This is the screening filter \u2014 tightening R1 reduces panel load downstream."
+            "value": "86.1%",
+            "sub": "14,091 YES / 16,360 decided \u00b7 This is the screening filter \u2014 tightening R1 reduces panel load downstream."
           },
           {
             "label": "Round 2 Select Rate",
-            "value": "95.1%",
-            "sub": "8,365 YES / 8,800 decided \u00b7 If 95%+ pass R2, R2 may be redundant for some funcs"
+            "value": "95.3%",
+            "sub": "8,937 YES / 9,380 decided \u00b7 If 95%+ pass R2, R2 may be redundant for some funcs"
           },
           {
             "label": "Round 3 Select Rate",
-            "value": "97.0%",
-            "sub": "3,897 YES / 4,018 decided \u00b7 Rounds 3+ are 95%+ pass \u2014 final rounds barely filter, mostly confirmatory"
+            "value": "97.1%",
+            "sub": "4,126 YES / 4,248 decided \u00b7 Rounds 3+ are 95%+ pass \u2014 final rounds barely filter, mostly confirmatory"
           },
           {
             "label": "Round 4 Select Rate",
@@ -1114,38 +1114,38 @@
           },
           {
             "label": "Round Funnel: R1\u2192R2\u2192R3\u2192R4\u2192R5",
-            "value": "16,956 \u2192 8,459 \u2192 3,647 \u2192 970 \u2192 150",
-            "sub": "Biggest drop is R3\u2192R4 (73%). R1\u2192R2 = 50%. Helps identify which round is doing the real filtering by function."
+            "value": "20,368 \u2192 10,301 \u2192 4,577 \u2192 1,222 \u2192 189",
+            "sub": "Biggest drop is R3\u2192R4 (73%). R1\u2192R2 = 51%. Helps identify which round is doing the real filtering by function."
           },
           {
             "label": "#1 Reject Reason",
-            "value": "Skills & Experience Mismatch \u00b7 47%",
-            "sub": "1,308 of 2,761 NO verdicts. TA signal: top JD / candidate-match issue \u2014 fix at sourcing level."
+            "value": "Skills & Experience Mismatch \u00b7 48%",
+            "sub": "1,359 of 2,854 NO verdicts. TA signal: top JD / candidate-match issue \u2014 fix at sourcing level."
           },
           {
             "label": "#2 Reject Reason",
-            "value": "Technical / Role-specific \u00b7 21%",
-            "sub": "567 NOs \u00b7 Tighten R1 technical screen."
+            "value": "Technical / Role-specific \u00b7 20%",
+            "sub": "573 NOs \u00b7 Tighten R1 technical screen."
           },
           {
             "label": "#3 Reject Reason",
             "value": "Problem-Solving / Analytical \u00b7 9%",
-            "sub": "252 NOs"
+            "sub": "254 NOs"
           },
           {
             "label": "#4 Reject Reason",
             "value": "Communication \u00b7 7%",
-            "sub": "195 NOs (Communication Skills label only). If you add Oral Communication (23) + Non-verbal (4), combined comm-related = 222 = 8.0% of all rejects."
+            "sub": "207 NOs (Communication Skills label only). Adding Oral Communication (25), combined comm-related = 232 = 8.1% of all rejects."
           },
           {
             "label": "Cultural Fit Rejects",
-            "value": "185 (6.7%)",
-            "sub": "Cultural Fit + Team Dynamics combined \u2014 small but worth tracking by hiring manager for bias signals"
+            "value": "193 (6.8%)",
+            "sub": "Cultural Fit Issues (166) + Cultural/Team Dynamics (27) combined \u2014 small but worth tracking by hiring manager for bias signals"
           },
           {
             "label": "AI Feedback Adoption",
-            "value": "10.6%",
-            "sub": "3,672 of 34,744 feedbacks used AI summary. 89.4% still manual \u2014 big lift opportunity to save IC time."
+            "value": "10.1%",
+            "sub": "3,704 of 36,736 feedbacks used AI summary. 89.9% still manual \u2014 big lift opportunity to save IC time."
           }
         ],
         "source": "CSPL_HR_DB.HR_ATS_PUBLIC: INTERVIEW_SCHEDULE \u00b7 INTERVIEW_FEEDBACK",
