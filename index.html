@@ -482,10 +482,10 @@
     <!-- DATA SOURCE + DATE RANGE -->
     <div class="bg-white rounded-lg shadow-sm border p-4 mt-4 text-xs">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
-        <div><span class="uppercase text-gray-500 font-semibold">Source</span><div class="brand-blue font-semibold mt-1" id="attr-src">Snowflake live · <code>EMPLOYEES</code> (exits ÷ active HC) + <code>EMPLOYEE_BASE_VIEW</code> (reasons / types / dept)</div></div>
+        <div><span class="uppercase text-gray-500 font-semibold">Source</span><div class="brand-blue font-semibold mt-1" id="attr-src">May 2026 official dept-wise attrition report · base-live (Superset)</div></div>
         <div><span class="uppercase text-gray-500 font-semibold">Window</span><div class="brand-blue font-semibold mt-1" id="attr-window">—</div></div>
-        <div><span class="uppercase text-gray-500 font-semibold">Exits ÷ Active HC</span><div class="brand-blue font-semibold mt-1" id="attr-denom">—</div></div>
-        <div><span class="uppercase text-gray-500 font-semibold">Formula</span><div class="brand-blue font-semibold mt-1"><code>(Exits in month ÷ Active HC) × 100</code></div></div>
+        <div><span class="uppercase text-gray-500 font-semibold">Live Exits · Active HC</span><div class="brand-blue font-semibold mt-1" id="attr-denom">—</div></div>
+        <div><span class="uppercase text-gray-500 font-semibold">Formula</span><div class="brand-blue font-semibold mt-1"><code>Official May'26 dept-wise attrition rate (base-live)</code></div></div>
       </div>
       <p class="text-xs text-gray-500 italic mt-2" id="attr-note">—</p>
     </div>
@@ -1140,7 +1140,7 @@ async function loadDashboard() {
   const nEl = document.getElementById('attr-note');
   if (wEl) wEl.textContent = data.window ? `${data.window.start} → ${data.window.end} (${data.window.days} days)` : '—';
   if (dEl) dEl.textContent = (attr.overall_total_exits != null && attr.overall_active_hc != null)
-    ? `${attr.overall_total_exits} exits ÷ ${attr.overall_active_hc.toLocaleString('en-IN')} active HC = ${attr.overall ?? '—'}% (May 2026)`
+    ? `${attr.overall_total_exits} live exits · ${attr.overall_active_hc.toLocaleString('en-IN')} active HC`
     : '—';
   if (nEl) nEl.textContent = attr.note ?? '—';
   document.getElementById('attr-drivers').innerHTML = (attr.drivers || []).map(d =>

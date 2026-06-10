@@ -19,8 +19,8 @@
   "overview": {
     "joinings": 295,
     "joinings_total_candidates": 338,
-    "drops": 23,
-    "drop_rate": 7.2,
+    "drops": 22,
+    "drop_rate": 6.9,
     "otj": 87.28,
     "otj_v3_consistent": 87.28,
     "otj_ro_consistent": 61.94,
@@ -28,9 +28,9 @@
     "attrition_30d": 7.14,
     "overall_attrition_window": 5.52,
     "overall_attrition_monthly_projected": 5.32,
-    "exits_in_window": 367,
-    "active_hc": 7097,
-    "cph": 5556.0,
+    "exits_in_window": 345,
+    "active_hc": 6985,
+    "cph": 608.0,
     "cph_data_rows": 9,
     "cph_note": null,
     "hike": 6.81,
@@ -40,9 +40,9 @@
     "ttf_data_rows": 286,
     "ttf_note": "Snowflake CSPL_HR_DB \u00b7 109 ATS-linked joiners with JOINING_DATE in window (26 Apr\u219204 May)",
     "ttf_source": "snowflake",
-    "tat": 84.5,
+    "tat": 73.6,
     "tat_data_rows": 763,
-    "tat_note": "Snowflake CSPL_HR_DB \u00b7 AVG(today \u2212 START_DATE) across 649 open requisitions (live)",
+    "tat_note": "Avg TAT (open) = 73.6 days \u00b7 per Rocket Open REQs (May 2026 official)",
     "tat_source": "snowflake",
     "open_reqs": 714,
     "open_reqs_source": "snowflake",
@@ -57,9 +57,9 @@
     "productivity": 12.5,
     "active_recruiters": 24,
     "attrition_30d_display": 7.14,
-    "td_active_hc": 7097,
+    "td_active_hc": 6985,
     "td_builders_b4plus": 254,
-    "td_builder_density_pct": 3.58,
+    "td_builder_density_pct": 3.64,
     "td_tenure_lt_1y_pct": 46.0,
     "td_tenure_3y_plus_pct": 20.1,
     "td_early_exit_pct_90d": 22.6,
@@ -68,7 +68,7 @@
     "td_b4plus_exits_90d": 55,
     "td_b4plus_exits_12m": 224,
     "td_source": "snowflake",
-    "td_note": "Snowflake live \u00b7 CSPL + CAPL EMPLOYEES (EMPLOYEE_STATUS='Active'). Founder-grade talent-density tiles, refreshed daily.",
+    "td_note": "Cars24 active employees (EMPLOYEE_STATUS='Active', incl. former CAPL now merged into CSPL). Founder-grade talent-density tiles.",
     "exits_in_window_snowflake": 288,
     "active_hc_snowflake_cspl": 6920,
     "_source_note": "Joinings, OTJ, drops, recruiter productivity, source-of-hire = Recruitment sheets / P&C app (exclude internal movements). HC, attrition, bands, tenure, open reqs, TAT = Snowflake CSPL+CAPL_HR_DB (live). Snowflake is NOT used for joinings \u2014 its base includes movements which we do not count as joinings.",
@@ -116,12 +116,12 @@
       "Product": 7
     },
     "drops_by": {
-      "Business (B1+B2)": 36,
+      "Business (B1+B2)": 15,
       "Business Support": 0,
-      "Product": 3,
+      "Product": 2,
       "Technology": 2,
       "BI DS": 1,
-      "Other Support": 1
+      "Other Support": 2
     },
     "otj_by": {
       "Business (B1+B2)": 88.46,
@@ -163,11 +163,11 @@
       "BI DS": 0.0
     },
     "attrition_by": {
-      "Business (B1+B2)": 3.5449,
-      "Other Support": 5.7631,
-      "Technology": 7.6087,
-      "BI DS": 9.6154,
-      "Product": 9.4595
+      "Business (B1+B2)": 6.69,
+      "Other Support": 20.0,
+      "Product": 0.0,
+      "Technology": 0.0,
+      "BI DS": 0.0
     },
     "candidates_by": {
       "Business (B1+B2)": 312,
@@ -507,14 +507,14 @@
     "_carried_note": "Overall source mix re-pulled from Source RT (May'26, all segments). The inbound/outbound by-function cards below are a separate operational view (window cohort) and are not part of the May'26 overall-mix reconciliation."
   },
   "drops": {
-    "total": 23,
-    "rate": 7.2,
+    "total": 22,
+    "rate": 6.9,
     "by_function": {
-      "Business (B1+B2)": 36,
-      "Product": 3,
+      "Business (B1+B2)": 15,
+      "Product": 2,
       "Technology": 2,
       "BI DS": 1,
-      "Other Support": 1,
+      "Other Support": 2,
       "Business Support": 0
     },
     "top_function": "Business (B1+B2)",
@@ -571,7 +571,7 @@
       4.9,
       5.22,
       5.26,
-      5.33
+      7.78
     ],
     "_source": "Joinings: Recruitment sheet / P&C app 12-mo trend (EXCLUDES internal movements). Attrition: Snowflake CSPL exits \u00f7 active HC, monthly.",
     "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
@@ -648,9 +648,9 @@
   "tech": {
     "tech_hc": 243,
     "product_hc": 76,
-    "data_hc": 54,
+    "data_hc": 57,
     "bi_hc": 50,
-    "total_hc": 373,
+    "total_hc": 376,
     "open_roles": 164,
     "cost_per_month": null,
     "cost_note": "May 2026 Tech & Product figures, combining all four tabs (Tech Data + Product Data + Offered-Tech + Offered-Product). Technology = 243 (joined roster 191 + Offered-Tech pipeline 52); Product = 76 (joined 72 + Offered-Product 4). Data & AI 54 carried from last Snowflake sync. The band-split charts below reflect the joined roster only (191 / 72). Open reqs 164 (52 New / 9 Replacement) from workbook requisitions tab \u2014 narrower than company-wide ATS view.",
@@ -702,71 +702,59 @@
     "_refreshed_at": "09 Jun 2026 \u00b7 18:30 IST"
   },
   "attrition": {
-    "overall": 5.33,
-    "overall_window_raw": 5.33,
-    "overall_total_exits": 378,
-    "overall_active_hc": 7097,
+    "overall": 7.78,
+    "overall_window_raw": 7.78,
+    "overall_total_exits": 345,
+    "overall_active_hc": 6985,
     "high": [
       {
-        "func": "Product Management",
-        "pct": 15.19
-      },
-      {
-        "func": "Credit",
-        "pct": 7.14
+        "func": "Product",
+        "pct": 11.85
       },
       {
         "func": "Technology",
-        "pct": 7.12
-      },
-      {
-        "func": "Partner Experience",
-        "pct": 5.77
+        "pct": 8.82
       }
     ],
     "low": [
       {
-        "func": "Retail",
-        "pct": 0.0
-      },
-      {
         "func": "Marketing",
-        "pct": 3.06
+        "pct": 3.49
       }
     ],
     "drivers": [
       {
         "theme": "Better Opportunity",
-        "count": 122,
+        "count": 91,
         "pct": 26.5
       },
       {
         "theme": "Personal Reasons",
-        "count": 104,
+        "count": 78,
         "pct": 22.6
       },
       {
         "theme": "Absconding",
-        "count": 73,
+        "count": 55,
         "pct": 15.8
       },
       {
         "theme": "Business Conditions",
-        "count": 56,
+        "count": 42,
         "pct": 12.1
       },
       {
         "theme": "Job Dissatisfaction",
-        "count": 42,
+        "count": 31,
         "pct": 9.1
       }
     ],
     "exit_types": {
-      "Voluntary": 309,
-      "Involuntary": 158
+      "Voluntary": 228,
+      "Involuntary": 117
     },
-    "note": "Cross-checked live against Snowflake (09 Jun 2026). May 2026 on-roll org attrition = 5.33% = 378 exits \u00f7 7,097 active HC (CSPL+CAPL EMPLOYEES). ~5%/month is the normal run-rate for an auto-retail frontline workforce (annualised \u2248 64%, in line with the trailing-12-month ~72%). High-attrition functions, exit types (Voluntary 309 / Involuntary 158) and drivers are MAY-ONLY, from EMPLOYEE_BASE_VIEW (Base-Live, Date of Leaving in May: 467 exits, 461 reasoned). NOTE: Base-Live is the full workforce incl. third-party (10,502), so its department rates sit alongside the 7,097 on-roll headline. The recruitment 30-day attrition (7.14%) is a separate TA metric, not the org figure.",
-    "_source": "Snowflake live (cross-checked 09 Jun 2026) \u00b7 Headline = CSPL+CAPL HRMS_PUBLIC.EMPLOYEES, DATE_OF_EXIT in May 2026 \u00f7 EMPLOYEE_STATUS='Active'. By-function, exit types & drivers = HRMS_PUBLIC.EMPLOYEE_BASE_VIEW (DEPARTMENT, EXIT_TYPE, EXIT_REASON), Date of Leaving in May 2026.",
+    "note": "Official May 2026 dept-wise attrition report. Overall org attrition = 7.78% \u00b7 Tech 8.82% \u00b7 Product 11.85% \u00b7 Marketing 3.49%. Live attrition (base-live) = 345 exits. Exit-reason mix shown as share of May exits. The recruitment 30-day new-joiner attrition (7.14% overall) is a separate TA metric, reported in Recruitment KPIs \u2014 not the org figure.",
+    "_source": "May 2026 official dept-wise attrition report (Joining Data / base-live \u00b7 Superset). Exit-reason mix from HRMS exit reasons (May 2026).",
     "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
   },
   "automation": [
@@ -948,48 +936,39 @@
     "headline": [
       {
         "label": "Total Active HC",
-        "value": "7,097",
-        "sub": "CSPL 6,919 + CAPL 178 \u00b7 live"
+        "value": "6,985",
+        "sub": "Cars24 \u00b7 CAPL merged into CSPL \u00b7 per Superset"
       },
       {
-        "label": "CSPL",
-        "value": "6,919",
-        "sub": "Cars24 Services Pvt Ltd \u00b7 India"
-      },
-      {
-        "label": "CAPL",
-        "value": "178",
-        "sub": "Cars24 Australia"
+        "label": "Cars24 (CSPL)",
+        "value": "6,985",
+        "sub": "Single entity \u00b7 CAPL now part of CSPL"
       },
       {
         "label": "B4+ Builders",
         "value": "254",
-        "sub": "B4+B5+B6 \u00b7 CSPL 242 + CAPL 12"
+        "sub": "B4 + B5 + B6"
       },
       {
         "label": "Open Reqs",
         "value": "714",
-        "sub": "May 2026 \u00b7 Recruitment Data \u00b7 1,071 positions"
+        "sub": "May 2026 \u00b7 Recruitment Data \u00b7 1,032 positions"
       }
     ],
     "categories": [
       {
-        "name": "Active Headcount \u00b7 By Entity",
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES \u22c8 BUSINESS_UNIT (COMPANY_NAME)",
-        "window": "Snapshot as of 09 Jun 2026 \u00b7 live",
-        "formula": "COUNT(DISTINCT EMPLOYEE_ID) WHERE EMPLOYEE_STATUS='Active' AND NOT _FIVETRAN_DELETED, grouped by parent company name.",
+        "name": "Active Headcount",
+        "source": "Superset \u00b7 official HC (CAPL employees migrated into CSPL \u2014 CAPL no longer a separate entity)",
+        "window": "May 2026 \u00b7 official HC snapshot",
+        "formula": "COUNT(DISTINCT active employees) \u00b7 single Cars24 entity (CSPL) after CAPL merge.",
         "metrics": [
           {
             "label": "Total Active HC",
-            "value": "7,097"
+            "value": "6,985"
           },
           {
-            "label": "CSPL \u00b7 Cars24 Services Pvt Ltd",
-            "value": "6,919"
-          },
-          {
-            "label": "CAPL \u00b7 Cars24 Australia",
-            "value": "178"
+            "label": "Cars24 (CSPL \u00b7 incl. former CAPL)",
+            "value": "6,985"
           },
           {
             "label": "B4+ Builders",
@@ -1056,11 +1035,11 @@
           },
           {
             "label": "Open Positions",
-            "value": "1,071"
+            "value": "1,032"
           },
           {
             "label": "Avg TAT (open)",
-            "value": "84.5 d"
+            "value": "73.6 d"
           },
           {
             "label": "Reqs \u00b7 New",
@@ -1179,8 +1158,8 @@
         "metrics": [
           {
             "label": "Exits MTD",
-            "value": "367",
-            "sub": "CSPL exits May'26 (full month)"
+            "value": "345",
+            "sub": "May'26 live attrition (base-live)"
           },
           {
             "label": "Exits YTD",
@@ -1274,7 +1253,7 @@
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC: EMPLOYEES.DATE_OF_EXIT \u00b7 SEPARATIONS \u00b7 FNF_DATA \u22c3 CAPL_HR_DB.HRMS_CAPL_PUBLIC.EMPLOYEES",
-        "window": "MTD = May'26 \u00b7 30-day exits 392 (CSPL+CAPL) \u00b7 lifetime tiles cumulative \u00b7 as of 09 Jun 2026",
+        "window": "MTD = May'26 \u00b7 live attrition 345 (base-live) \u00b7 lifetime tiles cumulative \u00b7 as of 09 Jun 2026",
         "formula": "Exits = COUNT(*) on EMPLOYEES.DATE_OF_EXIT in window \u00b7 Pending Approval = SEPARATIONS.STATUS LIKE 'Pending%' \u00b7 Pending age = DATEDIFF(today \u2212 TRIGGERED_DATE) \u00b7 FnF Hold = FNF_DATA.FNF_STATUS='Hold' \u00b7 Save Rate = Revoked \u00f7 (Approved+AdminApproved+Revoked+Rejected)",
         "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
