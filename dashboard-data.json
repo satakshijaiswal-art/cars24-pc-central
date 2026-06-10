@@ -630,6 +630,107 @@
           "count": 0
         }
       ]
+    },
+    "function_channel_matrix": {
+      "functions": [
+        "Business",
+        "Support",
+        "T P BI DS"
+      ],
+      "rows": [
+        {
+          "channel": "Direct",
+          "Business": 131,
+          "Support": 13,
+          "T P BI DS": 2,
+          "total": 146
+        },
+        {
+          "channel": "Naukri-Headhunt",
+          "Business": 7,
+          "Support": 3,
+          "T P BI DS": 0,
+          "total": 10
+        },
+        {
+          "channel": "Referral",
+          "Business": 7,
+          "Support": 2,
+          "T P BI DS": 0,
+          "total": 9
+        },
+        {
+          "channel": "Rehire",
+          "Business": 4,
+          "Support": 0,
+          "T P BI DS": 0,
+          "total": 4
+        },
+        {
+          "channel": "Business Referral",
+          "Business": 2,
+          "Support": 1,
+          "T P BI DS": 0,
+          "total": 3
+        },
+        {
+          "channel": "Consultant",
+          "Business": 2,
+          "Support": 0,
+          "T P BI DS": 0,
+          "total": 2
+        },
+        {
+          "channel": "Naukri-Job Application",
+          "Business": 1,
+          "Support": 0,
+          "T P BI DS": 0,
+          "total": 1
+        },
+        {
+          "channel": "LinkedIn-Job Application",
+          "Business": 0,
+          "Support": 1,
+          "T P BI DS": 0,
+          "total": 1
+        }
+      ],
+      "untagged": {
+        "Business": 0,
+        "Support": 2,
+        "T P BI DS": 0
+      },
+      "func_totals": {
+        "Business": 154,
+        "Support": 22,
+        "T P BI DS": 2
+      },
+      "grand_total": 178,
+      "note": "Joiner COUNT by function × source channel · 178 source-tagged joiners (Recruitment Metric_New). 'Direct' = recruiter self-sourced (largely LinkedIn). Untagged = joiners without a channel tag in the sheet."
+    },
+    "consultant_joiners": {
+      "count": 2,
+      "list": [
+        {
+          "name": "Harshil Arvindbhai Vanol",
+          "band": "B1",
+          "designation": "Procurement Associate",
+          "department": "Business",
+          "recruiter": "Bhawna Aggarwal",
+          "doj": "30/04/2026",
+          "function": "Business"
+        },
+        {
+          "name": "Udasi Aakash Jagdishbhai",
+          "band": "B1",
+          "designation": "Evaluation Engineer",
+          "department": "Operations",
+          "recruiter": "Aayush Kharkwal",
+          "doj": "30/04/2026",
+          "function": "Business"
+        }
+      ],
+      "note": "All Consultant-sourced joinings this period, with hiring recruiter."
     }
   },
   "drops": {

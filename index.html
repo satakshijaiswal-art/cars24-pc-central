@@ -332,6 +332,14 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="channel-contribution"></div>
     <div class="text-xs text-gray-600 mt-3 italic" id="channel-note"></div>
 
+    <!-- FUNCTION × CHANNEL MATRIX — joiner counts per department per channel -->
+    <h3 class="text-lg font-bold brand-blue mt-8 mb-1">Department × channel — joiner count</h3>
+    <p class="text-sm text-gray-600 mb-4">How many people each function hired from each source channel (number-wise)</p>
+    <div id="function-channel-matrix" class="overflow-x-auto bg-white rounded-lg border shadow-sm p-5"></div>
+
+    <!-- CONSULTANT JOINERS HIGHLIGHT -->
+    <div id="consultant-highlight" class="mt-6"></div>
+
     <!-- LEGEND — what counts as Inbound vs Outbound globally -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
       <div class="rounded-lg border-2 p-4" style="border-color:#4736FE; background:#F5F4FF">
@@ -980,6 +988,70 @@ async function loadDashboard() {
       </table>`;
     const cnote = document.getElementById('channel-note');
     if (cnote) cnote.textContent = cc.note || '';
+  }
+
+  // Department × channel matrix — joiner counts per function per channel
+  const mx = data.sourcing?.function_channel_matrix;
+  const mxEl = document.getElementById('function-channel-matrix');
+  if (mx && mxEl) {
+    const fns = mx.functions || [];
+    const cell = (n) => n > 0
+      ? `<td class="py-2 px-3 text-center font-bold brand-blue">${n}</td>`
+      : `<td class="py-2 px-3 text-center text-gray-300">–</td>`;
+    const body = (mx.rows || []).map(r => `
+      <tr class="border-b border-gray-100 hover:bg-gray-50 ${r.channel === 'Consultant' ? 'bg-amber-50' : ''}">
+        <td class="py-2 pr-3 font-medium text-gray-800">${r.channel}${r.channel === 'Consultant' ? ' <span class="text-[10px] font-bold text-white px-1.5 py-0.5 rounded" style="background:#F59E0B">FLAG</span>' : ''}</td>
+        ${fns.map(f => cell(r[f] || 0)).join('')}
+        <td class="py-2 pl-3 text-center font-bold text-gray-900 border-l">${r.total || 0}</td>
+      </tr>`).join('');
+    const untag = mx.untagged || {};
+    const untagRow = fns.some(f => (untag[f] || 0) > 0) ? `
+      <tr class="border-b border-gray-100 text-gray-400 italic">
+        <td class="py-2 pr-3 text-sm">Untagged</td>
+        ${fns.map(f => `<td class="py-2 px-3 text-center">${(untag[f] || 0) || '–'}</td>`).join('')}
+        <td class="py-2 pl-3 text-center border-l">${fns.reduce((a, f) => a + (untag[f] || 0), 0)}</td>
+      </tr>` : '';
+    const ft = mx.func_totals || {};
+    mxEl.innerHTML = `
+      <table class="w-full text-sm min-w-[520px]">
+        <thead><tr class="text-xs uppercase tracking-wider text-gray-500 border-b-2">
+          <th class="text-left py-2 pr-3">Channel</th>
+          ${fns.map(f => `<th class="text-center py-2 px-3">${f}</th>`).join('')}
+          <th class="text-center py-2 pl-3 border-l">Total</th>
+        </tr></thead>
+        <tbody>${body}${untagRow}</tbody>
+        <tfoot><tr class="border-t-2 font-bold text-gray-900">
+          <td class="py-2 pr-3">All channels</td>
+          ${fns.map(f => `<td class="py-2 px-3 text-center brand-blue">${ft[f] || 0}</td>`).join('')}
+          <td class="py-2 pl-3 text-center border-l">${mx.grand_total || 0}</td>
+        </tr></tfoot>
+      </table>
+      <div class="text-xs text-gray-500 mt-3 italic">${mx.note || ''}</div>`;
+  }
+
+  // Consultant joiners — highlighted callout with recruiter
+  const cj = data.sourcing?.consultant_joiners;
+  const cjEl = document.getElementById('consultant-highlight');
+  if (cj && cjEl) {
+    if (!cj.count) {
+      cjEl.innerHTML = `<div class="rounded-lg border-2 border-dashed p-4 text-sm text-gray-500" style="border-color:#F59E0B">No consultant-sourced joinings this period.</div>`;
+    } else {
+      cjEl.innerHTML = `
+        <div class="rounded-lg border-2 p-5 shadow-sm" style="border-color:#F59E0B; background:#FFFBEB">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs font-bold px-2 py-1 rounded text-white" style="background:#F59E0B">CONSULTANT — ${cj.count}</span>
+            <span class="text-sm font-semibold text-gray-800">Consultant-sourced joinings · who &amp; which recruiter</span>
+          </div>
+          <ul class="space-y-2">
+            ${cj.list.map(j => `
+              <li class="text-sm p-3 rounded bg-white border-l-4" style="border-color:#F59E0B">
+                <div class="font-semibold text-gray-900">${j.name} <span class="font-normal text-gray-500">· ${j.band} · ${j.designation}</span></div>
+                <div class="text-gray-600 mt-0.5">${j.department} · DOJ ${j.doj}</div>
+                <div class="font-semibold mt-0.5" style="color:#4736FE">Recruiter: ${j.recruiter}</div>
+              </li>`).join('')}
+          </ul>
+        </div>`;
+    }
   }
 
   // Global Inbound / Outbound legend lists
