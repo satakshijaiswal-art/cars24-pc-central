@@ -58,8 +58,8 @@
     "active_recruiters": 24,
     "attrition_30d_display": 7.14,
     "td_active_hc": 6985,
-    "td_builders_b4plus": 254,
-    "td_builder_density_pct": 3.64,
+    "td_builders_b4plus": 253,
+    "td_builder_density_pct": 3.62,
     "td_tenure_lt_1y_pct": 46.0,
     "td_tenure_3y_plus_pct": 20.1,
     "td_early_exit_pct_90d": 22.6,
@@ -946,8 +946,8 @@
       },
       {
         "label": "B4+ Builders",
-        "value": "254",
-        "sub": "B4 + B5 + B6"
+        "value": "253",
+        "sub": "B4 + B5 + B6 (incl. former CAPL 12)"
       },
       {
         "label": "Open Reqs",
@@ -972,7 +972,7 @@
           },
           {
             "label": "B4+ Builders",
-            "value": "254"
+            "value": "253"
           },
           {
             "label": "<1yr tenure",
@@ -1294,12 +1294,12 @@
           },
           {
             "label": "Total",
-            "value": "6,891"
+            "value": "6,895"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.EMPLOYEE_TYPE",
         "window": "Snapshot as of 09 Jun 2026 \u00b7 live",
-        "formula": "COUNT(*) GROUP BY EMPLOYEE_TYPE WHERE EMPLOYEE_STATUS='Active' \u00b7 excludes 4 system records (3 Test Employee + 1 Suspended). Tiles sum to Total.",
+        "formula": "COUNT(*) GROUP BY EMPLOYEE_TYPE WHERE EMPLOYEE_STATUS='Active'. Total = 6,895 live CSPL active (same base as Bands tab). The 8 employee types shown sum to 6,891; the other 4 are non-standard system records (3 Test Employee + 1 Suspended).",
         "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
@@ -1310,15 +1310,15 @@
         "metrics": [
           {
             "label": "Total Active HC (CSPL)",
-            "value": "6,919"
+            "value": "6,895"
           },
           {
             "label": "B0 \u00b7 Interns / Apprentices",
-            "value": "95"
+            "value": "94"
           },
           {
             "label": "B1 \u00b7 Frontline",
-            "value": "4,266"
+            "value": "4,249"
           },
           {
             "label": "B2 \u00b7 Senior IC",
@@ -1330,15 +1330,15 @@
           },
           {
             "label": "Builders (B4+B5+B6)",
-            "value": "242"
+            "value": "241"
           },
           {
             "label": "SLA \u00b7 Service Line Agent",
-            "value": "319"
+            "value": "315"
           },
           {
             "label": "Third Party (BAND)",
-            "value": "652"
+            "value": "651"
           }
         ],
         "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
