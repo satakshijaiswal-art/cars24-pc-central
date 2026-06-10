@@ -1047,9 +1047,9 @@
             "sub": "ATS REQUISITIONS \u00b7 Status=Open"
           }
         ],
-        "source": "CSPL_HR_DB.HR_ATS_PUBLIC: REQUISITIONS \u00b7 APPLICANTS \u00b7 OFFER_LETTERS",
-        "window": "Snapshot as of 09 Jun 2026 \u00b7 live",
-        "formula": "Snowflake ATS REQUISITIONS (Status=Open). NOTE: joinings/YTJ/drops are NOT taken from Snowflake \u2014 they live on the Recruitment sheet (Overview tab) because Snowflake base includes internal movements.",
+        "source": "Recruitment Data \u00b7 Rocket Open REQs (May 2026 official)",
+        "window": "May 2026",
+        "formula": "Open Reqs & Open Positions from Rocket Open REQs (Status=Open). Avg TAT (open) = avg days a requisition has been open. NOTE: joinings/YTJ/drops are taken from the Recruitment sheet, not Snowflake (Snowflake base includes internal movements).",
         "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
