@@ -564,7 +564,60 @@
         }
       ]
     },
-    "by_function_note": "Inbound vs Outbound shown as share of TOTAL joinings (reconciled to verified figures, 10 Jun 2026). Business 26.44% in / 67.12% out · Support 1.02% / 3.73% · TP BI DS 0.34% / 1.36%."
+    "by_function_note": "Inbound vs Outbound shown as share of TOTAL joinings (reconciled to verified figures, 10 Jun 2026). Business 26.44% in / 67.12% out · Support 1.02% / 3.73% · TP BI DS 0.34% / 1.36%.",
+    "channel_chart": {
+      "note": "Channel-wise share of total May'26 joinings (Inbound/Outbound split removed). 0% = no joinings tagged to that channel this month.",
+      "items": [
+        {
+          "name": "LinkedIn Sourced",
+          "pct": 62.03
+        },
+        {
+          "name": "Rehire",
+          "pct": 9.83
+        },
+        {
+          "name": "Employee Referral",
+          "pct": 9.15
+        },
+        {
+          "name": "Consultant",
+          "pct": 6.1
+        },
+        {
+          "name": "University Campus",
+          "pct": 4.41
+        },
+        {
+          "name": "Naukri Job Applicant",
+          "pct": 4.07
+        },
+        {
+          "name": "Business Referral",
+          "pct": 4.07
+        },
+        {
+          "name": "Naukri-Headhunt",
+          "pct": 0
+        },
+        {
+          "name": "Naukri Sourced",
+          "pct": 0
+        },
+        {
+          "name": "LinkedIn-Headhunt",
+          "pct": 0
+        },
+        {
+          "name": "Instahyre Sourced",
+          "pct": 0
+        },
+        {
+          "name": "Acquire",
+          "pct": 0
+        }
+      ]
+    }
   },
   "drops": {
     "total": 22,

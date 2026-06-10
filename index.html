@@ -319,7 +319,7 @@
       </div>
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <div class="flex items-center justify-between mb-3">
-          <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider">Source by Function</h3>
+          <h3 class="text-sm font-semibold uppercase brand-blue tracking-wider">Source by Channel</h3>
           <span class="text-xs text-gray-600" id="source-by-function-counts">—</span>
         </div>
         <div class="chart-box"><canvas id="chart-source-function"></canvas></div>
@@ -923,27 +923,28 @@ async function loadDashboard() {
       options: { responsive: true, maintainAspectRatio: false }
     });
   }
-  if (data.sourcing?.by_function) {
-    const funcs = ['Business', 'Support', 'T P BI DS'];
-    // Build labels with joining counts: "Business (154)"
-    const labelsWithCount = funcs.map(f => {
-      const n = data.sourcing.by_function[f]?.n ?? 0;
-      return `${f} (${n})`;
-    });
-    // Header badge with all counts
+  if (data.sourcing?.channel_chart?.items) {
+    const items = data.sourcing.channel_chart.items;
     const countsEl = document.getElementById('source-by-function-counts');
-    if (countsEl) countsEl.textContent = '% of total joinings · in/out';
-
+    if (countsEl) countsEl.textContent = '% of total joinings';
+    const palette = ['#4736FE', '#5B4BFE', '#7C7AFF', '#3530C7', '#1976D2', '#2E86C1', '#5499C7', '#7B9DB8', '#90B4D4', '#B3CDE0', '#D6E4F0', '#C7CBD1'];
     chartInstances.sourceFunction = new Chart(document.getElementById('chart-source-function'), {
       type: 'bar',
       data: {
-        labels: labelsWithCount,
-        datasets: [
-          { label: 'Inbound %',  data: funcs.map(f => data.sourcing.by_function[f]?.inbound  ?? 0), backgroundColor: '#4736FE' },
-          { label: 'Outbound %', data: funcs.map(f => data.sourcing.by_function[f]?.outbound ?? 0), backgroundColor: '#F59E0B' },
-        ]
+        labels: items.map(c => c.name),
+        datasets: [{
+          label: '% of joinings',
+          data: items.map(c => c.pct ?? 0),
+          backgroundColor: items.map((c, i) => (c.pct ? palette[i % palette.length] : '#E5E7EB')),
+        }]
       },
-      options: { responsive: true, maintainAspectRatio: false, scales: { y: { stacked: true }, x: { stacked: true } } }
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { x: { beginAtZero: true, ticks: { callback: v => v + '%' } } }
+      }
     });
   }
 
