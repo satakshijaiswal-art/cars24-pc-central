@@ -566,55 +566,68 @@
     },
     "by_function_note": "Inbound vs Outbound shown as share of TOTAL joinings (reconciled to verified figures, 10 Jun 2026). Business 26.44% in / 67.12% out · Support 1.02% / 3.73% · TP BI DS 0.34% / 1.36%.",
     "channel_chart": {
-      "note": "Channel-wise share of total May'26 joinings (Inbound/Outbound split removed). 0% = no joinings tagged to that channel this month.",
+      "total_joinings": 295,
+      "note": "Channel-wise share of 295 May'26 joinings · joiner counts are % × total (rounded). 0 = no joinings tagged to that channel this month.",
       "items": [
         {
           "name": "LinkedIn Sourced",
-          "pct": 62.03
+          "pct": 62.03,
+          "count": 183
         },
         {
           "name": "Rehire",
-          "pct": 9.83
+          "pct": 9.83,
+          "count": 29
         },
         {
           "name": "Employee Referral",
-          "pct": 9.15
+          "pct": 9.15,
+          "count": 27
         },
         {
           "name": "Consultant",
-          "pct": 6.1
+          "pct": 6.1,
+          "count": 18
         },
         {
           "name": "University Campus",
-          "pct": 4.41
+          "pct": 4.41,
+          "count": 13
         },
         {
           "name": "Naukri Job Applicant",
-          "pct": 4.07
+          "pct": 4.07,
+          "count": 12
         },
         {
           "name": "Business Referral",
-          "pct": 4.07
+          "pct": 4.07,
+          "count": 12
         },
         {
           "name": "Naukri-Headhunt",
-          "pct": 0
+          "pct": 0,
+          "count": 0
         },
         {
           "name": "Naukri Sourced",
-          "pct": 0
+          "pct": 0,
+          "count": 0
         },
         {
           "name": "LinkedIn-Headhunt",
-          "pct": 0
+          "pct": 0,
+          "count": 0
         },
         {
           "name": "Instahyre Sourced",
-          "pct": 0
+          "pct": 0,
+          "count": 0
         },
         {
           "name": "Acquire",
-          "pct": 0
+          "pct": 0,
+          "count": 0
         }
       ]
     }

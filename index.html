@@ -948,36 +948,38 @@ async function loadDashboard() {
     });
   }
 
-  // Channel-wise contribution table — every inbound & outbound channel as % of total joinings
-  const ch = data.sourcing?.channels || {};
+  // Channel-wise sourcing table — who came from which channel, ranked by joiners
+  const cc = data.sourcing?.channel_chart || {};
   const chEl = document.getElementById('channel-contribution');
   if (chEl) {
-    const sum = list => (list || []).reduce((a, c) => a + (c.pct || 0), 0);
-    const rows = (list, color) => (list || [])
-      .slice().sort((a, b) => (b.pct || 0) - (a.pct || 0))
-      .map(c => {
-        const zero = !c.pct;
-        return `<li class="flex justify-between items-center text-sm py-1.5 border-b border-gray-100 ${zero ? 'opacity-50' : ''}">
-            <span>${c.name}${zero ? ' <span class="text-[10px] text-gray-400 italic">no joinings</span>' : ''}</span>
-            <span class="font-bold" style="color:${color}">${(c.pct || 0).toFixed(2)}%</span>
-          </li>`;
-      }).join('');
-    const panel = (title, badge, color, bg, list) => `
-      <div class="rounded-lg border-2 p-5 shadow-sm" style="border-color:${color}; background:${bg}">
-        <div class="flex items-center justify-between mb-3">
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-bold px-2 py-1 rounded text-white" style="background:${color}">${badge}</span>
-            <span class="text-sm font-semibold text-gray-700">${title}</span>
-          </div>
-          <span class="text-lg font-bold" style="color:${color}">${sum(list).toFixed(2)}%</span>
-        </div>
-        <ul>${rows(list, color)}</ul>
-      </div>`;
-    chEl.innerHTML =
-      panel('Outbound — we reached out', 'OUTBOUND', '#F59E0B', '#FFFBEB', ch.outbound) +
-      panel('Inbound — candidate came to us', 'INBOUND', '#4736FE', '#F5F4FF', ch.inbound);
+    const items = (cc.items || []).slice().sort((a, b) => (b.pct || 0) - (a.pct || 0));
+    const total = cc.total_joinings || items.reduce((a, c) => a + (c.count || 0), 0);
+    const maxPct = Math.max(1, ...items.map(c => c.pct || 0));
+    const rows = items.map(c => {
+      const zero = !c.pct;
+      const w = Math.round((c.pct || 0) / maxPct * 100);
+      return `<tr class="border-b border-gray-100 ${zero ? 'opacity-40' : ''}">
+          <td class="py-2 pr-3 font-medium text-gray-800">${c.name}${zero ? ' <span class="text-[10px] text-gray-400 italic">— none this month</span>' : ''}</td>
+          <td class="py-2 px-3 text-right font-bold brand-blue whitespace-nowrap">${zero ? '0' : '~' + c.count}</td>
+          <td class="py-2 pl-3 text-right font-bold" style="color:#4736FE; width:64px">${(c.pct || 0).toFixed(1)}%</td>
+          <td class="py-2 pl-3" style="width:40%">
+            <div class="h-3 rounded" style="width:${w}%; background:${zero ? '#E5E7EB' : '#4736FE'}"></div>
+          </td>
+        </tr>`;
+    }).join('');
+    chEl.className = 'bg-white rounded-lg border shadow-sm p-5';
+    chEl.innerHTML = `
+      <table class="w-full text-sm">
+        <thead><tr class="text-xs uppercase tracking-wider text-gray-500 border-b-2">
+          <th class="text-left py-2 pr-3">Channel</th>
+          <th class="text-right py-2 px-3">Joiners</th>
+          <th class="text-right py-2 pl-3">% of ${total}</th>
+          <th class="py-2 pl-3"></th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>`;
     const cnote = document.getElementById('channel-note');
-    if (cnote) cnote.textContent = ch.definition || '';
+    if (cnote) cnote.textContent = cc.note || '';
   }
 
   // Global Inbound / Outbound legend lists
