@@ -820,7 +820,7 @@
       "cadence": "Monthly 25th",
       "status": "LIVE",
       "last_run": "\u2014",
-      "next_run": "25 May"
+      "next_run": "25 Jun"
     },
     {
       "name": "new-joiner-experience",
@@ -860,7 +860,7 @@
       "cadence": "Monthly 24th",
       "status": "LIVE",
       "last_run": "\u2014",
-      "next_run": "24 May"
+      "next_run": "24 Jun"
     },
     {
       "name": "ta-pipeline-tracker",
@@ -892,7 +892,7 @@
       "cadence": "Monthly 25th",
       "status": "LIVE",
       "last_run": "\u2014",
-      "next_run": "25 May"
+      "next_run": "25 Jun"
     },
     {
       "name": "darwin-ticket-router",
@@ -916,7 +916,7 @@
       "cadence": "Monthly 1st",
       "status": "LIVE",
       "last_run": "\u2014",
-      "next_run": "1 Jun"
+      "next_run": "1 Jul"
     },
     {
       "name": "dashboard-refresh",
@@ -925,6 +925,30 @@
       "status": "LIVE",
       "last_run": "Just now",
       "next_run": "2 hrs"
+    },
+    {
+      "name": "cto-reply-monitor",
+      "replaces": "CTO/VP Eng pipeline reply + silence tracking",
+      "cadence": "Daily",
+      "status": "LIVE",
+      "last_run": "Today",
+      "next_run": "Tomorrow"
+    },
+    {
+      "name": "product-head-reply-monitor",
+      "replaces": "CPO/VP Product pipeline reply + silence tracking",
+      "cadence": "Daily",
+      "status": "LIVE",
+      "last_run": "Today",
+      "next_run": "Tomorrow"
+    },
+    {
+      "name": "certificate-platform",
+      "replaces": "Certificate portal deploy + maintenance",
+      "cadence": "On demand",
+      "status": "LIVE",
+      "last_run": "Today",
+      "next_run": "—"
     }
   ],
   "__sections_audited_at": "18 May 2026",
