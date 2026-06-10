@@ -332,9 +332,9 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="channel-contribution"></div>
     <div class="text-xs text-gray-600 mt-3 italic" id="channel-note"></div>
 
-    <!-- FUNCTION × CHANNEL MATRIX — joiner counts per department per channel -->
-    <h3 class="text-lg font-bold brand-blue mt-8 mb-1">Department × channel — joiner count</h3>
-    <p class="text-sm text-gray-600 mb-4">How many people each function hired from each source channel (number-wise)</p>
+    <!-- SOURCE RT MATRIX — channel × function contribution %, May vs Apr -->
+    <h3 class="text-lg font-bold brand-blue mt-8 mb-1">Source channel × function — contribution %</h3>
+    <p class="text-sm text-gray-600 mb-4">Each channel's share of total joinings by function · May-26 vs Apr-26 · grouped Inbound / Outbound</p>
     <div id="function-channel-matrix" class="overflow-x-auto bg-white rounded-lg border shadow-sm p-5"></div>
 
     <!-- CONSULTANT JOINERS HIGHLIGHT -->
@@ -1003,58 +1003,64 @@ async function loadDashboard() {
     if (cnote) cnote.textContent = cc.note || '';
   }
 
-  // Department × channel matrix — joiner counts per function per channel
-  const mx = data.sourcing?.function_channel_matrix;
+  // Source channel × function matrix — contribution %, May vs Apr, grouped Inbound/Outbound
+  const mx = data.sourcing?.source_rt_matrix;
   const mxEl = document.getElementById('function-channel-matrix');
   if (mx && mxEl) {
-    const fns = mx.functions || [];
-    const cell = (n) => n > 0
-      ? `<td class="py-2 px-3 text-center font-bold brand-blue">${n}</td>`
-      : `<td class="py-2 px-3 text-center text-gray-300">–</td>`;
-    const body = (mx.rows || []).map(r => `
-      <tr class="border-b border-gray-100 hover:bg-gray-50 ${r.channel === 'Consultant' ? 'bg-amber-50' : ''}">
-        <td class="py-2 pr-3 font-medium text-gray-800">${r.channel}${r.channel === 'Consultant' ? ' <span class="text-[10px] font-bold text-white px-1.5 py-0.5 rounded" style="background:#F59E0B">FLAG</span>' : ''}</td>
-        ${fns.map(f => cell(r[f] || 0)).join('')}
-        <td class="py-2 pl-3 text-center font-bold text-gray-900 border-l">${r.total || 0}</td>
-      </tr>`).join('');
-    const untag = mx.untagged || {};
-    const untagRow = fns.some(f => (untag[f] || 0) > 0) ? `
-      <tr class="border-b border-gray-100 text-gray-400 italic">
-        <td class="py-2 pr-3 text-sm">Untagged</td>
-        ${fns.map(f => `<td class="py-2 px-3 text-center">${(untag[f] || 0) || '–'}</td>`).join('')}
-        <td class="py-2 pl-3 text-center border-l">${fns.reduce((a, f) => a + (untag[f] || 0), 0)}</td>
-      </tr>` : '';
-    const ft = mx.func_totals || {};
+    const pct = v => (v == null ? '' : v.toFixed(2) + '%');
+    const dim = v => (!v ? 'text-gray-300' : 'text-gray-800');
+    const cmpCell = v => {
+      if (v == null) return '<td></td>';
+      const c = v > 0 ? '#16a34a' : (v < 0 ? '#dc2626' : '#9ca3af');
+      const s = v > 0 ? '+' : '';
+      return `<td class="py-2 px-3 text-right font-bold" style="color:${c}">${s}${v.toFixed(2)}%</td>`;
+    };
+    const dataCols = ['bus_may', 'bus_apr', 'sup_may', 'sup_apr', 'tp_may', 'tp_apr', 'may', 'apr'];
+    const rowCells = (r, bold) => dataCols.map((k, i) => {
+      const contri = (k === 'may' || k === 'apr');
+      return `<td class="py-2 px-3 text-right ${bold ? 'font-bold' : 'font-medium'} ${contri ? 'border-l' : ''} ${bold ? 'text-gray-900' : dim(r[k])}">${pct(r[k])}</td>`;
+    }).join('') + cmpCell(r.cmp);
+    const groupHtml = mx.groups.map(g => {
+      const tcol = g.type === 'Inbound' ? '#4736FE' : '#F59E0B';
+      const head = `<tr><td colspan="10" class="pt-3 pb-1 text-xs font-bold uppercase tracking-wider" style="color:${tcol}">${g.type}</td></tr>`;
+      const body = g.rows.map(r => {
+        const flag = r.rt === 'Consultant';
+        return `<tr class="border-b border-gray-100 hover:bg-gray-50 ${flag ? 'bg-amber-50' : ''}">
+            <td class="py-2 pr-3 pl-2 font-medium text-gray-800 whitespace-nowrap">${r.rt}${flag ? ' <span class="text-[10px] font-bold text-white px-1.5 py-0.5 rounded" style="background:#F59E0B">FLAG</span>' : ''}</td>
+            ${rowCells(r, false)}
+          </tr>`;
+      }).join('');
+      const sub = `<tr class="border-b-2 border-gray-200 font-bold" style="background:${g.type === 'Inbound' ? '#F5F4FF' : '#FFFBEB'}">
+          <td class="py-2 pr-3 pl-2" style="color:${tcol}">${g.type} total</td>
+          ${rowCells(g.subtotal, true)}
+        </tr>`;
+      return head + body + sub;
+    }).join('');
+    const totalRow = `<tr class="border-t-2 font-bold text-gray-900" style="background:#DBEAFE">
+        <td class="py-2 pr-3 pl-2">Total</td>${rowCells(mx.total, true)}
+      </tr>`;
     mxEl.innerHTML = `
-      <table class="w-full text-sm min-w-[520px]">
-        <thead><tr class="text-xs uppercase tracking-wider text-gray-500 border-b-2">
-          <th class="text-left py-2 pr-3">Channel</th>
-          ${fns.map(f => `<th class="text-center py-2 px-3">${f}</th>`).join('')}
-          <th class="text-center py-2 pl-3 border-l">Total</th>
-        </tr></thead>
-        <tbody>${body}${untagRow}</tbody>
-        <tfoot>
-          <tr class="border-t-2 font-semibold text-gray-700">
-            <td class="py-2 pr-3">Tagged subtotal</td>
-            ${fns.map(f => `<td class="py-2 px-3 text-center brand-blue">${ft[f] || 0}</td>`).join('')}
-            <td class="py-2 pl-3 text-center border-l">${mx.grand_total || 0}</td>
+      <table class="w-full text-sm min-w-[820px]">
+        <thead>
+          <tr class="text-[10px] uppercase tracking-wide text-gray-400">
+            <th></th>
+            <th class="text-right px-3">May</th><th class="text-right px-3">Apr</th>
+            <th class="text-right px-3">May</th><th class="text-right px-3">Apr</th>
+            <th class="text-right px-3">May</th><th class="text-right px-3">Apr</th>
+            <th class="text-right px-3 border-l">May</th><th class="text-right px-3">Apr</th><th></th>
           </tr>
-          <tr class="text-gray-400 italic">
-            <td class="py-2 pr-3 text-sm">Channel not recorded</td>
-            ${fns.map(() => `<td class="py-2 px-3 text-center">–</td>`).join('')}
-            <td class="py-2 pl-3 text-center border-l">${mx.untagged_total || 0}</td>
+          <tr class="text-xs uppercase tracking-wider text-gray-500 border-b-2">
+            <th class="text-left py-2 pl-2">Source RT</th>
+            <th class="text-right py-2 px-3" colspan="2">Business</th>
+            <th class="text-right py-2 px-3" colspan="2">Support</th>
+            <th class="text-right py-2 px-3" colspan="2">T P BI DS</th>
+            <th class="text-right py-2 px-3 border-l" colspan="2">Join Contri %</th>
+            <th class="text-right py-2 px-3">Δ</th>
           </tr>
-          <tr class="border-t-2 font-bold text-gray-900" style="background:#F5F4FF">
-            <td class="py-2 pr-3">All May joinings</td>
-            ${fns.map(() => `<td class="py-2 px-3 text-center text-gray-400">–</td>`).join('')}
-            <td class="py-2 pl-3 text-center border-l" style="color:#4736FE">${mx.all_joinings || 0}</td>
-          </tr>
-        </tfoot>
+        </thead>
+        <tbody>${groupHtml}${totalRow}</tbody>
       </table>
-      <div class="mt-3 text-xs">
-        <span class="inline-block px-2 py-1 rounded font-semibold" style="background:#EEF2FF; color:#4736FE">${mx.coverage_pct ?? '—'}% of joinings have a channel tagged (${mx.grand_total}/${mx.all_joinings})</span>
-      </div>
-      <div class="text-xs text-gray-500 mt-2 italic">${mx.note || ''}</div>`;
+      <div class="text-xs text-gray-500 mt-3 italic">${mx.note || ''}</div>`;
   }
 
   // Consultant joiners — highlighted callout with recruiter

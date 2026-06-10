@@ -734,6 +734,222 @@
         }
       ],
       "note": "All Consultant-sourced joinings this period, with hiring recruiter."
+    },
+    "source_rt_matrix": {
+      "periods": [
+        "May-26",
+        "Apr-26"
+      ],
+      "functions": [
+        "Business",
+        "Support",
+        "T P BI DS"
+      ],
+      "groups": [
+        {
+          "type": "Inbound",
+          "rows": [
+            {
+              "rt": "Acquire",
+              "bus_may": 0,
+              "bus_apr": 0,
+              "sup_may": 0,
+              "sup_apr": 0,
+              "tp_may": 0,
+              "tp_apr": 0,
+              "may": 0,
+              "apr": 0,
+              "cmp": 0
+            },
+            {
+              "rt": "Business Referral",
+              "bus_may": 3.73,
+              "bus_apr": 4.42,
+              "sup_may": 0.34,
+              "sup_apr": 0,
+              "tp_may": 0,
+              "tp_apr": 0,
+              "may": 4.07,
+              "apr": 4.42,
+              "cmp": -0.35
+            },
+            {
+              "rt": "Careers Page",
+              "bus_may": 0,
+              "bus_apr": 0.34,
+              "sup_may": 0.34,
+              "sup_apr": 0,
+              "tp_may": 0,
+              "tp_apr": 0,
+              "may": 0.34,
+              "apr": 0.34,
+              "cmp": 0
+            },
+            {
+              "rt": "Employee Referral",
+              "bus_may": 9.15,
+              "bus_apr": 9.52,
+              "sup_may": 0,
+              "sup_apr": 0,
+              "tp_may": 0,
+              "tp_apr": 0,
+              "may": 9.15,
+              "apr": 9.52,
+              "cmp": -0.37
+            },
+            {
+              "rt": "LinkedIn Job Applicant",
+              "bus_may": 0,
+              "bus_apr": 0.34,
+              "sup_may": 0,
+              "sup_apr": 0.34,
+              "tp_may": 0,
+              "tp_apr": 0.34,
+              "may": 0,
+              "apr": 1.02,
+              "cmp": -1.02
+            },
+            {
+              "rt": "Rehire",
+              "bus_may": 9.49,
+              "bus_apr": 8.5,
+              "sup_may": 0.34,
+              "sup_apr": 0.34,
+              "tp_may": 0,
+              "tp_apr": 0,
+              "may": 9.83,
+              "apr": 8.84,
+              "cmp": 0.99
+            },
+            {
+              "rt": "University Campus",
+              "bus_may": 4.07,
+              "bus_apr": 0,
+              "sup_may": 0,
+              "sup_apr": 0,
+              "tp_may": 0.34,
+              "tp_apr": 0,
+              "may": 4.41,
+              "apr": 0,
+              "cmp": 4.41
+            }
+          ],
+          "subtotal": {
+            "rt": "Inbound subtotal",
+            "bus_may": 26.44,
+            "bus_apr": 23.13,
+            "sup_may": 1.02,
+            "sup_apr": 0.68,
+            "tp_may": 0.34,
+            "tp_apr": 0.34,
+            "may": 27.8,
+            "apr": 24.15,
+            "cmp": 3.65
+          }
+        },
+        {
+          "type": "Outbound",
+          "rows": [
+            {
+              "rt": "Consultant",
+              "bus_may": 6.1,
+              "bus_apr": 3.4,
+              "sup_may": 0,
+              "sup_apr": 0,
+              "tp_may": 0,
+              "tp_apr": 0,
+              "may": 6.1,
+              "apr": 3.4,
+              "cmp": 2.7
+            },
+            {
+              "rt": "LinkedIn Sourced",
+              "bus_may": 57.29,
+              "bus_apr": 55.78,
+              "sup_may": 3.39,
+              "sup_apr": 4.76,
+              "tp_may": 1.36,
+              "tp_apr": 2.72,
+              "may": 62.03,
+              "apr": 63.27,
+              "cmp": -1.23
+            },
+            {
+              "rt": "Naukri Sourced",
+              "bus_may": 0,
+              "bus_apr": 0,
+              "sup_may": 0,
+              "sup_apr": 0,
+              "tp_may": 0,
+              "tp_apr": 0,
+              "may": 0,
+              "apr": 0,
+              "cmp": 0
+            },
+            {
+              "rt": "Naukri Job Applicant",
+              "bus_may": 3.73,
+              "bus_apr": 8.84,
+              "sup_may": 0.34,
+              "sup_apr": 0,
+              "tp_may": 0,
+              "tp_apr": 0,
+              "may": 4.07,
+              "apr": 8.84,
+              "cmp": -4.78
+            },
+            {
+              "rt": "Instahyre Sourced",
+              "bus_may": 0,
+              "bus_apr": 0.34,
+              "sup_may": 0,
+              "sup_apr": 0,
+              "tp_may": 0,
+              "tp_apr": 0,
+              "may": 0,
+              "apr": 0.34,
+              "cmp": -0.34
+            },
+            {
+              "rt": "Instahyre Job Applicant",
+              "bus_may": 0,
+              "bus_apr": 0,
+              "sup_may": 0,
+              "sup_apr": 0,
+              "tp_may": 0,
+              "tp_apr": 0,
+              "may": 0,
+              "apr": 0,
+              "cmp": 0
+            }
+          ],
+          "subtotal": {
+            "rt": "Outbound subtotal",
+            "bus_may": 67.12,
+            "bus_apr": 68.37,
+            "sup_may": 3.73,
+            "sup_apr": 4.76,
+            "tp_may": 1.36,
+            "tp_apr": 2.72,
+            "may": 72.2,
+            "apr": 75.85,
+            "cmp": -3.65
+          }
+        }
+      ],
+      "total": {
+        "rt": "Total",
+        "bus_may": 93.56,
+        "bus_apr": 91.5,
+        "sup_may": 4.75,
+        "sup_apr": 5.44,
+        "tp_may": 1.69,
+        "tp_apr": 3.06,
+        "may": 100.0,
+        "apr": 100.0,
+        "cmp": null
+      },
+      "note": "% contribution of each source channel to total joinings, by function · May-26 vs Apr-26 · Comparison = May Contri% − Apr Contri%. Source RT = Recruitment-tagged source. Covers 100% of joinings."
     }
   },
   "drops": {
