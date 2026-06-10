@@ -1449,23 +1449,23 @@
         "metrics": [
           {
             "label": "Lifetime asset spend",
-            "value": "\u20b965.1 Cr",
-            "sub": "Sum of ASSET_COST across 28,078 assets \u2014 total HR hardware + tools capex since inception"
+            "value": "\u20b965.2 Cr",
+            "sub": "Sum of ASSET_COST across 28,451 assets \u2014 total HR hardware + tools capex since inception"
           },
           {
             "label": "Current book value",
             "value": "\u20b923.2 Cr",
-            "sub": "Sum of CURRENT_COST \u2014 ~65% has depreciated off the books"
+            "sub": "Sum of CURRENT_COST \u2014 ~64% has depreciated off the books"
           },
           {
             "label": "Active deployment value",
-            "value": "\u20b914.8 Cr",
-            "sub": "13,282 allocated assets (47% of fleet) \u2014 what's actually in employees' hands"
+            "value": "\u20b913.7 Cr",
+            "sub": "12,891 allocated assets (45% of fleet) \u2014 what's actually in employees' hands"
           },
           {
             "label": "In-stock dead capital",
-            "value": "\u20b93.8 Cr",
-            "sub": "3,490 assets sitting in stock \u2014 paid for, not deployed"
+            "value": "\u20b94.8 Cr",
+            "sub": "4,170 assets sitting in stock \u2014 paid for, not deployed"
           },
           {
             "label": "Lost / short / disputed",
@@ -1474,13 +1474,13 @@
           },
           {
             "label": "Total asset records",
-            "value": "28,078",
-            "sub": "Hardware 18,595 \u00b7 Tools 9,482 \u00b7 Uniform 1 \u2014 refreshed live"
+            "value": "28,451",
+            "sub": "Hardware 18,613 \u00b7 Tools 9,837 \u00b7 Uniform 1 \u2014 refreshed live"
           },
           {
             "label": "Allocated / In stock / Maintenance",
-            "value": "13,282 / 3,490 / 1,036",
-            "sub": "Active fleet (17,808). Disposed (sold/scrap/exit/written-off) = 9,125. Other (working/moved) = 418."
+            "value": "12,891 / 4,170 / 1,053",
+            "sub": "Active fleet (18,114). Disposed (sold/scrap/exit/written-off) = 9,192. Other (working/moved) = 418."
           },
           {
             "label": "Data quality flag",
