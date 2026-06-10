@@ -706,7 +706,10 @@
         "T P BI DS": 2
       },
       "grand_total": 178,
-      "note": "Joiner COUNT by function × source channel · 178 source-tagged joiners (Recruitment Metric_New). 'Direct' = recruiter self-sourced (largely LinkedIn). Untagged = joiners without a channel tag in the sheet."
+      "note": "Joiner COUNT by department x source channel. 178 of 295 joinings (60.3%) have a channel tagged in the recruitment detail sheet; the remaining 117 have no channel recorded (shown as a separate line so the total reflects all 295). 'Direct' = recruiter self-sourced (largely LinkedIn).",
+      "all_joinings": 295,
+      "untagged_total": 117,
+      "coverage_pct": 60.3
     },
     "consultant_joiners": {
       "count": 2,
