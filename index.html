@@ -447,6 +447,12 @@
         <div class="chart-box"><canvas id="chart-mobile"></canvas></div>
       </div>
     </div>
+
+    <!-- COST SUMMARY + POD COST TABLE -->
+    <h3 class="text-lg font-bold brand-blue mt-8 mb-1">Monthly cost — Tech &amp; Product</h3>
+    <p class="text-sm text-gray-600 mb-4">Headcount + cost (PM, ₹ lacs) by POD · May 2026</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5" id="tech-cost-tiles"></div>
+    <div id="tech-cost-table" class="overflow-x-auto bg-white rounded-lg border shadow-sm p-5"></div>
   </section>
 
   <!-- 7. GLASSDOOR -->
@@ -1143,6 +1149,63 @@ async function loadDashboard() {
       });
     }
   });
+
+  // Cost summary tiles
+  const tcost = tech.cost;
+  const tilesEl = document.getElementById('tech-cost-tiles');
+  if (tcost && tilesEl) {
+    const tile = (label, val, sub, bg) => `
+      <div class="rounded-lg border shadow-sm p-5 text-center" style="background:${bg}">
+        <div class="text-xs uppercase text-gray-500">${label}</div>
+        <div class="text-3xl font-bold brand-blue mt-1">₹${val}L</div>
+        <div class="text-xs text-gray-500 mt-1">${sub}</div>
+      </div>`;
+    tilesEl.innerHTML =
+      tile('Tech Cost / month', tcost.tech_pm, `₹${tcost.tech_current}L current + ₹${tcost.tech_offered}L offered`, '#F5F4FF') +
+      tile('Product Cost / month', tcost.product_pm, `₹${tcost.product_current}L current + ₹${tcost.product_offered}L offered`, '#FFFBEB') +
+      tile('Total Cost / month', tcost.total_pm, `₹${tcost.grand_current}L current + ₹${tcost.grand_offered}L offered`, '#EEF2FF');
+  }
+
+  // POD-wise HC + cost table
+  const pct = tech.pod_cost_table;
+  const pctEl = document.getElementById('tech-cost-table');
+  if (pct && pctEl) {
+    const num = (n, money) => (n === 0 ? '<span class="text-gray-300">–</span>' : (money ? '₹' + n : n));
+    const rowHtml = (r, isTotal) => `
+      <tr class="${isTotal ? 'font-bold' : ''} border-b border-gray-100 ${isTotal ? '' : 'hover:bg-gray-50'}" ${isTotal ? 'style="background:#FEF9E7"' : ''}>
+        <td class="py-2 pr-3 ${isTotal ? 'text-gray-900' : 'font-medium text-gray-800'} whitespace-nowrap">${r.pod}</td>
+        <td class="py-2 px-3 text-gray-600">${r.skill || ''}</td>
+        <td class="py-2 px-3 text-right">${num(r.hc_cur)}</td>
+        <td class="py-2 px-3 text-right text-gray-500">${num(r.hc_off)}</td>
+        <td class="py-2 px-3 text-right font-semibold brand-blue border-r">${num(r.hc_tot)}</td>
+        <td class="py-2 px-3 text-right">${num(r.cost_cur, true)}</td>
+        <td class="py-2 px-3 text-right text-gray-500">${num(r.cost_off, true)}</td>
+        <td class="py-2 px-3 text-right font-semibold" style="color:#B45309">${num(r.cost_tot, true)}</td>
+      </tr>`;
+    pctEl.innerHTML = `
+      <table class="w-full text-sm min-w-[640px]">
+        <thead>
+          <tr class="text-[10px] uppercase text-gray-400">
+            <th></th><th></th>
+            <th class="text-center px-3 pt-1" colspan="3" style="background:#F3E8FF">Headcount</th>
+            <th class="text-center px-3 pt-1" colspan="3" style="background:#FDE9D9">Cost (₹ lacs PM)</th>
+          </tr>
+          <tr class="text-xs uppercase tracking-wider text-gray-500 border-b-2">
+            <th class="text-left py-2 pr-3">POD</th>
+            <th class="text-left py-2 px-3">Skill</th>
+            <th class="text-right py-2 px-3">Current</th>
+            <th class="text-right py-2 px-3">Offered</th>
+            <th class="text-right py-2 px-3 border-r">Total</th>
+            <th class="text-right py-2 px-3">Current</th>
+            <th class="text-right py-2 px-3">Offered</th>
+            <th class="text-right py-2 px-3">Total</th>
+          </tr>
+        </thead>
+        <tbody>${(pct.rows || []).map(r => rowHtml(r, false)).join('')}</tbody>
+        <tfoot class="border-t-2">${(pct.totals || []).map(r => rowHtml(r, true)).join('')}</tfoot>
+      </table>
+      <div class="text-xs text-gray-500 mt-3 italic">${pct.note || ''}</div>`;
+  }
 
   const gd = data.glassdoor || {};
   document.getElementById('gd-rating').textContent = gd.rating ?? '—';

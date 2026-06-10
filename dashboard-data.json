@@ -1098,7 +1098,7 @@
     "bi_hc": 50,
     "total_hc": 376,
     "open_roles": 164,
-    "cost_per_month": null,
+    "cost_per_month": 846,
     "cost_note": "May 2026 Tech & Product figures, combining all four tabs (Tech Data + Product Data + Offered-Tech + Offered-Product). Technology = 243 (joined roster 191 + Offered-Tech pipeline 52); Product = 76 (joined 72 + Offered-Product 4). Data & AI 54 carried from last Snowflake sync. The band-split charts below reflect the joined roster only (191 / 72). Open reqs 164 (52 New / 9 Replacement) from workbook requisitions tab — narrower than company-wide ATS view.",
     "pod_breakdown": {
       "Backend": 110,
@@ -1126,7 +1126,225 @@
     },
     "source": "Attached P&C workbook · Tech builder roster + Product Mgmt roster + Requisitions tab",
     "window": "May 2026 · joined + offered (4 tabs combined) · band split = joined roster",
-    "formula": "Technology / Product (May) = joined + offered across Tech Data + Product Data + Offered-Tech + Offered-Product tabs; Band split = COUNT by Band on joined roster; Open Roles = SUM(no_of_openings) on Status=Open reqs"
+    "formula": "Technology / Product (May) = joined + offered across Tech Data + Product Data + Offered-Tech + Offered-Product tabs; Band split = COUNT by Band on joined roster; Open Roles = SUM(no_of_openings) on Status=Open reqs",
+    "mobile": {
+      "sde1": 20,
+      "sde2": 19,
+      "sde3": 13,
+      "leaders": 6,
+      "_source": "Active roster · func 'Data and AI Engineering' (58 active)"
+    },
+    "cost": {
+      "tech_pm": 654,
+      "product_pm": 192,
+      "total_pm": 846,
+      "tech_current": 645,
+      "tech_offered": 17,
+      "product_current": 170,
+      "product_offered": 44,
+      "grand_current": 815,
+      "grand_offered": 61,
+      "unit": "₹ lacs / month",
+      "note": "Monthly cost (PM, ₹ lacs) by POD · Total = Current + Offered. Tech ₹654L + Product ₹192L = ₹846L. Includes notice-period + outsourced/contract resources."
+    },
+    "pod_cost_table": {
+      "unit": "HC = people · Cost = ₹ lacs / month",
+      "rows": [
+        {
+          "pod": "Transaction-Wholesale",
+          "skill": "Tech",
+          "hc_cur": 61,
+          "hc_off": 0,
+          "hc_tot": 61,
+          "cost_cur": 194,
+          "cost_off": 0,
+          "cost_tot": 194
+        },
+        {
+          "pod": "Transaction-Wholesale",
+          "skill": "Product",
+          "hc_cur": 23,
+          "hc_off": 0,
+          "hc_tot": 23,
+          "cost_cur": 58,
+          "cost_off": 0,
+          "cost_tot": 58
+        },
+        {
+          "pod": "Transaction-Retail",
+          "skill": "Tech",
+          "hc_cur": 22,
+          "hc_off": 0,
+          "hc_tot": 22,
+          "cost_cur": 55,
+          "cost_off": 0,
+          "cost_tot": 55
+        },
+        {
+          "pod": "Transaction-Retail",
+          "skill": "Product",
+          "hc_cur": 4,
+          "hc_off": 0,
+          "hc_tot": 4,
+          "cost_cur": 7,
+          "cost_off": 0,
+          "cost_tot": 7
+        },
+        {
+          "pod": "NBFC",
+          "skill": "Tech",
+          "hc_cur": 47,
+          "hc_off": 0,
+          "hc_tot": 47,
+          "cost_cur": 118,
+          "cost_off": 0,
+          "cost_tot": 118
+        },
+        {
+          "pod": "NBFC",
+          "skill": "Product",
+          "hc_cur": 9,
+          "hc_off": 0,
+          "hc_tot": 9,
+          "cost_cur": 20,
+          "cost_off": 0,
+          "cost_tot": 20
+        },
+        {
+          "pod": "Central",
+          "skill": "Tech",
+          "hc_cur": 69,
+          "hc_off": 4,
+          "hc_tot": 71,
+          "cost_cur": 185,
+          "cost_off": 17,
+          "cost_tot": 194
+        },
+        {
+          "pod": "Central",
+          "skill": "Product",
+          "hc_cur": 17,
+          "hc_off": 7,
+          "hc_tot": 21,
+          "cost_cur": 33,
+          "cost_off": 44,
+          "cost_tot": 56
+        },
+        {
+          "pod": "UAE",
+          "skill": "Tech",
+          "hc_cur": 12,
+          "hc_off": 0,
+          "hc_tot": 12,
+          "cost_cur": 27,
+          "cost_off": 0,
+          "cost_tot": 27
+        },
+        {
+          "pod": "UAE",
+          "skill": "Product",
+          "hc_cur": 11,
+          "hc_off": 0,
+          "hc_tot": 11,
+          "cost_cur": 27,
+          "cost_off": 0,
+          "cost_tot": 27
+        },
+        {
+          "pod": "Australia",
+          "skill": "Tech",
+          "hc_cur": 0,
+          "hc_off": 0,
+          "hc_tot": 0,
+          "cost_cur": 0,
+          "cost_off": 0,
+          "cost_tot": 0
+        },
+        {
+          "pod": "Australia",
+          "skill": "Product",
+          "hc_cur": 4,
+          "hc_off": 0,
+          "hc_tot": 4,
+          "cost_cur": 13,
+          "cost_off": 0,
+          "cost_tot": 13
+        },
+        {
+          "pod": "New Business",
+          "skill": "Tech",
+          "hc_cur": 5,
+          "hc_off": 0,
+          "hc_tot": 5,
+          "cost_cur": 13,
+          "cost_off": 0,
+          "cost_tot": 13
+        },
+        {
+          "pod": "New Business",
+          "skill": "Product",
+          "hc_cur": 1,
+          "hc_off": 0,
+          "hc_tot": 1,
+          "cost_cur": 5,
+          "cost_off": 0,
+          "cost_tot": 5
+        },
+        {
+          "pod": "CarInfo",
+          "skill": "Tech",
+          "hc_cur": 25,
+          "hc_off": 0,
+          "hc_tot": 25,
+          "cost_cur": 52,
+          "cost_off": 0,
+          "cost_tot": 52
+        },
+        {
+          "pod": "CarInfo",
+          "skill": "Product",
+          "hc_cur": 3,
+          "hc_off": 0,
+          "hc_tot": 3,
+          "cost_cur": 6,
+          "cost_off": 0,
+          "cost_tot": 6
+        }
+      ],
+      "totals": [
+        {
+          "pod": "Total Tech",
+          "skill": "",
+          "hc_cur": 241,
+          "hc_off": 4,
+          "hc_tot": 243,
+          "cost_cur": 645,
+          "cost_off": 17,
+          "cost_tot": 654
+        },
+        {
+          "pod": "Total Product",
+          "skill": "",
+          "hc_cur": 72,
+          "hc_off": 7,
+          "hc_tot": 76,
+          "cost_cur": 170,
+          "cost_off": 44,
+          "cost_tot": 192
+        },
+        {
+          "pod": "Grand Total",
+          "skill": "",
+          "hc_cur": 313,
+          "hc_off": 11,
+          "hc_tot": 319,
+          "cost_cur": 815,
+          "cost_off": 61,
+          "cost_tot": 846
+        }
+      ],
+      "note": "POD-wise headcount + monthly cost (₹ lacs) · May 2026 · Total HC = Current + ~50% offered (assumed join); Total Cost = Current + Offered. CarInfo added as a new POD in May."
+    }
   },
   "glassdoor": {
     "rating": 4.3,
