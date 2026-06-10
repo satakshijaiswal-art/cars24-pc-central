@@ -1675,33 +1675,33 @@
       },
       {
         "name": "Org Structure",
-        "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.BAND",
+        "source": "Superset · official Org Structure HC (reconciled to verified Superset figures, 10 Jun 2026)",
         "window": "Snapshot as of 09 Jun 2026 · live",
         "formula": "COUNT(*) GROUP BY BAND WHERE EMPLOYEE_STATUS='Active' · Builders = B4 + B5 + B6 + 'Builder' band collapsed (roll-up; sub-lines NOT additive)",
         "metrics": [
           {
             "label": "Transaction-Wholesale",
-            "value": "4,298"
+            "value": "4,284"
           },
           {
             "label": "Transaction-Retail",
-            "value": "1,160"
+            "value": "1,157"
           },
           {
             "label": "NBFC",
-            "value": "705"
+            "value": "687"
           },
           {
             "label": "Central",
-            "value": "374"
+            "value": "393"
           },
           {
             "label": "Australia",
-            "value": "123"
+            "value": "120"
           },
           {
             "label": "UAE",
-            "value": "78"
+            "value": "74"
           },
           {
             "label": "CarInfo",
@@ -1712,7 +1712,7 @@
             "value": "18"
           }
         ],
-        "_refreshed_at": "09 Jun 2026 · 19:05 IST"
+        "_refreshed_at": "10 Jun 2026 · reconciled to Superset"
       },
       {
         "name": "Recruitment",
