@@ -1262,19 +1262,19 @@
         "metrics": [
           {
             "label": "Permanent",
-            "value": "4,627"
+            "value": "4,611"
           },
           {
             "label": "Permanent - CJ",
-            "value": "1,218"
+            "value": "1,216"
           },
           {
             "label": "TPM",
-            "value": "548"
+            "value": "547"
           },
           {
             "label": "Retainer",
-            "value": "181"
+            "value": "177"
           },
           {
             "label": "Retainer - CJ",
@@ -1286,7 +1286,7 @@
           },
           {
             "label": "Intern",
-            "value": "90"
+            "value": "89"
           },
           {
             "label": "Consultant",
@@ -1294,12 +1294,12 @@
           },
           {
             "label": "Total",
-            "value": "6,919"
+            "value": "6,891"
           }
         ],
         "source": "CSPL_HR_DB.HRMS_PUBLIC.EMPLOYEES.EMPLOYEE_TYPE",
         "window": "Snapshot as of 09 Jun 2026 \u00b7 live",
-        "formula": "COUNT(*) GROUP BY EMPLOYEE_TYPE WHERE EMPLOYEE_STATUS='Active'",
+        "formula": "COUNT(*) GROUP BY EMPLOYEE_TYPE WHERE EMPLOYEE_STATUS='Active' \u00b7 excludes 4 system records (3 Test Employee + 1 Suspended). Tiles sum to Total.",
         "_refreshed_at": "09 Jun 2026 \u00b7 19:05 IST"
       },
       {
